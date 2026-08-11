@@ -5,6 +5,9 @@
  */
 
 import { course7_1 } from './courses/7-1.js'
+import { course8_1 } from './courses/8-1.js'
+import { course9_1 } from './courses/9-1.js'
+import { course10_1 } from './courses/10-1.js'
 import { course10_2 } from './courses/10-2.js'
 
 /**
@@ -64,10 +67,10 @@ export const courses = {
   '8-1': {
     grade: 8,
     group: 1,
-    title: 'Próximamente',
-    description: 'Este curso estará disponible pronto.',
-    available: false,
-    lessons: [],
+    title: course8_1.title,
+    description: course8_1.description,
+    available: true,
+    lessons: course8_1.lessons,
   },
   '8-2': {
     grade: 8,
@@ -80,10 +83,10 @@ export const courses = {
   '9-1': {
     grade: 9,
     group: 1,
-    title: 'Próximamente',
-    description: 'Este curso estará disponible pronto.',
-    available: false,
-    lessons: [],
+    title: course9_1.title,
+    description: course9_1.description,
+    available: true,
+    lessons: course9_1.lessons,
   },
   '9-2': {
     grade: 9,
@@ -96,10 +99,10 @@ export const courses = {
   '10-1': {
     grade: 10,
     group: 1,
-    title: 'Próximamente',
-    description: 'Este curso estará disponible pronto.',
-    available: false,
-    lessons: [],
+    title: course10_1.title,
+    description: course10_1.description,
+    available: true,
+    lessons: course10_1.lessons,
   },
   '10-2': {
     grade: 10,
