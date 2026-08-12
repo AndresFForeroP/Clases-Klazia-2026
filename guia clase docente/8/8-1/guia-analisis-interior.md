@@ -73,7 +73,6 @@ Esta guía acompaña la **presentación académica interactiva** del curso **8-1
 * **Qué proyectar**: Concepto de testeo de contingencia.
 * **Analogía a utilizar**: *"Es como un simulacro de evacuación del colegio: ¿todos saben qué hacer si algo sale mal? Un testeo de contingencia es lo mismo, pero para los sistemas informáticos."*
 * **Punto clave**: Se evalúan los recursos mínimos necesarios para que el sistema siga funcionando ante una falla.
-
 ---
 
 ### Diapositiva 10 — Pregunta Intermedia de Comprensión
