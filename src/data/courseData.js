@@ -4,6 +4,7 @@
  * Importa los datos de contenido de cada curso disponible.
  */
 
+import { course6_1 } from './courses/6-1.js'
 import { course7_1 } from './courses/7-1.js'
 import { course7_2 } from './courses/7-2.js'
 import { course8_1 } from './courses/8-1.js'
@@ -54,10 +55,10 @@ export const courses = {
   '6-1': {
     grade: 6,
     group: 1,
-    title: 'Próximamente',
-    description: 'Este curso estará disponible pronto.',
-    available: false,
-    lessons: [],
+    title: course6_1.title,
+    description: course6_1.description,
+    available: true,
+    lessons: course6_1.lessons,
   },
   '6-2': {
     grade: 6,
