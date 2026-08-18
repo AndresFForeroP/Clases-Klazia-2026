@@ -1,6 +1,6 @@
 /**
  * Contenido educativo — Grado 9.º Grupo 1
- * Tema: Evolución de las Páginas Web
+ * Tema: Tipos y Servicios de las Páginas Web
  *
  * Fuente: cursos/9/9-1.md
  * Formato: Presentación Académica Interactiva (Diapositiva por Diapositiva)
@@ -8,309 +8,246 @@
  */
 
 export const course9_1 = {
-  title: 'Evolución de las Páginas Web',
-  description: 'Presentación interactiva sobre la historia del diseño web: desde el primer navegador en 1993 hasta las tendencias actuales del desarrollo web moderno.',
+  title: 'Tipos y Servicios de las Páginas Web',
+  description: 'Presentación interactiva sobre los diferentes tipos de páginas web, el concepto de dominio web y los servicios web: qué son, ventajas e inconvenientes.',
   lessons: [
     {
-      id: 'evolucion-paginas-web',
-      title: 'Evolución de las Páginas Web',
+      id: 'tipos-servicios-paginas-web',
+      title: 'Tipos y Servicios de las Páginas Web',
       description: 'Presentación académica guiada para la clase presencial de 9.º grado.',
       slides: [
-        // ── Diapositiva 1: Título y Objetivos ──
+        // ── Diapositiva 1: Portada ──
         {
           type: 'title',
           badge: 'Informática 9.º — Grupo 1',
-          title: 'Evolución de las Páginas Web',
-          subtitle: 'Del texto plano de los 90 al diseño interactivo de hoy',
+          title: 'Tipos y Servicios de las Páginas Web',
+          subtitle: 'No todas las páginas web son iguales ni funcionan de la misma manera',
           objectives: [
-            'Identificar las etapas clave en la evolución del diseño web.',
-            'Explicar las diferencias entre las versiones de HTML (del 1 al 5).',
-            'Analizar cómo las mejoras tecnológicas impulsaron la evolución del diseño web.',
-            'Reconocer las características del diseño web moderno.',
+            'Clasificar los principales tipos de páginas web según su función y estructura.',
+            'Explicar qué es un dominio web, sus partes y cómo se registra.',
+            'Definir qué son los servicios web y analizar sus ventajas e inconvenientes.',
           ],
-          teacherNotes: '**Sugerencia de inicio:** Pregunte a la clase si pueden imaginarse un internet sin imágenes, sin videos y sin colores. Indique que eso era la realidad hace apenas 30 años.',
+          teacherNotes: '**Sugerencia de inicio:** Pregunte a los estudiantes cuántas páginas web diferentes visitaron hoy o ayer. Luego pregunte: \"¿Creen que todas funcionan de la misma manera?\"',
         },
 
         // ── Diapositiva 2: Pregunta introductoria ──
         {
           type: 'question',
-          question: '¿Cómo creen que se veía una página web en 1993?',
-          context: 'No existían YouTube, Instagram ni Google. La conexión era por línea telefónica y un sitio web tardaba minutos en cargar...',
+          question: '¿Amazon, Wikipedia e Instagram son el mismo tipo de página web?',
+          context: 'Las tres se abren en un navegador, pero una vende productos, otra comparte conocimiento y otra conecta personas...',
           options: [
-            'Solo texto sin formato, como un documento de bloc de notas',
-            'Igual que hoy pero un poco más lento',
-            'Solo se podían enviar correos electrónicos',
+            'Sí, todas son páginas web y funcionan igual',
+            'No, cada una tiene una función y estructura diferente',
+            'Son iguales pero cambian los colores y el diseño',
           ],
-          answer: 'Solo texto sin formato, enlaces básicos y sin imágenes.',
-          explanation: 'Las primeras páginas web eran archivos de **texto plano en HTML**, sin imágenes de fondo, sin colores y sin ningún tipo de interactividad. Eran **netamente funcionales**.',
-          teacherNotes: 'Deje que los estudiantes imaginen el escenario. Muchos no concebirán un internet sin imágenes. Este contraste ayuda a valorar la evolución.',
+          answer: 'No, cada una tiene una función y estructura completamente diferente.',
+          explanation: 'Existen **muchos tipos de páginas web** según su objetivo y cómo están construidas. Conocerlas nos ayuda a entender el ecosistema de internet.',
+          teacherNotes: 'Deje que los estudiantes expliquen las diferencias que perciben. Este es un buen punto de partida para la clasificación.',
         },
 
-        // ── Diapositiva 3: Los inicios ──
+        // ── Diapositiva 3: Estáticas vs Dinámicas ──
         {
           type: 'concept',
-          category: 'Contexto Histórico',
-          title: 'Los Inicios del Diseño Web',
-          mainIdea: 'La historia del diseño web comienza en los **años 90**, cuando la conexión a internet se realizaba a través de **líneas telefónicas**.',
-          definition: 'Los primeros archivos web estaban escritos en lenguaje de hipertexto (HTML). Las páginas eran únicamente texto, tablas y algunos vínculos. No existían imágenes de fondo ni animaciones.',
+          category: 'Clasificación Básica',
+          title: 'Páginas Estáticas vs Dinámicas',
+          mainIdea: 'La primera gran clasificación de las páginas web es según si su contenido **cambia o permanece fijo**.',
+          definition: 'Una página estática muestra información que no cambia frecuentemente y se presenta de manera constante. Una página dinámica genera contenido en tiempo real y se adapta a las interacciones del usuario.',
           keyPoints: [
-            'Conexión por línea telefónica (muy lenta).',
-            'Páginas en HTML básico: solo texto y enlaces.',
-            'El diseño web como profesión no existía todavía.',
+            '**Estática**: El contenido no cambia. Se muestra igual para todos los visitantes.',
+            '**Dinámica**: El contenido se genera en tiempo real según las acciones del usuario.',
+            'Ejemplo estático: una página de información de un restaurante con su menú fijo.',
+            'Ejemplo dinámico: tu feed de Instagram, que cambia cada vez que lo abres.',
           ],
-          teacherNotes: 'Explique brevemente qué era una conexión por línea telefónica (dial-up): el teléfono fijo se conectaba al computador y mientras se usaba internet, nadie podía llamar.',
+          teacherNotes: 'Use una analogía: una página estática es como un cartel pegado en la pared (siempre dice lo mismo). Una dinámica es como una pantalla digital que cambia según quién la mira.',
         },
 
-        // ── Diapositiva 4: Mosaic y la WWW ──
-        {
-          type: 'example',
-          category: 'Hito Histórico — 1993',
-          title: '1993: Mosaic, el Primer Navegador',
-          subtitle: 'El año donde comenzó todo',
-          icon: '🌐',
-          description: 'En 1993 se presentó **Mosaic**, el primer navegador web funcional que operaba en sistemas Unix. Su éxito fue tan grande que rápidamente se crearon versiones para **Windows y Mac**.',
-          analogy: '**Dato clave:** Un año después, en 1994, nació la **World Wide Web (www)**, el sistema que todavía usamos hoy para navegar en internet.',
-          features: [
-            '**Mosaic**: Primer navegador gráfico de la historia.',
-            '**1994 — WWW**: Nace el sistema de navegación que conocemos.',
-            '**Limitaciones**: Solo se podían construir sitios con texto, tablas y vínculos básicos.',
-          ],
-          teacherNotes: 'Resalte que la WWW tiene poco más de 30 años. Para los estudiantes de 14-15 años, esto puede parecer antiguo, pero es relativamente reciente en la historia de la humanidad.',
-        },
-
-        // ── Diapositiva 5: HTML 2 ──
-        {
-          type: 'concept',
-          category: 'Segunda Generación',
-          title: 'HTML 2: El Primer Gran Salto',
-          mainIdea: 'La segunda versión de HTML corrigió los fallos de la primera y permitió por primera vez **imágenes de fondo y menús** en las páginas.',
-          definition: 'HTML 2 fue diseñado para corregir las limitaciones de la primera versión, mejorando la velocidad de conexión y permitiendo organizar el contenido de formas más visuales.',
-          analogy: '**Avance paralelo:** Junto con HTML 2 aparecieron monitores y tarjetas gráficas que mejoraron significativamente el color y la resolución de las pantallas.',
-          keyPoints: [
-            'Velocidad de conexión notablemente más rápida.',
-            'Imágenes de fondo por primera vez.',
-            'Contenido organizado en menús.',
-          ],
-          teacherNotes: 'Explique que la evolución del diseño web no dependió únicamente del software (HTML), sino también del hardware (monitores, tarjetas gráficas). Ambos avanzaron juntos.',
-        },
-
-        // ── Diapositiva 6: HTML 3 ──
-        {
-          type: 'concept',
-          category: 'Tercera Generación',
-          title: 'HTML 3: CSS y la Revolución Visual',
-          mainIdea: 'Con HTML 3 llegaron las **hojas de estilo CSS**, los fondos a color y las primeras **animaciones GIF**.',
-          definition: 'El paso de HTML 2 a HTML 3 fue el salto más cualitativo entre versiones. Los desarrolladores ahora tenían un abanico de posibilidades para diseñar sitios visualmente atractivos.',
-          keyPoints: [
-            'Introducción de las hojas de estilo **CSS**.',
-            'Fondos con color y diseño personalizado.',
-            'Nacimiento del formato **GIF** para animaciones.',
-          ],
-          teacherNotes: 'Explique qué es CSS con un ejemplo simple: "HTML es la estructura de una casa (paredes, puertas); CSS es la pintura, los muebles y la decoración." A partir de HTML 3, diseñar sitios web se convierte en una profesión valorada.',
-        },
-
-        // ── Diapositiva 7: Diagrama — Línea de tiempo ──
+        // ── Diapositiva 4: Tipos de páginas web (tabla) ──
         {
           type: 'diagram',
-          category: 'Línea de Tiempo',
-          title: 'Evolución del HTML: del 1 al 5',
-          subtitle: 'Cada versión representó un avance significativo:',
-          diagramType: 'flow',
-          nodes: [
-            { icon: '📄', label: 'HTML 1', desc: 'Solo texto y enlaces' },
-            { icon: '🖼️', label: 'HTML 2', desc: 'Imágenes y menús' },
-            { icon: '🎨', label: 'HTML 3', desc: 'CSS, colores y GIFs' },
-            { icon: '♿', label: 'HTML 4', desc: 'Accesibilidad' },
-            { icon: '🚀', label: 'HTML 5', desc: 'Multimedia y SVG' },
-          ],
-          teacherNotes: 'Use este diagrama como mapa visual. Repase cada nodo brevemente antes de profundizar en HTML 4 y 5.',
-        },
-
-        // ── Diapositiva 8: HTML 4 y 5 ──
-        {
-          type: 'concept',
-          category: 'Cuarta y Quinta Generación',
-          title: 'HTML 4 y 5: Accesibilidad y Multimedia',
-          mainIdea: 'HTML 4 introdujo la **accesibilidad** para personas con discapacidad. HTML 5 trajo la integración de **multimedia sin plugins**.',
-          definition: 'HTML 4 permitió que personas con discapacidad accedieran a internet de forma más equitativa. HTML 5, la versión actual, eliminó la necesidad de plugins externos para reproducir video, audio y gráficos SVG.',
-          keyPoints: [
-            '**HTML 4**: Accesibilidad web y mayor velocidad.',
-            '**HTML 5**: Gráficos SVG, video y audio nativos.',
-            '**Sin plugins**: No se necesita Flash ni otros complementos.',
-          ],
-          teacherNotes: 'Explique qué era Flash (un plugin que se necesitaba para ver videos en línea). Los estudiantes probablemente nunca lo usaron, pero sus padres sí. HTML 5 hizo que los navegadores pudieran hacer todo esto de forma nativa.',
-        },
-
-        // ── Diapositiva 9: Tabla comparativa ──
-        {
-          type: 'diagram',
-          category: 'Resumen Comparativo',
-          title: 'Las 5 Generaciones de HTML',
-          subtitle: 'Comparación de las capacidades de cada versión:',
+          category: 'Clasificación Completa',
+          title: 'Tipos de Páginas Web',
+          subtitle: 'Cada tipo cumple una función específica en internet:',
           diagramType: 'table',
-          tableHeaders: ['Versión', 'Época', 'Novedad principal', 'Impacto'],
+          tableHeaders: ['Tipo', 'Función principal', 'Ejemplo'],
           tableRows: [
-            ['HTML 1', 'Inicio de los 90', 'Texto plano y enlaces', 'Nacimiento de la web'],
-            ['HTML 2', 'Mediados de los 90', 'Imágenes y menús', 'Primeros sitios visuales'],
-            ['HTML 3', 'Finales de los 90', 'CSS, colores, GIFs', 'Revolución del diseño'],
-            ['HTML 4', 'Años 2000', 'Accesibilidad', 'Web para todos'],
-            ['HTML 5', 'Actualidad', 'Multimedia nativa, SVG', 'Era moderna'],
+            ['Comercio electrónico', 'Compra y venta de productos en línea', 'Amazon, MercadoLibre'],
+            ['Blog', 'Publicar artículos y contenido actualizado', 'Medium, WordPress'],
+            ['Medios de comunicación', 'Noticias, artículos y contenido multimedia', 'El Tiempo, BBC'],
+            ['Redes sociales', 'Conexión e interacción entre personas', 'Instagram, Facebook'],
+            ['Corporativa', 'Representar empresas y organizaciones', 'Coca-Cola, Microsoft'],
+            ['Interactiva', 'Formularios, encuestas, compras en línea', 'Google Forms, Typeform'],
+            ['Portfolio', 'Mostrar el trabajo de profesionales', 'Behance, Dribbble'],
           ],
-          teacherNotes: 'Repase la tabla fila por fila. Pregunte: "¿En cuál de estas etapas creen que se produjo el cambio más importante?"',
+          teacherNotes: 'Repase la tabla tipo por tipo. Pregunte a los estudiantes si pueden dar otro ejemplo de cada tipo que no esté en la lista.',
         },
 
-        // ── Diapositiva 10: Diseño web actual ──
-        {
-          type: 'concept',
-          category: 'Tendencias Actuales',
-          title: 'El Diseño Web Moderno',
-          mainIdea: 'Hoy en día, las páginas web son **responsivas** (se adaptan a cualquier dispositivo) y priorizan el **impacto visual** junto con la funcionalidad.',
-          definition: 'La evolución tecnológica originó la necesidad de crear sitios que funcionen tanto en computadores como en celulares, ofreciendo mayor impacto visual sin sacrificar la funcionalidad.',
-          keyPoints: [
-            'Diseños simples, limpios y minimalistas.',
-            'Imágenes grandes y tipografías expresivas.',
-            'Videos, animaciones y fondos dinámicos.',
-            'Diseño **responsivo** para todos los dispositivos.',
-          ],
-          teacherNotes: 'Muestre la diferencia entre un sitio web visto en un computador y el mismo sitio en un celular. El diseño responsivo adapta automáticamente el contenido.',
-        },
-
-        // ── Diapositiva 11: Ejemplo — Características actuales ──
+        // ── Diapositiva 5: Ejemplos reales ──
         {
           type: 'example',
-          category: 'Diseño Web Actual',
-          title: 'Características del Diseño Web Moderno',
-          subtitle: 'Lo que define a un sitio web bien diseñado hoy:',
-          icon: '✨',
-          description: 'Los sitios web modernos combinan estética visual con funcionalidad. Cada elemento tiene un propósito y la experiencia del usuario es la prioridad.',
+          category: 'Ejemplos del Mundo Real',
+          title: 'Reconociendo los Tipos en la Práctica',
+          subtitle: 'Páginas que probablemente usas a diario y su clasificación:',
+          icon: '🌐',
+          description: 'Cada página web que visitas fue diseñada con un propósito específico. Reconocer ese propósito te ayuda a entender cómo funciona internet como ecosistema.',
           features: [
-            '**Fondos blancos** y diseño limpio: menos distracciones, más contenido.',
-            '**Imágenes grandes** que ocupan casi toda la pantalla: impacto visual inmediato.',
-            '**Tipografías variadas** con personalidad: sensación de diseño "a mano".',
-            '**Colores brillantes** y botones transparentes: interfaz moderna.',
-            '**Animaciones y videos** integrados: experiencia dinámica.',
-            '**Diseño en diagonal**: rompe la monotonía del diseño rectangular tradicional.',
+            '**YouTube**: Página de medios de comunicación — publica contenido multimedia.',
+            '**Amazon**: Comercio electrónico — permite comprar productos desde cualquier lugar.',
+            '**Wikipedia**: Informativa/Blog — publica artículos de conocimiento constantemente.',
+            '**Instagram**: Red social — conecta personas a través de contenido visual.',
+            '**Behance**: Portfolio — diseñadores muestran sus proyectos creativos.',
+            '**Página del colegio**: Corporativa — representa a la institución educativa.',
           ],
-          teacherNotes: 'Si es posible, abra un sitio web moderno (Apple, Spotify, etc.) para mostrar estas características en tiempo real.',
+          teacherNotes: 'Si los estudiantes mencionan TikTok, Twitter/X u otras plataformas, clasifíquenlas juntos. Es un buen ejercicio de aplicación.',
         },
 
-        // ── Diapositiva 12: Pregunta de análisis ──
+        // ── Diapositiva 6: Pregunta conversacional ──
         {
           type: 'question',
-          question: '¿Por qué el diseño responsivo se volvió indispensable?',
-          context: 'Piensa en cuántos dispositivos diferentes usan las personas hoy para navegar por internet...',
+          question: '¿Qué tipo de página web es la que más usas en tu día a día?',
+          context: 'Piensa en las páginas que abres más frecuentemente: ¿son redes sociales, tiendas, buscadores, blogs...?',
           options: [
-            'Porque los celulares no existían antes',
-            'Porque hoy más personas navegan desde el celular que desde un computador',
-            'Porque los programadores querían complicar el desarrollo',
+            'Redes sociales (Instagram, TikTok, YouTube)',
+            'Comercio electrónico (tiendas en línea)',
+            'Páginas informativas o educativas',
           ],
-          answer: 'Porque hoy más personas navegan desde el celular que desde un computador.',
-          explanation: 'Más del **60% del tráfico web mundial** proviene de dispositivos móviles. Un sitio que no se adapta a pantallas pequeñas pierde a la mayoría de sus visitantes.',
-          teacherNotes: 'Este dato suele sorprender a los estudiantes. Pregunte: "¿Ustedes navegan más desde el celular o desde el computador?"',
+          answer: 'No hay una respuesta única. Lo importante es identificar conscientemente qué tipo de página usamos y con qué propósito.',
+          explanation: 'Ser consciente del tipo de página que usamos nos ayuda a entender qué datos compartimos, qué servicios consumimos y cómo interactuamos con internet.',
+          teacherNotes: 'Esta pregunta es para conversación abierta. No busque una respuesta correcta, sino que los estudiantes reflexionen sobre sus hábitos de navegación.',
         },
 
-        // ── Diapositiva 13: Quiz interactivo ──
+        // ── Diapositiva 7: ¿Qué es un dominio? ──
         {
-          type: 'quiz',
-          title: 'Comprobación de Aprendizaje',
-          description: 'Pon a prueba lo que aprendiste sobre la evolución del diseño web.',
-          quizTitle: 'Cuestionario de 9.º grado',
-          questions: [
-            {
-              id: 'q1',
-              question: '¿Cómo se llamó el primer navegador web presentado en 1993?',
-              options: ['Firefox', 'Mosaic', 'Internet Explorer', 'Chrome'],
-              correctIndex: 1,
-              feedback: {
-                correct: '¡Correcto! Mosaic fue el primer navegador gráfico de la historia.',
-                incorrect: 'El primer navegador fue **Mosaic**, presentado en 1993 para sistemas Unix.',
-              },
-            },
-            {
-              id: 'q2',
-              question: '¿Qué tecnología introdujo HTML 3 que cambió radicalmente el diseño web?',
-              options: ['JavaScript', 'CSS (Hojas de estilo)', 'Flash', 'PHP'],
-              correctIndex: 1,
-              feedback: {
-                correct: '¡Exacto! Las hojas de estilo CSS permitieron personalizar colores, fondos y diseños.',
-                incorrect: 'HTML 3 introdujo las **hojas de estilo CSS**, que separaron el diseño visual de la estructura del contenido.',
-              },
-            },
-            {
-              id: 'q3',
-              question: '¿Cuál fue la gran novedad de HTML 5 respecto a multimedia?',
-              options: [
-                'Necesitar Flash para ver videos',
-                'Integrar video, audio y gráficos SVG sin plugins externos',
-                'Eliminar las imágenes de las páginas web',
-              ],
-              correctIndex: 1,
-              feedback: {
-                correct: '¡Muy bien! HTML 5 permite multimedia nativa sin necesidad de plugins.',
-                incorrect: 'HTML 5 permite integrar **video, audio y gráficos SVG de forma nativa**, sin depender de plugins como Flash.',
-              },
-            },
+          type: 'concept',
+          category: 'Dominio Web',
+          title: '¿Qué es un Dominio?',
+          mainIdea: 'El dominio es la **dirección única y legible** que identifica a una página web en internet.',
+          definition: 'Así como cada casa tiene una dirección postal, cada página web tiene un dominio que permite a las personas encontrarla y acceder a ella. El dominio tiene dos partes principales: el nombre y la extensión.',
+          keyPoints: [
+            '**Nombre del dominio**: Lo elige el propietario. Ejemplo: en \"ejemplo.com\", el nombre es \"ejemplo\".',
+            '**Extensión del dominio**: Indica el tipo de organización. Ejemplo: .com (comercial), .org (organización), .net (tecnología).',
+            'Proporciona una identidad única y personalizada a la página web.',
           ],
-          teacherNotes: 'Resuelva las preguntas con participación del grupo. Pregunte a diferentes estudiantes antes de seleccionar la respuesta.',
+          teacherNotes: 'Use la analogía de la dirección postal: el nombre del dominio es como el nombre de la calle y el número de la casa. La extensión es como la ciudad o el país.',
         },
 
-        // ── Diapositiva 14: Verdadero o Falso ──
+        // ── Diapositiva 8: Anatomía de un dominio ──
         {
-          type: 'trueFalse',
-          title: 'Evaluación Rápida: Verdadero o Falso',
-          tfTitle: 'Analiza estas afirmaciones:',
-          statements: [
-            {
-              id: 'tf1',
-              statement: 'Las primeras páginas web incluían videos e imágenes de alta resolución.',
-              answer: false,
-              explanation: '**Falso.** Las primeras páginas web solo tenían texto plano, tablas y enlaces básicos.',
-            },
-            {
-              id: 'tf2',
-              statement: 'CSS fue introducido con HTML 3 y permitió separar el diseño visual de la estructura del contenido.',
-              answer: true,
-              explanation: '**Verdadero.** Las hojas de estilo CSS fueron una de las grandes novedades de HTML 3.',
-            },
-            {
-              id: 'tf3',
-              statement: 'HTML 4 se enfocó principalmente en hacer las páginas web accesibles para personas con discapacidad.',
-              answer: true,
-              explanation: '**Verdadero.** La accesibilidad web fue la gran novedad de HTML 4.',
-            },
+          type: 'example',
+          category: 'Anatomía de un Dominio',
+          title: '¿Cómo se lee un dominio?',
+          subtitle: 'Desglosando las partes de una dirección web:',
+          icon: '🔗',
+          description: 'Un dominio se compone de un nombre elegido por el propietario y una extensión que indica su naturaleza. Las extensiones pueden ser genéricas o específicas de un país.',
+          features: [
+            '**google.com** → Nombre: google | Extensión: .com (comercial)',
+            '**wikipedia.org** → Nombre: wikipedia | Extensión: .org (organización sin fines de lucro)',
+            '**gobierno.co** → Nombre: gobierno | Extensión: .co (Colombia)',
+            '**bbc.net** → Nombre: bbc | Extensión: .net (redes y tecnología)',
+            '**universidad.edu** → Nombre: universidad | Extensión: .edu (educación)',
           ],
-          teacherNotes: 'Pida que los estudiantes levanten la mano para votar Verdadero o Falso antes de verificar cada afirmación.',
+          analogy: '**Dato importante:** Para obtener un dominio, se debe registrar a través de un registrador autorizado (como GoDaddy) y renovarlo periódicamente para no perderlo.',
+          teacherNotes: 'Pregunte: \"¿Qué extensión usarían si crearan una página web para un proyecto escolar? ¿Y para una tienda de ropa?\" Esto ayuda a aplicar el concepto.',
         },
 
-        // ── Diapositiva 15: Actividad práctica ──
+        // ── Diapositiva 9: Registro y renovación ──
+        {
+          type: 'concept',
+          category: 'Registro de Dominios',
+          title: 'Registro y Renovación de un Dominio',
+          mainIdea: 'Un dominio debe **registrarse y renovarse periódicamente** para mantener la propiedad.',
+          definition: 'Para registrar un dominio se busca un nombre disponible a través de un registrador autorizado. Si no se renueva a tiempo, otra persona puede adquirirlo. Además, el dominio se puede usar para crear correos personalizados (nombre@tudominio.com).',
+          keyPoints: [
+            'Se registra en un sitio autorizado (GoDaddy, Namecheap, etc.).',
+            'Si no se renueva, otro puede comprarlo y quedarse con él.',
+            'Permite crear correos electrónicos profesionales personalizados.',
+            'Influye en el posicionamiento en buscadores (SEO) y en la confianza del usuario.',
+          ],
+          teacherNotes: 'Cuente un caso real: hay empresas que perdieron su dominio por no renovarlo a tiempo y tuvieron que pagar miles de dólares para recuperarlo. Esto muestra la importancia de la renovación.',
+        },
+
+        // ── Diapositiva 10: ¿Qué son los servicios web? ──
+        {
+          type: 'concept',
+          category: 'Servicios Web',
+          title: '¿Qué son los Servicios Web?',
+          mainIdea: 'Son **aplicaciones o componentes programables** que permiten la comunicación entre dispositivos a través de una red.',
+          definition: 'Un servicio web es un programa al que se puede acceder por internet y que cumple una función específica. Permite que diferentes aplicaciones se comuniquen entre sí sin importar en qué lenguaje de programación estén escritas.',
+          analogy: '**Ejemplo:** Cuando una aplicación de clima en tu celular muestra la temperatura actual, está consultando un servicio web que le envía los datos del clima en tiempo real.',
+          keyPoints: [
+            'Permiten la comunicación entre aplicaciones a través de internet.',
+            'Son accesibles mediante protocolos estandarizados (HTTP, AMQP).',
+            'Realizan un conjunto específico de funciones.',
+          ],
+          teacherNotes: 'Use el ejemplo del clima para que sea concreto. También puede mencionar: cuando Google Maps muestra el tráfico en tiempo real, usa servicios web que recopilan datos de millones de celulares.',
+        },
+
+        // ── Diapositiva 11: Ventajas e inconvenientes ──
+        {
+          type: 'diagram',
+          category: 'Análisis Comparativo',
+          title: 'Ventajas e Inconvenientes de los Servicios Web',
+          subtitle: 'Como toda tecnología, los servicios web tienen beneficios y desafíos:',
+          diagramType: 'comparison',
+          columns: [
+            {
+              badge: '✅',
+              title: 'Ventajas',
+              desc: '**Interoperabilidad**: Comunicación entre sistemas sin importar el idioma o plataforma.\n\n**Integración fácil**: Conectan datos de diferentes fuentes de forma sencilla.\n\n**Bajo costo**: Usan protocolos de internet estándar, lo que reduce costos de comunicación.',
+            },
+            {
+              badge: '⚠️',
+              title: 'Inconvenientes',
+              desc: '**Seguridad**: Vulnerables a ataques como inyecciones, secuestro de sesiones y robo de datos.\n\n**Rendimiento**: Pueden ser más lentos que la comunicación directa entre programas.\n\n**Complejidad**: El desarrollo y mantenimiento puede ser más difícil.',
+            },
+          ],
+          teacherNotes: 'Resalte que las ventajas generalmente superan los inconvenientes, pero la seguridad siempre debe ser una prioridad. Pregunte: \"¿Qué pasaría si el servicio web de un banco fuera hackeado?\"',
+        },
+
+        // ── Diapositiva 12: Pregunta conversacional ──
+        {
+          type: 'question',
+          question: '¿Por qué la seguridad es el mayor desafío de los servicios web?',
+          context: 'Piensa: si un servicio web permite que aplicaciones se comuniquen a través de internet, ¿qué podría salir mal si alguien intercepta esa comunicación?',
+          options: [
+            'Porque los servicios web son siempre públicos y cualquiera puede acceder',
+            'Porque la comunicación a través de internet puede ser interceptada o manipulada',
+            'Porque los programadores no saben crear servicios seguros',
+          ],
+          answer: 'Porque la comunicación a través de internet puede ser interceptada o manipulada si no se implementan medidas de seguridad adecuadas.',
+          explanation: 'Los servicios web transmiten datos por internet, y esa transmisión puede ser interceptada. Por eso se usan protocolos de cifrado (como HTTPS) para proteger la información.',
+          teacherNotes: 'Conecte con lo aprendido en la clase de seguridad informática de otros grados. La seguridad es un tema transversal en la informática.',
+        },
+
+        // ── Diapositiva 13: Actividad individual ──
         {
           type: 'activity',
-          title: 'Actividad Práctica: "Línea del Tiempo Web"',
-          activityTitle: 'Instrucciones de la actividad:',
+          title: 'Actividad Individual',
+          activityTitle: 'Clasificador de sitios web',
           icon: '📋',
-          instructions: 'En parejas, creen una línea del tiempo visual en su cuaderno con las 5 generaciones de HTML. Para cada una deben incluir:',
+          instructions: 'Completa la siguiente tabla en tu cuaderno. Para cada sitio web, indica su tipo, identifica las partes de su dominio y responde si necesita servicios web:',
           steps: [
-            'El nombre de la versión y la época aproximada.',
-            'La novedad principal que introdujo.',
-            'Un dibujo o ícono que represente esa novedad.',
-            'Una frase que explique por qué fue importante.',
+            'Sitio 1: youtube.com → ¿Tipo de página? | ¿Nombre del dominio? | ¿Extensión? | ¿Usa servicios web? ¿Por qué?',
+            'Sitio 2: amazon.com → ¿Tipo de página? | ¿Nombre del dominio? | ¿Extensión? | ¿Usa servicios web? ¿Por qué?',
+            'Sitio 3: wikipedia.org → ¿Tipo de página? | ¿Nombre del dominio? | ¿Extensión? | ¿Usa servicios web? ¿Por qué?',
+            'Sitio 4: instagram.com → ¿Tipo de página? | ¿Nombre del dominio? | ¿Extensión? | ¿Usa servicios web? ¿Por qué?',
+            'Bonus: Inventa un dominio para una página web que te gustaría crear. Indica qué tipo de página sería y qué extensión usarías.',
           ],
-          tip: 'Pueden agregar flechas de conexión para mostrar cómo cada versión mejoró la anterior.',
-          teacherNotes: 'Asigne 12 minutos para el trabajo. Al finalizar, pida a 2 parejas que expongan brevemente su línea del tiempo al grupo.',
+          tip: 'Tiempo estimado: 5–8 minutos. Trabaja individualmente. Usa los conceptos vistos en la clase para justificar cada respuesta.',
+          teacherNotes: 'Respuestas esperadas: YouTube → medios/interactiva, nombre: youtube, ext: .com, sí usa servicios web (streaming de video). Amazon → comercio electrónico, nombre: amazon, ext: .com, sí (catálogo, pagos). Wikipedia → informativa/blog, nombre: wikipedia, ext: .org, sí (base de datos de artículos). Instagram → red social, nombre: instagram, ext: .com, sí (feed, mensajes, notificaciones).',
         },
 
-        // ── Diapositiva 16: Resumen ──
+        // ── Diapositiva 14: Resumen ──
         {
           type: 'summary',
           title: 'Cierre de la Clase',
-          summaryTitle: 'Lo que no debes olvidar hoy:',
+          summaryTitle: 'Lo que debes recordar hoy:',
           points: [
-            'El diseño web nació en los **años 90** con páginas de texto plano conectadas por líneas telefónicas.',
-            '**Mosaic** (1993) fue el primer navegador gráfico y la **WWW** nació en 1994.',
-            'Cada versión de HTML trajo avances clave: imágenes (HTML 2), **CSS** (HTML 3), accesibilidad (HTML 4), multimedia nativa (HTML 5).',
-            'El diseño web moderno prioriza el **diseño responsivo**, la estética visual y la experiencia del usuario.',
+            'Existen diferentes **tipos de páginas web**: estáticas, dinámicas, e-commerce, blogs, redes sociales, corporativas, interactivas y portfolios.',
+            'Un **dominio** tiene dos partes: el nombre (elegido por el propietario) y la extensión (.com, .org, .net, .co, etc.).',
+            'Los dominios deben **registrarse y renovarse** periódicamente para no perder la propiedad.',
+            'Los **servicios web** permiten que aplicaciones se comuniquen a través de internet, con ventajas como la interoperabilidad pero desafíos en seguridad.',
           ],
-          teacherNotes: 'Haga una síntesis oral de 2 minutos. Cierre con una reflexión: "En 30 años pasamos de texto plano a sitios web interactivos con video y animaciones. ¿Cómo serán las páginas web dentro de 30 años más?"',
+          teacherNotes: 'Haga una síntesis oral breve. Puede cerrar con la pregunta: \"Si tuvieran que crear una página web, ¿qué tipo elegirían y qué dominio le pondrían?\"',
         },
       ],
     },

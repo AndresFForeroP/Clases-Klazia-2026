@@ -1,303 +1,263 @@
 /**
  * Contenido educativo — Grado 10.º Grupo 1
- * Tema: Páginas Web Interactivas
+ * Tema: Edición Multimedia
  *
  * Fuente: cursos/10/10-1.md
  * Formato: Presentación Académica Interactiva (Diapositiva por Diapositiva)
  * Regla principal: UNA sola idea por diapositiva. Nivel técnico y analítico para 10.º grado.
- *
- * Nota: El contenido de 10-1.md es temáticamente similar a 10-2.md (mismos casos de estudio).
- * Esta presentación utiliza el contenido del Markdown de 10-1.md como fuente,
- * adaptando el enfoque pedagógico para que el grupo 10-1 tenga su propia experiencia.
  */
 
 export const course10_1 = {
-  title: 'Páginas Web Interactivas',
-  description: 'Presentación interactiva para comprender qué son las páginas web interactivas, por qué son importantes y analizar 6 casos de estudio de marcas líderes a nivel mundial.',
+  title: 'Edición Multimedia',
+  description: 'Presentación interactiva sobre edición multimedia: formatos de video y audio, edición vs montaje, transformaciones, requisitos de hardware/software, herramientas open source y evolución de los ordenadores.',
   lessons: [
     {
-      id: 'paginas-web-interactivas',
-      title: 'Páginas Web Interactivas',
+      id: 'edicion-multimedia',
+      title: 'Edición Multimedia',
       description: 'Presentación académica guiada para la clase presencial de 10.º grado.',
       slides: [
-        // ── Diapositiva 1: Título y Objetivos ──
+        // ── Diapositiva 1: Portada ──
         {
           type: 'title',
           badge: 'Informática 10.º — Grupo 1',
-          title: 'Páginas Web Interactivas',
-          subtitle: 'Creatividad, Experiencia de Usuario y Estrategias de Diseño Web Moderno',
+          title: 'Edición Multimedia',
+          subtitle: 'Del archivo en bruto al producto audiovisual terminado',
           objectives: [
-            'Definir qué es una página web interactiva y sus elementos constitutivos.',
-            'Analizar 6 ejemplos reales de sitios web interactivos de marcas reconocidas.',
-            'Identificar los diferentes tipos de interactividad y evaluar su propósito.',
-            'Comprender la relación entre creatividad, interactividad y experiencia de usuario.',
+            'Definir qué es la edición multimedia y sus elementos constitutivos.',
+            'Explicar la diferencia entre edición y montaje audiovisual.',
+            'Identificar los formatos de video y audio más utilizados y su compresión.',
+            'Analizar los requisitos de hardware y software para edición profesional.',
+            'Conocer herramientas open source para edición multimedia.',
           ],
-          teacherNotes: '**Sugerencia inicial:** Pregunte a la clase cuánto tiempo pasan navegando un sitio web aburrido frente a uno donde pueden explorar e interactuar libremente. Este contraste introduce el tema.',
+          teacherNotes: '**Sugerencia de inicio:** Pregunte cuántos estudiantes han editado alguna vez un video (aunque sea un reel o TikTok). Conecte esa experiencia cotidiana con los conceptos técnicos que se verán.',
         },
 
-        // ── Diapositiva 2: El dato clave ──
-        {
-          type: 'concept',
-          category: 'Estadística de Mercado',
-          title: 'El Impacto de la Interactividad',
-          mainIdea: 'El **88% de los consumidores** permanecen más tiempo en páginas web interactivas que en las páginas estáticas tradicionales.',
-          definition: 'Cuando un sitio incorpora elementos dinámicos como videos, audios, GIFs o herramientas de configuración, los usuarios se involucran más y pasan significativamente más tiempo en la página.',
-          keyPoints: [
-            'Mayor tiempo de permanencia en el sitio.',
-            'Incremento del interés y la atención del usuario.',
-            'Mejor tasa de conversión y satisfacción del cliente.',
-          ],
-          teacherNotes: 'Subraye que para una empresa, retener al usuario el doble de tiempo en el sitio puede significar el doble de ventas o impacto. El 88% es un dato contundente.',
-        },
-
-        // ── Diapositiva 3: Definición técnica ──
-        {
-          type: 'concept',
-          category: 'Fundamento Técnico',
-          title: '¿Qué es una Página Web Interactiva?',
-          mainIdea: 'Es un sitio que utiliza **elementos con los que el usuario puede participar activamente**: explorar, manipular y personalizar su experiencia.',
-          definition: 'Una página web interactiva se caracteriza por integrar textos, imágenes y contenido audiovisual que permite al usuario ir más allá de la lectura pasiva. Capta la atención por su atractivo visual y la experiencia personalizada que ofrece.',
-          keyPoints: [
-            'El usuario **participa activamente** (no solo lee).',
-            'Ofrece una **experiencia personalizada** según las acciones del visitante.',
-            'El diseño UX/UI se planifica intencionalmente para guiar la interacción.',
-          ],
-          teacherNotes: 'Diferencie una **página estática** (como un periódico en PDF que solo se lee) de una **página interactiva** (donde las acciones del usuario modifican lo que ve en pantalla).',
-        },
-
-        // ── Diapositiva 4: ¿Por qué invertir en interactividad? ──
-        {
-          type: 'diagram',
-          category: 'Estrategia de Diseño',
-          title: '3 Razones para Incorporar Interactividad',
-          subtitle: 'Objetivos estratégicos del contenido interactivo en el diseño web actual:',
-          diagramType: 'comparison',
-          columns: [
-            {
-              badge: 'Razón 1',
-              title: 'Retención de Usuarios',
-              desc: 'Al mantener al usuario activo e involucrado, aumenta significativamente el tiempo que permanece en el sitio.',
-            },
-            {
-              badge: 'Razón 2',
-              title: 'Diferenciación Competitiva',
-              desc: 'Permite destacar frente a competidores que ofrecen sitios estáticos y genéricos sin ningún tipo de interacción.',
-            },
-            {
-              badge: 'Razón 3',
-              title: 'Comprensión del Producto',
-              desc: 'Explicar un producto complejo es mucho más efectivo cuando el usuario puede manipularlo, configurarlo o explorarlo visualmente.',
-            },
-          ],
-          teacherNotes: 'Pida a los estudiantes que piensen en un sitio web que recuerden porque les ofreció una experiencia interesante. ¿Qué lo hacía diferente?',
-        },
-
-        // ── Diapositiva 5: Caso 1 — Earth Day ──
-        {
-          type: 'example',
-          category: 'Caso de Estudio 1',
-          title: 'Earth Day',
-          subtitle: 'Educación ambiental con datos interactivos',
-          icon: '🌍',
-          description: 'Este colectivo educa y crea conciencia sobre el medio ambiente en todo el mundo. Cuenta con un **mapa de reforestación interactivo** donde los usuarios consultan información de cada zona de impacto sostenible.',
-          interactionType: '**Tipo de interactividad:** Exploración de datos geográficos. El usuario decide qué zona y qué información consultar en el mapa.',
-          features: [
-            'Mapa georreferenciado con datos de reforestación.',
-            'Filtros por país y tipo de proyecto ambiental.',
-            'La interactividad al servicio de la concientización social.',
-          ],
-          teacherNotes: 'Muestre cómo la interactividad puede usarse para causas sociales y educativas, no solo para vender productos.',
-        },
-
-        // ── Diapositiva 6: Caso 2 — Tesla ──
-        {
-          type: 'example',
-          category: 'Caso de Estudio 2',
-          title: 'Tesla',
-          subtitle: 'Configurador de producto en tiempo real',
-          icon: '🚗',
-          description: 'Tesla permite a los usuarios **personalizar su automóvil** directamente en el sitio web, cambiando colores, interiores y opciones con imágenes de alta calidad del exterior e interior.',
-          interactionType: '**Tipo de interactividad:** Configuración en tiempo real. El usuario modifica parámetros visuales y ve los resultados al instante.',
-          features: [
-            'Imágenes de alta calidad con vista interior y exterior.',
-            'Navegación intuitiva y experiencia minimalista.',
-            'El usuario siente que el automóvil ya es suyo antes de comprarlo.',
-          ],
-          teacherNotes: 'Resalte cómo la experiencia de configuración convierte al visitante en potencial comprador. La interactividad aquí tiene un objetivo comercial directo.',
-        },
-
-        // ── Diapositiva 7: Caso 3 — Apple ──
-        {
-          type: 'example',
-          category: 'Caso de Estudio 3',
-          title: 'Apple',
-          subtitle: 'Scroll narrativo y storytelling visual',
-          icon: '🍎',
-          description: 'El sitio de Apple ofrece una **experiencia personalizada** donde las especificaciones del producto se revelan progresivamente mediante animaciones sincronizadas con el desplazamiento del usuario.',
-          interactionType: '**Tipo de interactividad:** Scroll controlado (scroll-triggered animation). El avance de la pantalla despliega el diseño y las especificaciones.',
-          features: [
-            'Presentación premium de productos tecnológicos.',
-            'Sensación de fluidez, modernidad y calidad.',
-            'Navegación sencilla y rápida a pesar de la complejidad visual.',
-          ],
-          teacherNotes: 'Apple es el referente mundial de animaciones guiadas por desplazamiento. Explique que la simplicidad aparente requiere un diseño muy sofisticado detrás.',
-        },
-
-        // ── Diapositiva 8: Caso 4 — Minerva ──
-        {
-          type: 'example',
-          category: 'Caso de Estudio 4',
-          title: 'Cerveza Minerva',
-          subtitle: 'Inmersión visual y narrativa de marca',
-          icon: '🍺',
-          description: 'La marca de cerveza artesanal Minerva ofrece una experiencia donde **lo visual toma el protagonismo total**, usando colores, texturas y tonos para contar la historia de la marca.',
-          interactionType: '**Tipo de interactividad:** Inmersión estética. La navegación transmite emociones e identidad visual profunda.',
-          features: [
-            'Navegación rápida y transiciones ultrasuaves.',
-            'Uso estratégico del color y la fotografía artesanal.',
-            'Conexión emocional con el consumidor antes de probar el producto.',
-          ],
-          teacherNotes: 'Explique cómo el diseño puede transmitir "calidad artesanal" o "lujo" antes de que el usuario siquiera compre. La primera impresión visual es crucial.',
-        },
-
-        // ── Diapositiva 9: Caso 5 — Nomadic Tribe ──
-        {
-          type: 'example',
-          category: 'Caso de Estudio 5',
-          title: 'Nomadic Tribe',
-          subtitle: 'Narrativa interactiva con ilustraciones y audio',
-          icon: '🏜️',
-          description: 'Tributo al dibujante de cómics Jean Giraud. Este proyecto de **makemepulse** adentra al usuario en una historia interactiva combinando **ilustraciones, desplazamiento y audio espacial**.',
-          interactionType: '**Tipo de interactividad:** Storytelling interactivo. El usuario marca el ritmo del avance de la historieta.',
-          features: [
-            'Ilustraciones artísticas de altísimo nivel visual.',
-            'Audio integrado para crear una experiencia sensorial completa.',
-            'Navegación cinematográfica: el usuario vive una historia.',
-          ],
-          teacherNotes: 'Presente este ejemplo como prueba de que una página web puede ser una obra de arte interactiva. Sugiera que los estudiantes la visiten si pueden.',
-        },
-
-        // ── Diapositiva 10: Caso 6 — Borraginol Town ──
-        {
-          type: 'example',
-          category: 'Caso de Estudio 6',
-          title: 'Borraginol Town',
-          subtitle: 'Exploración gamificada de información corporativa',
-          icon: '🏘️',
-          description: 'Empresa farmacéutica japonesa que transformó su catálogo en un **pueblo ilustrado interactivo**. Los usuarios hacen clic en prácticamente todos los objetos para descubrir información sobre la marca.',
-          interactionType: '**Tipo de interactividad:** Gamificación (exploración lúdica). El usuario descubre información jugando y explorando el mapa.',
-          features: [
-            'Transforma información corporativa "aburrida" en diversión.',
-            'Fomenta la curiosidad y la exploración activa.',
-            'Mapa completo ilustrado donde cada elemento es interactivo.',
-          ],
-          teacherNotes: 'Pregunte: "¿Cómo habrían presentado la información de la farmacéutica si el sitio fuera estático? Probablemente con una lista de texto. ¿Cuál versión prefieren?" Esto demuestra el poder de la gamificación.',
-        },
-
-        // ── Diapositiva 11: Matriz comparativa ──
-        {
-          type: 'diagram',
-          category: 'Síntesis de los 6 Casos',
-          title: 'Matriz Comparativa de Interactividad',
-          subtitle: 'Resumen de los modelos analizados y su propósito:',
-          diagramType: 'table',
-          tableHeaders: ['Sitio Web', 'Tipo de Interactividad', 'Objetivo Principal'],
-          tableRows: [
-            ['Earth Day', 'Exploración de datos geográficos', 'Concientización ambiental'],
-            ['Tesla', 'Configurador en tiempo real', 'Venta y conversión comercial'],
-            ['Apple', 'Scroll narrativo (storytelling)', 'Presentación premium de producto'],
-            ['Minerva', 'Inmersión visual y estética', 'Identidad y conexión de marca'],
-            ['Nomadic Tribe', 'Storytelling interactivo + audio', 'Experiencia artística inmersiva'],
-            ['Borraginol Town', 'Gamificación y exploración', 'Información corporativa amigable'],
-          ],
-          teacherNotes: 'Use esta tabla para afianzar que cada tipo de interactividad responde a un objetivo estratégico diferente. No existe un solo tipo de interactividad "correcto".',
-        },
-
-        // ── Diapositiva 12: Pregunta analítica ──
+        // ── Diapositiva 2: Pregunta introductoria ──
         {
           type: 'question',
-          question: '¿Por qué Tesla usa un configurador 3D mientras Apple prefiere el scroll narrativo?',
-          context: 'Ambas son marcas tecnológicas líderes, pero sus estrategias de interactividad son completamente diferentes...',
+          question: '¿Qué diferencia a un video casero grabado con el celular de un video profesional de YouTube?',
+          context: 'Ambos son videos digitales, pero uno se ve amateur y el otro parece producido por un estudio...',
           options: [
-            'Porque Apple no tiene presupuesto para un configurador 3D',
-            'Porque Tesla vende un producto personalizable y Apple vende un producto terminado',
-            'Porque el scroll narrativo es más moderno que un configurador',
+            'Solo la cámara con la que se grabó',
+            'El proceso de edición y montaje que se aplicó después de grabar',
+            'La cantidad de dinero invertido',
           ],
-          answer: 'Porque Tesla vende un producto altamente personalizable y Apple vende un producto cerrado y perfeccionado.',
-          explanation: 'Tesla necesita que el usuario **configure** su auto (colores, interiores, opciones). Apple necesita que el usuario **admire** la perfección de un producto que no se modifica. La interactividad debe servir al objetivo del negocio.',
-          teacherNotes: 'Esta pregunta fomenta el pensamiento crítico sobre UX/UI. La clave es que la interactividad no es decoración: debe alinearse con la estrategia del producto.',
+          answer: 'Principalmente el proceso de edición y montaje que transforma el material bruto en un producto audiovisual coherente y atractivo.',
+          explanation: 'La **edición multimedia** es el proceso que convierte un archivo de video o audio en bruto en un producto terminado. Incluye cortar, organizar, agregar efectos, mejorar el audio y exportar en el formato adecuado.',
+          teacherNotes: 'Enfatice que la cámara importa, pero la edición es lo que realmente marca la diferencia. Muchos YouTubers profesionales editan durante horas un video de 10 minutos.',
         },
 
-        // ── Diapositiva 13: Quiz evaluativo ──
+        // ── Diapositiva 3: ¿Qué es la edición multimedia? ──
         {
-          type: 'quiz',
-          title: 'Evaluación de Comprensión',
-          description: 'Pon a prueba tus conocimientos sobre diseño web interactivo.',
-          quizTitle: 'Cuestionario de 10.º grado',
-          questions: [
-            {
-              id: 'q1',
-              question: '¿Qué porcentaje de consumidores pasan más tiempo en sitios interactivos que en los estáticos?',
-              options: ['50%', '72%', '88%', '95%'],
-              correctIndex: 2,
-              feedback: {
-                correct: '¡Correcto! El 88% de los consumidores incrementan su permanencia en sitios interactivos.',
-                incorrect: 'El estudio indica que el **88% de los consumidores** pasan más tiempo en páginas interactivas.',
-              },
-            },
-            {
-              id: 'q2',
-              question: 'Una empresa farmacéutica crea un mapa ilustrado donde se hace clic en objetos para descubrir información. Esto es...',
-              options: ['Scroll narrativo', 'Configurador en tiempo real', 'Gamificación (exploración lúdica)'],
-              correctIndex: 2,
-              feedback: {
-                correct: '¡Exacto! Como Borraginol Town, convierte la exploración en un juego.',
-                incorrect: 'Es **gamificación**: el usuario descubre información jugando, como en el caso de Borraginol Town.',
-              },
-            },
-            {
-              id: 'q3',
-              question: 'Apple utiliza animaciones sincronizadas con el desplazamiento del usuario. Esta técnica se conoce como...',
-              options: ['Configuración en tiempo real', 'Scroll narrativo (scroll-triggered animation)', 'Inmersión visual'],
-              correctIndex: 1,
-              feedback: {
-                correct: '¡Muy bien! Apple es el referente mundial de scroll-triggered animation.',
-                incorrect: 'Las animaciones que se activan al desplazar la página se llaman **scroll narrativo** o scroll-triggered animation.',
-              },
-            },
+          type: 'concept',
+          category: 'Fundamento',
+          title: '¿Qué es la Edición Multimedia?',
+          mainIdea: 'Es la **manipulación digital de un contenido** al que se le incorporan elementos visuales y/o de audio para enriquecer el mensaje.',
+          definition: 'La edición multimedia consiste en tomar un texto, imagen o video y transformarlo añadiendo elementos como imágenes, sonido, efectos y transiciones. Este proceso permite superar las limitaciones de las ediciones tradicionales (solo texto o solo imagen).',
+          keyPoints: [
+            'Combina texto, imagen, audio y video en un solo producto.',
+            'Enriquece el contenido al superar las limitaciones de formatos individuales.',
+            'Requiere tanto habilidades técnicas como criterio creativo.',
           ],
-          teacherNotes: 'Resuelva las preguntas con participación activa del grupo. Pida a diferentes estudiantes que justifiquen su respuesta antes de verificar.',
+          teacherNotes: 'Explique que \"multimedia\" significa literalmente \"múltiples medios\". La edición multimedia es unir esos medios en un producto coherente.',
         },
 
-        // ── Diapositiva 14: Actividad de Análisis ──
+        // ── Diapositiva 4: Formatos de video y audio ──
+        {
+          type: 'concept',
+          category: 'Conceptos Técnicos',
+          title: 'Formatos de Video y Audio',
+          mainIdea: 'Un **formato** define cómo se almacena la información en un archivo de video o audio. Cada formato tiene una extensión específica.',
+          definition: 'Los videos digitales necesitan compresión porque los archivos en bruto son extremadamente grandes. Al exportar un video, se comprime para reducir su tamaño. Al reproducirlo, se descomprime automáticamente para mostrarlo correctamente.',
+          keyPoints: [
+            'El formato define la estructura interna del archivo.',
+            'La compresión reduce el tamaño sin perder (mucha) calidad.',
+            'Al exportar se comprime → al reproducir se descomprime.',
+            'Formatos comunes de video: MP4, AVI, MKV, MOV, WebM.',
+            'Formatos comunes de audio: MP3, WAV, FLAC, AAC, OGG.',
+          ],
+          teacherNotes: 'Use la analogía de una maleta: comprimir un video es como doblar la ropa para que quepa en la maleta. La ropa sigue siendo la misma, pero ocupa menos espacio.',
+        },
+
+        // ── Diapositiva 5: Comparación de formatos ──
+        {
+          type: 'example',
+          category: 'Comparación Práctica',
+          title: '¿Cuándo usar cada formato?',
+          subtitle: 'No todos los formatos sirven para lo mismo:',
+          icon: '📁',
+          description: 'Elegir el formato correcto depende del uso que se le dará al archivo. Un video para YouTube necesita un formato diferente al de un video para cine profesional.',
+          features: [
+            '**MP4**: El más universal. Compatible con casi todos los dispositivos. Ideal para internet y redes sociales.',
+            '**AVI**: Alta calidad pero archivos muy grandes. Usado en edición profesional.',
+            '**MKV**: Soporta múltiples pistas de audio y subtítulos. Popular para películas.',
+            '**MOV**: Formato de Apple. Excelente calidad, usado en edición con Final Cut Pro.',
+            '**WebM**: Optimizado para la web. Ligero y de buena calidad para streaming.',
+          ],
+          teacherNotes: 'Pregunte: \"Si tuvieran que subir un video a YouTube, ¿qué formato elegirían?\" (MP4). \"¿Y si quieren guardar una película con subtítulos en varios idiomas?\" (MKV). Esto ayuda a aplicar el concepto.',
+        },
+
+        // ── Diapositiva 6: Edición vs Montaje ──
+        {
+          type: 'concept',
+          category: 'Distinción Clave',
+          title: 'Edición vs Montaje',
+          mainIdea: 'Ambos términos describen el proceso de manipular material visual y sonoro, pero **\"montaje\" se asocia al cine** y **\"edición\" al video digital**.',
+          definition: 'Tanto la edición como el montaje consisten en seleccionar, cortar y pegar fragmentos de imagen y sonido para crear un discurso audiovisual coherente y expresivo. El montaje es la herramienta fundamental para construir la narrativa y generar emociones en el espectador.',
+          keyPoints: [
+            '**Montaje**: Término asociado al cine. Enfoque en la narrativa cinematográfica.',
+            '**Edición**: Término asociado al video digital. Enfoque en la producción técnica.',
+            'En la práctica, ambos procesos implican cortar, organizar y ensamblar material audiovisual.',
+            'El objetivo final: crear un discurso audiovisual fluido y con la expresión deseada.',
+          ],
+          teacherNotes: 'Explique con un ejemplo: un director de cine habla de \"montar\" la película. Un youtuber habla de \"editar\" el video. El proceso es similar, pero el contexto y las herramientas son diferentes.',
+        },
+
+        // ── Diapositiva 7: Transformaciones ──
+        {
+          type: 'concept',
+          category: 'Técnicas de Edición',
+          title: 'Transformaciones en la Edición Multimedia',
+          mainIdea: 'Las transformaciones permiten **escalar, rotar, sesgar, encoger o distorsionar** elementos visuales durante la edición.',
+          definition: 'Estas transformaciones se aplican a selecciones, capas, máscaras o trazados vectoriales. Cuando se manipulan píxeles directamente, puede haber pérdida de calidad. Por eso es recomendable usar objetos inteligentes, que permiten transformaciones no destructivas.',
+          keyPoints: [
+            '**Escalar**: Aumentar o reducir el tamaño de un elemento.',
+            '**Rotar**: Girar un elemento sobre su eje.',
+            '**Sesgar**: Inclinar un elemento en diagonal.',
+            '**Distorsionar**: Deformar libremente un elemento.',
+            '**Objetos inteligentes**: Permiten transformaciones sin perder la calidad original.',
+          ],
+          teacherNotes: 'Use un ejemplo visual: \"Si amplías una foto pequeña, se ve pixelada. Pero si trabajas con un objeto inteligente, puedes ampliarla y reducirla sin perder calidad.\"',
+        },
+
+        // ── Diapositiva 8: Transformaciones destructivas vs no destructivas ──
+        {
+          type: 'example',
+          category: 'Concepto Técnico Clave',
+          title: 'Edición Destructiva vs No Destructiva',
+          subtitle: '¿Por qué importa cómo transformamos los elementos?',
+          icon: '🔄',
+          description: 'Cuando editamos una imagen o video modificando directamente los píxeles, los cambios son permanentes y la calidad puede degradarse. En cambio, las transformaciones no destructivas preservan el archivo original.',
+          features: [
+            '**Destructiva**: Los cambios modifican los píxeles directamente. Si se escala una imagen y luego se reduce, pierde calidad.',
+            '**No destructiva**: Los cambios son matemáticos, no tocan los píxeles originales. Se pueden revertir sin pérdida.',
+            '**Vectores**: Las formas vectoriales siempre son no destructivas (se basan en cálculos matemáticos, no en píxeles).',
+            '**Objetos inteligentes**: Son la solución para trabajar de forma no destructiva con imágenes de píxeles.',
+          ],
+          analogy: '**Analogía:** La edición destructiva es como escribir con bolígrafo: si te equivocas, no puedes borrarlo limpiamente. La no destructiva es como escribir con lápiz: puedes borrar y rehacer sin dañar el papel.',
+          teacherNotes: 'Esta distinción es fundamental para cualquier trabajo profesional de edición. Pregunte: \"¿Han perdido alguna vez la calidad de una foto al editarla demasiado?\"',
+        },
+
+        // ── Diapositiva 9: Pregunta conversacional ──
+        {
+          type: 'question',
+          question: '¿Por qué un profesional de edición multimedia siempre debería trabajar de forma no destructiva?',
+          context: 'Imagina que un cliente te pide cambiar algo en un proyecto que terminaste hace un mes. Si editaste de forma destructiva, ¿qué problema tendrías?',
+          options: [
+            'No habría ningún problema, se puede deshacer cualquier cambio',
+            'Tendría que empezar de cero porque los cambios anteriores ya dañaron el archivo original',
+            'Solo tendría que guardar el archivo en otro formato',
+          ],
+          answer: 'Si editó de forma destructiva, los cambios previos ya alteraron los píxeles originales y posiblemente perdió calidad irrecuperable.',
+          explanation: 'La edición no destructiva permite **volver atrás en cualquier momento** sin degradar la calidad. En un entorno profesional, esto es indispensable porque los proyectos se revisan y modifican constantemente.',
+          teacherNotes: 'Este es un principio profesional que aplica a cualquier área de diseño y producción multimedia. Enfatice que los profesionales siempre conservan los archivos originales.',
+        },
+
+        // ── Diapositiva 10: Requisitos de hardware y software ──
+        {
+          type: 'concept',
+          category: 'Requisitos Técnicos',
+          title: 'Hardware y Software para Edición Multimedia',
+          mainIdea: 'Para realizar edición multimedia de calidad se necesitan **dos elementos esenciales**: hardware potente y software especializado.',
+          definition: 'La edición multimedia es una de las tareas más exigentes para un computador. Requiere procesadores rápidos, memoria RAM abundante, tarjetas gráficas potentes y monitores de alta resolución para ver el resultado con precisión.',
+          keyPoints: [
+            '**Hardware**: Procesador potente, RAM abundante (16GB+), tarjeta gráfica dedicada, monitor de alta resolución, almacenamiento rápido (SSD).',
+            '**Software**: Programas especializados para audio, imagen, video y diseño.',
+            '**Conexión**: Una buena conexión a internet para descargar recursos, subir contenido y trabajar en la nube.',
+          ],
+          teacherNotes: 'Pregunte cuántos estudiantes han experimentado que su computador se pone lento al editar fotos o videos. Eso ocurre porque la edición requiere más recursos de los que un computador básico puede ofrecer.',
+        },
+
+        // ── Diapositiva 11: Tabla de requisitos ──
+        {
+          type: 'diagram',
+          category: 'Requisitos Detallados',
+          title: 'Hardware vs Software para Edición',
+          subtitle: 'Cada componente cumple un rol específico en el proceso de edición:',
+          diagramType: 'table',
+          tableHeaders: ['Componente', 'Función en la edición', 'Recomendación'],
+          tableRows: [
+            ['Procesador (CPU)', 'Cálculos de renderizado y efectos', 'Multinúcleo de alto rendimiento'],
+            ['Memoria RAM', 'Mantener archivos y efectos en memoria', 'Mínimo 16 GB, ideal 32 GB'],
+            ['Tarjeta gráfica (GPU)', 'Aceleración de efectos visuales y 3D', 'GPU dedicada con VRAM'],
+            ['Monitor', 'Visualizar colores y detalles con precisión', 'Alta resolución, buena calibración'],
+            ['Almacenamiento', 'Guardar archivos grandes rápidamente', 'SSD NVMe para velocidad'],
+            ['Software de edición', 'Herramientas de corte, efectos y exportación', 'Profesional o open source'],
+          ],
+          teacherNotes: 'Repase la tabla componente por componente. Explique que cada uno es un eslabón: si uno es débil, toda la cadena se ralentiza.',
+        },
+
+        // ── Diapositiva 12: Software open source ──
+        {
+          type: 'concept',
+          category: 'Herramientas Gratuitas',
+          title: 'Software Open Source para Edición Multimedia',
+          mainIdea: 'Existen **alternativas gratuitas y de código abierto** que permiten realizar edición multimedia profesional sin costo.',
+          definition: 'El software open source ofrece herramientas potentes que compiten con las alternativas comerciales. Son gratuitas, permiten modificar su código y cuentan con comunidades activas de usuarios y desarrolladores.',
+          keyPoints: [
+            '**GIMP**: Alternativa gratuita a Photoshop. Edición de imágenes con funciones avanzadas. Su interfaz no es tan pulida pero es igualmente potente.',
+            '**Inkscape**: Alternativa a Adobe Illustrator. Diseño vectorial profesional compatible con SVG y otros formatos.',
+            '**Blender**: Modelado 3D, animación, efectos visuales y edición de video. Una de las herramientas open source más completas del mundo.',
+          ],
+          teacherNotes: 'Enfatice que \"gratuito\" no significa \"de baja calidad\". Blender, por ejemplo, se usa en producciones profesionales de cine y videojuegos. GIMP tiene más de 25 años de desarrollo.',
+        },
+
+        // ── Diapositiva 13: Evolución de los ordenadores ──
+        {
+          type: 'concept',
+          category: 'Contexto Histórico',
+          title: 'Evolución de los Ordenadores',
+          mainIdea: 'Los ordenadores pasaron de ser **máquinas enormes con componentes metálicos** a dispositivos potentes que caben en la palma de la mano.',
+          definition: 'Hace décadas, los ordenadores ocupaban habitaciones enteras y la interacción con los usuarios era extremadamente limitada. Las nuevas tecnologías han permitido reducir el tamaño mientras se aumenta exponencialmente la potencia de procesamiento.',
+          keyPoints: [
+            'De habitaciones enteras a dispositivos portátiles y smartphones.',
+            'Mejora exponencial en potencia de procesamiento y cálculo.',
+            'Avances en manejo de datos, gráficos, transferencia de información e inteligencia artificial.',
+            'La miniaturización y la eficiencia energética impulsan la evolución constante.',
+          ],
+          teacherNotes: 'Conecte con el tema de edición multimedia: \"Hace 30 años, editar un video requería equipos de miles de dólares en un estudio profesional. Hoy pueden hacerlo desde su celular.\"',
+        },
+
+        // ── Diapositiva 14: Actividad individual ──
         {
           type: 'activity',
-          title: 'Actividad Práctica: Análisis Crítico de un Sitio Web',
-          activityTitle: 'Criterios de evaluación:',
-          icon: '🔬',
-          instructions: 'Elijan un sitio web que usen frecuentemente (red social, tienda, servicio) y analicen críticamente:',
+          title: 'Actividad Individual',
+          activityTitle: 'Productor multimedia por un día',
+          icon: '🎬',
+          instructions: 'Imagina que debes producir un video corto (3 minutos) para la feria escolar de tu colegio. Responde las siguientes preguntas en tu cuaderno:',
           steps: [
-            'Identifiquen al menos 2 elementos interactivos del sitio.',
-            '¿La interactividad es funcional (aporta valor) o solamente decorativa?',
-            '¿A cuál de los 6 modelos estudiados hoy se asemeja más?',
-            '¿Qué mejorarían en la interactividad del sitio si fueran los diseñadores?',
+            'Formato de exportación: ¿En qué formato exportarías el video final? Justifica por qué eligiste ese formato y no otro.',
+            'Hardware necesario: Lista los 3 componentes de hardware más importantes que necesitarías para editar el video y explica por qué cada uno es necesario.',
+            'Software: Elige 2 herramientas open source que usarías en la producción. Indica qué harías con cada una (ej: GIMP para crear la miniatura, Blender para animar el título).',
+            'Flujo de producción: Describe brevemente los pasos en orden: captura del material → edición → exportación. ¿Trabajarías de forma destructiva o no destructiva? ¿Por qué?',
           ],
-          tip: 'Recuerden: la buena interactividad siempre tiene un propósito claro alineado con el objetivo del sitio.',
-          teacherNotes: 'Asigne 10 minutos para el análisis en parejas. Al finalizar, pida a 2 o 3 parejas que presenten sus conclusiones brevemente al grupo.',
+          tip: 'Tiempo estimado: 5–10 minutos. Trabaja individualmente. No necesitas internet ni instalar programas. Usa los conceptos de la clase para justificar cada decisión.',
+          teacherNotes: 'Respuestas esperadas: Formato MP4 (universal, compatible, buena relación calidad/tamaño). Hardware: procesador potente (renderizado), RAM (mantener proyecto en memoria), SSD (velocidad de lectura/escritura). Software: GIMP para gráficos/miniatura, Blender para animación o DaVinci Resolve (si lo conocen). Flujo: grabar → importar → cortar/organizar → agregar efectos → exportar. No destructiva para poder revisar y modificar.',
         },
 
-        // ── Diapositiva 15: Resumen de cierre ──
+        // ── Diapositiva 15: Resumen ──
         {
           type: 'summary',
-          title: 'Conclusiones de la Lección',
+          title: 'Cierre de la Clase',
           summaryTitle: 'Puntos clave para recordar:',
           points: [
-            'Una **página web interactiva** involucra activamente al usuario y aumenta la retención en un **88%**.',
-            'No existe un único tipo de interactividad: depende de la marca y del objetivo (configuración, scroll narrativo, gamificación, inmersión visual).',
-            'La interactividad debe estar al servicio de una **estrategia clara**, no ser solo decoración.',
-            'Los 6 casos de estudio demuestran que cada tipo de interactividad responde a una necesidad específica del negocio o la causa.',
+            'La **edición multimedia** enriquece un contenido combinando texto, imagen, audio y video en un producto coherente.',
+            'Los **formatos** definen cómo se almacena la información. La compresión reduce el tamaño del archivo para facilitar su uso.',
+            '**Edición** se asocia al video digital y **montaje** al cine, pero ambos implican cortar, organizar y ensamblar material audiovisual.',
+            'Las **transformaciones no destructivas** (objetos inteligentes, vectores) preservan la calidad original y permiten modificaciones futuras.',
+            'Existen herramientas **open source potentes** como GIMP, Inkscape y Blender que permiten realizar edición profesional sin costo.',
           ],
-          teacherNotes: 'Haga el cierre oral de la clase. Puede cerrar con la reflexión: "Si tuvieran que crear un sitio web interactivo para el colegio, ¿qué tipo de interactividad elegirían y por qué?"',
+          teacherNotes: 'Cierre con una reflexión: \"La edición multimedia ya no es exclusiva de profesionales. Con las herramientas gratuitas y los conocimientos que vieron hoy, cualquiera puede crear contenido audiovisual de calidad.\"',
         },
       ],
     },

@@ -1,6 +1,6 @@
 /**
  * Contenido educativo — Grado 8.º Grupo 1
- * Tema: Análisis Interior (Seguridad Informática)
+ * Tema: Análisis Exterior (Seguridad Informática)
  *
  * Fuente: cursos/8/8-1.md
  * Formato: Presentación Académica Interactiva (Diapositiva por Diapositiva)
@@ -8,318 +8,253 @@
  */
 
 export const course8_1 = {
-  title: 'Análisis Interior',
-  description: 'Presentación interactiva sobre el análisis de vulnerabilidades internas en una organización: los 7 tipos de pruebas de seguridad que se realizan desde adentro.',
+  title: 'Análisis Exterior',
+  description: 'Presentación interactiva sobre el análisis de vulnerabilidades externas: cómo se recopila información desde fuera de una organización y qué pruebas se realizan para evaluar la seguridad.',
   lessons: [
     {
-      id: 'analisis-interior',
-      title: 'Análisis Interior',
+      id: 'analisis-exterior',
+      title: 'Análisis Exterior',
       description: 'Presentación académica guiada para la clase presencial de 8.º grado.',
       slides: [
-        // ── Diapositiva 1: Título y Objetivos ──
+        // ── Diapositiva 1: Portada ──
         {
           type: 'title',
           badge: 'Informática 8.º — Grupo 1',
-          title: 'Análisis Interior',
-          subtitle: '¿Qué tan segura es una organización vista desde adentro?',
+          title: 'Análisis Exterior',
+          subtitle: '¿Qué puede descubrir un atacante sin estar dentro de la organización?',
           objectives: [
-            'Explicar qué es un análisis interior y por qué es necesario.',
-            'Identificar los 7 tipos de pruebas de seguridad interna.',
-            'Comprender cómo cada prueba ayuda a proteger una organización.',
+            'Explicar qué es un análisis exterior y en qué se diferencia del análisis interior.',
+            'Identificar los 4 métodos de recopilación de información externa.',
+            'Conocer las 6 pruebas que se realizan tras la recopilación.',
+            'Comprender la importancia de documentar los hallazgos.',
           ],
-          teacherNotes: '**Sugerencia de inicio:** Pregunte al grupo si creen que un empleado podría acceder a información que no le corresponde dentro de una empresa. Use este punto para introducir la importancia de analizar la seguridad desde adentro.',
+          teacherNotes: '**Sugerencia de inicio:** Recuerde brevemente lo visto en la clase anterior (análisis interior) y pregunte: \"Si el análisis interior se hace desde adentro, ¿cómo se analiza la seguridad desde afuera?\"',
         },
 
         // ── Diapositiva 2: Pregunta introductoria ──
         {
           type: 'question',
-          question: '¿Quién es más peligroso para la seguridad de una empresa: un hacker externo o un empleado con malas prácticas?',
-          context: 'Piensa en alguien que ya tiene acceso al computador de la empresa, a la red interna y a los archivos del día a día...',
+          question: '¿Un atacante necesita estar dentro de una empresa para obtener información confidencial?',
+          context: 'Piensa en toda la información que una empresa publica en internet: sitio web, redes sociales, correos de contacto, nombres de empleados...',
           options: [
-            'Un hacker externo, porque tiene herramientas avanzadas',
-            'Un empleado, porque ya tiene acceso desde adentro',
-            'Ambos representan riesgos diferentes',
+            'Sí, necesita entrar físicamente a la empresa',
+            'No, puede obtener mucha información solo desde internet',
+            'Solo puede obtener información si hackea el servidor',
           ],
-          answer: 'Ambos representan riesgos diferentes, pero el acceso interno facilita enormemente un ataque.',
-          explanation: 'Por eso existe el **análisis interior**: para evaluar hasta dónde puede llegar alguien que ya está dentro de la organización.',
-          teacherNotes: 'Permita que 2 o 3 estudiantes den su opinión antes de revelar la respuesta. Resalte que muchos ataques exitosos provienen de dentro de las organizaciones.',
+          answer: 'No, puede obtener mucha información solo desde internet y con técnicas de ingeniería social.',
+          explanation: 'El **análisis exterior** busca precisamente eso: evaluar qué tan fácil es obtener acceso remoto a los servidores de una organización **sin estar dentro de ella**.',
+          teacherNotes: 'Permita que varios estudiantes opinen. Resalte que la mayoría de los ataques comienzan con información pública disponible en internet.',
         },
 
         // ── Diapositiva 3: Concepto principal ──
         {
           type: 'concept',
           category: 'Concepto Fundamental',
-          title: '¿Qué es un Análisis Interior?',
-          mainIdea: 'Es una evaluación que busca demostrar **hasta dónde puede llegar un usuario común** dentro de la red de una organización.',
-          definition: 'Antes de continuar con un análisis de vulnerabilidad completo, se debe verificar qué puede hacer un usuario típico con los privilegios normales que la empresa le otorga.',
+          title: '¿Qué es un Análisis Exterior?',
+          mainIdea: 'Es una evaluación que intenta **acceder remotamente** a los servidores de una organización y obtener privilegios o permisos que no deberían estar disponibles.',
+          definition: 'A diferencia del análisis interior (que se realiza con un usuario normal dentro de la red), el análisis exterior se realiza desde fuera. El objetivo es descubrir qué información y accesos puede obtener alguien que no pertenece a la organización.',
           keyPoints: [
-            'Se realiza con una cuenta de usuario normal (no de administrador).',
-            'La organización proporciona un computador con usuario y contraseña.',
-            'Busca encontrar debilidades internas antes de que alguien las explote.',
+            'Se realiza desde fuera de la organización, sin acceso previo.',
+            'Puede comenzar con técnicas de ingeniería social.',
+            'Busca obtener privilegios o permisos no autorizados de forma remota.',
           ],
-          teacherNotes: 'Enfatice que el analista no usa herramientas de hacker: usa exactamente lo que la empresa le da a cualquier empleado. Eso es lo que lo hace tan revelador.',
+          teacherNotes: 'Enfatice la diferencia clave: en el análisis interior se tiene una cuenta de usuario normal. En el exterior, no se tiene nada — todo debe obtenerse desde cero.',
         },
 
-        // ── Diapositiva 4: Ejemplo / Analogía ──
+        // ── Diapositiva 4: Analogía ──
         {
           type: 'example',
           category: 'Analogía para Entenderlo',
-          title: 'Como una Inspección de Seguridad en un Edificio',
-          subtitle: 'Imagina que eres un inspector revisando un edificio desde adentro:',
-          icon: '🏢',
-          description: 'Un análisis interior es como contratar a alguien para que entre como un empleado normal y compruebe: ¿puede acceder a pisos restringidos? ¿Puede leer documentos confidenciales? ¿Puede usar la red para cosas no permitidas?',
-          analogy: '**El inspector no fuerza cerraduras**: usa las mismas llaves y credenciales que cualquier empleado. Si logra acceder a información sensible, significa que hay una falla de seguridad.',
+          title: 'Como un Ladrón que Observa desde la Calle',
+          subtitle: 'Imagina a alguien que quiere entrar a un edificio sin tener llaves:',
+          icon: '🔭',
+          description: 'Un análisis exterior es como si alguien observara un edificio desde la calle: ¿tiene cámaras de seguridad? ¿Cuántas puertas hay? ¿Qué información está visible en el letrero? ¿Hay empleados que salen a fumar y dejan la puerta abierta?',
+          analogy: '**El atacante no fuerza nada al principio**: primero observa, recopila información y busca el punto más débil para intentar entrar.',
           features: [
-            '**En un edificio**: ¿Puede un empleado entrar a la oficina del gerente sin permiso?',
-            '**En una red**: ¿Puede un usuario acceder a carpetas que no le corresponden?',
-            '**En un sistema**: ¿Puede un empleado instalar programas no autorizados?',
+            '**Desde la calle**: ¿Qué se puede ver del edificio sin entrar?',
+            '**En internet**: ¿Qué información publica la empresa en su sitio web?',
+            '**Ingeniería social**: ¿Se puede engañar a un empleado para obtener acceso?',
           ],
-          teacherNotes: 'Use la analogía del edificio para que los estudiantes visualicen el concepto. Pregunte: "¿En el colegio, todos los estudiantes pueden entrar a la sala de profesores?"',
+          teacherNotes: 'Use la analogía del edificio para que sea visual. Pregunte: \"Si alguien quisiera entrar al colegio sin permiso, ¿qué información podría obtener solo observando desde afuera?\"',
         },
 
-        // ── Diapositiva 5: Diagrama — Los 7 tipos de pruebas ──
+        // ── Diapositiva 5: Método 1 — Inteligencia competitiva ──
+        {
+          type: 'concept',
+          category: 'Método de Recopilación 1 de 4',
+          title: 'Revisión de Inteligencia Competitiva',
+          mainIdea: 'Se basa en toda la **información que la organización publica en internet**: sitio web, redes sociales, noticias, documentos públicos.',
+          definition: 'El analista recopila toda la información disponible públicamente sobre la organización. Esto incluye datos en su sitio web, perfiles en redes sociales, comunicados de prensa y cualquier información accesible sin necesidad de autenticación.',
+          keyPoints: [
+            'Información accesible desde la presencia pública en internet.',
+            'Incluye sitio web, redes sociales, directorios y noticias.',
+            'No requiere ningún acceso especial: todo es público.',
+          ],
+          teacherNotes: 'Explique que muchas empresas publican más información de la necesaria. Por ejemplo: nombres de empleados, correos electrónicos, tecnologías que usan, organigramas.',
+        },
+
+        // ── Diapositiva 6: Método 2 — Revisión de privacidad ──
+        {
+          type: 'concept',
+          category: 'Método de Recopilación 2 de 4',
+          title: 'Revisión de la Privacidad',
+          mainIdea: 'Evalúa si la organización tiene **control suficiente** sobre los datos que manejan sus empleados.',
+          definition: 'Se analiza desde un punto de vista legal y ético si la organización controla adecuadamente el almacenamiento, transmisión y manejo de los datos. Si no tiene suficiente control, un empleado podría llevarse información confidencial.',
+          analogy: '**Ejemplo:** Imagina que un empleado copia la base de datos de clientes en una memoria USB y se va de la empresa. Si no hay controles, nadie se enteraría.',
+          keyPoints: [
+            'Evalúa el control sobre los datos desde el punto de vista legal y ético.',
+            'Verifica si los empleados pueden llevarse información fuera de la organización.',
+            'Analiza cómo se almacenan y transmiten los datos sensibles.',
+          ],
+          teacherNotes: 'Relacione con situaciones cotidianas: \"¿Qué pasaría si cualquier persona pudiera copiar los exámenes del colegio y llevárselos?\" El control de datos es fundamental.',
+        },
+
+        // ── Diapositiva 7: Método 3 — Análisis de solicitud ──
+        {
+          type: 'concept',
+          category: 'Método de Recopilación 3 de 4',
+          title: 'Análisis de Solicitud',
+          mainIdea: 'Consiste en obtener acceso a la organización **simplemente preguntando**, usando comunicaciones como teléfono, correo o chat.',
+          definition: 'Este método se basa en la ingeniería social: el atacante se hace pasar por alguien con autoridad o confianza (un proveedor, un técnico, un directivo) para que el personal de entrada le otorgue acceso o información.',
+          analogy: '**Ejemplo:** Alguien llama por teléfono diciendo: \"Soy del área de sistemas, necesito que me dé su contraseña para actualizar el sistema.\" Si el empleado la entrega, el acceso está comprometido.',
+          keyPoints: [
+            'Se basa completamente en ingeniería social.',
+            'Usa teléfono, correo electrónico, chat u otros medios.',
+            'El atacante se presenta desde una posición de autoridad o confianza.',
+          ],
+          teacherNotes: 'Este es un buen momento para hablar sobre por qué nunca se debe compartir una contraseña, ni siquiera si \"el jefe\" la pide por teléfono. Las empresas legítimas nunca solicitan contraseñas de esa manera.',
+        },
+
+        // ── Diapositiva 8: Método 4 — Sugerencia dirigida ──
+        {
+          type: 'concept',
+          category: 'Método de Recopilación 4 de 4',
+          title: 'Análisis de Sugerencia Dirigida',
+          mainIdea: 'El atacante intenta que un empleado **ingrese a un sitio falso** o reciba un correo que instala herramientas de acceso remoto.',
+          definition: 'Se envía un correo electrónico o enlace a un empleado de la organización. Si el empleado hace clic, puede instalar sin saberlo herramientas que permiten al atacante crear una sesión remota desde el exterior.',
+          analogy: '**Ejemplo:** Un empleado recibe un correo que dice \"Actualice su contraseña aquí\" con un enlace falso. Al hacer clic e ingresar sus datos, el atacante ya tiene sus credenciales.',
+          keyPoints: [
+            'El atacante necesita que alguien dentro de la organización \"caiga en la trampa\".',
+            'Usa correos electrónicos, enlaces falsos o sitios web fraudulentos.',
+            'Puede instalar herramientas de acceso remoto sin que el empleado lo note.',
+          ],
+          teacherNotes: 'Esto es lo que comúnmente se conoce como **phishing**. Pregunte: \"¿Alguna vez les ha llegado un correo sospechoso pidiéndoles hacer clic en un enlace? ¿Cómo supieron que era falso?\"',
+        },
+
+        // ── Diapositiva 9: Tabla resumen de métodos ──
         {
           type: 'diagram',
-          category: 'Visión General',
-          title: 'Los 7 Tipos de Pruebas Internas',
-          subtitle: 'Cada prueba evalúa un aspecto diferente de la seguridad interna:',
-          diagramType: 'comparison',
-          columns: [
-            {
-              badge: '1-2',
-              title: 'Privacidad y Apps Web',
-              desc: 'Cómo se gestiona la información personal y la seguridad de las aplicaciones internas.',
-            },
-            {
-              badge: '3-4',
-              title: 'Intrusos y Contingencia',
-              desc: 'Sistemas de detección de intrusos y recursos mínimos para mantener la operación.',
-            },
-            {
-              badge: '5-6-7',
-              title: 'Contraseñas, DoS y Políticas',
-              desc: 'Robustez de claves, resistencia a sobrecarga y evaluación de las políticas de seguridad.',
-            },
+          category: 'Resumen de Recopilación',
+          title: 'Los 4 Métodos de Recopilación Externa',
+          subtitle: 'Cada método obtiene información de una forma diferente:',
+          diagramType: 'table',
+          tableHeaders: ['Método', 'Cómo funciona', 'Ejemplo rápido'],
+          tableRows: [
+            ['Inteligencia competitiva', 'Buscar información pública en internet', 'Revisar el sitio web y redes sociales'],
+            ['Revisión de privacidad', 'Evaluar el control sobre los datos', '¿Un empleado puede copiar la base de datos?'],
+            ['Análisis de solicitud', 'Pedir acceso usando ingeniería social', 'Llamar haciéndose pasar por un técnico'],
+            ['Sugerencia dirigida', 'Enviar enlaces o correos falsos (phishing)', 'Correo con enlace falso para robar contraseñas'],
           ],
-          teacherNotes: 'Esta diapositiva sirve como mapa general. En las siguientes diapositivas profundizaremos cada tipo de prueba.',
+          teacherNotes: 'Repase la tabla fila por fila. Pregunte: \"¿Cuál de estos métodos creen que es el más utilizado en la vida real?\" (La ingeniería social es la más común).',
         },
 
-        // ── Diapositiva 6: Revisión de la privacidad ──
-        {
-          type: 'concept',
-          category: 'Prueba 1 de 7',
-          title: 'Revisión de la Privacidad',
-          mainIdea: 'Evalúa cómo se **almacena, transmite y controla** la información personal de los empleados y usuarios.',
-          definition: 'El analista se centra en verificar si la organización maneja correctamente los datos personales desde el punto de vista ético y legal.',
-          analogy: '**Ejemplo:** ¿Los datos de los empleados (dirección, teléfono, salario) están protegidos o cualquiera en la red puede verlos?',
-          keyPoints: [
-            'Verifica el cumplimiento de leyes de protección de datos.',
-            'Revisa quién tiene acceso a información personal.',
-            'Evalúa cómo se transmite la información (¿está cifrada?).',
-          ],
-          teacherNotes: 'Relacione con la vida cotidiana: "¿Les gustaría que cualquier compañero pudiera ver sus notas, dirección o número de teléfono sin permiso?"',
-        },
-
-        // ── Diapositiva 7: Testeo de aplicaciones de internet ──
-        {
-          type: 'concept',
-          category: 'Prueba 2 de 7',
-          title: 'Testeo de Aplicaciones de Internet',
-          mainIdea: 'Busca **fallas de seguridad** en las aplicaciones web que los empleados utilizan dentro de la red.',
-          definition: 'Se aplican técnicas de análisis de software para encontrar vulnerabilidades en aplicaciones cliente-servidor accedidas internamente.',
-          analogy: '**Ejemplo:** Un sistema interno de gestión de inventario que funciona en el navegador. ¿Qué pasa si un empleado manipula la URL para acceder a datos de otro departamento?',
-          keyPoints: [
-            'Se prueban las aplicaciones accedidas por usuarios dentro de la red.',
-            'Se utilizan técnicas de análisis de software.',
-            'Se buscan fallas en la arquitectura cliente-servidor.',
-          ],
-          teacherNotes: 'Explique qué es una aplicación cliente-servidor con un ejemplo simple: "Es como cuando usas una app en tu navegador que se conecta a un servidor de la empresa para mostrar datos."',
-        },
-
-        // ── Diapositiva 8: Detección de intrusos ──
-        {
-          type: 'concept',
-          category: 'Prueba 3 de 7',
-          title: 'Testeo de Sistemas de Detección de Intrusos',
-          mainIdea: 'Evalúa el **rendimiento** de los sistemas que identifican accesos sospechosos o no autorizados.',
-          definition: 'Se analiza si los sistemas de identificación de intrusos (IDS) detectan correctamente actividades anómalas, accediendo a sus registros internos.',
-          analogy: '**Ejemplo:** Es como probar si la alarma de un edificio realmente suena cuando alguien intenta entrar a un área restringida.',
-          keyPoints: [
-            'Se necesita acceder a los registros (logs) del sistema IDS.',
-            'Se evalúa si detecta correctamente las amenazas.',
-            'Se verifica la velocidad de respuesta del sistema.',
-          ],
-          teacherNotes: 'Explique IDS con la analogía de una cámara de seguridad que no solo graba, sino que además activa una alarma cuando detecta algo extraño.',
-        },
-
-        // ── Diapositiva 9: Medidas de contingencia ──
-        {
-          type: 'concept',
-          category: 'Prueba 4 de 7',
-          title: 'Testeo de Medidas de Contingencia',
-          mainIdea: 'Determina los **recursos mínimos necesarios** para que el sistema siga funcionando ante una emergencia.',
-          definition: 'Se mide qué tan preparado está el sistema para responder ante fallas, verificando los mecanismos de detección de intentos de acceso a recursos protegidos.',
-          analogy: '**Ejemplo:** Si el servidor principal se cae, ¿la empresa puede seguir trabajando con un servidor de respaldo? ¿Cuánto tarda en activarse?',
-          keyPoints: [
-            'Identifica los recursos mínimos para mantener la operación.',
-            'Verifica planes de respaldo y recuperación.',
-            'Evalúa la detección de accesos no autorizados.',
-          ],
-          teacherNotes: 'Compare con un plan de evacuación del colegio: "Si hay un simulacro, ¿todos saben qué hacer? Un testeo de contingencia es parecido, pero para los sistemas informáticos."',
-        },
-
-        // ── Diapositiva 10: Pregunta intermedia ──
+        // ── Diapositiva 10: Pregunta conversacional ──
         {
           type: 'question',
-          question: '¿Qué diferencia hay entre un sistema de detección de intrusos y un testeo de contingencia?',
-          context: 'Piensa: uno se encarga de DETECTAR amenazas y el otro de RESPONDER cuando algo sale mal...',
+          question: '¿Cuál de los 4 métodos de recopilación creen que es el más peligroso y por qué?',
+          context: 'Piensen: uno usa información pública, otro evalúa controles, otro pide acceso directamente y el último engaña con correos falsos...',
           options: [
-            'El IDS detecta intrusos; la contingencia prepara la respuesta ante fallas',
-            'Son exactamente lo mismo',
-            'La contingencia detecta virus y el IDS crea respaldos',
+            'La inteligencia competitiva, porque todo está en internet',
+            'El análisis de solicitud, porque depende de la ingeniería social',
+            'La sugerencia dirigida (phishing), porque engaña directamente a las personas',
           ],
-          answer: 'El IDS detecta intrusos; la contingencia prepara la respuesta ante fallas.',
-          explanation: 'El **sistema de detección de intrusos** identifica actividades sospechosas. Las **medidas de contingencia** aseguran que el sistema pueda recuperarse cuando algo falla.',
-          teacherNotes: 'Use esta pregunta intermedia para verificar que los estudiantes distinguen entre detección y respuesta. Abra el debate antes de revelar.',
+          answer: 'Todos son peligrosos, pero la sugerencia dirigida (phishing) es estadísticamente la causa de la mayoría de los accesos no autorizados.',
+          explanation: 'El **phishing** es responsable de más del 90% de los ataques exitosos. Por más segura que sea la tecnología, si una persona entrega sus credenciales, toda la seguridad se compromete.',
+          teacherNotes: 'Abra un debate breve. No hay una respuesta única correcta, pero aproveche para enfatizar que el factor humano es generalmente el eslabón más débil de la seguridad.',
         },
 
-        // ── Diapositiva 11: Descifrado de contraseñas ──
+        // ── Diapositiva 11: Las 6 pruebas ──
         {
           type: 'concept',
-          category: 'Prueba 5 de 7',
-          title: 'Descifrado de Contraseñas',
-          mainIdea: 'Valida **qué tan robustas** son las contraseñas de los usuarios, usando herramientas automáticas de recuperación.',
-          definition: 'Se utilizan herramientas especializadas para intentar descifrar las contraseñas de los usuarios, descubriendo algoritmos criptográficos débiles o contraseñas inseguras creadas por factor humano.',
-          analogy: '**Ejemplo:** Si tu contraseña es "123456" o "colegio2026", una herramienta automática la descifra en segundos. Pero si es "Tr#9kL!p2x", puede tardar años.',
+          category: 'Pruebas del Análisis Exterior',
+          title: 'Las 6 Pruebas Técnicas',
+          mainIdea: 'Una vez recopilada la información, se realizan **6 pruebas técnicas** para evaluar la seguridad de la organización desde el exterior.',
+          definition: 'Estas pruebas permiten identificar servicios vulnerables, máquinas activas, aplicaciones con fallas de seguridad y configuraciones débiles en la red de la organización.',
           keyPoints: [
-            'Las herramientas automáticas prueban miles de combinaciones por segundo.',
-            'Descubre algoritmos de cifrado mal implementados.',
-            'Revela contraseñas débiles creadas por los usuarios.',
+            '1. **Sondeo de red**: Descubrir dominios, IPs, servidores y mapas de red.',
+            '2. **Identificación de servicios**: Encontrar servicios activos y traspasar el firewall.',
+            '3. **Búsqueda de vulnerabilidades**: Detectar fallas de seguridad y errores de configuración.',
+            '4. **Testeo de aplicaciones**: Buscar fallas en las aplicaciones web accesibles.',
+            '5. **Relaciones de confianza**: Verificar quién tiene permiso de acceder a la red.',
+            '6. **Verificación inalámbrica**: Evaluar la seguridad del Wi-Fi y los puntos de acceso.',
           ],
-          teacherNotes: 'Este es un buen momento para hablar de buenas prácticas de contraseñas. Pregunte a los estudiantes si sus contraseñas personales serían fáciles de descifrar.',
+          teacherNotes: 'No es necesario profundizar en cada prueba técnicamente. Lo importante es que los estudiantes entiendan que son pasos sistemáticos, no ataques al azar.',
         },
 
-        // ── Diapositiva 12: Denegación de servicios ──
-        {
-          type: 'concept',
-          category: 'Prueba 6 de 7',
-          title: 'Testeo de Denegación de Servicios (DoS)',
-          mainIdea: 'Evalúa qué sucede cuando el sistema recibe una **carga excesiva** que impide su funcionamiento normal.',
-          definition: 'La denegación de servicio (DoS) es una situación donde el sistema no puede funcionar como fue diseñado, ya sea por sobrecarga intencional, accidental o por abuso de recursos por parte de los usuarios.',
-          analogy: '**Ejemplo:** Imagina que 500 personas intentan entrar al mismo tiempo por una puerta diseñada para 10 personas. El sistema se "traba" y nadie puede pasar.',
-          keyPoints: [
-            'Puede ser intencional (ataque) o accidental (sobrecarga).',
-            'Se necesita apoyo adicional de la organización para monitorear.',
-            'Requiere colaboración con otros analistas de seguridad.',
-          ],
-          teacherNotes: 'Explique que un ataque DoS no "hackea" el sistema, sino que lo satura hasta que deja de funcionar. Use el ejemplo de cuando un sitio web se cae en un Black Friday por el exceso de visitas.',
-        },
-
-        // ── Diapositiva 13: Evaluación de políticas de seguridad ──
-        {
-          type: 'concept',
-          category: 'Prueba 7 de 7',
-          title: 'Evaluación de Políticas de Seguridad',
-          mainIdea: 'Verifica si las **reglas de seguridad escritas** de la organización están alineadas con la realidad de sus operaciones.',
-          definition: 'Se evalúan dos aspectos: primero, si las políticas escritas coinciden con el estado actual de las conexiones y sistemas; segundo, si las políticas tienen sentido dentro de los objetivos del negocio.',
-          analogy: '**Ejemplo:** Si una empresa prohíbe el uso de internet pero necesita internet para vender sus productos, esa política no tiene sentido y debe modificarse.',
-          keyPoints: [
-            'Las políticas deben coincidir con la realidad del sistema.',
-            'Deben estar alineadas con los objetivos del negocio.',
-            'Una política absurda es peor que no tener política.',
-          ],
-          teacherNotes: 'Use el ejemplo del manual de convivencia del colegio: ¿Todas las reglas tienen sentido? ¿Alguna se contradice con lo que realmente ocurre?',
-        },
-
-        // ── Diapositiva 14: Tabla resumen comparativa ──
+        // ── Diapositiva 12: Tabla de las 6 pruebas ──
         {
           type: 'diagram',
-          category: 'Resumen de las 7 Pruebas',
-          title: 'Comparativa de Pruebas Internas',
-          subtitle: 'Cada prueba protege un aspecto diferente de la organización:',
+          category: 'Visión Detallada',
+          title: 'Las 6 Pruebas del Análisis Exterior',
+          subtitle: 'Cada prueba evalúa un aspecto diferente de la seguridad externa:',
           diagramType: 'table',
-          tableHeaders: ['Prueba', 'Qué evalúa', 'Ejemplo rápido'],
+          tableHeaders: ['Prueba', 'Qué evalúa', 'Ejemplo sencillo'],
           tableRows: [
-            ['Privacidad', 'Manejo de datos personales', '¿Quién puede ver los salarios?'],
-            ['Apps de Internet', 'Seguridad de aplicaciones web', '¿Se puede manipular la URL?'],
-            ['Detección de intrusos', 'Eficacia del sistema IDS', '¿Suena la alarma digital?'],
-            ['Contingencia', 'Respuesta ante fallas', '¿Existe un servidor de respaldo?'],
-            ['Contraseñas', 'Robustez de las claves', '¿"123456" sigue siendo tu clave?'],
-            ['Denegación (DoS)', 'Resistencia a sobrecarga', '¿Aguanta 500 usuarios a la vez?'],
-            ['Políticas', 'Coherencia de las reglas', '¿Las reglas tienen sentido?'],
+            ['Sondeo de red', 'Dominios, IPs, servidores', '¿Qué servidores tiene la empresa?'],
+            ['Identificación de servicios', 'Servicios activos tras el firewall', '¿Qué programas están funcionando?'],
+            ['Búsqueda de vulnerabilidades', 'Fallas y errores de configuración', '¿Hay puertas abiertas sin protección?'],
+            ['Testeo de aplicaciones', 'Seguridad de aplicaciones web', '¿La página web tiene fallas?'],
+            ['Relaciones de confianza', 'Permisos de acceso a la red', '¿Quién puede entrar y quién no?'],
+            ['Verificación inalámbrica', 'Seguridad del Wi-Fi (802.11)', '¿El Wi-Fi está bien protegido?'],
           ],
-          teacherNotes: 'Repase la tabla fila por fila para consolidar los 7 tipos. Pregunte si algún estudiante puede explicar una prueba con sus propias palabras.',
+          teacherNotes: 'Use esta tabla como mapa visual. Si queda tiempo, pregunte a algún estudiante si puede explicar una prueba con sus propias palabras.',
         },
 
-        // ── Diapositiva 15: Quiz interactivo ──
+        // ── Diapositiva 13: Documentación e informes ──
         {
-          type: 'quiz',
-          title: 'Comprobación de Aprendizaje',
-          description: 'Responde las preguntas para verificar lo que aprendiste hoy.',
-          quizTitle: '¿Qué tanto aprendimos sobre análisis interior?',
-          questions: [
-            {
-              id: 'q1',
-              question: '¿Con qué tipo de cuenta se realiza un análisis interior?',
-              options: ['Cuenta de administrador', 'Cuenta de usuario normal', 'Sin cuenta, se hackea el sistema'],
-              correctIndex: 1,
-              feedback: {
-                correct: '¡Correcto! Se usa una cuenta de usuario normal para evaluar los privilegios reales.',
-                incorrect: 'Recuerda: el análisis interior se realiza con una **cuenta de usuario normal** proporcionada por la organización.',
-              },
-            },
-            {
-              id: 'q2',
-              question: 'Si una herramienta descifra tu contraseña en 3 segundos, ¿qué significa?',
-              options: ['La herramienta es muy buena', 'Tu contraseña es muy débil', 'El sistema no tiene seguridad'],
-              correctIndex: 1,
-              feedback: {
-                correct: '¡Exacto! Una contraseña que se descifra rápidamente es una contraseña débil.',
-                incorrect: 'Si una herramienta la descifra tan rápido, significa que **tu contraseña es débil** y necesitas crear una más segura.',
-              },
-            },
-            {
-              id: 'q3',
-              question: 'Un ataque DoS hace que un sistema deje de funcionar porque...',
-              options: ['Borra todos los archivos', 'Lo satura con una carga excesiva', 'Cambia todas las contraseñas'],
-              correctIndex: 1,
-              feedback: {
-                correct: '¡Muy bien! El ataque DoS satura el sistema hasta que no puede responder.',
-                incorrect: 'El ataque DoS no borra ni modifica datos: **satura el sistema con una carga excesiva** hasta que deja de funcionar.',
-              },
-            },
+          type: 'concept',
+          category: 'Fase Final',
+          title: 'Documentación e Informes',
+          mainIdea: 'Al terminar el análisis, se debe presentar un **informe detallado** con todos los hallazgos y recomendaciones.',
+          definition: 'El informe final es el producto más importante del análisis de vulnerabilidades. Debe incluir cada prueba realizada, los resultados obtenidos, las vulnerabilidades encontradas y el nivel de riesgo de cada una.',
+          keyPoints: [
+            'Lista de todas las vulnerabilidades probadas.',
+            'Vulnerabilidades detectadas con su nivel de riesgo.',
+            'Lista de servicios y dispositivos vulnerables.',
+            'Resultados de las herramientas utilizadas.',
           ],
-          teacherNotes: 'Pida que diferentes estudiantes respondan cada pregunta. Aproveche la retroalimentación para reforzar conceptos.',
+          teacherNotes: 'Enfatice que un análisis sin documentación no sirve. El informe es lo que permite a la empresa tomar acciones correctivas. Sin informe, es como si el análisis no se hubiera hecho.',
         },
 
-        // ── Diapositiva 16: Actividad práctica ──
+        // ── Diapositiva 14: Actividad individual ──
         {
           type: 'activity',
-          title: 'Actividad en Clase: "Inspector de Seguridad"',
-          activityTitle: 'Instrucciones de la actividad:',
+          title: 'Actividad Individual',
+          activityTitle: 'Analista de seguridad por un día',
           icon: '🔍',
-          instructions: 'En grupos de 3, imaginen que son analistas de seguridad contratados para evaluar el colegio. Respondan:',
+          instructions: 'Lee el siguiente escenario y responde las preguntas en tu cuaderno:',
           steps: [
-            '¿Qué información personal del colegio debería estar protegida? (Prueba de privacidad)',
-            '¿Qué pasaría si todos los estudiantes intentan entrar al Wi-Fi al mismo tiempo? (Prueba DoS)',
-            '¿Qué regla del colegio consideran que no tiene sentido o se contradice con la realidad? (Evaluación de políticas)',
+            'Escenario: Una empresa llamada \"TechSolutions\" recibe un correo de un supuesto proveedor que dice: \"Hemos actualizado nuestro portal. Por favor ingrese aquí con sus credenciales para verificar su cuenta.\" Tres empleados hacen clic en el enlace y escriben su usuario y contraseña.',
+            'Pregunta 1: ¿Qué método de recopilación se utilizó en este ataque? Justifica tu respuesta.',
+            'Pregunta 2: ¿Qué prueba de las 6 debería realizarse para detectar este tipo de vulnerabilidad en el futuro?',
+            'Pregunta 3: Escribe UNA recomendación que le darías a la empresa para evitar que esto vuelva a ocurrir.',
           ],
-          tip: 'No necesitan herramientas técnicas. Solo analicen con lógica y sentido común.',
-          teacherNotes: 'Dé 10 minutos para el trabajo en grupos. Luego pida a 2 grupos que presenten sus hallazgos. Esto conecta el contenido técnico con su entorno cotidiano.',
+          tip: 'Tiempo estimado: 5–8 minutos. Trabaja individualmente. No necesitas internet.',
+          teacherNotes: 'La respuesta esperada es: Método de sugerencia dirigida (phishing). La prueba sería el testeo de aplicaciones de internet o la verificación de relaciones de confianza. Las recomendaciones pueden incluir: capacitar empleados, no hacer clic en enlaces sospechosos, verificar el remitente.',
         },
 
-        // ── Diapositiva 17: Resumen ──
+        // ── Diapositiva 15: Resumen ──
         {
           type: 'summary',
           title: 'Cierre de la Clase',
-          summaryTitle: 'Lo que no debes olvidar hoy:',
+          summaryTitle: 'Lo que debes recordar hoy:',
           points: [
-            'Un **análisis interior** evalúa la seguridad de una organización desde la perspectiva de un usuario normal.',
-            'Existen **7 tipos de pruebas**: privacidad, aplicaciones web, detección de intrusos, contingencia, contraseñas, denegación de servicios y políticas.',
-            'Las **contraseñas débiles** son una de las vulnerabilidades más comunes y fáciles de explotar.',
-            'Las **políticas de seguridad** deben ser coherentes con los objetivos reales del negocio.',
+            'Un **análisis exterior** evalúa la seguridad de una organización desde fuera, intentando acceder remotamente sin tener acceso previo.',
+            'Existen **4 métodos de recopilación**: inteligencia competitiva, revisión de privacidad, análisis de solicitud y sugerencia dirigida (phishing).',
+            'Tras la recopilación, se aplican **6 pruebas técnicas**: sondeo de red, identificación de servicios, búsqueda de vulnerabilidades, testeo de aplicaciones, relaciones de confianza y verificación inalámbrica.',
+            'Todo análisis debe terminar con un **informe detallado** que documente los hallazgos y el nivel de riesgo.',
           ],
-          teacherNotes: 'Haga una breve síntesis oral de 2 minutos. Puede preguntar: "¿Cuál de las 7 pruebas les pareció más interesante y por qué?"',
+          teacherNotes: 'Haga una síntesis oral breve. Puede cerrar preguntando: \"¿Qué fue lo que más les sorprendió de la clase de hoy?\"',
         },
       ],
     },
