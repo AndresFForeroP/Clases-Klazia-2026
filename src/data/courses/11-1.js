@@ -1,417 +1,279 @@
 /**
  * Contenido educativo — Grado 11.º Grupo 1
- * Tema: Características de la Arquitectura de Red
+ * Tema: Topologías de Red (Redes Informáticas)
  *
  * Fuente: cursos/11/11-1.md
  * Formato: Presentación Académica Interactiva (Diapositiva por Diapositiva)
  * Regla principal: UNA sola idea por diapositiva. Nivel avanzado para 11.º grado.
+ * Formato de clase:
+ * - Sin preguntas finales de evaluación.
+ * - Sin verdadero o falso.
+ * - Sin quiz de cierre.
+ * - Preguntas orales de discusión durante la explicación.
+ * - UNA sola ACTIVIDAD práctica individual (5-10 min).
  */
 
 export const course11_1 = {
-  title: 'Características de la Arquitectura de Red',
-  description: 'Presentación interactiva sobre las cuatro características fundamentales que toda arquitectura de red debe cumplir: tolerancia a fallas, escalabilidad, calidad de servicio y seguridad.',
+  title: 'Topologías de Red',
+  description: 'Presentación interactiva sobre la organización física y lógica de nodos y canales de transmisión en redes de comunicaciones.',
   lessons: [
     {
-      id: 'arquitectura-red',
-      title: 'Características de la Arquitectura de Red',
+      id: 'topologias-red',
+      title: 'Topologías de Red',
       description: 'Presentación académica guiada para la clase presencial de 11.º grado.',
       slides: [
         // ── Diapositiva 1: Título y Objetivos ──
         {
           type: 'title',
           badge: 'Informática 11.º — Grupo 1',
-          title: 'Características de la Arquitectura de Red',
-          subtitle: '¿Qué necesita una red para cumplir con las expectativas de millones de usuarios?',
+          title: 'Topologías de Red',
+          subtitle: 'Organización física y lógica de nodos y canales en redes de comunicaciones',
           objectives: [
-            'Definir qué es la arquitectura de red y por qué es importante.',
-            'Identificar y explicar las 4 características fundamentales de una arquitectura de red.',
-            'Analizar cómo cada característica se aplica en redes reales.',
-            'Evaluar la relación entre estas características y el diseño de redes modernas.',
+            'Definir qué es una topología de red y diferenciar el nivel físico del nivel lógico.',
+            'Analizar la arquitectura, ventajas y limitaciones de las topologías clásicas (Bus, Anillo, Estrella, Árbol, Malla, Mixta, Totalmente Conexa).',
+            'Evaluar los criterios técnicos (costo, escalabilidad, redundancia, diagnóstico) para seleccionar la topología adecuada.',
+            'Comprender la importancia del mapeo visual para la gestión eficaz de la red.',
           ],
-          teacherNotes: '**Sugerencia de inicio:** Pregunte al grupo qué servicios utilizan diariamente que dependan de una red (streaming, videollamadas, redes sociales, correo). Use esto para introducir la idea de que esos servicios requieren una infraestructura cuidadosamente diseñada.',
+          teacherNotes: '**Sugerencia de inicio:** Pregunte a los estudiantes cómo se imaginan que están conectados los computadores del colegio o de sus hogares. Introduzca la idea de que la disposición de los nodos determina el rendimiento y la resistencia a fallas de la red.',
         },
 
-        // ── Diapositiva 2: Pregunta introductoria ──
+        // ── Diapositiva 2: Pregunta disparadora ──
         {
           type: 'question',
-          question: '¿Qué ocurriría si Internet dejara de funcionar durante 24 horas?',
-          context: 'Piensen en todos los servicios que dependen de la red: comunicaciones, transacciones bancarias, navegación GPS, servicios de salud, entretenimiento...',
+          question: 'Si fallara un cable principal en una red bancaria o industrial, ¿debería detenerse toda la operación?',
+          context: 'Piensen en cómo la disposición de la red influye en la continuidad del servicio ante una avería de hardware...',
           options: [
-            'Solo afectaría el entretenimiento y las redes sociales',
-            'Paralizaría sectores económicos, comunicaciones y servicios críticos',
-            'No habría mayor impacto porque existen alternativas analógicas',
+            'Depende únicamente del modelo de computador, no de la estructura de la red',
+            'No necesariamente, si la topología está diseñada con rutas alternativas y redundancia adecuada',
+            'Sí, porque cualquier falla en un cable desconecta automáticamente a todos los dispositivos',
           ],
-          answer: 'Paralizaría sectores económicos, comunicaciones y servicios críticos a nivel global.',
-          explanation: 'Esto demuestra que Internet y las redes modernas necesitan una **arquitectura robusta** diseñada para estar siempre disponibles, crecer sin problemas, priorizar servicios críticos y proteger la información.',
-          teacherNotes: 'Permita que los estudiantes debatan brevemente. Aproveche para mencionar incidentes reales (caídas de servicios de Meta, Google o AWS) y su impacto global.',
+          answer: 'No necesariamente, si la topología está diseñada con rutas alternativas y redundancia adecuada.',
+          explanation: 'La **topología de red** (física y lógica) determina la tolerancia a fallas, la presencia de rutas redundantes y la capacidad de mantener el flujo de información aun ante la falla de un componente.',
+          teacherNotes: 'Genere una breve discusión oral (1-2 minutos). Conecte sus respuestas con la necesidad de planificar cuidadosamente la arquitectura y forma de interconexión.',
         },
 
-        // ── Diapositiva 3: Concepto — ¿Qué es la arquitectura de red? ──
+        // ── Diapositiva 3: Concepto — ¿Qué es una Topología de Red? ──
         {
           type: 'concept',
           category: 'Concepto Fundamental',
-          title: '¿Qué es la Arquitectura de Red?',
-          mainIdea: 'Se refiere a las **tecnologías, servicios y protocolos** que conforman la infraestructura de una red y permiten trasladar mensajes a través de ella.',
-          definition: 'Las redes deben admitir una amplia variedad de aplicaciones y servicios, así como funcionar con diferentes tipos de infraestructuras físicas. La arquitectura de red define cómo se organiza todo esto para cumplir con las expectativas de los usuarios.',
+          title: '¿Qué es una Topología de Red?',
+          mainIdea: 'Es la forma en que se **organizan y disponen los elementos** (nodos y enlaces) de una red de comunicaciones para asegurar la transmisión correcta y segura de datos.',
+          definition: 'Determina cómo se interconectan los dispositivos y cómo viaja la información entre ellos. Una estructura bien planificada evita cortes innecesarios y optimiza el flujo de datos.',
           keyPoints: [
-            'Abarca tanto la **infraestructura física** como los **procesos lógicos** (protocolos).',
-            'Debe soportar múltiples aplicaciones y servicios simultáneamente.',
-            'Internet evoluciona constantemente, y la arquitectura debe adaptarse.',
+            '**Nodos**: Dispositivos conectados (computadores, servidores, switches, routers, impresoras, cámaras IP, etc.).',
+            '**Enlaces/Conectores**: Canales de transmisión físicos (cables, conectores) o inalámbricos (antenas, enlaces de radio).',
+            '**Adaptabilidad**: La red debe adaptarse a la diversidad de dispositivos para cumplir requerimientos de velocidad y seguridad.',
           ],
-          teacherNotes: 'Enfatice que "arquitectura" no es solo el hardware: incluye los protocolos, las reglas y los mecanismos lógicos que hacen que los mensajes lleguen a su destino.',
+          teacherNotes: 'Enfatice que un "nodo" puede ser cualquier dispositivo inteligente o de interconexión en la red, no solo una computadora de escritorio.',
         },
 
-        // ── Diapositiva 4: Diagrama — Las 4 Características ──
+        // ── Diapositiva 4: Diagrama — Niveles de la Topología: Física vs. Lógica ──
         {
           type: 'diagram',
-          category: 'Visión General',
-          title: 'Las 4 Características Fundamentales',
-          subtitle: 'Toda arquitectura de red moderna debe cumplir con estas cuatro propiedades:',
+          category: 'Arquitectura de Red',
+          title: 'Niveles de la Topología de Red',
+          subtitle: 'La estructura de una red se representa en dos niveles fundamentales:',
           diagramType: 'comparison',
           columns: [
             {
-              badge: '01',
-              title: 'Tolerancia a Fallas',
-              desc: 'Capacidad de la red para **seguir funcionando** incluso cuando un componente falla.',
+              badge: 'Nivel 01',
+              title: 'Topología Física',
+              desc: 'Se refiere a la disposición real del hardware: **cómo se conectan los dispositivos físicos** mediante cables, conectores, switches y antenas. Define la ubicación espacial de los componentes.',
             },
             {
-              badge: '02',
-              title: 'Escalabilidad',
-              desc: 'Capacidad de **crecer** y admitir nuevos usuarios sin afectar el rendimiento.',
-            },
-            {
-              badge: '03',
-              title: 'Calidad de Servicio (QoS)',
-              desc: 'Capacidad de **priorizar** el tráfico según las necesidades de cada servicio.',
-            },
-            {
-              badge: '04',
-              title: 'Seguridad',
-              desc: 'Capacidad de **proteger** la información y garantizar privacidad en las comunicaciones.',
+              badge: 'Nivel 02',
+              title: 'Topología Lógica',
+              desc: 'Se refiere a la **forma en que fluyen los datos** a través de la red y cómo se transfieren las tramas de un nodo al siguiente, considerando la gestión de subredes e itinerarios lógicos.',
             },
           ],
-          teacherNotes: 'Esta diapositiva funciona como mapa general. Señale que las siguientes diapositivas profundizan en cada característica. Puede preguntar: "¿Cuál les parece más importante y por qué?"',
+          teacherNotes: 'Explique con un ejemplo: Físicamente una red puede estar conectada en forma de estrella a un switch, pero lógicamente comportarse como un bus de datos compartido.',
         },
 
-        // ── Diapositiva 5: Tolerancia a Fallas — Concepto ──
+        // ── Diapositiva 5: Topología de Bus ──
         {
           type: 'concept',
-          category: 'Característica 1 de 4',
-          title: 'Tolerancia a Fallas',
-          mainIdea: 'Una red tolerante a fallas **limita el impacto** de una falla de hardware o software y se **recupera rápidamente** cuando esta se produce.',
-          definition: 'La expectativa de que Internet esté siempre disponible para millones de usuarios requiere una arquitectura diseñada para ser tolerante a las fallas. Estas redes dependen de enlaces o rutas redundantes entre el origen y el destino del mensaje.',
+          category: 'Topologías Clásicas',
+          title: 'Topología de Bus (Línea o Troncal)',
+          mainIdea: 'Todos los dispositivos se conectan directamente a un **único canal troncal o bus central** sin otros vínculos entre nodos.',
+          definition: 'Los datos fluyen a lo largo del cable a medida que viajan a su destino. Es fácil de instalar y requiere muy poco cableado.',
           keyPoints: [
-            'Si un enlace o ruta falla, los mensajes se **enrutan instantáneamente** por una ruta alternativa.',
-            'La redundancia es transparente para los usuarios en cada extremo.',
-            'Tanto la infraestructura física como los procesos lógicos están diseñados para adaptarse a esta redundancia.',
+            '**Ventajas**: Bajo costo de implementación, fácil extensión para agregar o quitar aparatos.',
+            '**Desventajas**: Susceptible a colisiones de datos, congestión de tráfico y cuellos de botella.',
+            '**Punto crítico de falla**: Si existe un problema o corte en el canal troncal, **todos los dispositivos quedan desconectados**.',
           ],
-          teacherNotes: 'Explique el concepto de redundancia: tener más de un camino disponible para que, si uno falla, la comunicación no se interrumpa.',
+          teacherNotes: 'Mencione que fue muy popular en redes ethernet primitivas con cable coaxial (10Base2), pero hoy en día es obsoleta en redes LAN corporativas.',
         },
 
-        // ── Diapositiva 6: Tolerancia a Fallas — Ejemplo ──
-        {
-          type: 'example',
-          category: 'Ejemplo Práctico',
-          title: 'Redundancia de Rutas en Internet',
-          subtitle: '¿Cómo funciona en la práctica?',
-          icon: '🔀',
-          description: 'Cuando envías un mensaje desde Colombia a un servidor en Estados Unidos, los datos no siguen un único camino. Existen **múltiples rutas** a través de diferentes cables submarinos, satélites y centros de datos. Si un cable se corta o un router falla, los paquetes de datos se redirigen automáticamente por otra ruta.',
-          analogy: '**Caso real:** En 2008, varios cables submarinos en el Mediterráneo fueron cortados accidentalmente. Millones de usuarios en Medio Oriente perdieron conectividad, pero los protocolos de enrutamiento redirigieron parte del tráfico por rutas alternativas, minimizando el impacto.',
-          features: [
-            '**Redundancia física**: Múltiples cables, routers y enlaces entre puntos.',
-            '**Redundancia lógica**: Protocolos de enrutamiento dinámico (OSPF, BGP) que recalculan rutas automáticamente.',
-            '**Transparencia**: El usuario no percibe el cambio de ruta; la conexión continúa.',
-          ],
-          teacherNotes: 'Pregunte: "¿Qué pasaría si solo existiera un cable submarino entre Sudamérica y el resto del mundo?" Esto ayuda a visualizar la importancia de la redundancia.',
-        },
-
-        // ── Diapositiva 7: Escalabilidad — Concepto ──
-        {
-          type: 'concept',
-          category: 'Característica 2 de 4',
-          title: 'Escalabilidad',
-          mainIdea: 'Una red escalable puede **expandirse rápidamente** para admitir nuevos usuarios y aplicaciones **sin afectar el rendimiento** del servicio existente.',
-          definition: 'Miles de nuevos usuarios y proveedores de servicio se conectan a Internet cada semana. La capacidad de admitir estas nuevas interconexiones depende de un diseño jerárquico en capas para la infraestructura física subyacente y la arquitectura lógica.',
-          keyPoints: [
-            'El funcionamiento en **capas** permite insertar nuevos usuarios sin causar disrupción en toda la red.',
-            'Los desarrollos tecnológicos aumentan constantemente la **capacidad de transmisión** y el rendimiento.',
-            'Nuevos métodos para **identificar y localizar** usuarios individuales permiten que Internet se mantenga al ritmo de la demanda.',
-          ],
-          teacherNotes: 'Mencione que Internet pasó de unos pocos miles de computadores en los años 80 a más de 5.000 millones de dispositivos conectados actualmente. Todo esto sin "reiniciar" la red.',
-        },
-
-        // ── Diapositiva 8: Escalabilidad — Ejemplo ──
-        {
-          type: 'example',
-          category: 'Ejemplo Práctico',
-          title: 'Diseño Jerárquico: Crecer sin Romper',
-          subtitle: '¿Cómo logra Internet crecer sin colapsar?',
-          icon: '📈',
-          description: 'Internet utiliza un **diseño jerárquico en capas**. Imagine una pirámide: en la base están los ISP locales que conectan hogares y empresas; en el medio, los ISP regionales que interconectan ciudades; en la cima, los operadores de backbone que conectan países y continentes.',
-          analogy: '**Analogía:** Es como el sistema vial de un país. Los caminos locales conectan barrios, las carreteras secundarias conectan ciudades, y las autopistas nacionales conectan regiones. Puede agregar nuevos barrios sin tener que reconstruir toda la autopista.',
-          features: [
-            '**ISP local (Tier 3)**: Conecta al usuario final (hogares, oficinas, escuelas).',
-            '**ISP regional (Tier 2)**: Interconecta ISPs locales a nivel de ciudades o regiones.',
-            '**Backbone (Tier 1)**: Redes troncales que interconectan países y continentes.',
-          ],
-          teacherNotes: 'Pregunte qué ISP utilizan los estudiantes en sus hogares. Esto conecta el concepto abstracto con su experiencia directa.',
-        },
-
-        // ── Diapositiva 9: Pregunta intermedia ──
+        // ── Diapositiva 6: Pregunta oral — Análisis de Topología de Bus ──
         {
           type: 'question',
-          question: '¿Cuál es la diferencia fundamental entre tolerancia a fallas y escalabilidad?',
-          context: 'Ambas son necesarias, pero responden a problemas diferentes de la red...',
+          question: '¿Por qué la topología de Bus no es recomendable para una empresa con alto volumen de datos?',
+          context: 'Reflexionen sobre el impacto del canal compartido cuando decenas de computadores transmiten simultáneamente...',
           options: [
-            'La tolerancia a fallas permite crecer; la escalabilidad previene fallas',
-            'La tolerancia a fallas mantiene el servicio cuando algo falla; la escalabilidad permite agregar más usuarios sin degradar el servicio',
-            'Son lo mismo expresado de diferente manera',
+            'Porque los cables troncales no admiten la señal Wi-Fi',
+            'Porque al compartir un solo canal se generan colisiones constantes y la falla del cable paraliza toda la empresa',
+            'Porque impide la conexión de impresoras en red',
           ],
-          answer: 'La tolerancia a fallas mantiene el servicio cuando algo falla; la escalabilidad permite agregar más usuarios sin degradar el servicio.',
-          explanation: '**Tolerancia a fallas** = reacción ante problemas (algo se rompe, la red sigue funcionando). **Escalabilidad** = capacidad de crecimiento (la red admite más usuarios sin perder rendimiento). Son complementarias pero abordan aspectos diferentes.',
-          teacherNotes: 'Use esta pregunta para verificar que los estudiantes distinguen ambos conceptos. Pida que un estudiante explique la diferencia con sus propias palabras antes de revelar.',
+          answer: 'Porque al compartir un solo canal se generan colisiones constantes y la falla del cable paraliza toda la empresa.',
+          explanation: 'El bus es un **medio compartido de colisión**. A mayor tráfico, mayor congestión. Además, carece de tolerancia a fallas en su canal principal.',
+          teacherNotes: 'Solicite la participación de un estudiante para argumentar por qué la falta de redundancia en un canal único es crítica en entornos corporativos.',
         },
 
-        // ── Diapositiva 10: Calidad de Servicio — Concepto ──
+        // ── Diapositiva 7: Topología de Anillo ──
         {
           type: 'concept',
-          category: 'Característica 3 de 4',
-          title: 'Calidad de Servicio (QoS)',
-          mainIdea: 'QoS permite **priorizar** ciertos tipos de tráfico para garantizar que los servicios críticos mantengan un nivel de calidad aceptable.',
-          definition: 'Las transmisiones de voz y video en vivo requieren un nivel de calidad consistente y un envío ininterrumpido que no era necesario para las aplicaciones informáticas tradicionales. Los nuevos requisitos para dar soporte a esta calidad sobre una red convergente cambian la forma en que se diseñan las arquitecturas de red.',
-          analogy: '**Ejemplo:** Internet actualmente proporciona un nivel aceptable de tolerancia a fallas y escalabilidad. Pero cuando haces una videollamada mientras alguien más descarga un archivo pesado en la misma red, la calidad de la videollamada no debería verse afectada. QoS se encarga de eso.',
+          category: 'Topologías Circulares',
+          title: 'Topología de Anillo',
+          mainIdea: 'Los nodos se configuran en un **patrón circular cerrado** donde cada dispositivo se conecta directamente con sus dos contiguos.',
+          definition: 'Al recibir un mensaje, el nodo verifica si es el destinatario. Si no lo es, retransmite los datos al siguiente nodo hasta completar el recorrido.',
           keyPoints: [
-            'Las redes tradicionales soportaban un **tipo único** de transmisión (datos).',
-            'Las redes convergentes deben transportar **voz, video y datos** simultáneamente.',
-            'QoS mide la calidad contra la experiencia de una comunicación presencial.',
+            '**Mejor rendimiento que el bus**: Evita colisiones gracias a un flujo de datos ordenado en una sola dirección.',
+            '**Facilidad de diagnóstico**: Es sencillo rastrear y localizar fallas en el circuito.',
+            '**Limitación principal**: Los nodos no pueden enviar mensajes simultáneamente. Si un nodo o enlace falla, se interrumpe la conexión general.',
           ],
-          teacherNotes: 'Pregunte: "¿Han experimentado que una videollamada se congele o se pixele mientras alguien más descarga un archivo?" Eso ocurre cuando no hay QoS o está mal configurado.',
+          teacherNotes: 'Explique brevemente la tecnología Token Ring histórica para ilustrar el concepto del "turno de palabra" en el anillo.',
         },
 
-        // ── Diapositiva 11: QoS — Ejemplo ──
-        {
-          type: 'example',
-          category: 'Caso de Aplicación',
-          title: 'Videollamada vs. Descarga de Archivo',
-          subtitle: '¿Por qué algunos servicios necesitan más prioridad que otros?',
-          icon: '📹',
-          description: 'Una videollamada necesita que los paquetes de datos lleguen **en orden, sin demora y sin interrupciones**. Si un paquete llega tarde, se percibe como congelamiento o corte de audio. En cambio, la descarga de un archivo puede tolerar pequeños retrasos sin que el usuario lo note.',
-          analogy: '**En una red convergente con QoS:** El router identifica que los paquetes de la videollamada son prioritarios y les da preferencia sobre los paquetes de la descarga. La videollamada mantiene su calidad mientras la descarga simplemente tarda un poco más.',
-          features: [
-            '**Tráfico sensible a la latencia**: Videollamadas, VoIP, transmisiones en vivo → alta prioridad.',
-            '**Tráfico tolerante a retrasos**: Descargas, correos, actualizaciones → menor prioridad.',
-            '**Red convergente**: Una sola infraestructura que transporta todos los tipos de tráfico con diferentes niveles de servicio.',
-          ],
-          teacherNotes: 'Puede hacer una analogía con una sala de urgencias: los pacientes críticos se atienden primero, aunque otros hayan llegado antes. QoS funciona de manera similar con el tráfico de red.',
-        },
-
-        // ── Diapositiva 12: Seguridad — Concepto ──
+        // ── Diapositiva 8: Topología de Estrella ──
         {
           type: 'concept',
-          category: 'Característica 4 de 4',
-          title: 'Seguridad en la Arquitectura de Red',
-          mainIdea: 'La seguridad busca garantizar la **privacidad** y **protección** de la información que se transmite a través de la red.',
-          definition: 'Internet ha evolucionado de ser una internetwork de organizaciones educativas y gubernamentales fuertemente controlada, a ser un medio accesible para todos para la transmisión de comunicaciones comerciales y personales. Como resultado, cambiaron los requerimientos de seguridad de la red.',
+          category: 'Topología Estándar',
+          title: 'Topología de Estrella y Estrella Extendida',
+          mainIdea: 'Es el tipo más común en redes LAN modernas. Todos los dispositivos se conectan a un **nodo central (hub/switch)** que gestiona la transmisión de datos.',
+          definition: 'El concentrador central permite que todas las estaciones se comuniquen entre sí de manera independiente.',
           keyPoints: [
-            'Las expectativas de privacidad y seguridad del uso empresarial **exceden** lo que la arquitectura original podía ofrecer.',
-            'La expansión de las comunicaciones **aumenta la necesidad** de incorporar seguridad en la arquitectura.',
-            'Se están implementando herramientas y procedimientos para combatir los **defectos de seguridad inherentes** a la arquitectura de red.',
+            '**Aislamiento de fallas**: Si falla un cable de un computador, solo ese equipo pierde red; los demás siguen funcionando.',
+            '**Punto central de falla**: Si el nodo central sufre un error grave, toda la red queda expuesta a la desconexión.',
+            '**Estrella Extendida**: Los elementos conectados al nodo central se convierten a su vez en el centro de sub-estrellas, ampliando la red.',
           ],
-          teacherNotes: 'Enfatice que Internet no fue diseñado originalmente para ser seguro; fue creado para compartir información entre universidades. La seguridad se ha incorporado después, lo cual genera desafíos constantes.',
+          teacherNotes: 'Resalte que es la topología que se utiliza en la inmensa mayoría de salas de informática, oficinas y redes domésticas actuales.',
         },
 
-        // ── Diapositiva 13: Seguridad — Ejemplo ──
+        // ── Diapositiva 9: Topología de Árbol ──
         {
-          type: 'example',
-          category: 'Evolución Histórica',
-          title: 'De la Academia al Comercio: La Transformación de Internet',
-          subtitle: 'El cambio que redefinió las necesidades de seguridad',
-          icon: '🔒',
-          description: 'En los años 60-80, Internet (ARPANET) conectaba universidades y centros de investigación gubernamentales. La seguridad no era una prioridad porque los usuarios eran pocos y confiables. Cuando Internet se abrió al público y al comercio en los años 90, millones de usuarios comenzaron a transmitir **información bancaria, datos personales y comunicaciones confidenciales**, lo cual requirió un cambio radical en la arquitectura de seguridad.',
-          analogy: '**Reflexión:** Es como si una biblioteca privada de una universidad, donde solo entran profesores, de repente se abriera al público general. Las reglas de acceso y protección de los libros más valiosos tendrían que cambiar completamente.',
-          features: [
-            '**Años 60-80**: Red académica/militar. Pocos usuarios, alta confianza, seguridad mínima.',
-            '**Años 90-2000**: Apertura comercial. Millones de usuarios, transacciones financieras, necesidad de cifrado.',
-            '**Actualidad**: Infraestructura crítica global. Seguridad es un área activa de investigación y desarrollo.',
+          type: 'concept',
+          category: 'Topologías Escalables',
+          title: 'Topología de Árbol (Jerárquica)',
+          mainIdea: 'Cuenta con un **enlace troncal principal (backbone)** a partir del cual se ramifican concentradores secundarios y nodos de control.',
+          definition: 'Estructura en forma de árbol que puede ser binario (cada nodo se fragmenta en 2 enlaces) o backbone (tronco principal conectado a branches).',
+          keyPoints: [
+            '**Segmentación de fallas**: Si un nodo secundario o rama falla, no afecta a los demás subsistemas ni al tronco principal.',
+            '**Reducción de tráfico**: Permite aislar el tráfico de datos por ramas o departamentos.',
+            '**Recomendada para gran escala**: Es la arquitectura óptima para edificios corporativos y campus universitarios.',
           ],
-          teacherNotes: 'Mencione ejemplos de incidentes de seguridad conocidos (WannaCry, filtraciones de datos de empresas) para ilustrar por qué la seguridad es un desafío permanente.',
+          teacherNotes: 'Utilice la analogía del tronco de un árbol con sus ramas para visualizar cómo se distribuyen los switches de piso respecto al router/switch core.',
         },
 
-        // ── Diapositiva 14: Pregunta de análisis ──
+        // ── Diapositiva 10: Pregunta oral — Estrella vs. Árbol ──
         {
           type: 'question',
-          question: '¿Por qué es tan difícil lograr seguridad completa en Internet si sabemos que es necesaria?',
-          context: 'Consideren que Internet fue diseñado para compartir información libremente, no para protegerla...',
+          question: '¿Cuándo es necesario evolucionar de una topología de Estrella simple a una de Árbol?',
+          context: 'Piensen en una institución que se expande de 10 equipos a 300 equipos repartidos en 4 pisos...',
           options: [
-            'Porque no existen herramientas de seguridad suficientes',
-            'Porque la arquitectura original de Internet no fue diseñada con seguridad como prioridad, y modificar la base de una red global es un desafío enorme',
-            'Porque los gobiernos no invierten en seguridad de redes',
+            'Cuando se desea conectar dispositivos mediante Bluetooth',
+            'Cuando la cantidad de equipos y la distancia física requieren sub-centros de conexión para no saturar ni tirar cables largos',
+            'Únicamente cuando se requiere conexión satelital',
           ],
-          answer: 'Porque la arquitectura original de Internet no fue diseñada con seguridad como prioridad, y modificar la base de una red global en funcionamiento es un desafío técnico enorme.',
-          explanation: 'Incorporar seguridad a una red que fue construida sobre principios de **apertura y confianza** es como intentar agregar una caja fuerte a una casa que fue diseñada sin cerraduras. Se puede hacer, pero requiere esfuerzo continuo y nunca será perfecto. Por eso la seguridad es un área activa de **investigación y desarrollo**.',
-          teacherNotes: 'Esta pregunta requiere análisis. Permita que los estudiantes reflexionen y formulen sus respuestas antes de revelar. Conecte con el hecho de que la seguridad perfecta no existe; es un proceso continuo.',
+          answer: 'Cuando la cantidad de equipos y la distancia física requieren sub-centros de conexión para no saturar ni tirar cables largos.',
+          explanation: 'La topología de **Árbol** permite jerarquizar la red en ramas (por pisos o departamentos), optimizando el cableado y el rendimiento.',
+          teacherNotes: 'Pida a los estudiantes que imaginen los cables necesarios si 300 computadores de 4 pisos tuvieran que conectarse a un solo switch en el primer piso.',
         },
 
-        // ── Diapositiva 15: Tabla comparativa ──
+        // ── Diapositiva 11: Topología de Malla y Totalmente Conexa ──
+        {
+          type: 'concept',
+          category: 'Alta Disponibilidad',
+          title: 'Topología de Malla y Totalmente Conexa',
+          mainIdea: 'Todos los componentes están interconectados mediante **vías de transmisión separadas y redundantes**.',
+          definition: 'En la **Malla**, la información encuentra rutas alternativas si una conexión falla. En la **Totalmente Conexa**, existe un enlace directo entre absolutamente todos los pares de nodos.',
+          keyPoints: [
+            '**Topología de Malla**: Inmune a fallas de un solo enlace. Requiere un número limitado de nodos por la cantidad de puertos necesarios.',
+            '**Topología Totalmente Conexa**: Máximo grado de confiabilidad y redundancia total. Alto costo de configuración.',
+            '**Aplicaciones de misión crítica**: Utilizadas principalmente en infraestructura militar, centros de datos y redes financieras.',
+          ],
+          teacherNotes: 'Mencione la fórmula de conexiones para totalmente conexa (N*(N-1)/2) para demostrar por qué no se usa en redes masivas de computadores personales.',
+        },
+
+        // ── Diapositiva 12: Topología Mixta ──
+        {
+          type: 'concept',
+          category: 'Diseños Reales',
+          title: 'Topología Mixta (Híbrida)',
+          mainIdea: 'Combina **dos o más topologías de red diferentes** para adaptarse a la estructura física y requerimientos del lugar de instalación.',
+          definition: 'Permite moldear la red equilibrando seguridad, velocidad e interconexión según las necesidades operativas de la organización.',
+          keyPoints: [
+            '**Fiabilidad y flexibilidad**: Facilita la detección de errores y la resolución de problemas por bloques o áreas.',
+            '**Escalable y eficaz**: Admite integrar diferentes tecnologías de transmisión.',
+            '**Desventajas**: Complejidad en el diseño inicial y costos de mantenimiento más elevados.',
+          ],
+          teacherNotes: 'Explique que la mayoría de empresas reales usan una topología mixta (ej. Estrella para oficinas conectadas en Árbol entre edificios, con enlaces en Malla entre servidores).',
+        },
+
+        // ── Diapositiva 13: Tabla comparativa de topologías ──
         {
           type: 'diagram',
-          category: 'Síntesis Comparativa',
-          title: 'Las 4 Características en Perspectiva',
-          subtitle: 'Cada característica responde a una necesidad diferente de la red:',
+          category: 'Síntesis Técnica',
+          title: 'Matriz Comparativa de Topologías',
+          subtitle: 'Análisis de parámetros de desempeño y aplicabilidad:',
           diagramType: 'table',
-          tableHeaders: ['Característica', 'Problema que resuelve', 'Mecanismo clave', 'Ejemplo'],
+          tableHeaders: ['Topología', 'Tolerancia a Fallas', 'Costo / Complejidad', 'Escalabilidad', 'Uso Principal'],
           tableRows: [
-            ['Tolerancia a fallas', 'Interrupciones del servicio', 'Rutas redundantes y enrutamiento dinámico', 'Cable submarino cortado → ruta alternativa'],
-            ['Escalabilidad', 'Crecimiento de la demanda', 'Diseño jerárquico en capas', 'Miles de usuarios nuevos cada semana'],
-            ['Calidad de Servicio', 'Diferencias en tipos de tráfico', 'Priorización de paquetes', 'Videollamada sin interrupciones'],
-            ['Seguridad', 'Protección de la información', 'Cifrado, autenticación, firewalls', 'Transacciones bancarias seguras'],
+            ['Bus', 'Muy baja (corte en canal paraliza)', 'Muy bajo / Sencillo', 'Limitada (congestión)', 'Redes pequeñas o antiguas'],
+            ['Anillo', 'Baja (falla en nodo interrumpe)', 'Bajo-Medio / Ordenado', 'Media', 'Sistemas industriales específicos'],
+            ['Estrella', 'Media-Alta (aisla nodos; falla central cae)', 'Medio', 'Alta', 'LAN corporativas, escuelas, hogares'],
+            ['Árbol', 'Alta por segmentos', 'Medio-Alto / Jerárquico', 'Muy Alta', 'Campus y edificios corporativos'],
+            ['Malla / Conexa', 'Máxima (rutas alternativas redundantes)', 'Muy Alto / Complejo', 'Limitada a pocos nodos', 'Infraestructura crítica y militar'],
+            ['Mixta (Híbrida)', 'Alta (adaptable por zona)', 'Alto / Diseño complejo', 'Excelente', 'Redes empresariales modernas'],
           ],
-          teacherNotes: 'Repase la tabla columna por columna. Pregunte a diferentes estudiantes si pueden dar un ejemplo adicional para cada característica.',
+          teacherNotes: 'Repase la matriz con los estudiantes para consolidar los criterios de decisión técnica antes de la actividad.',
         },
 
-        // ── Diapositiva 16: Verdadero o Falso ──
+        // ── Diapositiva 14: Criterios de Selección y Mapeo Visual ──
         {
-          type: 'trueFalse',
-          title: 'Evalúa tu Comprensión',
-          tfTitle: 'Determina si cada afirmación es verdadera o falsa:',
-          statements: [
-            {
-              id: 'tf1',
-              text: 'La tolerancia a fallas garantiza que la red nunca tendrá problemas.',
-              isTrue: false,
-              feedback: {
-                correct: '¡Correcto! La tolerancia a fallas no **evita** los problemas; **limita su impacto** y permite una recuperación rápida.',
-                incorrect: 'No exactamente. La tolerancia a fallas no evita las fallas; **limita su impacto** y permite que la red se recupere rápidamente usando rutas alternativas.',
-              },
-            },
-            {
-              id: 'tf2',
-              text: 'La escalabilidad se logra gracias a un diseño jerárquico en capas.',
-              isTrue: true,
-              feedback: {
-                correct: '¡Exacto! El diseño jerárquico permite insertar nuevos usuarios y servicios sin causar disrupción en toda la red.',
-                incorrect: 'En realidad es verdadera. La escalabilidad de Internet se basa en un **diseño jerárquico en capas** que permite crecer sin afectar el servicio existente.',
-              },
-            },
-            {
-              id: 'tf3',
-              text: 'QoS es necesario porque todos los tipos de tráfico de red tienen los mismos requisitos.',
-              isTrue: false,
-              feedback: {
-                correct: '¡Correcto! QoS existe precisamente porque los tipos de tráfico tienen **requisitos diferentes**: una videollamada necesita baja latencia, pero una descarga puede tolerar retrasos.',
-                incorrect: 'Es falsa. Los tipos de tráfico tienen requisitos muy diferentes. Una videollamada necesita **baja latencia**, mientras que una descarga de archivo puede tolerar retrasos. Por eso QoS prioriza.',
-              },
-            },
-            {
-              id: 'tf4',
-              text: 'Internet fue diseñado originalmente con la seguridad como prioridad.',
-              isTrue: false,
-              feedback: {
-                correct: '¡Correcto! Internet fue diseñado para compartir información entre universidades, no para protegerla. La seguridad se incorporó después.',
-                incorrect: 'Es falsa. Internet (ARPANET) fue creado para **compartir información libremente** entre universidades y centros de investigación. La seguridad se ha incorporado posteriormente.',
-              },
-            },
+          type: 'concept',
+          category: 'Gestión y Planificación',
+          title: 'Selección de Modelo y Mapeo Visual',
+          mainIdea: 'Elegir la topología adecuada exige balancear **costo, viabilidad, velocidad, escalabilidad y tolerancia a fallas**, respaldado por un **mapeo visual preciso**.',
+          definition: 'El mapeo visual (mapa de red) es la representación gráfica indispensable de los componentes físicos y lógicos para la gestión eficaz.',
+          keyPoints: [
+            '**Factores de decisión**: Presupuesto disponible, máquinas a conectar, tráfico esperado, velocidad requerida y tiempo de detección de errores.',
+            '**Mapeo Visual**: Permite a los administradores monitorear la red en tiempo real, ubicar fallas de inmediato e identificar cuellos de botella.',
           ],
-          teacherNotes: 'Pida a los estudiantes que justifiquen sus respuestas antes de revelar la retroalimentación. Esto refuerza el razonamiento, no solo la memorización.',
+          teacherNotes: 'Muestre la importancia de contar con un diagrama de red actualizado (software como Visio, Packet Tracer o Draw.io) en cualquier departamento de IT.',
         },
 
-        // ── Diapositiva 17: Quiz interactivo ──
-        {
-          type: 'quiz',
-          title: 'Comprobación de Aprendizaje',
-          description: 'Responde las siguientes preguntas para verificar tu comprensión sobre la arquitectura de red.',
-          quizTitle: '¿Qué tanto comprendimos sobre arquitectura de red?',
-          questions: [
-            {
-              id: 'q1',
-              question: '¿Qué mecanismo utiliza una red tolerante a fallas para mantener la comunicación cuando un enlace falla?',
-              options: [
-                'Apaga la red hasta reparar el enlace',
-                'Utiliza rutas redundantes para redirigir los mensajes instantáneamente',
-                'Envía una alerta al administrador y espera su intervención manual',
-              ],
-              correctIndex: 1,
-              feedback: {
-                correct: '¡Correcto! Las rutas redundantes permiten que los mensajes se redireccionan automáticamente, de forma transparente para el usuario.',
-                incorrect: 'La red utiliza **rutas redundantes** que permiten redirigir los mensajes automáticamente sin intervención manual y sin que el usuario perciba la falla.',
-              },
-            },
-            {
-              id: 'q2',
-              question: '¿Qué tipo de diseño permite que Internet sea escalable?',
-              options: [
-                'Diseño centralizado con un único punto de control',
-                'Diseño jerárquico en capas',
-                'Diseño plano sin niveles de jerarquía',
-              ],
-              correctIndex: 1,
-              feedback: {
-                correct: '¡Exacto! El diseño jerárquico en capas permite agregar nuevos usuarios y servicios sin afectar el funcionamiento global.',
-                incorrect: 'Internet utiliza un **diseño jerárquico en capas** (ISP locales, regionales, backbone) que permite crecer sin causar disrupción en toda la red.',
-              },
-            },
-            {
-              id: 'q3',
-              question: '¿Por qué una videollamada requiere mayor prioridad (QoS) que una descarga de archivo?',
-              options: [
-                'Porque las videollamadas consumen más ancho de banda',
-                'Porque la videollamada es sensible a la latencia y no tolera retrasos',
-                'Porque las descargas son más importantes que las videollamadas',
-              ],
-              correctIndex: 1,
-              feedback: {
-                correct: '¡Correcto! La videollamada requiere que los paquetes lleguen en tiempo real, sin demora. Un retraso se percibe como congelamiento o corte.',
-                incorrect: 'La videollamada es **sensible a la latencia**: necesita que los paquetes lleguen en orden y sin retraso. Una descarga puede tolerar pequeños retrasos sin que el usuario lo note.',
-              },
-            },
-            {
-              id: 'q4',
-              question: '¿Por qué la seguridad es un desafío constante en Internet?',
-              options: [
-                'Porque no existen herramientas de seguridad disponibles',
-                'Porque la arquitectura original de Internet no fue diseñada con seguridad como prioridad',
-                'Porque los usuarios no quieren seguridad en sus comunicaciones',
-              ],
-              correctIndex: 1,
-              feedback: {
-                correct: '¡Exacto! Internet fue diseñado para compartir información libremente. Incorporar seguridad a una arquitectura que no la contempló originalmente es un desafío continuo.',
-                incorrect: 'La razón principal es que **la arquitectura original de Internet no fue diseñada con seguridad como prioridad**. Fue creada para compartir información entre universidades, y agregar seguridad después es un desafío permanente.',
-              },
-            },
-          ],
-          teacherNotes: 'Pida que diferentes estudiantes respondan cada pregunta. Aproveche la retroalimentación para reforzar los conceptos más importantes.',
-        },
-
-        // ── Diapositiva 18: Actividad práctica ──
+        // ── Diapositiva 15: Actividad Práctica Individual (5-10 min) ──
         {
           type: 'activity',
-          title: 'Actividad: Diseño de Red Empresarial',
-          activityTitle: 'Caso práctico — Arquitectura de red para una empresa',
-          icon: '🏗️',
-          instructions: 'En grupos de 3, imaginen que una empresa de comercio electrónico los contrata para evaluar su red. Analicen cada característica:',
+          title: 'Actividad Individual: Selección de Topología',
+          activityTitle: 'Caso Práctico — Selección y Justificación Técnica para un Centro Médico',
+          icon: '📋',
+          instructions: 'Lee el siguiente escenario y responde los 4 puntos en tu cuaderno o documento de trabajo. Tiempo estimado: 5 a 10 minutos. Trabajo estrictamente individual.',
           steps: [
-            '**Tolerancia a fallas:** ¿Qué pasaría si el servidor principal de la tienda en línea se cae en un día de ofertas? ¿Qué solución propondrían?',
-            '**Escalabilidad:** La empresa pasó de 1.000 usuarios diarios a 50.000 en un año. ¿Cómo debería estar diseñada la red para soportar ese crecimiento?',
-            '**QoS:** La empresa usa videollamadas para atención al cliente y simultáneamente procesa miles de transacciones. ¿Qué tráfico priorizarían?',
-            '**Seguridad:** Los clientes ingresan datos de tarjetas de crédito. ¿Qué medidas de seguridad son indispensables?',
+            '**Escenario:** Un centro médico necesita conectar 10 consultorios, 2 salas de radiología y 1 servidor central de historias clínicas. Requerimiento indispensable: si el equipo de un consultorio falla o se desconecta, el resto de la red debe seguir funcionando perfectamente.',
+            '**Paso 1 (Selección):** Identifica y escribe cuál es la topología de red más adecuada (Bus, Anillo, Estrella, Árbol o Malla) para este escenario.',
+            '**Paso 2 (Justificación):** Argumenta 2 razones técnicas de tu elección basándote en la tolerancia a fallas y la facilidad de mantenimiento.',
+            '**Paso 3 (Descarte):** Explica en una frase técnica por qué la topología de Bus sería inaceptable para este centro médico.',
+            '**Paso 4 (Resultado Esperado):** Describe concretamente qué ocurriría con la conexión del servidor y los demás consultorios si el cable de la sala de radiología 1 se rompe accidentalmente.',
           ],
-          tip: 'No hay una única respuesta correcta. Lo importante es que cada propuesta esté justificada técnicamente con lo aprendido en clase.',
-          teacherNotes: 'Dé 12-15 minutos para la actividad grupal. Luego pida a 2 grupos que presenten sus propuestas. Evalúe la calidad de la justificación, no solo la respuesta.',
+          tip: 'Tiempo estimado: 5 a 10 minutos. Trabajo individual. Asegúrate de incluir el nombre de la topología elegida, tus 2 razones técnicas, la razón de descarte del bus y la descripción del fallo aislado.',
+          teacherNotes: 'Dé entre 5 y 10 minutos para que cada estudiante complete el ejercicio de manera individual en su cuaderno. Al finalizar, pida a 2 estudiantes al azar que lean sus respuestas para verificar la comprensión.',
         },
 
-        // ── Diapositiva 19: Resumen ──
+        // ── Diapositiva 16: Resumen y Cierre ──
         {
           type: 'summary',
           title: 'Cierre de la Clase',
-          summaryTitle: 'Puntos clave sobre arquitectura de red:',
+          summaryTitle: 'Puntos clave a recordar sobre Topologías de Red:',
           points: [
-            'La **arquitectura de red** abarca las tecnologías, servicios y protocolos que permiten la comunicación en una red.',
-            'La **tolerancia a fallas** utiliza rutas redundantes para mantener el servicio cuando un componente falla.',
-            'La **escalabilidad** se logra mediante un diseño jerárquico en capas que permite crecer sin disrupciones.',
-            'La **Calidad de Servicio (QoS)** prioriza el tráfico sensible (voz, video) sobre el tráfico tolerante a retrasos.',
-            'La **seguridad** es un desafío continuo porque Internet no fue diseñado originalmente para proteger la información.',
+            'La **topología de red** es la disposición física (cables/nodos) y lógica (flujo de datos) de una red de comunicaciones.',
+            'Las topologías **Bus y Anillo** son modelos históricos simples pero vulnerables a puntos únicos de falla.',
+            'La **Estrella y el Árbol** son los estándares dominantes en redes LAN corporativas por su aislamiento de fallas y escalabilidad.',
+            'La **Malla y Totalmente Conexa** ofrecen máxima confiabilidad y rutas alternativas para sistemas de misión crítica.',
+            'La **topología Mixta** permite combinar modelos según las necesidades físicas de la instalación.',
+            'Un **mapeo visual preciso** es indispensable para administrar, detectar y resolver fallas en cualquier infraestructura de red.',
           ],
-          teacherNotes: 'Cierre con una síntesis de 2-3 minutos. Puede preguntar: "Si tuvieran que explicar estas 4 características a alguien que no sabe nada de redes, ¿cómo lo harían?"',
+          teacherNotes: 'Realice un cierre de 2 minutos destacando cómo las topologías de red conectan la teoría de hardware con el diseño práctico de sistemas de comunicaciones.',
         },
       ],
     },
