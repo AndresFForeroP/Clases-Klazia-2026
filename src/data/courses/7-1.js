@@ -1,280 +1,228 @@
 /**
  * Contenido educativo — Grado 7.º Grupo 1
- * Tema: Innovación Tecnológica
+ * Tema: Introducción a las Hojas de Cálculo
  *
  * Fuente: cursos/7/7-1.md
  * Formato: Presentación Académica Interactiva (Diapositiva por Diapositiva)
- * Regla principal: UNA sola idea por diapositiva.
+ * Regla principal: UNA sola idea por diapositiva. Lenguaje claro, cercano y visual para 7.º grado.
  */
 
 export const course7_1 = {
-  title: 'Innovación Tecnológica',
-  description: 'Presentación interactiva para explicar qué es la innovación tecnológica, sus 3 tipos y ejemplos reales en la vida cotidiana.',
+  title: 'Introducción a las Hojas de Cálculo',
+  description: 'Presentación interactiva para dominar los fundamentos de las hojas de cálculo, libros, celdas, rangos y barras de herramientas.',
   lessons: [
     {
-      id: 'innovacion-tecnologica',
-      title: 'Innovación Tecnológica',
+      id: 'hojas-de-calculo',
+      title: 'Introducción a las Hojas de Cálculo',
       description: 'Presentación académica guiada para la clase presencial de 7.º grado.',
       slides: [
-        // ── Diapositiva 1: Título u Objetivos ──
+        // ── Diapositiva 1: Portada y Objetivos ──
         {
           type: 'title',
           badge: 'Informática 7.º — Grupo 1',
-          title: 'Innovación Tecnológica',
-          subtitle: '¿Cómo cambia la tecnología el mundo en que vivimos?',
+          title: 'Introducción a las Hojas de Cálculo',
+          subtitle: 'Aprende a organizar datos, automatizar cuentas y trabajar con Microsoft Excel',
           objectives: [
-            'Definir qué es la innovación tecnológica con tus propias palabras.',
-            'Identificar los 3 tipos de innovación: progresiva, disruptiva y radical.',
-            'Reconocer ejemplos de innovación en la vida cotidiana.',
+            'Comprender qué es una hoja de cálculo y para qué sirve en la vida real.',
+            'Diferenciar entre libro, hoja, filas, columnas, celdas y rangos.',
+            'Identificar las partes clave de la pantalla: barra de fórmulas y menús.',
           ],
-          teacherNotes: '**Sugerencia de inicio:** Pregunte a la clase si recuerdan cómo eran los celulares hace 10 años o cómo escuchaban música sus padres. Use este punto de partida para enganchar la atención.',
+          teacherNotes: '**Sugerencia de inicio:** Pregunte a la clase: "¿Alguna vez han tenido que sumar una lista larguísima de precios o notas a mano?". Conecte con la necesidad de calcular automáticamente sin equivocarse.',
         },
 
-        // ── Diapositiva 2: Pregunta inicial de discusión ──
+        // ── Diapositiva 2: Pregunta disparadora de conversación ──
         {
           type: 'question',
-          question: '¿Cómo se escuchaba música antes de Spotify o YouTube?',
-          context: 'Reflexionemos un momento sobre cómo consumíamos música hace solo unos años...',
-          options: ['CDs y Casetes', 'Radio FM', 'Reproductores MP3', 'Spotify en el celular'],
-          answer: 'Pasamos de comprar discos físicos a tener millones de canciones en el bolsillo.',
-          explanation: 'Este cambio no ocurrió de la noche a la mañana: es el resultado directo de la **innovación tecnológica**.',
-          teacherNotes: 'Deje que 2 o 3 estudiantes respondan oralmente antes de hacer clic en **"Revelar respuesta"**.',
+          question: '¿Qué harías si tuvieras que sumar los precios de 500 productos de una tienda?',
+          context: 'Imagina que trabajas en un supermercado y debes calcular el total de inventario...',
+          options: [
+            'Sumar uno por uno con papel y lápiz',
+            'Usar una calculadora durante varias horas',
+            'Escribir los datos en una Hoja de Cálculo y sumar todo en un segundo',
+          ],
+          answer: 'Usar una Hoja de Cálculo para que el computador haga la suma automáticamente en un segundo.',
+          explanation: 'La mayor virtud de una hoja de cálculo es que realiza cálculos automáticos al instante y, si cambias un precio, ¡todo el total se recalcula solo!',
+          teacherNotes: 'Permita que 2 o 3 estudiantes opinen antes de hacer clic en **"Revelar respuesta"**.',
         },
 
-        // ── Diapositiva 3: Concepto principal ──
+        // ── Diapositiva 3: Concepto Principal ──
         {
           type: 'concept',
           category: 'Concepto Fundamental',
-          title: '¿Qué es la Innovación Tecnológica?',
-          mainIdea: 'Es introducir **cambios significativos** en productos, servicios o procesos usando la tecnología para satisfacer necesidades humanas.',
-          definition: 'Abarca la creación, desarrollo e implementación de nuevos productos o mejoras significativas en cosas que ya existen.',
+          title: '¿Qué es una Hoja de Cálculo Electrónica?',
+          mainIdea: 'Es un programa diseñado para **organizar datos en tablas** y realizar cualquier cálculo, análisis o gráfico de forma automática.',
+          definition: 'Permite manipular presupuestos, inventarios, encuestas y registros escolares. El ejemplo más conocido en el mundo es **Microsoft Excel**.',
           keyPoints: [
-            'Mejora o crea algo nuevo.',
-            'Usa la tecnología como herramienta.',
-            'Resuelve problemas de las personas.',
+            'Permite modificar datos fácilmente sin borrar todo.',
+            'Aplica fórmulas a un dato y las replica al resto.',
+            'Crea gráficos automáticos a partir de los datos ingresados.',
           ],
-          teacherNotes: 'Remarque que **innovar no siempre es inventar algo desde cero**. Muchas veces es mejorar lo que ya existe.',
+          teacherNotes: 'Enfatice la gran ventaja: una fórmula creada una sola vez sirve para miles de filas.',
         },
 
-        // ── Diapositiva 4: Ejemplos cotidianos ──
+        // ── Diapositiva 4: Analogía Libro vs. Hoja ──
         {
-          type: 'example',
-          category: 'Ejemplos Reales',
-          title: 'La innovación a tu alrededor',
-          subtitle: 'Tres situaciones de la vida diaria:',
-          icon: '📱',
-          description: 'Desde tu teléfono celular hasta la agricultura moderna, la innovación está presente en todo lo que hacemos.',
-          features: [
-            '**Celulares**: Antes solo llamaban; hoy son cámaras, computadores y agendas.',
-            '**Clases virtuales**: Plataformas que nos permiten aprender desde casa.',
-            '**Drones agrícolas**: Supervisión de cultivos desde el aire sin caminar kilómetros.',
+          type: 'concept',
+          category: 'Estructura de Trabajo',
+          title: 'El Archivo es un "Libro" con "Hojas"',
+          mainIdea: 'En Excel, el archivo completo se llama **Libro** y puede contener múltiples **Hojas de cálculo** en su interior.',
+          definition: 'Cada hoja es un espacio de trabajo independiente donde colocamos datos o gráficos, todo guardado en un solo archivo.',
+          analogy: '**Como tu cuaderno de clase:** Tu cuaderno es el libro completo y cada página que pasas es una hoja de trabajo distinta.',
+          keyPoints: [
+            'Las pestañas en la parte inferior permiten cambiar de hoja con un clic.',
+            'La hoja activa siempre aparece con su nombre en **negrita**.',
+            'Puedes agregar, renombrar o eliminar hojas según lo necesites.',
           ],
-          teacherNotes: 'Pregunte a los estudiantes si conocen algún otro ejemplo en su casa o en el colegio.',
+          teacherNotes: 'Muestre mentalmente cómo en un solo libro un negocio puede tener una hoja para "Enero", otra para "Febrero" y otra para "Gráficos".',
         },
 
-        // ── Diapositiva 5: Los 3 tipos de innovación ──
+        // ── Diapositiva 5: Diagrama Filas y Columnas ──
         {
           type: 'diagram',
-          category: 'Clasificación',
-          title: 'Los 3 Tipos de Innovación',
-          subtitle: 'Dependiendo del grado de cambio y del riesgo que suponen:',
+          category: 'Estructura de la Cuadrícula',
+          title: 'Filas, Columnas y Celdas',
+          subtitle: 'La hoja de cálculo es una cuadrícula perfecta organizada por coordenadas:',
           diagramType: 'comparison',
           columns: [
             {
-              badge: 'Tipo 1',
-              title: 'Progresiva',
-              desc: 'Cambios pequeños y graduales.',
-              metrics: { 'Riesgo': 'Bajo', 'Beneficio': 'Reducido' },
+              badge: 'Vertical',
+              title: 'Columnas',
+              desc: 'Se leen en sentido vertical y se identifican con **LETRAS** (A, B, C, D...).',
+              metrics: { 'Orientación': 'Vertical ↓', 'Identificador': 'Letras del alfabeto' },
             },
             {
-              badge: 'Tipo 2',
-              title: 'Disruptiva',
-              desc: 'Transforma un mercado existente.',
-              metrics: { 'Riesgo': 'Medio-Alto', 'Beneficio': 'Alto' },
+              badge: 'Horizontal',
+              title: 'Filas',
+              desc: 'Se leen en sentido horizontal y se identifican con **NÚMEROS** (1, 2, 3, 4...).',
+              metrics: { 'Orientación': 'Horizontal →', 'Identificador': 'Números' },
             },
             {
-              badge: 'Tipo 3',
-              title: 'Radical',
-              desc: 'Crea mercados que no existían.',
-              metrics: { 'Riesgo': 'Muy Alto', 'Beneficio': 'Enorme' },
+              badge: 'Intersección',
+              title: 'Celda',
+              desc: 'Es el cruce entre una columna y una fila. Es la **unidad mínima** para guardar un dato.',
+              metrics: { 'Ejemplo': 'B3 (Columna B, Fila 3)', 'Dato': 'Texto o Número' },
             },
           ],
-          teacherNotes: 'Esta diapositiva sirve como mapa general. En las siguientes tres diapositivas explicaremos cada uno en detalle.',
+          teacherNotes: 'Pida a un estudiante que señale qué coordenada tendría la primera celda arriba a la izquierda (A1).',
         },
 
-        // ── Diapositiva 6: Innovación Progresiva ──
+        // ── Diapositiva 6: Celda Activa ──
         {
           type: 'concept',
-          category: 'Tipo 1 de Innovación',
-          title: 'Innovación Progresiva',
-          mainIdea: 'Mejoras **graduales y pequeñas** sobre productos que la gente ya conoce.',
-          definition: 'El producto sigue siendo el mismo, pero funciona un poco mejor. El riesgo para la empresa es muy bajo.',
-          analogy: '**Ejemplo:** Una actualización de software en tu celular o un modelo de auto que rinde mejor gasolina que el del año pasado.',
+          category: 'Interacción en Pantalla',
+          title: 'La Celda Activa',
+          mainIdea: 'Es la celda que está **seleccionada en ese instante** y lista para recibir información.',
+          definition: 'Cuando escribes con el teclado, el texto o número se situará siempre dentro de la celda activa que tiene el borde resaltado.',
+          analogy: '**Como el cursor parpadeante:** En un procesador de texto escribes donde titila el cursor; en Excel escribes donde esté la celda activa.',
           keyPoints: [
-            'Cambio gradual.',
-            'El usuario ya conoce el producto.',
-            'Riesgo bajo, beneficio reducido.',
+            'Tiene un recuadro o borde grueso a su alrededor.',
+            'Su dirección exacta se muestra en el cuadro de nombres.',
+            'Puedes mover la celda activa con el ratón o con las flechas del teclado.',
           ],
-          teacherNotes: 'Explique que la mayoría de innovaciones en el mundo son de este tipo.',
+          teacherNotes: 'Haga notar que si no nos fijamos en qué celda está activa, podemos sobreescribir datos por error.',
         },
 
-        // ── Diapositiva 7: Innovación Disruptiva ──
+        // ── Diapositiva 7: Rangos de Celdas y Operador Dos Puntos ──
         {
           type: 'concept',
-          category: 'Tipo 2 de Innovación',
-          title: 'Innovación Disruptiva',
-          mainIdea: 'Un cambio abrupto que **transforma por completo** la forma de hacer las cosas en un mercado.',
-          definition: 'Atrae a nuevos clientes y cambia los valores del mercado. Supone un riesgo mayor pero genera grandes beneficios.',
-          analogy: '**Ejemplo:** Netflix reemplazó el alquiler de DVDs en videoclubes por el streaming en casa.',
+          category: 'Manejo de Datos en Bloque',
+          title: '¿Qué es un Rango de Celdas?',
+          mainIdea: 'Un **rango** es un bloque o conjunto de celdas adyacentes seleccionadas al mismo tiempo.',
+          definition: 'Se define indicando la celda superior izquierda y la celda inferior derecha, unidas por el operador **dos puntos (:)**.',
+          analogy: '**Ejemplo de rango:** `A1:B5` significa "todas las celdas desde la A1 hasta la B5".',
           keyPoints: [
-            'Transforma un mercado existente.',
-            'Cambia los hábitos de los usuarios.',
-            'Mayor riesgo y beneficio.',
+            'Permite aplicar una fórmula o color a muchas celdas a la vez.',
+            'El operador `:` significa "hasta".',
+            'Se les puede asignar un nombre propio para usarlos más fácil.',
           ],
-          teacherNotes: 'Haga énfasis en que **Netflix no inventó las películas**, pero sí cambió *cómo las vemos*. Eso es ser disruptivo.',
+          teacherNotes: 'Enfatice el uso de los dos puntos (:). Es fundamental para las fórmulas que aprenderán más adelante.',
         },
 
-        // ── Diapositiva 8: Innovación Radical ──
+        // ── Diapositiva 8: Cómo Seleccionar Celdas ──
         {
-          type: 'concept',
-          category: 'Tipo 3 de Innovación',
-          title: 'Innovación Radical',
-          mainIdea: 'Crea **nuevas necesidades y mercados** completamente nuevos que antes no existían.',
-          definition: 'No mejora algo viejo ni transforma un mercado previo: inventa una categoría totalmente nueva con alto riesgo y beneficios masivos.',
-          analogy: '**Ejemplo:** La invención de Internet o el primer Smartphone. Antes de que existieran, nadie sentía la "necesidad" de conectarse a Wi-Fi.',
-          keyPoints: [
-            'Crea un mercado nuevo.',
-            'Genera necesidades que no existían.',
-            'Alto riesgo, impacto histórico.',
+          type: 'example',
+          category: 'Procedimiento Práctico',
+          title: 'Métodos de Selección en la Hoja',
+          subtitle: 'Celdas continuas frente a celdas discontinuas:',
+          icon: '🖱️',
+          description: 'En Excel podemos seleccionar grupos de celdas que están juntas o celdas que están en diferentes lugares de la pantalla.',
+          analogy: 'Arrastrar el ratón para celdas continuas | Mantener presionada la tecla Ctrl para celdas separadas',
+          features: [
+            '**Celdas continuas**: Haz clic en la primera celda y arrastra el ratón hasta la última sin soltar el botón.',
+            '**Celdas no adyacentes (separadas)**: Selecciona el primer grupo, mantén oprimida la tecla **Ctrl** y selecciona las demás celdas.',
+            '**Nombrar rangos**: Puedes bautizar un rango con un nombre (ej. "Precios_Mayo") para no tener que memorizar coordenadas.',
           ],
-          teacherNotes: 'Ayude a diferenciar: Disruptiva transforma lo que ya existe; Radical crea lo que no existía.',
+          teacherNotes: 'Explique el truco de la tecla Ctrl; a los estudiantes les encanta descubrir cómo seleccionar celdas salteadas.',
         },
 
-        // ── Diapositiva 9: Tabla Sintética Comparativa ──
+        // ── Diapositiva 9: Menús y Barras de la Pantalla ──
         {
           type: 'diagram',
-          category: 'Resumen Comparativo',
-          title: 'Comparativa de los 3 Tipos',
-          subtitle: 'Observa las diferencias clave entre cada tipo:',
-          diagramType: 'table',
-          tableHeaders: ['Característica', 'Progresiva', 'Disruptiva', 'Radical'],
-          tableRows: [
-            ['Cambio', 'Gradual y pequeño', 'Transforma el mercado', 'Crea un mercado nuevo'],
-            ['Riesgo', 'Bajo', 'Medio-Alto', 'Muy Alto'],
-            ['El cliente...', 'Ya conoce el producto', 'Cambia su hábito', 'Descubre nueva necesidad'],
-            ['Ejemplo', 'Actualización de app', 'Netflix vs Videoclub', 'La invención de Internet'],
+          category: 'Elementos de la Interfaz',
+          title: 'Las Barras Clave de Microsoft Excel',
+          subtitle: 'Los elementos indispensables que debes conocer en la pantalla:',
+          diagramType: 'comparison',
+          columns: [
+            {
+              badge: 'Herramientas',
+              title: 'Menú y Botones',
+              desc: 'Organizado por pestañas (Archivo, Inicio, Ver...). Ofrece botones rápidos como Guardar, Imprimir o Formato.',
+            },
+            {
+              badge: 'Fundamental',
+              title: 'Barra de Fórmulas',
+              desc: 'Permite ver y editar el contenido real de la celda. Muestra la operación matemática mientras la celda muestra el resultado final.',
+            },
+            {
+              badge: 'Información',
+              title: 'Barra de Estado',
+              desc: 'Ubicada en la parte inferior. Informa el estado del programa, opciones activas y resúmenes automáticos rápidos.',
+            },
           ],
-          teacherNotes: 'Repase la tabla línea por línea asegurando que la clase entienda los contrastes.',
+          teacherNotes: 'Subraye la diferencia: En la celda ves el resultado (ej. 50), pero en la barra de fórmulas ves el cálculo real (ej. =25+25).',
         },
 
-        // ── Diapositiva 10: Pregunta de análisis ──
+        // ── Diapositiva 10: Pregunta de Análisis en Clase ──
         {
           type: 'question',
-          question: 'Si un restaurante crea una app para pedir comida a domicilio, ¿qué tipo de innovación es?',
-          context: 'Piensa: ¿el restaurante dejó de ser restaurante? ¿Creó un mercado nuevo o solo mejoró su servicio?',
-          options: ['Innovación Progresiva', 'Innovación Disruptiva', 'Innovación Radical'],
-          answer: 'Innovación Progresiva',
-          explanation: 'El restaurante sigue vendiendo la misma comida. Solo agregó una mejora gradual en la forma de pedir.',
-          teacherNotes: 'Discuta con el grupo antes de mostrar la respuesta.',
+          question: 'Si quieres seleccionar desde la celda C2 hasta la celda C15, ¿cómo se escribe ese rango?',
+          context: 'Aplica la regla del operador que aprendimos hace un momento...',
+          options: ['C2 - C15', 'C2 : C15', 'C2 a C15', 'C2 -> C15'],
+          answer: 'C2:C15',
+          explanation: 'En las hojas de cálculo, el operador oficial para definir un rango continuo entre dos esquinas son los **dos puntos (:)**.',
+          teacherNotes: 'Haga que toda la clase responda al unísono antes de revelar la respuesta.',
         },
 
-        // ── Diapositiva 11: Quiz Interactivo ──
-        {
-          type: 'quiz',
-          title: 'Comprobación de Aprendizaje',
-          description: 'Responde las preguntas en pantalla junto con tu grupo.',
-          quizTitle: '¿Qué tanto aprendimos hoy?',
-          questions: [
-            {
-              id: 'q1',
-              question: 'Un fabricante de televisores mejora la resolución de pantalla. ¿Qué tipo de innovación es?',
-              options: ['Progresiva', 'Disruptiva', 'Radical'],
-              correctIndex: 0,
-              feedback: {
-                correct: '¡Correcto! Es una mejora gradual sobre un producto conocido.',
-                incorrect: 'Recuerda que cuando solo se mejora un producto existente sin cambiar el mercado, es **progresiva**.',
-              },
-            },
-            {
-              id: 'q2',
-              question: 'La plataforma Spotify cambió la forma en que consumimos música sin comprar CDs. ¿Es una innovación...?',
-              options: ['Progresiva', 'Disruptiva', 'Radical'],
-              correctIndex: 1,
-              feedback: {
-                correct: '¡Exacto! Transformó el mercado de la música.',
-                incorrect: 'Spotify transformó un mercado existente de forma abrupta: es una innovación **disruptiva**.',
-              },
-            },
-            {
-              id: 'q3',
-              question: 'La invención de la imprenta permitió la producción masiva de libros por primera vez. ¿Fue una innovación...?',
-              options: ['Progresiva', 'Disruptiva', 'Radical'],
-              correctIndex: 2,
-              feedback: {
-                correct: '¡Muy bien! Creó una industria y mercado totalmente nuevos.',
-                incorrect: 'La imprenta creó una posibilidad histórica totalmente nueva: fue una innovación **radical**.',
-              },
-            },
-          ],
-          teacherNotes: 'Resuelvan el quiz colectivamente pidiendo la respuesta a diferentes estudiantes.',
-        },
-
-        // ── Diapositiva 12: Verdadero o Falso ──
-        {
-          type: 'trueFalse',
-          title: 'Evaluación Rápida: Verdadero o Falso',
-          tfTitle: 'Analicemos estas 3 afirmaciones:',
-          statements: [
-            {
-              id: 'tf1',
-              statement: 'La innovación tecnológica siempre requiere inventar algo totalmente nuevo.',
-              answer: false,
-              explanation: '**Falso.** La innovación progresiva demuestra que mejorar algo existente también es innovar.',
-            },
-            {
-              id: 'tf2',
-              statement: 'La innovación disruptiva transforma la forma en que las personas consumen un producto.',
-              answer: true,
-              explanation: '**Verdadero.** Cambia hábitos y transforma mercados.',
-            },
-            {
-              id: 'tf3',
-              statement: 'La innovación radical no tiene ningún riesgo para las empresas.',
-              answer: false,
-              explanation: '**Falso.** Al crear cosas que no existen, el riesgo es sumamente alto.',
-            },
-          ],
-          teacherNotes: 'Pida que alcen la mano los que votan Verdadero y los que votan Falso antes de verificar.',
-        },
-
-        // ── Diapositiva 13: Actividad Práctica ──
+        // ── Diapositiva 11: Actividad Individual ──
         {
           type: 'activity',
-          title: 'Actividad en Clase: "Innovaciones en mi Mundo"',
-          activityTitle: 'Instrucciones para la actividad:',
-          icon: '🔍',
-          instructions: 'En parejas, piensen en una tecnología que usen a diario y respondan:',
+          title: 'ACTIVIDAD: Mi Primera Hoja de Cálculo',
+          activityTitle: 'Diseño y lectura de coordenadas en una tabla de datos',
+          icon: '📝',
+          instructions: 'En tu cuaderno o en la computadora, realiza de forma individual la siguiente tarea práctica (5–10 minutos):',
           steps: [
-            '¿Qué necesidad o problema resuelve esa tecnología?',
-            '¿Cómo hacían las personas esa misma tarea antes?',
-            '¿A qué tipo de innovación (progresiva, disruptiva o radical) corresponde?',
+            'Dibuja una pequeña cuadrícula con 3 columnas (A: Producto, B: Cantidad, C: Precio) y 4 filas (1: Encabezados, 2, 3, 4 con 3 productos escolares).',
+            'Identifica y anota la coordenada exacta (letra y número) de la celda donde escribiste el precio del segundo producto.',
+            'Escribe cómo se representaría el rango que contiene todos los precios de los 3 productos (utilizando el operador :).',
+            'Explica brevemente qué diferencia hay entre lo que se ve en la celda y lo que se ve en la Barra de Fórmulas.',
           ],
-          tip: 'Pueden elegir aplicaciones de su celular, objetos del colegio o electrodomésticos de su casa.',
-          teacherNotes: 'Dé 10 minutos para el trabajo en parejas y luego pida a 2 parejas que expongan su análisis.',
+          tip: 'Tiempo estimado: 5 a 10 minutos. Es un ejercicio individual y muy sencillo para comprobar que dominas las coordenadas.',
+          teacherNotes: 'Monitoree las mesas mientras los estudiantes completan el ejercicio. Revise que utilicen correctamente la notación de dos puntos.',
         },
 
-        // ── Diapositiva 14: Resumen ──
+        // ── Diapositiva 12: Resumen de Cierre ──
         {
           type: 'summary',
           title: 'Cierre de la Clase',
-          summaryTitle: 'Lo que no debes olvidar hoy:',
+          summaryTitle: 'Lo que debes recordar hoy:',
           points: [
-            'La **innovación tecnológica** aplica tecnología para resolver problemas humanos de forma nueva o mejorada.',
-            'La **innovación progresiva** realiza mejoras pequeñas y paso a paso (riesgo bajo).',
-            'La **innovación disruptiva** transforma mercados existentes y hábitos (riesgo medio-alto).',
-            'La **innovación radical** crea productos y mercados que nunca antes habían existido (riesgo muy alto).',
+            'Una **hoja de cálculo** organiza datos en tablas y automatiza operaciones matemáticas y estadísticas.',
+            'El archivo completo es un **Libro** y puede contener múltiples **Hojas** intercambiables.',
+            'Las **Columnas** son verticales (Letras) y las **Filas** son horizontales (Números). Su intersección es una **Celda** (ej. B4).',
+            'Un **Rango** es un conjunto de celdas adyacentes y se escribe con dos puntos (`A1:C10`).',
+            'La **Barra de Fórmulas** muestra la operación real mientras que la celda exhibe el resultado calculado.',
           ],
-          teacherNotes: 'Haga una breve síntesis oral de 2 minutos antes de dar por concluida la lección.',
+          teacherNotes: 'Haga un repaso oral de 2 minutos destacando estos 5 puntos antes de finalizar la sesión.',
         },
       ],
     },
