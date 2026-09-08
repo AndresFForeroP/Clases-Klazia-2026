@@ -1,6 +1,6 @@
 /**
  * Contenido educativo — Grado 8.º Grupo 1
- * Tema: Análisis Exterior (Seguridad Informática)
+ * Tema: Funciones en Excel (Filas, Columnas y Listas Desplegables)
  *
  * Fuente: cursos/8/8-1.md
  * Formato: Presentación Académica Interactiva (Diapositiva por Diapositiva)
@@ -8,253 +8,230 @@
  */
 
 export const course8_1 = {
-  title: 'Análisis Exterior',
-  description: 'Presentación interactiva sobre el análisis de vulnerabilidades externas: cómo se recopila información desde fuera de una organización y qué pruebas se realizan para evaluar la seguridad.',
+  title: 'Funciones en Excel',
+  description: 'Presentación interactiva sobre el manejo eficiente de hojas de cálculo: inserción y eliminación rápida de columnas y filas con atajos de teclado, y creación de listas desplegables para validación de datos en inventarios.',
   lessons: [
     {
-      id: 'analisis-exterior',
-      title: 'Análisis Exterior',
+      id: 'funciones-excel',
+      title: 'Funciones en Excel',
       description: 'Presentación académica guiada para la clase presencial de 8.º grado.',
       slides: [
         // ── Diapositiva 1: Portada ──
         {
           type: 'title',
           badge: 'Informática 8.º — Grupo 1',
-          title: 'Análisis Exterior',
-          subtitle: '¿Qué puede descubrir un atacante sin estar dentro de la organización?',
+          title: 'Funciones en Excel',
+          subtitle: 'Dominando filas, columnas y listas desplegables con atajos de teclado',
           objectives: [
-            'Explicar qué es un análisis exterior y en qué se diferencia del análisis interior.',
-            'Identificar los 4 métodos de recopilación de información externa.',
-            'Conocer las 6 pruebas que se realizan tras la recopilación.',
-            'Comprender la importancia de documentar los hallazgos.',
+            'Aprender a insertar y eliminar columnas rápidamente mediante combinaciones de teclas.',
+            'Añadir y quitar filas individuales o múltiples con agilidad.',
+            'Crear y configurar listas desplegables con Validación de Datos para controlar inventarios y evitar errores.',
           ],
-          teacherNotes: '**Sugerencia de inicio:** Recuerde brevemente lo visto en la clase anterior (análisis interior) y pregunte: \"Si el análisis interior se hace desde adentro, ¿cómo se analiza la seguridad desde afuera?\"',
+          teacherNotes: '**Sugerencia de inicio:** Pregunte a la clase: \"Cuando necesitan agregar 5 filas o columnas en Excel, ¿hacen clic derecho una por una o conocen una forma más rápida con el teclado?\" Esto despertará su interés por la productividad.',
         },
 
-        // ── Diapositiva 2: Pregunta introductoria ──
+        // ── Diapositiva 2: Pregunta inicial de conversación ──
         {
           type: 'question',
-          question: '¿Un atacante necesita estar dentro de una empresa para obtener información confidencial?',
-          context: 'Piensa en toda la información que una empresa publica en internet: sitio web, redes sociales, correos de contacto, nombres de empleados...',
+          question: '¿Por qué los profesionales de informática y finanzas prefieren usar atajos de teclado en Excel en lugar del ratón?',
+          context: 'Imagina que estás administrando una tabla con cientos de productos y tienes que editar decenas de filas y columnas todos los días...',
           options: [
-            'Sí, necesita entrar físicamente a la empresa',
-            'No, puede obtener mucha información solo desde internet',
-            'Solo puede obtener información si hackea el servidor',
+            'Porque el ratón no funciona en versiones profesionales de Excel',
+            'Porque los atajos de teclado ahorran tiempo y aumentan la velocidad de trabajo',
+            'Porque solo con el teclado se pueden guardar los cambios en la hoja',
           ],
-          answer: 'No, puede obtener mucha información solo desde internet y con técnicas de ingeniería social.',
-          explanation: 'El **análisis exterior** busca precisamente eso: evaluar qué tan fácil es obtener acceso remoto a los servidores de una organización **sin estar dentro de ella**.',
-          teacherNotes: 'Permita que varios estudiantes opinen. Resalte que la mayoría de los ataques comienzan con información pública disponible en internet.',
+          answer: 'Porque los atajos de teclado permiten trabajar con máxima velocidad, precisión y fluidez sin interrumpir el ritmo de trabajo.',
+          explanation: 'Aprender combinaciones de teclas clave como **Ctrl + Espacio** o **Shift + Espacio** convierte tareas repetitivas de minutos en acciones de un solo segundo.',
+          teacherNotes: 'Genere un diálogo breve sobre la diferencia entre ser un usuario principiante que depende exclusivamente del ratón y un usuario eficiente que aprovecha el teclado.',
         },
 
-        // ── Diapositiva 3: Concepto principal ──
+        // ── Diapositiva 3: Concepto: Organización de Filas y Columnas ──
         {
           type: 'concept',
-          category: 'Concepto Fundamental',
-          title: '¿Qué es un Análisis Exterior?',
-          mainIdea: 'Es una evaluación que intenta **acceder remotamente** a los servidores de una organización y obtener privilegios o permisos que no deberían estar disponibles.',
-          definition: 'A diferencia del análisis interior (que se realiza con un usuario normal dentro de la red), el análisis exterior se realiza desde fuera. El objetivo es descubrir qué información y accesos puede obtener alguien que no pertenece a la organización.',
+          category: 'Fundamentos de la Hoja de Cálculo',
+          title: 'Estructura: Columnas y Filas',
+          mainIdea: 'Las hojas de cálculo se organizan en **columnas verticales** (letras) y **filas horizontales** (números). Gestionarlas rápidamente es la base de todo trabajo en Excel.',
+          definition: 'Al construir tablas dinámicas o inventarios, constantemente necesitamos reorganizar la información: insertar datos faltantes o eliminar registros que ya no se utilizan.',
           keyPoints: [
-            'Se realiza desde fuera de la organización, sin acceso previo.',
-            'Puede comenzar con técnicas de ingeniería social.',
-            'Busca obtener privilegios o permisos no autorizados de forma remota.',
+            '**Columnas**: Se identifican con letras (A, B, C...) y corren verticalmente.',
+            '**Filas**: Se identifican con números (1, 2, 3...) y corren horizontalmente.',
+            'Para modificarlas con el teclado, primero se **selecciona** la línea completa y luego se aplica la acción.',
           ],
-          teacherNotes: 'Enfatice la diferencia clave: en el análisis interior se tiene una cuenta de usuario normal. En el exterior, no se tiene nada — todo debe obtenerse desde cero.',
+          teacherNotes: 'Recuerde a los estudiantes la orientación espacial: Columnas = Columnas de un edificio (verticales), Filas = Fila del cine (horizontal).',
         },
 
-        // ── Diapositiva 4: Analogía ──
+        // ── Diapositiva 4: Insertar Columnas — Paso a Paso ──
+        {
+          type: 'concept',
+          category: 'Gestión de Columnas',
+          title: 'Insertar Columnas con Atajos',
+          mainIdea: 'Para agregar columnas nuevas entre datos existentes, usamos la combinación de selección y adición.',
+          definition: 'Supongamos que necesitamos agregar dos columnas entre las letras A y B. Nos ubicamos en cualquier casilla de la columna B y seguimos estos pasos:',
+          keyPoints: [
+            '**Paso 1 (Seleccionar)**: Presiona **Ctrl + Barra espaciadora** para seleccionar toda la columna.',
+            '**Modo 1**: Presiona **Ctrl + tecla de más (+)** dos veces para insertar dos columnas consecutivas.',
+            '**Modo 2**: Presiona **Shift + Flecha izquierda (←)** para seleccionar dos columnas y luego presiona **Ctrl + tecla de más (+)** una sola vez.',
+          ],
+          teacherNotes: 'Enfatice que Excel siempre inserta las columnas nuevas a la izquierda de la columna seleccionada. Por eso nos ubicamos en la columna B para insertar entre A y B.',
+        },
+
+        // ── Diapositiva 5: Eliminar Columnas ──
+        {
+          type: 'concept',
+          category: 'Gestión de Columnas',
+          title: 'Eliminar Columnas con Atajos',
+          mainIdea: 'Para borrar columnas innecesarias se aplican los mismos pasos de selección, pero utilizando el signo de menos (-).',
+          definition: 'Una vez que te sitúas en cualquier casilla de la columna que deseas quitar, el procedimiento es instantáneo:',
+          keyPoints: [
+            '**1. Seleccionar la columna**: Oprime **Ctrl + Barra espaciadora** (se marcará toda la columna vertical).',
+            '**2. Eliminar**: Presiona **Ctrl + tecla de menos (-)**.',
+            'La columna desaparece de inmediato y las columnas adyacentes se reacomodan automáticamente.',
+          ],
+          teacherNotes: 'Pida a los estudiantes que noten la regla nemotécnica: tecla (+) suma/añade, tecla (-) resta/elimina.',
+        },
+
+        // ── Diapositiva 6: Añadir Filas — Paso a Paso ──
+        {
+          type: 'concept',
+          category: 'Gestión de Filas',
+          title: 'Añadir Filas con Atajos',
+          mainIdea: 'Para insertar filas horizontales, la tecla clave de selección cambia a **Shift + Barra espaciadora**.',
+          definition: 'Ubícate en la casilla donde deseas insertar las nuevas filas y ejecuta los pasos de selección y adición:',
+          keyPoints: [
+            '**Paso 1 (Seleccionar)**: Presiona **Shift + Barra espaciadora** para seleccionar toda la fila horizontal.',
+            '**Modo 1**: Presiona **Ctrl + tecla de más (+)** las veces que necesites añadir filas.',
+            '**Modo 2**: Presiona **Shift + Flecha abajo (↓)** o **Flecha arriba (↑)** hasta seleccionar el número de filas deseadas y presiona **Ctrl + tecla de más (+)**.',
+          ],
+          teacherNotes: 'Resalte la diferencia clave entre columnas y filas: Columnas = Ctrl + Espacio. Filas = Shift + Espacio.',
+        },
+
+        // ── Diapositiva 7: Eliminar Filas ──
+        {
+          type: 'concept',
+          category: 'Gestión de Filas',
+          title: 'Eliminar Filas con Atajos',
+          mainIdea: 'Para eliminar una fila que ya no necesitas (por ejemplo, un producto descontinuado), combinas la selección de fila con la tecla menos (-).',
+          definition: 'Colócate en cualquier casilla dentro de la fila que quieres suprimir y aplica la secuencia:',
+          keyPoints: [
+            '**1. Seleccionar la fila**: Oprime **Shift + Barra espaciadora**.',
+            '**2. Eliminar**: Pulsa la combinación **Ctrl + tecla de menos (-)**.',
+            '¡Listo! La fila se elimina al instante y los registros inferiores suben para ocupar el espacio.',
+          ],
+          teacherNotes: 'Muestre cómo esto evita tener que seleccionar con el ratón y dar clic derecho -> Eliminar -> Fila entera.',
+        },
+
+        // ── Diapositiva 8: Tabla Resumen de Atajos ──
+        {
+          type: 'diagram',
+          category: 'Guía Rápida de Teclado',
+          title: 'Resumen de Atajos: Columnas vs Filas',
+          subtitle: 'Aprende este mapa mental para dominar la edición de hojas de cálculo:',
+          diagramType: 'table',
+          tableHeaders: ['Elemento', 'Seleccionar Todo', 'Añadir / Insertar', 'Eliminar / Quitar'],
+          tableRows: [
+            ['Columna (Vertical)', 'Ctrl + Barra espaciadora', 'Ctrl + tecla (+)', 'Ctrl + tecla (-)'],
+            ['Fila (Horizontal)', 'Shift + Barra espaciadora', 'Ctrl + tecla (+)', 'Ctrl + tecla (-)'],
+            ['Múltiples elementos', 'Shift + Flechas (← → ↑ ↓)', 'Ctrl + tecla (+)', 'Ctrl + tecla (-)'],
+          ],
+          teacherNotes: 'Haga que los estudiantes repitan oralmente el patrón: Ctrl+Espacio es Columna, Shift+Espacio es Fila; (+) agrega y (-) borra.',
+        },
+
+        // ── Diapositiva 9: Pregunta conversacional ──
+        {
+          type: 'question',
+          question: '¿Qué creen que ocurriría si intentamos buscar manualmente un producto en un inventario de 2.000 filas revisando celda por celda?',
+          context: 'Imagina a un cliente esperando en caja mientras revisas casilla por casilla si hay disponibilidad...',
+          options: [
+            'Es el método más seguro y rápido en hojas de cálculo',
+            'Tomaría demasiado tiempo y existe un alto riesgo de equivocarse o escribir mal el nombre',
+            'Excel se bloquearía si no revisamos celda por celda',
+          ],
+          answer: 'Tomaría demasiado tiempo y existe un alto riesgo de error humano al escribir o buscar.',
+          explanation: 'Para solucionar este problema y agilizar la búsqueda, Excel incluye herramientas como la **Lista Desplegable** mediante la **Validación de Datos**.',
+          teacherNotes: 'Esta pregunta prepara la transición pedagógica hacia la segunda parte de la clase: Listas Desplegables y Validación de Datos.',
+        },
+
+        // ── Diapositiva 10: Concepto: Lista Desplegable ──
+        {
+          type: 'concept',
+          category: 'Validación de Datos',
+          title: '¿Qué es una Lista Desplegable?',
+          mainIdea: 'Es una función avanzada y práctica de Excel que crea un **menú selector en una celda** para consultar o ingresar datos específicos.',
+          definition: 'Funciona como un pequeño buscador donde seleccionas o escribes un valor (por ejemplo, colores, categorías o códigos) y te asegura si el dato es válido o pertenece al inventario.',
+          analogy: '**Ejemplo de la vida cotidiana:** Cuando compras ropa por internet y eliges la talla (S, M, L, XL) desde un menú desplegable en lugar de escribirla a mano para no cometer errores.',
+          keyPoints: [
+            'Evita errores de digitación (como escribir \"verde oskuro\" en vez de \"Verde oscuro\").',
+            'Agiliza la consulta en inventarios comerciales.',
+            'Restringe la celda para que solo acepte valores permitidos.',
+          ],
+          teacherNotes: 'Explique que la lista desplegable es una forma de \"Validación de Datos\": garantiza la calidad e integridad de la información.',
+        },
+
+        // ── Diapositiva 11: Configuración Paso a Paso ──
         {
           type: 'example',
-          category: 'Analogía para Entenderlo',
-          title: 'Como un Ladrón que Observa desde la Calle',
-          subtitle: 'Imagina a alguien que quiere entrar a un edificio sin tener llaves:',
-          icon: '🔭',
-          description: 'Un análisis exterior es como si alguien observara un edificio desde la calle: ¿tiene cámaras de seguridad? ¿Cuántas puertas hay? ¿Qué información está visible en el letrero? ¿Hay empleados que salen a fumar y dejan la puerta abierta?',
-          analogy: '**El atacante no fuerza nada al principio**: primero observa, recopila información y busca el punto más débil para intentar entrar.',
+          category: 'Procedimiento Práctico',
+          title: '¿Cómo Crear una Lista Desplegable?',
+          subtitle: 'Configuración mediante la herramienta de Validación de Datos:',
+          icon: '⚙️',
+          description: 'Supongamos que tienes una columna de colores en tu inventario y quieres una casilla de consulta rápida para tus clientes.',
           features: [
-            '**Desde la calle**: ¿Qué se puede ver del edificio sin entrar?',
-            '**En internet**: ¿Qué información publica la empresa en su sitio web?',
-            '**Ingeniería social**: ¿Se puede engañar a un empleado para obtener acceso?',
+            '**Paso 1**: Selecciona una celda vacía (fuera de la columna de colores) donde estará el buscador.',
+            '**Paso 2**: En la barra superior, haz clic en la pestaña **«Datos»** y selecciona **«Validación de datos»**.',
+            '**Paso 3**: En la ventana que aparece, en la opción **<Permitir>**, abre el menú y elige **<Lista>**.',
+            '**Paso 4**: En el campo **<Origen>**, selecciona con el ratón el rango de celdas que contiene la lista de colores.',
+            '**Paso 5**: Haz clic en el botón **Aceptar** para guardar la configuración.',
           ],
-          teacherNotes: 'Use la analogía del edificio para que sea visual. Pregunte: \"Si alguien quisiera entrar al colegio sin permiso, ¿qué información podría obtener solo observando desde afuera?\"',
+          analogy: '**Resultado visual:** Aparecerá una pequeña flecha negra al lado derecho de la casilla para desplegar todas las opciones.',
+          teacherNotes: 'Describa verbalmente la ventana de diálogo de Validación de Datos. Resalte los dos campos clave: Permitir: Lista y Origen: Rango de datos.',
         },
 
-        // ── Diapositiva 5: Método 1 — Inteligencia competitiva ──
+        // ── Diapositiva 12: Control de Errores en el Inventario ──
         {
-          type: 'concept',
-          category: 'Método de Recopilación 1 de 4',
-          title: 'Revisión de Inteligencia Competitiva',
-          mainIdea: 'Se basa en toda la **información que la organización publica en internet**: sitio web, redes sociales, noticias, documentos públicos.',
-          definition: 'El analista recopila toda la información disponible públicamente sobre la organización. Esto incluye datos en su sitio web, perfiles en redes sociales, comunicados de prensa y cualquier información accesible sin necesidad de autenticación.',
-          keyPoints: [
-            'Información accesible desde la presencia pública en internet.',
-            'Incluye sitio web, redes sociales, directorios y noticias.',
-            'No requiere ningún acceso especial: todo es público.',
+          type: 'example',
+          category: 'Caso Práctico de Inventario',
+          title: 'Uso en Inventarios y Detección de Errores',
+          subtitle: '¿Qué ocurre al consultar o teclear un producto?',
+          icon: '📦',
+          description: 'Si un cliente pregunta si dispones de un producto en color \"Verde oscuro\", simplemente haces clic en la flecha de la lista desplegable o escribes el término en la celda.',
+          features: [
+            '**Si el producto existe**: Se selecciona directamente de la lista y se confirma la disponibilidad al instante.',
+            '**Si no existe o se escribe mal**: Excel bloquea la entrada y muestra automáticamente una **ventana de anuncio de error**.',
+            '**Beneficio comercial**: Garantiza que ningún empleado registre productos inexistentes o precios incorrectos por equivocación.',
           ],
-          teacherNotes: 'Explique que muchas empresas publican más información de la necesaria. Por ejemplo: nombres de empleados, correos electrónicos, tecnologías que usan, organigramas.',
+          analogy: '**Regla de oro:** Excel actúa como un filtro inteligente que protege la base de datos de datos falsos o mal escritos.',
+          teacherNotes: 'Muestre a los alumnos que el mensaje de error de Excel no es una falla, sino un mecanismo de seguridad para proteger los datos.',
         },
 
-        // ── Diapositiva 6: Método 2 — Revisión de privacidad ──
-        {
-          type: 'concept',
-          category: 'Método de Recopilación 2 de 4',
-          title: 'Revisión de la Privacidad',
-          mainIdea: 'Evalúa si la organización tiene **control suficiente** sobre los datos que manejan sus empleados.',
-          definition: 'Se analiza desde un punto de vista legal y ético si la organización controla adecuadamente el almacenamiento, transmisión y manejo de los datos. Si no tiene suficiente control, un empleado podría llevarse información confidencial.',
-          analogy: '**Ejemplo:** Imagina que un empleado copia la base de datos de clientes en una memoria USB y se va de la empresa. Si no hay controles, nadie se enteraría.',
-          keyPoints: [
-            'Evalúa el control sobre los datos desde el punto de vista legal y ético.',
-            'Verifica si los empleados pueden llevarse información fuera de la organización.',
-            'Analiza cómo se almacenan y transmiten los datos sensibles.',
-          ],
-          teacherNotes: 'Relacione con situaciones cotidianas: \"¿Qué pasaría si cualquier persona pudiera copiar los exámenes del colegio y llevárselos?\" El control de datos es fundamental.',
-        },
-
-        // ── Diapositiva 7: Método 3 — Análisis de solicitud ──
-        {
-          type: 'concept',
-          category: 'Método de Recopilación 3 de 4',
-          title: 'Análisis de Solicitud',
-          mainIdea: 'Consiste en obtener acceso a la organización **simplemente preguntando**, usando comunicaciones como teléfono, correo o chat.',
-          definition: 'Este método se basa en la ingeniería social: el atacante se hace pasar por alguien con autoridad o confianza (un proveedor, un técnico, un directivo) para que el personal de entrada le otorgue acceso o información.',
-          analogy: '**Ejemplo:** Alguien llama por teléfono diciendo: \"Soy del área de sistemas, necesito que me dé su contraseña para actualizar el sistema.\" Si el empleado la entrega, el acceso está comprometido.',
-          keyPoints: [
-            'Se basa completamente en ingeniería social.',
-            'Usa teléfono, correo electrónico, chat u otros medios.',
-            'El atacante se presenta desde una posición de autoridad o confianza.',
-          ],
-          teacherNotes: 'Este es un buen momento para hablar sobre por qué nunca se debe compartir una contraseña, ni siquiera si \"el jefe\" la pide por teléfono. Las empresas legítimas nunca solicitan contraseñas de esa manera.',
-        },
-
-        // ── Diapositiva 8: Método 4 — Sugerencia dirigida ──
-        {
-          type: 'concept',
-          category: 'Método de Recopilación 4 de 4',
-          title: 'Análisis de Sugerencia Dirigida',
-          mainIdea: 'El atacante intenta que un empleado **ingrese a un sitio falso** o reciba un correo que instala herramientas de acceso remoto.',
-          definition: 'Se envía un correo electrónico o enlace a un empleado de la organización. Si el empleado hace clic, puede instalar sin saberlo herramientas que permiten al atacante crear una sesión remota desde el exterior.',
-          analogy: '**Ejemplo:** Un empleado recibe un correo que dice \"Actualice su contraseña aquí\" con un enlace falso. Al hacer clic e ingresar sus datos, el atacante ya tiene sus credenciales.',
-          keyPoints: [
-            'El atacante necesita que alguien dentro de la organización \"caiga en la trampa\".',
-            'Usa correos electrónicos, enlaces falsos o sitios web fraudulentos.',
-            'Puede instalar herramientas de acceso remoto sin que el empleado lo note.',
-          ],
-          teacherNotes: 'Esto es lo que comúnmente se conoce como **phishing**. Pregunte: \"¿Alguna vez les ha llegado un correo sospechoso pidiéndoles hacer clic en un enlace? ¿Cómo supieron que era falso?\"',
-        },
-
-        // ── Diapositiva 9: Tabla resumen de métodos ──
-        {
-          type: 'diagram',
-          category: 'Resumen de Recopilación',
-          title: 'Los 4 Métodos de Recopilación Externa',
-          subtitle: 'Cada método obtiene información de una forma diferente:',
-          diagramType: 'table',
-          tableHeaders: ['Método', 'Cómo funciona', 'Ejemplo rápido'],
-          tableRows: [
-            ['Inteligencia competitiva', 'Buscar información pública en internet', 'Revisar el sitio web y redes sociales'],
-            ['Revisión de privacidad', 'Evaluar el control sobre los datos', '¿Un empleado puede copiar la base de datos?'],
-            ['Análisis de solicitud', 'Pedir acceso usando ingeniería social', 'Llamar haciéndose pasar por un técnico'],
-            ['Sugerencia dirigida', 'Enviar enlaces o correos falsos (phishing)', 'Correo con enlace falso para robar contraseñas'],
-          ],
-          teacherNotes: 'Repase la tabla fila por fila. Pregunte: \"¿Cuál de estos métodos creen que es el más utilizado en la vida real?\" (La ingeniería social es la más común).',
-        },
-
-        // ── Diapositiva 10: Pregunta conversacional ──
-        {
-          type: 'question',
-          question: '¿Cuál de los 4 métodos de recopilación creen que es el más peligroso y por qué?',
-          context: 'Piensen: uno usa información pública, otro evalúa controles, otro pide acceso directamente y el último engaña con correos falsos...',
-          options: [
-            'La inteligencia competitiva, porque todo está en internet',
-            'El análisis de solicitud, porque depende de la ingeniería social',
-            'La sugerencia dirigida (phishing), porque engaña directamente a las personas',
-          ],
-          answer: 'Todos son peligrosos, pero la sugerencia dirigida (phishing) es estadísticamente la causa de la mayoría de los accesos no autorizados.',
-          explanation: 'El **phishing** es responsable de más del 90% de los ataques exitosos. Por más segura que sea la tecnología, si una persona entrega sus credenciales, toda la seguridad se compromete.',
-          teacherNotes: 'Abra un debate breve. No hay una respuesta única correcta, pero aproveche para enfatizar que el factor humano es generalmente el eslabón más débil de la seguridad.',
-        },
-
-        // ── Diapositiva 11: Las 6 pruebas ──
-        {
-          type: 'concept',
-          category: 'Pruebas del Análisis Exterior',
-          title: 'Las 6 Pruebas Técnicas',
-          mainIdea: 'Una vez recopilada la información, se realizan **6 pruebas técnicas** para evaluar la seguridad de la organización desde el exterior.',
-          definition: 'Estas pruebas permiten identificar servicios vulnerables, máquinas activas, aplicaciones con fallas de seguridad y configuraciones débiles en la red de la organización.',
-          keyPoints: [
-            '1. **Sondeo de red**: Descubrir dominios, IPs, servidores y mapas de red.',
-            '2. **Identificación de servicios**: Encontrar servicios activos y traspasar el firewall.',
-            '3. **Búsqueda de vulnerabilidades**: Detectar fallas de seguridad y errores de configuración.',
-            '4. **Testeo de aplicaciones**: Buscar fallas en las aplicaciones web accesibles.',
-            '5. **Relaciones de confianza**: Verificar quién tiene permiso de acceder a la red.',
-            '6. **Verificación inalámbrica**: Evaluar la seguridad del Wi-Fi y los puntos de acceso.',
-          ],
-          teacherNotes: 'No es necesario profundizar en cada prueba técnicamente. Lo importante es que los estudiantes entiendan que son pasos sistemáticos, no ataques al azar.',
-        },
-
-        // ── Diapositiva 12: Tabla de las 6 pruebas ──
-        {
-          type: 'diagram',
-          category: 'Visión Detallada',
-          title: 'Las 6 Pruebas del Análisis Exterior',
-          subtitle: 'Cada prueba evalúa un aspecto diferente de la seguridad externa:',
-          diagramType: 'table',
-          tableHeaders: ['Prueba', 'Qué evalúa', 'Ejemplo sencillo'],
-          tableRows: [
-            ['Sondeo de red', 'Dominios, IPs, servidores', '¿Qué servidores tiene la empresa?'],
-            ['Identificación de servicios', 'Servicios activos tras el firewall', '¿Qué programas están funcionando?'],
-            ['Búsqueda de vulnerabilidades', 'Fallas y errores de configuración', '¿Hay puertas abiertas sin protección?'],
-            ['Testeo de aplicaciones', 'Seguridad de aplicaciones web', '¿La página web tiene fallas?'],
-            ['Relaciones de confianza', 'Permisos de acceso a la red', '¿Quién puede entrar y quién no?'],
-            ['Verificación inalámbrica', 'Seguridad del Wi-Fi (802.11)', '¿El Wi-Fi está bien protegido?'],
-          ],
-          teacherNotes: 'Use esta tabla como mapa visual. Si queda tiempo, pregunte a algún estudiante si puede explicar una prueba con sus propias palabras.',
-        },
-
-        // ── Diapositiva 13: Documentación e informes ──
-        {
-          type: 'concept',
-          category: 'Fase Final',
-          title: 'Documentación e Informes',
-          mainIdea: 'Al terminar el análisis, se debe presentar un **informe detallado** con todos los hallazgos y recomendaciones.',
-          definition: 'El informe final es el producto más importante del análisis de vulnerabilidades. Debe incluir cada prueba realizada, los resultados obtenidos, las vulnerabilidades encontradas y el nivel de riesgo de cada una.',
-          keyPoints: [
-            'Lista de todas las vulnerabilidades probadas.',
-            'Vulnerabilidades detectadas con su nivel de riesgo.',
-            'Lista de servicios y dispositivos vulnerables.',
-            'Resultados de las herramientas utilizadas.',
-          ],
-          teacherNotes: 'Enfatice que un análisis sin documentación no sirve. El informe es lo que permite a la empresa tomar acciones correctivas. Sin informe, es como si el análisis no se hubiera hecho.',
-        },
-
-        // ── Diapositiva 14: Actividad individual ──
+        // ── Diapositiva 13: Actividad Individual ──
         {
           type: 'activity',
-          title: 'Actividad Individual',
-          activityTitle: 'Analista de seguridad por un día',
-          icon: '🔍',
-          instructions: 'Lee el siguiente escenario y responde las preguntas en tu cuaderno:',
+          title: 'ACTIVIDAD',
+          activityTitle: 'Gestor de Inventario en Hoja de Cálculo',
+          icon: '📝',
+          instructions: 'Lee con atención la siguiente situación de una tienda de tecnología y responde en tu cuaderno de forma individual:',
           steps: [
-            'Escenario: Una empresa llamada \"TechSolutions\" recibe un correo de un supuesto proveedor que dice: \"Hemos actualizado nuestro portal. Por favor ingrese aquí con sus credenciales para verificar su cuenta.\" Tres empleados hacen clic en el enlace y escriben su usuario y contraseña.',
-            'Pregunta 1: ¿Qué método de recopilación se utilizó en este ataque? Justifica tu respuesta.',
-            'Pregunta 2: ¿Qué prueba de las 6 debería realizarse para detectar este tipo de vulnerabilidad en el futuro?',
-            'Pregunta 3: Escribe UNA recomendación que le darías a la empresa para evitar que esto vuelva a ocurrir.',
+            'Situación: Tienes una hoja de Excel con 3 columnas (A: Código, B: Nombre, C: Precio) y 6 filas de productos registrados.',
+            'Paso 1: Escribe la combinación exacta de teclas para insertar 2 nuevas columnas entre Código (A) y Nombre (B) para agregar \"Marca\" y \"Categoría\".',
+            'Paso 2: Escribe los atajos de teclado necesarios para seleccionar y eliminar la fila 4 completa, ya que ese producto se agotó.',
+            'Paso 3: Describe en 3 pasos breves cómo crearías una Lista Desplegable en la casilla E2 para que el vendedor solo pueda seleccionar entre los estados: \"Disponible\", \"Agotado\" o \"En Bodega\".',
           ],
-          tip: 'Tiempo estimado: 5–8 minutos. Trabaja individualmente. No necesitas internet.',
-          teacherNotes: 'La respuesta esperada es: Método de sugerencia dirigida (phishing). La prueba sería el testeo de aplicaciones de internet o la verificación de relaciones de confianza. Las recomendaciones pueden incluir: capacitar empleados, no hacer clic en enlaces sospechosos, verificar el remitente.',
+          tip: 'Tiempo estimado: 5 a 10 minutos. Trabaja de forma individual aplicando los atajos y pasos de validación vistos en clase.',
+          teacherNotes: '**Respuestas esperadas:**\n1. Ubicarse en columna B, presionar Ctrl + Barra espaciadora, y luego Ctrl + (+) dos veces (o Shift + Flecha y Ctrl + +).\n2. Ubicarse en fila 4, presionar Shift + Barra espaciadora, y luego Ctrl + (-).\n3. Seleccionar E2 -> Pestaña Datos -> Validación de datos -> En Permitir elegir <Lista> -> En Origen escribir o seleccionar los estados -> Clic en Aceptar.',
         },
 
-        // ── Diapositiva 15: Resumen ──
+        // ── Diapositiva 14: Resumen ──
         {
           type: 'summary',
           title: 'Cierre de la Clase',
           summaryTitle: 'Lo que debes recordar hoy:',
           points: [
-            'Un **análisis exterior** evalúa la seguridad de una organización desde fuera, intentando acceder remotamente sin tener acceso previo.',
-            'Existen **4 métodos de recopilación**: inteligencia competitiva, revisión de privacidad, análisis de solicitud y sugerencia dirigida (phishing).',
-            'Tras la recopilación, se aplican **6 pruebas técnicas**: sondeo de red, identificación de servicios, búsqueda de vulnerabilidades, testeo de aplicaciones, relaciones de confianza y verificación inalámbrica.',
-            'Todo análisis debe terminar con un **informe detallado** que documente los hallazgos y el nivel de riesgo.',
+            '**Ctrl + Barra espaciadora** selecciona columnas; **Shift + Barra espaciadora** selecciona filas.',
+            'La combinación **Ctrl + (+)** inserta elementos nuevos y **Ctrl + (-)** los elimina rápidamente.',
+            'Se puede usar **Shift + Flechas** para seleccionar múltiples columnas o filas consecutivas antes de modificarlas.',
+            'La **Lista Desplegable** (creada desde Pestaña Datos > Validación de datos > Lista) agiliza consultas y previene errores en inventarios.',
           ],
-          teacherNotes: 'Haga una síntesis oral breve. Puede cerrar preguntando: \"¿Qué fue lo que más les sorprendió de la clase de hoy?\"',
+          teacherNotes: 'Pida a uno o dos estudiantes que mencionen cuál atajo les pareció más útil para sus futuros trabajos escolares.',
         },
       ],
     },
