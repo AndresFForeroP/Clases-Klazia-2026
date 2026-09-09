@@ -1,279 +1,255 @@
 /**
  * Contenido educativo — Grado 11.º Grupo 1
- * Tema: Topologías de Red (Redes Informáticas)
+ * Tema: Introducción a Conexiones y Redes Neuronales Artificiales
  *
  * Fuente: cursos/11/11-1.md
  * Formato: Presentación Académica Interactiva (Diapositiva por Diapositiva)
- * Regla principal: UNA sola idea por diapositiva. Nivel avanzado para 11.º grado.
+ * Regla principal: UNA sola idea por diapositiva. Nivel técnico avanzado para 11.º grado.
  * Formato de clase:
- * - Sin preguntas finales de evaluación.
+ * - Sin preguntas de quiz final.
  * - Sin verdadero o falso.
- * - Sin quiz de cierre.
+ * - Sin actividades grupales.
  * - Preguntas orales de discusión durante la explicación.
  * - UNA sola ACTIVIDAD práctica individual (5-10 min).
  */
 
 export const course11_1 = {
-  title: 'Topologías de Red',
-  description: 'Presentación interactiva sobre la organización física y lógica de nodos y canales de transmisión en redes de comunicaciones.',
+  title: 'Introducción a Conexiones y Redes Neuronales',
+  description: 'Fundamentos del paradigma conexionista, arquitectura de redes neuronales artificiales, modelos fundacionales, el dilema de la función XOR y el algoritmo de retropropagación.',
   lessons: [
     {
-      id: 'topologias-red',
-      title: 'Topologías de Red',
+      id: 'introduccion-conexiones',
+      title: 'Introducción a Conexiones y Redes Neuronales',
       description: 'Presentación académica guiada para la clase presencial de 11.º grado.',
       slides: [
         // ── Diapositiva 1: Título y Objetivos ──
         {
           type: 'title',
           badge: 'Informática 11.º — Grupo 1',
-          title: 'Topologías de Red',
-          subtitle: 'Organización física y lógica de nodos y canales en redes de comunicaciones',
+          title: 'Introducción a Conexiones y Redes Neuronales',
+          subtitle: 'Del paradigma simbolista a los modelos conexionistas y el aprendizaje profundo',
           objectives: [
-            'Definir qué es una topología de red y diferenciar el nivel físico del nivel lógico.',
-            'Analizar la arquitectura, ventajas y limitaciones de las topologías clásicas (Bus, Anillo, Estrella, Árbol, Malla, Mixta, Totalmente Conexa).',
-            'Evaluar los criterios técnicos (costo, escalabilidad, redundancia, diagnóstico) para seleccionar la topología adecuada.',
-            'Comprender la importancia del mapeo visual para la gestión eficaz de la red.',
+            'Distinguir el paradigma de la computación clásica (Neumann-Turing / Simbolista) del paradigma conexionista (Redes Neuronales Artificiales).',
+            'Analizar las características operativas de las redes neuronales: procesamiento distribuido en paralelo, tolerancia a fallos y autoorganización de pesos sinápticos.',
+            'Comprender la evolución histórica: modelo McCulloch-Pitts, regla de aprendizaje Hebbiano, Perceptrón de Rosenblatt y algoritmos LMS/ADALINE.',
+            'Evaluar la crisis de separabilidad lineal (problema de la compuerta XOR planteado por Minsky y Papert) y su resolución mediante Perceptrones Multicapa (MLP), funciones sigmoideas y Retropropagación (Backpropagation).',
           ],
-          teacherNotes: '**Sugerencia de inicio:** Pregunte a los estudiantes cómo se imaginan que están conectados los computadores del colegio o de sus hogares. Introduzca la idea de que la disposición de los nodos determina el rendimiento y la resistencia a fallas de la red.',
+          teacherNotes: '**Sugerencia de inicio:** Pregunte a los estudiantes cómo un computador tradicional calcula una suma frente a cómo un cerebro humano reconoce un rostro instantáneamente. Introduzca el contraste entre el procesamiento secuencial algorítmico y el procesamiento conexionista distribuido.',
         },
 
         // ── Diapositiva 2: Pregunta disparadora ──
         {
           type: 'question',
-          question: 'Si fallara un cable principal en una red bancaria o industrial, ¿debería detenerse toda la operación?',
-          context: 'Piensen en cómo la disposición de la red influye en la continuidad del servicio ante una avería de hardware...',
+          question: '¿Qué diferencia sustancial existe entre programar un algoritmo clásico y entrenar una red neuronal artificial?',
+          context: 'Piensen en cómo se gestionan las reglas lógicas: ¿las escribe el desarrollador una por una o las deduce el sistema mediante pesos numéricos?',
           options: [
-            'Depende únicamente del modelo de computador, no de la estructura de la red',
-            'No necesariamente, si la topología está diseñada con rutas alternativas y redundancia adecuada',
-            'Sí, porque cualquier falla en un cable desconecta automáticamente a todos los dispositivos',
+            'No hay ninguna diferencia técnica; ambos modelos ejecutan secuencias idénticas de instrucciones if/else.',
+            'En el cómputo clásico el programador codifica reglas explícitas paso a paso; en la red neuronal el sistema autoorganiza sus pesos sinápticos a partir de datos de entrenamiento.',
+            'Las redes neuronales solo funcionan en computadores cuánticos y no pueden implementarse en sistemas digitales.',
           ],
-          answer: 'No necesariamente, si la topología está diseñada con rutas alternativas y redundancia adecuada.',
-          explanation: 'La **topología de red** (física y lógica) determina la tolerancia a fallas, la presencia de rutas redundantes y la capacidad de mantener el flujo de información aun ante la falla de un componente.',
-          teacherNotes: 'Genere una breve discusión oral (1-2 minutos). Conecte sus respuestas con la necesidad de planificar cuidadosamente la arquitectura y forma de interconexión.',
+          answer: 'En el cómputo clásico el programador codifica reglas explícitas paso a paso; en la red neuronal el sistema autoorganiza sus pesos sinápticos a partir de datos de entrenamiento.',
+          explanation: 'El paradigma conexionista reemplaza la lógica algorítmica preprogramada por un modelo de **aprendizaje adaptativo**, donde la información reside distribuida en la fuerza o peso de las interconexiones entre nodos.',
+          teacherNotes: 'Dedique 1-2 minutos a generar debate oral. Resalte que en el conexionismo no hay un bloque de memoria aislado de un procesador central, sino que el cómputo y el almacenamiento residen en los propios enlaces.',
         },
 
-        // ── Diapositiva 3: Concepto — ¿Qué es una Topología de Red? ──
+        // ── Diapositiva 3: Simbolismo vs. Conexionismo ──
         {
           type: 'concept',
-          category: 'Concepto Fundamental',
-          title: '¿Qué es una Topología de Red?',
-          mainIdea: 'Es la forma en que se **organizan y disponen los elementos** (nodos y enlaces) de una red de comunicaciones para asegurar la transmisión correcta y segura de datos.',
-          definition: 'Determina cómo se interconectan los dispositivos y cómo viaja la información entre ellos. Una estructura bien planificada evita cortes innecesarios y optimiza el flujo de datos.',
+          category: 'Fundamentos Epistemológicos',
+          title: 'Simbolismo vs. Conexionismo',
+          mainIdea: 'El **programa simbolista** asume que la cognición consiste en manipular símbolos abstractos mediante reglas lógicas, mientras que el **programa conexionista** emula la arquitectura biológica de redes y capas neuronales.',
+          definition: 'Bajo la perspectiva monista que identifica mente y cerebro, el conexionismo prescinde de representaciones mentales aisladas y sustenta el procesamiento cognitivo en redes de neuronas densamente interconectadas.',
           keyPoints: [
-            '**Nodos**: Dispositivos conectados (computadores, servidores, switches, routers, impresoras, cámaras IP, etc.).',
-            '**Enlaces/Conectores**: Canales de transmisión físicos (cables, conectores) o inalámbricos (antenas, enlaces de radio).',
-            '**Adaptabilidad**: La red debe adaptarse a la diversidad de dispositivos para cumplir requerimientos de velocidad y seguridad.',
+            '**Enfoque Simbolista**: Basado en lógica formal, reglas sintácticas y representaciones simbólicas discretas (arquitectura de von Neumann).',
+            '**Enfoque Conexionista**: Basado en modelos biológicos donde el conocimiento está distribuido numéricamente en las conexiones sinápticas.',
+            '**Cambio de paradigma**: La inteligencia no surge de manipular símbolos aislados, sino de la dinámica colectiva de una red de procesamiento.',
           ],
-          teacherNotes: 'Enfatice que un "nodo" puede ser cualquier dispositivo inteligente o de interconexión en la red, no solo una computadora de escritorio.',
+          teacherNotes: 'Enfatice el contraste: para un simbolista un concepto es una variable o símbolo en memoria; para un conexionista es un patrón de activación extendido a través de miles de conexiones.',
         },
 
-        // ── Diapositiva 4: Diagrama — Niveles de la Topología: Física vs. Lógica ──
+        // ── Diapositiva 4: Comparación Arquitectónica ──
         {
           type: 'diagram',
-          category: 'Arquitectura de Red',
-          title: 'Niveles de la Topología de Red',
-          subtitle: 'La estructura de una red se representa en dos niveles fundamentales:',
+          category: 'Arquitectura Computacional',
+          title: 'Computadores Clásicos vs. Sistemas Neuronales Artificiales',
+          subtitle: 'Comparación técnica entre la máquina de Neumann-Turing y las arquitecturas conexionistas:',
           diagramType: 'comparison',
           columns: [
             {
-              badge: 'Nivel 01',
-              title: 'Topología Física',
-              desc: 'Se refiere a la disposición real del hardware: **cómo se conectan los dispositivos físicos** mediante cables, conectores, switches y antenas. Define la ubicación espacial de los componentes.',
+              badge: 'Modelo Clásico (Neumann-Turing)',
+              title: 'Cómputo Secuencial y Rígido',
+              desc: '• **Procesamiento Lineal**: Instrucción por instrucción de forma determinista y centralizada.<br>• **Sensibilidad Crítica a Fallos**: La falla de un registro o instrucción colapsa todo el flujo del programa.<br>• **Programación Explícita**: Cada caso y condición debe estar previsto de antemano por el desarrollador en el código.',
             },
             {
-              badge: 'Nivel 02',
-              title: 'Topología Lógica',
-              desc: 'Se refiere a la **forma en que fluyen los datos** a través de la red y cómo se transfieren las tramas de un nodo al siguiente, considerando la gestión de subredes e itinerarios lógicos.',
+              badge: 'Modelo Conexionista (Redes Neuronales)',
+              title: 'Cómputo Distribuido y Adaptativo',
+              desc: '• **Procesamiento en Paralelo**: La información fluye y se procesa de forma distribuida en capas.<br>• **Tolerancia a Fallos**: Si una neurona o conexión falla, el sistema degrada su desempeño suavemente sin colapsar.<br>• **Autoorganización**: Aprende ajustando dinámicamente los pesos sinápticos durante el entrenamiento.',
             },
           ],
-          teacherNotes: 'Explique con un ejemplo: Físicamente una red puede estar conectada en forma de estrella a un switch, pero lógicamente comportarse como un bus de datos compartido.',
+          teacherNotes: 'Haga hincapié en la "tolerancia a fallos": los cerebros biológicos pierden neuronas diariamente y continúan reconociendo patrones, a diferencia de un puntero nulo o segmento fault en programación clásica.',
         },
 
-        // ── Diapositiva 5: Topología de Bus ──
+        // ── Diapositiva 5: Pilares Operativos del Conexionismo ──
         {
           type: 'concept',
-          category: 'Topologías Clásicas',
-          title: 'Topología de Bus (Línea o Troncal)',
-          mainIdea: 'Todos los dispositivos se conectan directamente a un **único canal troncal o bus central** sin otros vínculos entre nodos.',
-          definition: 'Los datos fluyen a lo largo del cable a medida que viajan a su destino. Es fácil de instalar y requiere muy poco cableado.',
+          category: 'Principios de Operación',
+          title: 'Propiedades Clave de las Redes Neuronales',
+          mainIdea: 'Las redes neuronales artificiales operan como sistemas complejos adaptativos fundamentados en el **procesamiento distribuido**, la **tolerancia a fallos**, la **autoorganización** y el **aprendizaje adaptativo**.',
+          definition: 'Durante la fase de entrenamiento, la red modifica iterativamente las intensidades de sus enlaces para converger hacia la respuesta o clasificación esperada.',
           keyPoints: [
-            '**Ventajas**: Bajo costo de implementación, fácil extensión para agregar o quitar aparatos.',
-            '**Desventajas**: Susceptible a colisiones de datos, congestión de tráfico y cuellos de botella.',
-            '**Punto crítico de falla**: Si existe un problema o corte en el canal troncal, **todos los dispositivos quedan desconectados**.',
+            '**Procesamiento en paralelo**: Múltiples nodos calculan transferencias matemáticas de manera simultánea en cada capa.',
+            '**Autoorganización**: Los parámetros internos (pesos $w$ y sesgos $b$) evolucionan automáticamente sin intervención manual del código.',
+            '**Aprendizaje adaptativo**: Capacidad intrínseca de generalizar patrones a partir de datos no vistos previamente.',
           ],
-          teacherNotes: 'Mencione que fue muy popular en redes ethernet primitivas con cable coaxial (10Base2), pero hoy en día es obsoleta en redes LAN corporativas.',
+          teacherNotes: 'Pregunte a la clase: ¿Por qué creen que el procesamiento paralelo masivo de las GPU modernas es el motor principal del auge actual de la Inteligencia Artificial?',
         },
 
-        // ── Diapositiva 6: Pregunta oral — Análisis de Topología de Bus ──
+        // ── Diapositiva 6: Inicios Históricos — McCulloch-Pitts y Hebb ──
+        {
+          type: 'concept',
+          category: 'Antecedentes Históricos (1943 - 1949)',
+          title: 'El Nacimiento del Modelo Neuronal y la Regla de Hebb',
+          mainIdea: 'Los primeros cimientos computacionales modelaron la **neurona binaria individual** y definieron la primera regla biológica de **fortalecimiento sináptico**.',
+          definition: 'Warren McCulloch y Walter Pitts (1943/1947) crearon el primer modelo matemático de una neurona biológica; Donald Hebb (1949/1961) enunció el principio de aprendizaje asociativo.',
+          keyPoints: [
+            '**McCulloch y Pitts**: Modelaron una neurona artificial elemental (entradas binarias ponderadas con umbral de activación), sin llegar a construir redes multicapa.',
+            '**Aprendizaje Hebbiano (Donald Hebb)**: Postula que el peso o intensidad de una conexión sináptica se incrementa siempre que el input y el output de una neurona se activan simultáneamente.',
+            '**Base del aprendizaje no supervisado**: Hebb fundamentó cómo las conexiones se refuerzan por correlación de actividad temporal.',
+          ],
+          teacherNotes: 'Resuma la famosa máxima hebbiana: "Neurons that fire together, wire together" (Neuronas que se disparan juntas, refuerzan su conexión).',
+        },
+
+        // ── Diapositiva 7: Perceptrón de Rosenblatt y Aprendizaje Supervisado ──
+        {
+          type: 'concept',
+          category: 'Evolución y Supervisión (1958 - 1960s)',
+          title: 'El Perceptrón de Rosenblatt y el Modelo ADALINE',
+          mainIdea: 'Frank Rosenblatt introdujo el **aprendizaje supervisado** al contrastar la salida real de la red con una señal deseada, ajustando los pesos según el **error de salida**.',
+          definition: 'El Perceptrón calcula $y = f(\\sum w_i x_i - \\theta)$ y actualiza sus pesos en sucesivas iteraciones hasta minimizar la diferencia entre el output obtenido y el target deseado.',
+          keyPoints: [
+            '**Cálculo del error**: $Error = Salida\\ Deseada - Salida\\ Obtenida$. Los pesos se corrigen proporcionalmente a esta desviación.',
+            '**Convergencia iterativa**: Al presentar patrones repetidamente, los pesos convergen hacia una frontera de decisión que clasifica las entradas.',
+            '**ADALINE y LMS (Widrow y Hoff)**: Aportaron el algoritmo de mínimos cuadrados medios (*Least Mean Square*) para optimizar adaptativamente neuronas lineales.',
+          ],
+          teacherNotes: 'Explique con claridad la diferencia: en el modelo de Hebb no hay señal deseada (no supervisado); en Rosenblatt y Widrow-Hoff existe un profesor/etiqueta que guía la corrección del error (supervisado).',
+        },
+
+        // ── Diapositiva 8: Pregunta oral — Ajuste de Pesos y Convergencia ──
         {
           type: 'question',
-          question: '¿Por qué la topología de Bus no es recomendable para una empresa con alto volumen de datos?',
-          context: 'Reflexionen sobre el impacto del canal compartido cuando decenas de computadores transmiten simultáneamente...',
+          question: '¿Por qué el cálculo iterativo del error ($Target - Output$) fue un avance revolucionario para el Perceptrón?',
+          context: 'Consideren qué permite hacer el error: ¿cómo sabe la neurona hacia dónde mover el valor de sus pesos sinápticos?',
           options: [
-            'Porque los cables troncales no admiten la señal Wi-Fi',
-            'Porque al compartir un solo canal se generan colisiones constantes y la falla del cable paraliza toda la empresa',
-            'Porque impide la conexión de impresoras en red',
+            'Porque permite a la red autoevaluar su precisión y corregir gradualmente la intensidad de sus conexiones hasta producir la respuesta correcta.',
+            'Porque elimina la necesidad de contar con datos de entrada para realizar clasificaciones.',
+            'Porque transforma instantáneamente la neurona artificial en un circuito de almacenamiento de disco duro.',
           ],
-          answer: 'Porque al compartir un solo canal se generan colisiones constantes y la falla del cable paraliza toda la empresa.',
-          explanation: 'El bus es un **medio compartido de colisión**. A mayor tráfico, mayor congestión. Además, carece de tolerancia a fallas en su canal principal.',
-          teacherNotes: 'Solicite la participación de un estudiante para argumentar por qué la falta de redundancia en un canal único es crítica en entornos corporativos.',
+          answer: 'Porque permite a la red autoevaluar su precisión y corregir gradualmente la intensidad de sus conexiones hasta producir la respuesta correcta.',
+          explanation: 'La retroalimentación del error otorga dirección matemática a la optimización: indica si el peso sináptico debe incrementarse o decrementarse para que el sistema aprenda el patrón.',
+          teacherNotes: 'Pida a un estudiante que explique con sus propias palabras cómo un tirador al blanco ajusta su puntería tras cada intento fallido (analogía del error iterativo).',
         },
 
-        // ── Diapositiva 7: Topología de Anillo ──
+        // ── Diapositiva 9: El Problema de la Separabilidad Lineal (XOR) ──
         {
           type: 'concept',
-          category: 'Topologías Circulares',
-          title: 'Topología de Anillo',
-          mainIdea: 'Los nodos se configuran en un **patrón circular cerrado** donde cada dispositivo se conecta directamente con sus dos contiguos.',
-          definition: 'Al recibir un mensaje, el nodo verifica si es el destinatario. Si no lo es, retransmite los datos al siguiente nodo hasta completar el recorrido.',
+          category: 'La Gran Crisis (1969)',
+          title: 'La Crítica de Minsky y Papert: El Límite de la Separabilidad Lineal',
+          mainIdea: 'En 1969, Marvin Minsky y Seymour Papert demostraron que los perceptrones simples de una sola capa son meros **discriminadores lineales** y no pueden resolver funciones lógicas no separables como **XOR**.',
+          definition: 'Un perceptrón simple solo puede trazar una línea recta (o hiperplano) para separar dos clases. Como la compuerta XOR requiere dos líneas de corte, el perceptrón monocapa fracasa.',
           keyPoints: [
-            '**Mejor rendimiento que el bus**: Evita colisiones gracias a un flujo de datos ordenado en una sola dirección.',
-            '**Facilidad de diagnóstico**: Es sencillo rastrear y localizar fallas en el circuito.',
-            '**Limitación principal**: Los nodos no pueden enviar mensajes simultáneamente. Si un nodo o enlace falla, se interrumpe la conexión general.',
+            '**Compuerta XOR (Disyunción Exclusiva)**: Da salida 1 solo cuando las entradas son distintas $(0,1)$ y $(1,0)$, pero salida 0 cuando son iguales $(0,0)$ y $(1,1)$.',
+            '**Imposibilidad geométrica**: Es matemáticamente imposible separar los ceros de los unos en XOR con una sola línea recta en un plano 2D.',
+            '**El Invierno de la IA (parón de 20 años)**: Minsky y Papert alegaron que no existían algoritmos viables para entrenar redes multicapa, congelando los fondos de investigación hasta los años 80.',
           ],
-          teacherNotes: 'Explique brevemente la tecnología Token Ring histórica para ilustrar el concepto del "turno de palabra" en el anillo.',
+          teacherNotes: 'Dibuje mentalmente o en pizarra el gráfico 2D de XOR con puntos (0,0)=0, (0,1)=1, (1,0)=1, (1,1)=0. Muestre que ninguna línea recta puede aislar los 1 de los 0.',
         },
 
-        // ── Diapositiva 8: Topología de Estrella ──
-        {
-          type: 'concept',
-          category: 'Topología Estándar',
-          title: 'Topología de Estrella y Estrella Extendida',
-          mainIdea: 'Es el tipo más común en redes LAN modernas. Todos los dispositivos se conectan a un **nodo central (hub/switch)** que gestiona la transmisión de datos.',
-          definition: 'El concentrador central permite que todas las estaciones se comuniquen entre sí de manera independiente.',
-          keyPoints: [
-            '**Aislamiento de fallas**: Si falla un cable de un computador, solo ese equipo pierde red; los demás siguen funcionando.',
-            '**Punto central de falla**: Si el nodo central sufre un error grave, toda la red queda expuesta a la desconexión.',
-            '**Estrella Extendida**: Los elementos conectados al nodo central se convierten a su vez en el centro de sub-estrellas, ampliando la red.',
-          ],
-          teacherNotes: 'Resalte que es la topología que se utiliza en la inmensa mayoría de salas de informática, oficinas y redes domésticas actuales.',
-        },
-
-        // ── Diapositiva 9: Topología de Árbol ──
-        {
-          type: 'concept',
-          category: 'Topologías Escalables',
-          title: 'Topología de Árbol (Jerárquica)',
-          mainIdea: 'Cuenta con un **enlace troncal principal (backbone)** a partir del cual se ramifican concentradores secundarios y nodos de control.',
-          definition: 'Estructura en forma de árbol que puede ser binario (cada nodo se fragmenta en 2 enlaces) o backbone (tronco principal conectado a branches).',
-          keyPoints: [
-            '**Segmentación de fallas**: Si un nodo secundario o rama falla, no afecta a los demás subsistemas ni al tronco principal.',
-            '**Reducción de tráfico**: Permite aislar el tráfico de datos por ramas o departamentos.',
-            '**Recomendada para gran escala**: Es la arquitectura óptima para edificios corporativos y campus universitarios.',
-          ],
-          teacherNotes: 'Utilice la analogía del tronco de un árbol con sus ramas para visualizar cómo se distribuyen los switches de piso respecto al router/switch core.',
-        },
-
-        // ── Diapositiva 10: Pregunta oral — Estrella vs. Árbol ──
-        {
-          type: 'question',
-          question: '¿Cuándo es necesario evolucionar de una topología de Estrella simple a una de Árbol?',
-          context: 'Piensen en una institución que se expande de 10 equipos a 300 equipos repartidos en 4 pisos...',
-          options: [
-            'Cuando se desea conectar dispositivos mediante Bluetooth',
-            'Cuando la cantidad de equipos y la distancia física requieren sub-centros de conexión para no saturar ni tirar cables largos',
-            'Únicamente cuando se requiere conexión satelital',
-          ],
-          answer: 'Cuando la cantidad de equipos y la distancia física requieren sub-centros de conexión para no saturar ni tirar cables largos.',
-          explanation: 'La topología de **Árbol** permite jerarquizar la red en ramas (por pisos o departamentos), optimizando el cableado y el rendimiento.',
-          teacherNotes: 'Pida a los estudiantes que imaginen los cables necesarios si 300 computadores de 4 pisos tuvieran que conectarse a un solo switch en el primer piso.',
-        },
-
-        // ── Diapositiva 11: Topología de Malla y Totalmente Conexa ──
-        {
-          type: 'concept',
-          category: 'Alta Disponibilidad',
-          title: 'Topología de Malla y Totalmente Conexa',
-          mainIdea: 'Todos los componentes están interconectados mediante **vías de transmisión separadas y redundantes**.',
-          definition: 'En la **Malla**, la información encuentra rutas alternativas si una conexión falla. En la **Totalmente Conexa**, existe un enlace directo entre absolutamente todos los pares de nodos.',
-          keyPoints: [
-            '**Topología de Malla**: Inmune a fallas de un solo enlace. Requiere un número limitado de nodos por la cantidad de puertos necesarios.',
-            '**Topología Totalmente Conexa**: Máximo grado de confiabilidad y redundancia total. Alto costo de configuración.',
-            '**Aplicaciones de misión crítica**: Utilizadas principalmente en infraestructura militar, centros de datos y redes financieras.',
-          ],
-          teacherNotes: 'Mencione la fórmula de conexiones para totalmente conexa (N*(N-1)/2) para demostrar por qué no se usa en redes masivas de computadores personales.',
-        },
-
-        // ── Diapositiva 12: Topología Mixta ──
-        {
-          type: 'concept',
-          category: 'Diseños Reales',
-          title: 'Topología Mixta (Híbrida)',
-          mainIdea: 'Combina **dos o más topologías de red diferentes** para adaptarse a la estructura física y requerimientos del lugar de instalación.',
-          definition: 'Permite moldear la red equilibrando seguridad, velocidad e interconexión según las necesidades operativas de la organización.',
-          keyPoints: [
-            '**Fiabilidad y flexibilidad**: Facilita la detección de errores y la resolución de problemas por bloques o áreas.',
-            '**Escalable y eficaz**: Admite integrar diferentes tecnologías de transmisión.',
-            '**Desventajas**: Complejidad en el diseño inicial y costos de mantenimiento más elevados.',
-          ],
-          teacherNotes: 'Explique que la mayoría de empresas reales usan una topología mixta (ej. Estrella para oficinas conectadas en Árbol entre edificios, con enlaces en Malla entre servidores).',
-        },
-
-        // ── Diapositiva 13: Tabla comparativa de topologías ──
+        // ── Diapositiva 10: Esquema Comparativo de Separabilidad ──
         {
           type: 'diagram',
-          category: 'Síntesis Técnica',
-          title: 'Matriz Comparativa de Topologías',
-          subtitle: 'Análisis de parámetros de desempeño y aplicabilidad:',
-          diagramType: 'table',
-          tableHeaders: ['Topología', 'Tolerancia a Fallas', 'Costo / Complejidad', 'Escalabilidad', 'Uso Principal'],
-          tableRows: [
-            ['Bus', 'Muy baja (corte en canal paraliza)', 'Muy bajo / Sencillo', 'Limitada (congestión)', 'Redes pequeñas o antiguas'],
-            ['Anillo', 'Baja (falla en nodo interrumpe)', 'Bajo-Medio / Ordenado', 'Media', 'Sistemas industriales específicos'],
-            ['Estrella', 'Media-Alta (aisla nodos; falla central cae)', 'Medio', 'Alta', 'LAN corporativas, escuelas, hogares'],
-            ['Árbol', 'Alta por segmentos', 'Medio-Alto / Jerárquico', 'Muy Alta', 'Campus y edificios corporativos'],
-            ['Malla / Conexa', 'Máxima (rutas alternativas redundantes)', 'Muy Alto / Complejo', 'Limitada a pocos nodos', 'Infraestructura crítica y militar'],
-            ['Mixta (Híbrida)', 'Alta (adaptable por zona)', 'Alto / Diseño complejo', 'Excelente', 'Redes empresariales modernas'],
+          category: 'Análisis Geométrico',
+          title: 'Separabilidad Lineal: Compuertas AND / OR vs. Compuerta XOR',
+          subtitle: 'Demostración visual del por qué un perceptrón simple colapsa ante funciones no lineales:',
+          diagramType: 'comparison',
+          columns: [
+            {
+              badge: 'Linealmente Separables (AND / OR)',
+              title: 'Solubles con Perceptrón Monocapa',
+              desc: '• **Comportamiento AND/OR**: Los patrones de salida 1 y 0 se pueden dividir con **una única recta de decisión** ($w_1 x_1 + w_2 x_2 = \\theta$).<br>• **Capacidad**: El perceptrón simple de Rosenblatt encuentra los pesos adecuados rápidamente y converge sin errores.',
+            },
+            {
+              badge: 'No Linealmente Separable (XOR)',
+              title: 'Insoluble con Perceptrón Monocapa',
+              desc: '• **Comportamiento XOR**: Los puntos $(0,1)$ y $(1,0)$ están cruzados en diagonal frente a $(0,0)$ y $(1,1)$.<br>• **Limitación**: Requiere **mínimo dos fronteras de decisión**, demandando capas ocultas intermedias (Perceptrón Multicapa).',
+            },
           ],
-          teacherNotes: 'Repase la matriz con los estudiantes para consolidar los criterios de decisión técnica antes de la actividad.',
+          teacherNotes: 'Destaque que este límite matemático no significaba que las redes fueran inútiles, sino que se necesitaban estructuras de varias capas y algoritmos matemáticos más avanzados.',
         },
 
-        // ── Diapositiva 14: Criterios de Selección y Mapeo Visual ──
+        // ── Diapositiva 11: Resurgimiento — MLP, Sigmoides y Retropropagación ──
         {
           type: 'concept',
-          category: 'Gestión y Planificación',
-          title: 'Selección de Modelo y Mapeo Visual',
-          mainIdea: 'Elegir la topología adecuada exige balancear **costo, viabilidad, velocidad, escalabilidad y tolerancia a fallas**, respaldado por un **mapeo visual preciso**.',
-          definition: 'El mapeo visual (mapa de red) es la representación gráfica indispensable de los componentes físicos y lógicos para la gestión eficaz.',
+          category: 'El Gran Renacimiento',
+          title: 'El Perceptrón Multicapa (MLP) y la Retropropagación',
+          mainIdea: 'El desarrollo del algoritmo de **Retropropagación (Backpropagation)** junto al uso de **funciones de activación sigmoideas** convirtió a las redes neuronales en **aproximadores universales**.',
+          definition: 'Desarrollado independientemente por Werbos, Parker y el grupo PDP (Rumelhart, Hinton y Williams), Backpropagation calcula el gradiente del error hacia atrás en la red para ajustar todas las capas ocultas.',
           keyPoints: [
-            '**Factores de decisión**: Presupuesto disponible, máquinas a conectar, tráfico esperado, velocidad requerida y tiempo de detección de errores.',
-            '**Mapeo Visual**: Permite a los administradores monitorear la red en tiempo real, ubicar fallas de inmediato e identificar cuellos de botella.',
+            '**Perceptrón Multicapa (MLP)**: Introduce capas ocultas intermedias entre la entrada y la salida, permitiendo componer múltiples fronteras no lineales.',
+            '**Funciones de activación continuas (Sigmoideas)**: Reemplazan la función escalón rígida por una curva derivable $\\sigma(z) = \\frac{1}{1 + e^{-z}}$, permitiendo aplicar la regla de la cadena del cálculo.',
+            '**Superación de la crisis**: El algoritmo resolvió el problema del XOR y abrió el camino a las arquitecturas de aprendizaje profundo modernas.',
           ],
-          teacherNotes: 'Muestre la importancia de contar con un diagrama de red actualizado (software como Visio, Packet Tracer o Draw.io) en cualquier departamento de IT.',
+          teacherNotes: 'Enfatice la elegancia del cálculo diferencial: la función sigmoidea es suave y diferenciable, lo que permite propagar el gradiente del error desde la salida hasta la primera capa oculta.',
         },
 
-        // ── Diapositiva 15: Actividad Práctica Individual (5-10 min) ──
+        // ── Diapositiva 12: Matriz Histórico-Técnica de Modelos ──
+        {
+          type: 'diagram',
+          category: 'Síntesis Evolutiva',
+          title: 'Línea de Evolución de los Modelos Neuronales',
+          subtitle: 'Cuadro comparativo de las etapas clave en la historia del conexionismo:',
+          diagramType: 'table',
+          tableHeaders: ['Modelo / Hito', 'Autores Clave', 'Tipo de Aprendizaje', 'Capacidades / Aporte Principal', 'Limitación Principal'],
+          tableRows: [
+            ['Neurona McCulloch-Pitts (1943)', 'McCulloch & Pitts', 'Sin entrenamiento (fijo)', 'Primer modelo computacional de neurona biológica', 'Pesos fijos, sin capacidad de red'],
+            ['Regla Hebbiana (1949/1961)', 'Donald Hebb', 'No Supervisado (Asociativo)', 'Fortalecimiento de sinapsis por coactivación simultánea', 'Sin noción de objetivo o corrección de error'],
+            ['Perceptrón Simple (1958)', 'Frank Rosenblatt', 'Supervisado (Regla de Error)', 'Ajuste dinámico de pesos para clasificación binaria', 'Incapaz de resolver funciones no lineales (XOR)'],
+            ['ADALINE / LMS (1960)', 'Widrow & Hoff', 'Supervisado (Gradiente lineal)', 'Minimización de error cuadrático medio', 'Limitado a transformaciones lineales'],
+            ['Perceptrón Multicapa + Backprop', 'Werbos, Rumelhart, Hinton, Parker', 'Supervisado (Retropropagación)', 'Aproximador universal; resuelve XOR y clasificaciones complejas', 'Mayor costo de cómputo y necesidad de grandes datos'],
+          ],
+          teacherNotes: 'Guíe una lectura horizontal y vertical de la tabla para que los estudiantes tengan una visión panorámica clara antes de pasar a la actividad práctica individual.',
+        },
+
+        // ── Diapositiva 13: Actividad Práctica Individual (5-10 min) ──
         {
           type: 'activity',
-          title: 'Actividad Individual: Selección de Topología',
-          activityTitle: 'Caso Práctico — Selección y Justificación Técnica para un Centro Médico',
-          icon: '📋',
-          instructions: 'Lee el siguiente escenario y responde los 4 puntos en tu cuaderno o documento de trabajo. Tiempo estimado: 5 a 10 minutos. Trabajo estrictamente individual.',
+          title: 'Actividad Individual: Análisis de Separabilidad y XOR',
+          activityTitle: 'Caso de Análisis Técnico — Diagnóstico de Separabilidad Lineal y Arquitectura de Red',
+          icon: '🧠',
+          instructions: 'Analiza el siguiente escenario de clasificación lógica y responde los 4 puntos en tu cuaderno o documento de trabajo. Tiempo estimado: 5 a 10 minutos. Trabajo estrictamente individual.',
           steps: [
-            '**Escenario:** Un centro médico necesita conectar 10 consultorios, 2 salas de radiología y 1 servidor central de historias clínicas. Requerimiento indispensable: si el equipo de un consultorio falla o se desconecta, el resto de la red debe seguir funcionando perfectamente.',
-            '**Paso 1 (Selección):** Identifica y escribe cuál es la topología de red más adecuada (Bus, Anillo, Estrella, Árbol o Malla) para este escenario.',
-            '**Paso 2 (Justificación):** Argumenta 2 razones técnicas de tu elección basándote en la tolerancia a fallas y la facilidad de mantenimiento.',
-            '**Paso 3 (Descarte):** Explica en una frase técnica por qué la topología de Bus sería inaceptable para este centro médico.',
-            '**Paso 4 (Resultado Esperado):** Describe concretamente qué ocurriría con la conexión del servidor y los demás consultorios si el cable de la sala de radiología 1 se rompe accidentalmente.',
+            '**Paso 1 (Identificación de la Limitación):** Explica por qué una neurona artificial simple con función escalón (Perceptrón de Rosenblatt) puede clasificar perfectamente las compuertas lógicas AND y OR, pero falla categóricamente al intentar clasificar la compuerta XOR.',
+            '**Paso 2 (Análisis Geométrico):** Representa mentalmente o en un boceto un plano cartesiano 2D con los 4 puntos de entrada $(0,0)$, $(0,1)$, $(1,0)$ y $(1,1)$. Indica cuáles puntos corresponden a salida 1 y cuáles a salida 0 en XOR, explicando por qué una sola recta divisoria no es suficiente.',
+            '**Paso 3 (Solución Arquitectónica):** Describe qué elementos técnicos estructurales (tipo de perceptrón, capas intermedias y función de activación) son indispensables para superar la limitación del XOR.',
+            '**Paso 4 (Mecanismo de Aprendizaje):** Nombra y explica en dos líneas cómo actúa el algoritmo de **Retropropagación (Backpropagation)** para calibrar los pesos de las conexiones ocultas en la red.',
           ],
-          tip: 'Tiempo estimado: 5 a 10 minutos. Trabajo individual. Asegúrate de incluir el nombre de la topología elegida, tus 2 razones técnicas, la razón de descarte del bus y la descripción del fallo aislado.',
-          teacherNotes: 'Dé entre 5 y 10 minutos para que cada estudiante complete el ejercicio de manera individual en su cuaderno. Al finalizar, pida a 2 estudiantes al azar que lean sus respuestas para verificar la comprensión.',
+          tip: 'Tiempo estimado: 5 a 10 minutos. Trabajo individual. Asegúrate de justificar utilizando los términos técnicos adecuados: separabilidad lineal, hiperplano de decisión, capa oculta, función sigmoidea y propagación del gradiente de error.',
+          teacherNotes: 'Asigne entre 5 y 10 minutos para que los estudiantes elaboren sus respuestas individualmente. Al concluir, seleccione a 2 estudiantes para que expongan sus respuestas y valide la comprensión técnica del problema de separabilidad y backpropagation.',
         },
 
-        // ── Diapositiva 16: Resumen y Cierre ──
+        // ── Diapositiva 14: Resumen y Cierre ──
         {
           type: 'summary',
           title: 'Cierre de la Clase',
-          summaryTitle: 'Puntos clave a recordar sobre Topologías de Red:',
+          summaryTitle: 'Puntos clave a recordar sobre Conexiones y Redes Neuronales:',
           points: [
-            'La **topología de red** es la disposición física (cables/nodos) y lógica (flujo de datos) de una red de comunicaciones.',
-            'Las topologías **Bus y Anillo** son modelos históricos simples pero vulnerables a puntos únicos de falla.',
-            'La **Estrella y el Árbol** son los estándares dominantes en redes LAN corporativas por su aislamiento de fallas y escalabilidad.',
-            'La **Malla y Totalmente Conexa** ofrecen máxima confiabilidad y rutas alternativas para sistemas de misión crítica.',
-            'La **topología Mixta** permite combinar modelos según las necesidades físicas de la instalación.',
-            'Un **mapeo visual preciso** es indispensable para administrar, detectar y resolver fallas en cualquier infraestructura de red.',
+            'El **paradigma conexionista** sustituye la manipulación secuencial de símbolos por el procesamiento masivo en paralelo inspirado en redes neuronales biológicas.',
+            'Las redes artificiales poseen **tolerancia a fallos, autoorganización y aprendizaje adaptativo** mediante la calibración iterativa de pesos sinápticos.',
+            'El trabajo de **McCulloch-Pitts** formalizó la neurona computacional y **Donald Hebb** definió la base del aprendizaje asociativo.',
+            'El **Perceptrón de Rosenblatt** y el modelo **ADALINE** introdujeron el aprendizaje supervisado basado en la minimización iterativa del error.',
+            'La crítica de **Minsky y Papert** expuso la incapacidad de los perceptrones monocapa para resolver problemas no lineales como **XOR**.',
+            'El **Perceptrón Multicapa (MLP)**, las **funciones de activación sigmoideas** y el algoritmo de **Retropropagación (Backpropagation)** superaron la crisis, convirtiendo a las redes en aproximadores universales.',
           ],
-          teacherNotes: 'Realice un cierre de 2 minutos destacando cómo las topologías de red conectan la teoría de hardware con el diseño práctico de sistemas de comunicaciones.',
+          teacherNotes: 'Cierre la sesión reforzando que el conexionismo y el algoritmo de backpropagation constituyen la base matemática sobre la que funcionan los modelos actuales de Deep Learning e Inteligencia Artificial generativa.',
         },
       ],
     },
