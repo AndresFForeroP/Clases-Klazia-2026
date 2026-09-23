@@ -1,255 +1,285 @@
 /**
  * Contenido educativo — Grado 11.º Grupo 1
- * Tema: Introducción a Conexiones y Redes Neuronales Artificiales
+ * Tema: Descripción de un Sistema Neuronal Artificial (SNA)
  *
- * Fuente: cursos/11/11-1.md
- * Formato: Presentación Académica Interactiva (Diapositiva por Diapositiva)
- * Regla principal: UNA sola idea por diapositiva. Nivel técnico avanzado para 11.º grado.
- * Formato de clase:
- * - Sin preguntas de quiz final.
- * - Sin verdadero o falso.
- * - Sin actividades grupales.
- * - Preguntas orales de discusión durante la explicación.
+ * Fuente académica: cursos/11/11-1.md
+ * Formato: Presentación Académica Interactiva por Diapositivas
+ * Regla principal: UNA sola idea por diapositiva.
+ * Pedagogía: COMPRENDER → EXPLICAR CON SENCILLEZ → EJEMPLIFICAR → RELACIONAR → PROFUNDIZAR
+ *
+ * Estructura de clase:
+ * - Sin cuestionario / quiz final.
+ * - Sin preguntas de verdadero / falso.
+ * - Sin preguntas heredadas anteriores.
  * - UNA sola ACTIVIDAD práctica individual (5-10 min).
  */
 
 export const course11_1 = {
-  title: 'Introducción a Conexiones y Redes Neuronales',
-  description: 'Fundamentos del paradigma conexionista, arquitectura de redes neuronales artificiales, modelos fundacionales, el dilema de la función XOR y el algoritmo de retropropagación.',
+  title: 'Descripción de un Sistema Neuronal Artificial',
+  description: 'Arquitectura jerárquica de los sistemas neuronales, componentes funcionales de la neurona artificial, dinámica de computación interna, composición matemática de funciones y clasificación de neuronas.',
   lessons: [
     {
-      id: 'introduccion-conexiones',
-      title: 'Introducción a Conexiones y Redes Neuronales',
-      description: 'Presentación académica guiada para la clase presencial de 11.º grado.',
+      id: 'descripcion-sistema-neuronal',
+      title: 'Descripción de un Sistema Neuronal Artificial',
+      description: 'Presentación guiada: jerarquía estructural, señales y pesos, dinámica de cálculo y clases de neuronas.',
       slides: [
-        // ── Diapositiva 1: Título y Objetivos ──
+        // ── Diapositiva 1: Portada y Objetivos ──
         {
           type: 'title',
           badge: 'Informática 11.º — Grupo 1',
-          title: 'Introducción a Conexiones y Redes Neuronales',
-          subtitle: 'Del paradigma simbolista a los modelos conexionistas y el aprendizaje profundo',
+          title: 'Descripción de un Sistema Neuronal Artificial',
+          subtitle: 'Estructura jerárquica, anatomía de la neurona artificial y clases según su tipo de salida',
           objectives: [
-            'Distinguir el paradigma de la computación clásica (Neumann-Turing / Simbolista) del paradigma conexionista (Redes Neuronales Artificiales).',
-            'Analizar las características operativas de las redes neuronales: procesamiento distribuido en paralelo, tolerancia a fallos y autoorganización de pesos sinápticos.',
-            'Comprender la evolución histórica: modelo McCulloch-Pitts, regla de aprendizaje Hebbiano, Perceptrón de Rosenblatt y algoritmos LMS/ADALINE.',
-            'Evaluar la crisis de separabilidad lineal (problema de la compuerta XOR planteado por Minsky y Papert) y su resolución mediante Perceptrones Multicapa (MLP), funciones sigmoideas y Retropropagación (Backpropagation).',
+            'Comprender la organización jerárquica de un SNA: neuronas (N), capas (C), redes (R) y sistemas (S).',
+            'Analizar la anatomía funcional de una neurona: señales de entrada, pesos sinápticos <xn, wi,j>, dinámica temporal de estado (t → t+1) y señal de salida.',
+            'Diferenciar la naturaleza de las señales analógicas (continuas) y digitales (discretas).',
+            'Descomponer la formulación matemática de la salida efectiva: yi = fsalida(factivación(fpropagación)).',
+            'Identificar y clasificar los tipos de neuronas según su valor de salida: McCulloch-Pitts, Ising y Potts.',
           ],
-          teacherNotes: '**Sugerencia de inicio:** Pregunte a los estudiantes cómo un computador tradicional calcula una suma frente a cómo un cerebro humano reconoce un rostro instantáneamente. Introduzca el contraste entre el procesamiento secuencial algorítmico y el procesamiento conexionista distribuido.',
+          teacherNotes: '**Inicio de sesión:** Presente el tema destacando que hoy entenderemos la unidad atómica y la arquitectura general de la inteligencia artificial: cómo se modela matemáticamente una neurona y cómo se ensamblan para formar sistemas complejos.',
         },
 
-        // ── Diapositiva 2: Pregunta disparadora ──
-        {
-          type: 'question',
-          question: '¿Qué diferencia sustancial existe entre programar un algoritmo clásico y entrenar una red neuronal artificial?',
-          context: 'Piensen en cómo se gestionan las reglas lógicas: ¿las escribe el desarrollador una por una o las deduce el sistema mediante pesos numéricos?',
-          options: [
-            'No hay ninguna diferencia técnica; ambos modelos ejecutan secuencias idénticas de instrucciones if/else.',
-            'En el cómputo clásico el programador codifica reglas explícitas paso a paso; en la red neuronal el sistema autoorganiza sus pesos sinápticos a partir de datos de entrenamiento.',
-            'Las redes neuronales solo funcionan en computadores cuánticos y no pueden implementarse en sistemas digitales.',
-          ],
-          answer: 'En el cómputo clásico el programador codifica reglas explícitas paso a paso; en la red neuronal el sistema autoorganiza sus pesos sinápticos a partir de datos de entrenamiento.',
-          explanation: 'El paradigma conexionista reemplaza la lógica algorítmica preprogramada por un modelo de **aprendizaje adaptativo**, donde la información reside distribuida en la fuerza o peso de las interconexiones entre nodos.',
-          teacherNotes: 'Dedique 1-2 minutos a generar debate oral. Resalte que en el conexionismo no hay un bloque de memoria aislado de un procesador central, sino que el cómputo y el almacenamiento residen en los propios enlaces.',
-        },
-
-        // ── Diapositiva 3: Simbolismo vs. Conexionismo ──
+        // ── Diapositiva 2: Concepto de Jerarquía del SNA ──
         {
           type: 'concept',
-          category: 'Fundamentos Epistemológicos',
-          title: 'Simbolismo vs. Conexionismo',
-          mainIdea: 'El **programa simbolista** asume que la cognición consiste en manipular símbolos abstractos mediante reglas lógicas, mientras que el **programa conexionista** emula la arquitectura biológica de redes y capas neuronales.',
-          definition: 'Bajo la perspectiva monista que identifica mente y cerebro, el conexionismo prescinde de representaciones mentales aisladas y sustenta el procesamiento cognitivo en redes de neuronas densamente interconectadas.',
+          category: 'Arquitectura Estructural',
+          title: 'De lo Simple a lo Complejo: La Jerarquía de un SNA',
+          mainIdea: 'Un **Sistema Neuronal Artificial (SNA)** organiza el procesamiento computacional en **4 niveles jerárquicos ascendentes**: desde unidades de cálculo individuales hasta sistemas integrados.',
+          analogy: 'Es semejante a una organización empresarial: un trabajador individual (Neurona) forma un equipo (Capa), varios equipos forman un departamento (Red), y todos los departamentos coordinados crean la empresa completa (Sistema).',
           keyPoints: [
-            '**Enfoque Simbolista**: Basado en lógica formal, reglas sintácticas y representaciones simbólicas discretas (arquitectura de von Neumann).',
-            '**Enfoque Conexionista**: Basado en modelos biológicos donde el conocimiento está distribuido numéricamente en las conexiones sinápticas.',
-            '**Cambio de paradigma**: La inteligencia no surge de manipular símbolos aislados, sino de la dinámica colectiva de una red de procesamiento.',
+            '**Neurona ($N_i$)**: Elemento básico y atómico de cálculo en el sistema.',
+            '**Capa ($C_i$)**: Agrupación de múltiples neuronas unidas mediante conexiones.',
+            '**Red ($R_i$)**: Conjunto estructurado de varias capas interconectadas entre sí.',
+            '**Sistema ($S_i$)**: Conjunto de múltiples redes neuronales que interactúan para resolver tareas complejas.',
           ],
-          teacherNotes: 'Enfatice el contraste: para un simbolista un concepto es una variable o símbolo en memoria; para un conexionista es un patrón de activación extendido a través de miles de conexiones.',
+          teacherNotes: 'Explique la notación estándar: N para neuronas, C para capas, R para redes y S para sistemas, siempre acompañadas de un subíndice identificador (N1, C2, R1, S1).',
         },
 
-        // ── Diapositiva 4: Comparación Arquitectónica ──
+        // ── Diapositiva 3: Diagrama de la Jerarquía SNA ──
         {
           type: 'diagram',
-          category: 'Arquitectura Computacional',
-          title: 'Computadores Clásicos vs. Sistemas Neuronales Artificiales',
-          subtitle: 'Comparación técnica entre la máquina de Neumann-Turing y las arquitecturas conexionistas:',
+          category: 'Niveles de Organización',
+          title: 'Estructura Jerárquica: N → C → R → S',
+          subtitle: 'Representación formal de cómo se agrupan los elementos dentro de un SNA:',
+          diagramType: 'flow',
+          nodes: [
+            {
+              icon: '🔵',
+              label: 'Neurona (Ni)',
+              desc: 'Elemento básico individual de procesamiento.',
+            },
+            {
+              icon: '🧱',
+              label: 'Capa (Ci)',
+              desc: 'Agrupación de neuronas unidas por conexiones.',
+            },
+            {
+              icon: '🕸️',
+              label: 'Red (Ri)',
+              desc: 'Agrupación de capas enlazadas entre sí.',
+            },
+            {
+              icon: '🌐',
+              label: 'Sistema (Si)',
+              desc: 'Múltiples redes conectadas colaborando.',
+            },
+          ],
+          teacherNotes: 'Resalte que cada nivel superior contiene y coordina al nivel anterior. Ningún sistema existe sin redes, ninguna red sin capas y ninguna capa sin neuronas individuales.',
+        },
+
+        // ── Diapositiva 4: Componentes Básicos de la Neurona Artificial ──
+        {
+          type: 'concept',
+          category: 'Anatomía de la Neurona',
+          title: 'Los Tres Componentes de la Neurona Artificial',
+          mainIdea: 'Toda neurona artificial opera bajo un ciclo fundamental de tres etapas: **recibe información**, **la transforma internamente** y **emite una respuesta**.',
+          definition: 'Inspirada en el funcionamiento biológico, la neurona artificial $N_i$ procesa información a través de tres componentes inseparables: **Entradas**, **Computación** y **Salida**.',
+          keyPoints: [
+            '**1. Entradas**: Conjunto de señales que llegan a la neurona, cada una con un valor específico y una intensidad asignada.',
+            '**2. Computación**: Transformación matemática interna que actualiza el estado de la neurona a lo largo del tiempo.',
+            '**3. Salida**: Emisión de una señal resultante ($y_i$) que se propaga hacia las neuronas de la siguiente capa.',
+          ],
+          teacherNotes: 'Establezca el paralelismo con la neurona biológica: las entradas son las dendritas, la computación es el soma celular y la salida es el axón.',
+        },
+
+        // ── Diapositiva 5: Las Entradas y el Par <xn, wi,j> ──
+        {
+          type: 'concept',
+          category: 'Señales de Entrada',
+          title: 'Entradas: Valor de Señal ($x_n$) y Peso Sináptico ($w_{i,j}$)',
+          mainIdea: 'Una neurona no recibe datos en bruto; cada señal entrante está modulada por un factor de importancia denominado **peso ($w$)**.',
+          definition: 'Cada entrada se representa formalmente mediante el par ordenado **$\\langle x_n, w_{i,j} \\rangle$**, combinando el dato proveniente de otra neurona con la fuerza de la conexión.',
+          keyPoints: [
+            '**Valor de la señal ($x_n$)**: Magnitud del dato que llega desde una neurona anterior $n$.',
+            '**Peso de la conexión ($w_{i,j}$)**: Intensidad o relevancia del enlace que une la neurona origen $N_i$ con la neurona destino $N_j$ (ej. $w_{h,i}$).',
+            '**Significado del peso**: Proviene del término inglés *weight*. Determina cuánto influye esa entrada particular en la decisión de la neurona.',
+          ],
+          teacherNotes: 'Aclare bien los subíndices: wh,i indica la conexión que parte de la neurona Nh y llega a la neurona Ni. El peso w actúa como un amplificador o atenuador del valor x.',
+        },
+
+        // ── Diapositiva 6: Señales Analógicas vs. Digitales ──
+        {
+          type: 'diagram',
+          category: 'Naturaleza de la Información',
+          title: 'Tipos de Señales en el SNA: Analógicas vs. Digitales',
+          subtitle: 'Tanto las señales entrantes como las salientes se clasifican según su rango de valores:',
           diagramType: 'comparison',
           columns: [
             {
-              badge: 'Modelo Clásico (Neumann-Turing)',
-              title: 'Cómputo Secuencial y Rígido',
-              desc: '• **Procesamiento Lineal**: Instrucción por instrucción de forma determinista y centralizada.<br>• **Sensibilidad Crítica a Fallos**: La falla de un registro o instrucción colapsa todo el flujo del programa.<br>• **Programación Explícita**: Cada caso y condición debe estar previsto de antemano por el desarrollador en el código.',
+              badge: 'Señales Analógicas (Continuas)',
+              title: 'Cualquier valor en un intervalo continuo',
+              desc: '• **Valores infinitos**: Pueden adoptar cualquier número real dentro de un rango preestablecido.<br>• **Rangos habituales**: $[0, +1]$, $[-1, +1]$ o $[-\\infty, +\\infty]$.<br>• **Ejemplos informáticos**: Grado de brillo de un píxel, probabilidad de una clase (0.87), nivel de temperatura o voltaje.',
             },
             {
-              badge: 'Modelo Conexionista (Redes Neuronales)',
-              title: 'Cómputo Distribuido y Adaptativo',
-              desc: '• **Procesamiento en Paralelo**: La información fluye y se procesa de forma distribuida en capas.<br>• **Tolerancia a Fallos**: Si una neurona o conexión falla, el sistema degrada su desempeño suavemente sin colapsar.<br>• **Autoorganización**: Aprende ajustando dinámicamente los pesos sinápticos durante el entrenamiento.',
+              badge: 'Señales Digitales (Discretas)',
+              title: 'Únicamente dos valores permitidos',
+              desc: '• **Valores discretos binarios**: Solo pueden tomar exactamente uno de dos estados posibles: **0** o **1**.<br>• **Rango estricto**: $\{0, 1\}$.<br>• **Ejemplos informáticos**: Detección binaria (presencia o ausencia de un objeto), compuerta lógica (verdadero / falso).',
             },
           ],
-          teacherNotes: 'Haga hincapié en la "tolerancia a fallos": los cerebros biológicos pierden neuronas diariamente y continúan reconociendo patrones, a diferencia de un puntero nulo o segmento fault en programación clásica.',
+          teacherNotes: 'Pida a los alumnos ejemplos de magnitudes analógicas (la presión sobre una pantalla táctil) versus digitales (un interruptor que solo está encendido o apagado).',
         },
 
-        // ── Diapositiva 5: Pilares Operativos del Conexionismo ──
+        // ── Diapositiva 7: Computación y Dinámica Temporal ──
         {
           type: 'concept',
-          category: 'Principios de Operación',
-          title: 'Propiedades Clave de las Redes Neuronales',
-          mainIdea: 'Las redes neuronales artificiales operan como sistemas complejos adaptativos fundamentados en el **procesamiento distribuido**, la **tolerancia a fallos**, la **autoorganización** y el **aprendizaje adaptativo**.',
-          definition: 'Durante la fase de entrenamiento, la red modifica iterativamente las intensidades de sus enlaces para converger hacia la respuesta o clasificación esperada.',
+          category: 'Procesamiento Interno',
+          title: 'Computación Interna: Transición de Estado ($t \\to t+1$)',
+          mainIdea: 'El procesamiento de la neurona representa un cambio dinámico en el tiempo: **pasa de un estado inicial a un nuevo estado procesado**.',
+          definition: 'Cada neurona $N_i$ se encuentra en un estado inicial en el momento **$t$**; al recibir y combinar las señales de entrada, transiciona hacia un nuevo estado en el momento **$t + 1$**.',
           keyPoints: [
-            '**Procesamiento en paralelo**: Múltiples nodos calculan transferencias matemáticas de manera simultánea en cada capa.',
-            '**Autoorganización**: Los parámetros internos (pesos $w$ y sesgos $b$) evolucionan automáticamente sin intervención manual del código.',
-            '**Aprendizaje adaptativo**: Capacidad intrínseca de generalizar patrones a partir de datos no vistos previamente.',
+            '**Momento $t$**: La neurona está en reposo o esperando señales entrantes $\\langle x_n, w_{i,j} \\rangle$.',
+            '**Transformación**: La neurona integra y evalúa las entradas ponderadas.',
+            '**Momento $t + 1$**: Se alcanza un nuevo estado interno y se genera la señal de salida efectiva.',
           ],
-          teacherNotes: 'Pregunte a la clase: ¿Por qué creen que el procesamiento paralelo masivo de las GPU modernas es el motor principal del auge actual de la Inteligencia Artificial?',
+          teacherNotes: 'Enfatice que el cómputo neuronal no es estático: ocurre en pasos temporales discretos donde la información fluye de un instante t al instante siguiente t+1.',
         },
 
-        // ── Diapositiva 6: Inicios Históricos — McCulloch-Pitts y Hebb ──
+        // ── Diapositiva 8: La Señal de Salida (yi) y Composición de Funciones ──
         {
           type: 'concept',
-          category: 'Antecedentes Históricos (1943 - 1949)',
-          title: 'El Nacimiento del Modelo Neuronal y la Regla de Hebb',
-          mainIdea: 'Los primeros cimientos computacionales modelaron la **neurona binaria individual** y definieron la primera regla biológica de **fortalecimiento sináptico**.',
-          definition: 'Warren McCulloch y Walter Pitts (1943/1947) crearon el primer modelo matemático de una neurona biológica; Donald Hebb (1949/1961) enunció el principio de aprendizaje asociativo.',
+          category: 'Señal de Salida Efectiva',
+          title: 'La Salida ($y_i$): Composición de Tres Funciones',
+          mainIdea: 'La señal de salida efectiva **$y_i$** es el resultado de **tres funciones matemáticas encadenadas secuencialmente**.',
+          definition: 'La salida de cualquier neurona artificial se expresa formalmente como: $$y_i = f_{\\text{salida}}(f_{\\text{activación}}(f_{\\text{propagación}}))$$',
           keyPoints: [
-            '**McCulloch y Pitts**: Modelaron una neurona artificial elemental (entradas binarias ponderadas con umbral de activación), sin llegar a construir redes multicapa.',
-            '**Aprendizaje Hebbiano (Donald Hebb)**: Postula que el peso o intensidad de una conexión sináptica se incrementa siempre que el input y el output de una neurona se activan simultáneamente.',
-            '**Base del aprendizaje no supervisado**: Hebb fundamentó cómo las conexiones se refuerzan por correlación de actividad temporal.',
+            '**1. Función de Propagación ($f_{\\text{propagación}}$)**: Integra y combina todas las entradas y pesos (generalmente calcula la suma ponderada de las entradas).',
+            '**2. Función de Activación ($f_{\\text{activación}}$)**: Determina el nivel de excitación o activación interna alcanzado por la neurona.',
+            '**3. Función de Salida ($f_{\\text{salida}}$)**: Transforma la activación en la señal final $y_i$ observable por el resto de la red.',
           ],
-          teacherNotes: 'Resuma la famosa máxima hebbiana: "Neurons that fire together, wire together" (Neuronas que se disparan juntas, refuerzan su conexión).',
+          teacherNotes: 'Explique con claridad que una función alimenta a la siguiente: primero sumamos lo que entra, luego calculamos qué tan activa está la neurona y finalmente decidimos qué señal se emite hacia afuera.',
         },
 
-        // ── Diapositiva 7: Perceptrón de Rosenblatt y Aprendizaje Supervisado ──
-        {
-          type: 'concept',
-          category: 'Evolución y Supervisión (1958 - 1960s)',
-          title: 'El Perceptrón de Rosenblatt y el Modelo ADALINE',
-          mainIdea: 'Frank Rosenblatt introdujo el **aprendizaje supervisado** al contrastar la salida real de la red con una señal deseada, ajustando los pesos según el **error de salida**.',
-          definition: 'El Perceptrón calcula $y = f(\\sum w_i x_i - \\theta)$ y actualiza sus pesos en sucesivas iteraciones hasta minimizar la diferencia entre el output obtenido y el target deseado.',
-          keyPoints: [
-            '**Cálculo del error**: $Error = Salida\\ Deseada - Salida\\ Obtenida$. Los pesos se corrigen proporcionalmente a esta desviación.',
-            '**Convergencia iterativa**: Al presentar patrones repetidamente, los pesos convergen hacia una frontera de decisión que clasifica las entradas.',
-            '**ADALINE y LMS (Widrow y Hoff)**: Aportaron el algoritmo de mínimos cuadrados medios (*Least Mean Square*) para optimizar adaptativamente neuronas lineales.',
-          ],
-          teacherNotes: 'Explique con claridad la diferencia: en el modelo de Hebb no hay señal deseada (no supervisado); en Rosenblatt y Widrow-Hoff existe un profesor/etiqueta que guía la corrección del error (supervisado).',
-        },
-
-        // ── Diapositiva 8: Pregunta oral — Ajuste de Pesos y Convergencia ──
-        {
-          type: 'question',
-          question: '¿Por qué el cálculo iterativo del error ($Target - Output$) fue un avance revolucionario para el Perceptrón?',
-          context: 'Consideren qué permite hacer el error: ¿cómo sabe la neurona hacia dónde mover el valor de sus pesos sinápticos?',
-          options: [
-            'Porque permite a la red autoevaluar su precisión y corregir gradualmente la intensidad de sus conexiones hasta producir la respuesta correcta.',
-            'Porque elimina la necesidad de contar con datos de entrada para realizar clasificaciones.',
-            'Porque transforma instantáneamente la neurona artificial en un circuito de almacenamiento de disco duro.',
-          ],
-          answer: 'Porque permite a la red autoevaluar su precisión y corregir gradualmente la intensidad de sus conexiones hasta producir la respuesta correcta.',
-          explanation: 'La retroalimentación del error otorga dirección matemática a la optimización: indica si el peso sináptico debe incrementarse o decrementarse para que el sistema aprenda el patrón.',
-          teacherNotes: 'Pida a un estudiante que explique con sus propias palabras cómo un tirador al blanco ajusta su puntería tras cada intento fallido (analogía del error iterativo).',
-        },
-
-        // ── Diapositiva 9: El Problema de la Separabilidad Lineal (XOR) ──
-        {
-          type: 'concept',
-          category: 'La Gran Crisis (1969)',
-          title: 'La Crítica de Minsky y Papert: El Límite de la Separabilidad Lineal',
-          mainIdea: 'En 1969, Marvin Minsky y Seymour Papert demostraron que los perceptrones simples de una sola capa son meros **discriminadores lineales** y no pueden resolver funciones lógicas no separables como **XOR**.',
-          definition: 'Un perceptrón simple solo puede trazar una línea recta (o hiperplano) para separar dos clases. Como la compuerta XOR requiere dos líneas de corte, el perceptrón monocapa fracasa.',
-          keyPoints: [
-            '**Compuerta XOR (Disyunción Exclusiva)**: Da salida 1 solo cuando las entradas son distintas $(0,1)$ y $(1,0)$, pero salida 0 cuando son iguales $(0,0)$ y $(1,1)$.',
-            '**Imposibilidad geométrica**: Es matemáticamente imposible separar los ceros de los unos en XOR con una sola línea recta en un plano 2D.',
-            '**El Invierno de la IA (parón de 20 años)**: Minsky y Papert alegaron que no existían algoritmos viables para entrenar redes multicapa, congelando los fondos de investigación hasta los años 80.',
-          ],
-          teacherNotes: 'Dibuje mentalmente o en pizarra el gráfico 2D de XOR con puntos (0,0)=0, (0,1)=1, (1,0)=1, (1,1)=0. Muestre que ninguna línea recta puede aislar los 1 de los 0.',
-        },
-
-        // ── Diapositiva 10: Esquema Comparativo de Separabilidad ──
+        // ── Diapositiva 9: Diagrama del Flujo de la Salida yi ──
         {
           type: 'diagram',
-          category: 'Análisis Geométrico',
-          title: 'Separabilidad Lineal: Compuertas AND / OR vs. Compuerta XOR',
-          subtitle: 'Demostración visual del por qué un perceptrón simple colapsa ante funciones no lineales:',
-          diagramType: 'comparison',
-          columns: [
+          category: 'Flujo de Transformación',
+          title: 'El Encadenamiento de Funciones en la Salida',
+          subtitle: 'Paso a paso de cómo las entradas se transforman en la señal efectiva $y_i$:',
+          diagramType: 'flow',
+          nodes: [
             {
-              badge: 'Linealmente Separables (AND / OR)',
-              title: 'Solubles con Perceptrón Monocapa',
-              desc: '• **Comportamiento AND/OR**: Los patrones de salida 1 y 0 se pueden dividir con **una única recta de decisión** ($w_1 x_1 + w_2 x_2 = \\theta$).<br>• **Capacidad**: El perceptrón simple de Rosenblatt encuentra los pesos adecuados rápidamente y converge sin errores.',
+              icon: '📥',
+              label: 'Entradas <xn, w>',
+              desc: 'Señales entrantes y sus respectivos pesos.',
             },
             {
-              badge: 'No Linealmente Separable (XOR)',
-              title: 'Insoluble con Perceptrón Monocapa',
-              desc: '• **Comportamiento XOR**: Los puntos $(0,1)$ y $(1,0)$ están cruzados en diagonal frente a $(0,0)$ y $(1,1)$.<br>• **Limitación**: Requiere **mínimo dos fronteras de decisión**, demandando capas ocultas intermedias (Perceptrón Multicapa).',
+              icon: '➕',
+              label: 'f_propagación',
+              desc: 'Integra y suma las entradas ponderadas.',
+            },
+            {
+              icon: '⚡',
+              label: 'f_activación',
+              desc: 'Calcula el nivel de excitación interna.',
+            },
+            {
+              icon: '📤',
+              label: 'f_salida → yi',
+              desc: 'Genera la señal de salida efectiva.',
             },
           ],
-          teacherNotes: 'Destaque que este límite matemático no significaba que las redes fueran inútiles, sino que se necesitaban estructuras de varias capas y algoritmos matemáticos más avanzados.',
+          teacherNotes: 'Recuerde la fórmula matemática: yi = fsalida(factivación(fpropagación)). Este flujo es idéntico conceptualmente para cualquier neurona artificial.',
         },
 
-        // ── Diapositiva 11: Resurgimiento — MLP, Sigmoides y Retropropagación ──
+        // ── Diapositiva 10: Clases de Neuronas según su Salida ──
         {
           type: 'concept',
-          category: 'El Gran Renacimiento',
-          title: 'El Perceptrón Multicapa (MLP) y la Retropropagación',
-          mainIdea: 'El desarrollo del algoritmo de **Retropropagación (Backpropagation)** junto al uso de **funciones de activación sigmoideas** convirtió a las redes neuronales en **aproximadores universales**.',
-          definition: 'Desarrollado independientemente por Werbos, Parker y el grupo PDP (Rumelhart, Hinton y Williams), Backpropagation calcula el gradiente del error hacia atrás en la red para ajustar todas las capas ocultas.',
+          category: 'Taxonomía de Neuronas',
+          title: 'Clases de Neuronas según su Configuración de Salida',
+          mainIdea: 'Las neuronas artificiales se clasifican principalmente según el **rango y tipo de valores que produce su señal de salida**.',
+          definition: 'Al variar el número de entradas y las funciones de propagación, activación y salida, se configuran diferentes tipos de neuronas adaptadas a propósitos computacionales específicos.',
           keyPoints: [
-            '**Perceptrón Multicapa (MLP)**: Introduce capas ocultas intermedias entre la entrada y la salida, permitiendo componer múltiples fronteras no lineales.',
-            '**Funciones de activación continuas (Sigmoideas)**: Reemplazan la función escalón rígida por una curva derivable $\\sigma(z) = \\frac{1}{1 + e^{-z}}$, permitiendo aplicar la regla de la cadena del cálculo.',
-            '**Superación de la crisis**: El algoritmo resolvió el problema del XOR y abrió el camino a las arquitecturas de aprendizaje profundo modernas.',
+            '**Criterio de clasificación**: El formato y dominio numérico de los valores emitidos por la neurona.',
+            '**Neurona McCulloch-Pitts**: Emite valores estrictamente binarios: **0 o 1**.',
+            '**Neuronas tipo Ising**: Emite valores bipolares: **+1 o -1**, utilizando la función de signo $f(x) = \\text{sign}(x)$.',
+            '**Neuronas tipo Potts**: Emite valores discretos y variados dentro de un rango determinado (ej. $\\{-3, -2, -1, 0, +1, +2, +3\\}$).',
           ],
-          teacherNotes: 'Enfatice la elegancia del cálculo diferencial: la función sigmoidea es suave y diferenciable, lo que permite propagar el gradiente del error desde la salida hasta la primera capa oculta.',
+          teacherNotes: 'Haga notar el criterio unificador: lo que distingue a estas clases es la naturaleza del resultado que entregan: 0/1 (McCulloch-Pitts), -1/+1 (Ising) o una escala graduada discreta (Potts).',
         },
 
-        // ── Diapositiva 12: Matriz Histórico-Técnica de Modelos ──
+        // ── Diapositiva 11: Tabla Comparativa de Modelos de Neurona ──
         {
           type: 'diagram',
-          category: 'Síntesis Evolutiva',
-          title: 'Línea de Evolución de los Modelos Neuronales',
-          subtitle: 'Cuadro comparativo de las etapas clave en la historia del conexionismo:',
+          category: 'Cuadro Comparativo',
+          title: 'McCulloch-Pitts vs. Ising vs. Potts',
+          subtitle: 'Comparación técnica de las principales clases de neuronas artificiales:',
           diagramType: 'table',
-          tableHeaders: ['Modelo / Hito', 'Autores Clave', 'Tipo de Aprendizaje', 'Capacidades / Aporte Principal', 'Limitación Principal'],
+          tableHeaders: ['Clase de Neurona', 'Valores de Salida', 'Función / Criterio Característico', 'Significado del Output'],
           tableRows: [
-            ['Neurona McCulloch-Pitts (1943)', 'McCulloch & Pitts', 'Sin entrenamiento (fijo)', 'Primer modelo computacional de neurona biológica', 'Pesos fijos, sin capacidad de red'],
-            ['Regla Hebbiana (1949/1961)', 'Donald Hebb', 'No Supervisado (Asociativo)', 'Fortalecimiento de sinapsis por coactivación simultánea', 'Sin noción de objetivo o corrección de error'],
-            ['Perceptrón Simple (1958)', 'Frank Rosenblatt', 'Supervisado (Regla de Error)', 'Ajuste dinámico de pesos para clasificación binaria', 'Incapaz de resolver funciones no lineales (XOR)'],
-            ['ADALINE / LMS (1960)', 'Widrow & Hoff', 'Supervisado (Gradiente lineal)', 'Minimización de error cuadrático medio', 'Limitado a transformaciones lineales'],
-            ['Perceptrón Multicapa + Backprop', 'Werbos, Rumelhart, Hinton, Parker', 'Supervisado (Retropropagación)', 'Aproximador universal; resuelve XOR y clasificaciones complejas', 'Mayor costo de cómputo y necesidad de grandes datos'],
+            [
+              'Neurona McCulloch-Pitts',
+              '0 o 1',
+              'Salida binaria booleana estricta',
+              '0 = Inactiva / Falso<br>1 = Activa / Verdadero',
+            ],
+            [
+              'Neurona tipo Ising',
+              '-1 o +1',
+              'Función signo: f(x) = sign(x)',
+              '-1 = Desactivada / Inhibida<br>+1 = Activada / Excitada',
+            ],
+            [
+              'Neurona tipo Potts',
+              'Discretos en rango<br>(ej. -3 a +3)',
+              'Múltiples estados discretos configurables',
+              'Niveles graduados de activación o clasificación cualitativa',
+            ],
           ],
-          teacherNotes: 'Guíe una lectura horizontal y vertical de la tabla para que los estudiantes tengan una visión panorámica clara antes de pasar a la actividad práctica individual.',
+          teacherNotes: 'Guíe una lectura rápida de la tabla: McCulloch-Pitts es binaria (0/1), Ising es simétrica bipolar (-1/+1) y Potts permite múltiples niveles discretos.',
         },
 
-        // ── Diapositiva 13: Actividad Práctica Individual (5-10 min) ──
+        // ── Diapositiva 12: Actividad Práctica Individual (5-10 min) ──
         {
           type: 'activity',
-          title: 'Actividad Individual: Análisis de Separabilidad y XOR',
-          activityTitle: 'Caso de Análisis Técnico — Diagnóstico de Separabilidad Lineal y Arquitectura de Red',
+          title: 'Actividad Individual: Diagnóstico y Modelado de un SNA',
+          activityTitle: 'Aplicación Práctica — Arquitectura y Componentes de un Sistema Neuronal Artificial',
           icon: '🧠',
-          instructions: 'Analiza el siguiente escenario de clasificación lógica y responde los 4 puntos en tu cuaderno o documento de trabajo. Tiempo estimado: 5 a 10 minutos. Trabajo estrictamente individual.',
+          instructions: 'Analiza los siguientes 4 requerimientos técnicos y responde de forma concreta en tu cuaderno o documento de trabajo. Tiempo estimado: 5 a 10 minutos. Trabajo estrictamente individual.',
           steps: [
-            '**Paso 1 (Identificación de la Limitación):** Explica por qué una neurona artificial simple con función escalón (Perceptrón de Rosenblatt) puede clasificar perfectamente las compuertas lógicas AND y OR, pero falla categóricamente al intentar clasificar la compuerta XOR.',
-            '**Paso 2 (Análisis Geométrico):** Representa mentalmente o en un boceto un plano cartesiano 2D con los 4 puntos de entrada $(0,0)$, $(0,1)$, $(1,0)$ y $(1,1)$. Indica cuáles puntos corresponden a salida 1 y cuáles a salida 0 en XOR, explicando por qué una sola recta divisoria no es suficiente.',
-            '**Paso 3 (Solución Arquitectónica):** Describe qué elementos técnicos estructurales (tipo de perceptrón, capas intermedias y función de activación) son indispensables para superar la limitación del XOR.',
-            '**Paso 4 (Mecanismo de Aprendizaje):** Nombra y explica en dos líneas cómo actúa el algoritmo de **Retropropagación (Backpropagation)** para calibrar los pesos de las conexiones ocultas en la red.',
+            '**Paso 1 (Jerarquía Estructural):** En un sistema informático de control robótico $S_1$, existen dos redes neuronales ($R_1$ para visión y $R_2$ para movimiento). Explica cómo se organizan jerárquicamente las neuronas ($N$), las capas ($C$), las redes ($R$) y el sistema ($S$).',
+            '**Paso 2 (Análisis del Par Entrada-Peso):** La neurona $N_3$ recibe una señal de valor $x_2 = 0.7$ enviada por la neurona $N_2$ a través de un enlace con peso $w_{2,3} = 0.9$. Escribe formalmente el par de entrada $\\langle x_n, w_{i,j} \\rangle$ y explica qué ocurriría si el peso fuera $w_{2,3} = 0$.',
+            '**Paso 3 (Cadena de Funciones):** Escribe la fórmula general de la salida $y_i$ y describe en una sola frase qué rol cumple la función de propagación ($f_{\\text{propagación}}$).',
+            '**Paso 4 (Selección de Modelo):** Si un sensor debe informar únicamente si una compuerta está completamente abierta (+1) o cerrada (-1), ¿cuál clase de neurona (McCulloch-Pitts, Ising o Potts) es la adecuada para modelar la salida y cuál es su función matemática?',
           ],
-          tip: 'Tiempo estimado: 5 a 10 minutos. Trabajo individual. Asegúrate de justificar utilizando los términos técnicos adecuados: separabilidad lineal, hiperplano de decisión, capa oculta, función sigmoidea y propagación del gradiente de error.',
-          teacherNotes: 'Asigne entre 5 y 10 minutos para que los estudiantes elaboren sus respuestas individualmente. Al concluir, seleccione a 2 estudiantes para que expongan sus respuestas y valide la comprensión técnica del problema de separabilidad y backpropagation.',
+          tip: 'Tiempo: 5-10 minutos. Actividad individual. Utiliza la notación técnica formal: <xn, wi,j>, transiciones t → t+1, composición yi = fsalida(factivación(fpropagación)) y tipos de neuronas según su salida.',
+          teacherNotes: 'Dé 5 a 10 minutos a los estudiantes para redactar sus respuestas individualmente. Al finalizar, invite a 2 estudiantes a compartir sus respuestas de los pasos 2 y 4 para consolidar los conceptos clave.',
         },
 
-        // ── Diapositiva 14: Resumen y Cierre ──
+        // ── Diapositiva 13: Resumen y Cierre de la Lección ──
         {
           type: 'summary',
           title: 'Cierre de la Clase',
-          summaryTitle: 'Puntos clave a recordar sobre Conexiones y Redes Neuronales:',
+          summaryTitle: 'Puntos clave a recordar sobre el Sistema Neuronal Artificial (SNA):',
           points: [
-            'El **paradigma conexionista** sustituye la manipulación secuencial de símbolos por el procesamiento masivo en paralelo inspirado en redes neuronales biológicas.',
-            'Las redes artificiales poseen **tolerancia a fallos, autoorganización y aprendizaje adaptativo** mediante la calibración iterativa de pesos sinápticos.',
-            'El trabajo de **McCulloch-Pitts** formalizó la neurona computacional y **Donald Hebb** definió la base del aprendizaje asociativo.',
-            'El **Perceptrón de Rosenblatt** y el modelo **ADALINE** introdujeron el aprendizaje supervisado basado en la minimización iterativa del error.',
-            'La crítica de **Minsky y Papert** expuso la incapacidad de los perceptrones monocapa para resolver problemas no lineales como **XOR**.',
-            'El **Perceptrón Multicapa (MLP)**, las **funciones de activación sigmoideas** y el algoritmo de **Retropropagación (Backpropagation)** superaron la crisis, convirtiendo a las redes en aproximadores universales.',
+            '**Jerarquía de 4 niveles**: Neurona ($N_i$) → Capa ($C_i$) → Red ($R_i$) → Sistema ($S_i$). Cada nivel organiza al anterior.',
+            '**Anatomía básica**: Toda neurona opera en 3 componentes esenciales: **Entradas**, **Computación interna** y **Salida**.',
+            '**Pares de entrada $\\langle x_n, w_{i,j} \\rangle$**: Cada señal $x_n$ es ponderada por la intensidad de su conexión $w_{i,j}$ (peso).',
+            '**Tipos de señales**: Señales **analógicas** (continuas en rangos como $[0,1]$ o $[-1,+1]$) frente a señales **digitales** (binarias $\{0, 1\}$).',
+            '**Dinámica temporal**: El cálculo neuronal representa una evolución de estado en el tiempo desde el instante $t$ hacia el instante $t+1$.',
+            '**Composición de funciones**: La señal efectiva final es $y_i = f_{\\text{salida}}(f_{\\text{activación}}(f_{\\text{propagación}}))$.',
+            '**Clases de neuronas según su salida**: **McCulloch-Pitts** ($\\{0, 1\\}$), **Ising** ($\\{-1, +1\\}$ con $f(x) = \\text{sign}(x)$) y **Potts** (múltiples valores discretos en rango).',
           ],
-          teacherNotes: 'Cierre la sesión reforzando que el conexionismo y el algoritmo de backpropagation constituyen la base matemática sobre la que funcionan los modelos actuales de Deep Learning e Inteligencia Artificial generativa.',
+          teacherNotes: 'Concluya felicitando al grupo y recordando que la comprensión precisa de estas funciones y componentes básicos es el pilar indispensable para entender redes neuronales profundas y algoritmos de entrenamiento.',
         },
       ],
     },
