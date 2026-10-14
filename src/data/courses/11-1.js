@@ -1,285 +1,315 @@
 /**
  * Contenido educativo — Grado 11.º Grupo 1
- * Tema: Descripción de un Sistema Neuronal Artificial (SNA)
+ * Tema: Capas de Neuronas y Flujo de Información
  *
- * Fuente académica: cursos/11/11-1.md
+ * Fuente académica estricta: cursos/11/11-1.md
  * Formato: Presentación Académica Interactiva por Diapositivas
- * Regla principal: UNA sola idea por diapositiva.
- * Pedagogía: COMPRENDER → EXPLICAR CON SENCILLEZ → EJEMPLIFICAR → RELACIONAR → PROFUNDIZAR
+ * Regla pedagógica: UNA SOLA IDEA POR DIAPOSITIVA
+ * Secuencia: COMPRENDER → EXPLICAR CON SENCILLEZ → EJEMPLIFICAR → RELACIONAR → PROFUNDIZAR
  *
  * Estructura de clase:
  * - Sin cuestionario / quiz final.
  * - Sin preguntas de verdadero / falso.
- * - Sin preguntas heredadas anteriores.
- * - UNA sola ACTIVIDAD práctica individual (5-10 min).
+ * - Sin preguntas heredadas antiguas.
+ * - UNA sola ACTIVIDAD individual práctica (5-10 min).
  */
 
 export const course11_1 = {
-  title: 'Descripción de un Sistema Neuronal Artificial',
-  description: 'Arquitectura jerárquica de los sistemas neuronales, componentes funcionales de la neurona artificial, dinámica de computación interna, composición matemática de funciones y clasificación de neuronas.',
+  title: 'Capas de Neuronas',
+  description: 'Arquitectura de capas (entrada, ocultas y salida), topología de conexiones (crossbar y autorrecurrentes) y sentido de la marcha de la información (feedforward y feedback).',
   lessons: [
     {
-      id: 'descripcion-sistema-neuronal',
-      title: 'Descripción de un Sistema Neuronal Artificial',
-      description: 'Presentación guiada: jerarquía estructural, señales y pesos, dinámica de cálculo y clases de neuronas.',
+      id: 'capas-neuronas',
+      title: 'Capas de Neuronas y Flujo de Información',
+      description: 'Presentación interactiva: clasificación de capas, tipos de conexiones y dinámicas de propagación de señales en redes neuronales.',
       slides: [
         // ── Diapositiva 1: Portada y Objetivos ──
         {
           type: 'title',
           badge: 'Informática 11.º — Grupo 1',
-          title: 'Descripción de un Sistema Neuronal Artificial',
-          subtitle: 'Estructura jerárquica, anatomía de la neurona artificial y clases según su tipo de salida',
+          title: 'Capas de Neuronas y Flujo de Información',
+          subtitle: 'Arquitectura de capas, topología de conexiones y dinámicas de propagación de la señal',
           objectives: [
-            'Comprender la organización jerárquica de un SNA: neuronas (N), capas (C), redes (R) y sistemas (S).',
-            'Analizar la anatomía funcional de una neurona: señales de entrada, pesos sinápticos <xn, wi,j>, dinámica temporal de estado (t → t+1) y señal de salida.',
-            'Diferenciar la naturaleza de las señales analógicas (continuas) y digitales (discretas).',
-            'Descomponer la formulación matemática de la salida efectiva: yi = fsalida(factivación(fpropagación)).',
-            'Identificar y clasificar los tipos de neuronas según su valor de salida: McCulloch-Pitts, Ising y Potts.',
+            'Comprender la necesidad y el principio de agrupar neuronas artificiales en capas.',
+            'Identificar la función específica de los tres grupos de capas: entrada, ocultas y salida.',
+            'Diferenciar las conexiones crossbar (cruzadas) y autorrecurrentes (a sí mismas).',
+            'Analizar la direccionalidad y el sentido de la marcha de la información en una red neuronal.',
+            'Comparar la propagación hacia adelante (feedforward) y la propagación hacia atrás (feedback), reconociendo sus dos grupos de pesos.',
           ],
-          teacherNotes: '**Inicio de sesión:** Presente el tema destacando que hoy entenderemos la unidad atómica y la arquitectura general de la inteligencia artificial: cómo se modela matemáticamente una neurona y cómo se ensamblan para formar sistemas complejos.',
+          teacherNotes: '**Inicio de sesión:** Establezca el puente con la clase anterior: ya sabemos cómo funciona una neurona individual; hoy aprenderemos cómo se organizan en equipo formando capas y cómo viaja la señal a través de ellas.',
         },
 
-        // ── Diapositiva 2: Concepto de Jerarquía del SNA ──
+        // ── Diapositiva 2: De la Neurona Individual a las Capas ──
         {
           type: 'concept',
-          category: 'Arquitectura Estructural',
-          title: 'De lo Simple a lo Complejo: La Jerarquía de un SNA',
-          mainIdea: 'Un **Sistema Neuronal Artificial (SNA)** organiza el procesamiento computacional en **4 niveles jerárquicos ascendentes**: desde unidades de cálculo individuales hasta sistemas integrados.',
-          analogy: 'Es semejante a una organización empresarial: un trabajador individual (Neurona) forma un equipo (Capa), varios equipos forman un departamento (Red), y todos los departamentos coordinados crean la empresa completa (Sistema).',
+          category: 'Fundamento Arquitectónico',
+          title: 'De la Neurona Individual a las Capas',
+          mainIdea: 'Una neurona aislada solo puede tomar decisiones muy elementales; para resolver problemas complejos, las neuronas se organizan en **agrupaciones llamadas capas**.',
+          analogy: 'Una persona sola no puede operar un hospital completo; organizamos al personal en departamentos coordinados (recepción, diagnóstico, tratamiento) donde cada equipo resuelve una etapa del proceso.',
           keyPoints: [
-            '**Neurona ($N_i$)**: Elemento básico y atómico de cálculo en el sistema.',
-            '**Capa ($C_i$)**: Agrupación de múltiples neuronas unidas mediante conexiones.',
-            '**Red ($R_i$)**: Conjunto estructurado de varias capas interconectadas entre sí.',
-            '**Sistema ($S_i$)**: Conjunto de múltiples redes neuronales que interactúan para resolver tareas complejas.',
+            '**Definición de capa**: Conjunto estructurado de neuronas que operan en un mismo nivel funcional dentro de la red.',
+            '**Procesamiento cooperativo**: Al conectarse entre sí, las neuronas distribuyen el cálculo matemático y transforman la información en etapas sucesivas.',
+            '**Los tres grandes grupos**: Toda red neuronal organiza sus capas en tres categorías canónicas: **Entrada**, **Ocultas** y **Salida**.',
           ],
-          teacherNotes: 'Explique la notación estándar: N para neuronas, C para capas, R para redes y S para sistemas, siempre acompañadas de un subíndice identificador (N1, C2, R1, S1).',
+          teacherNotes: 'Enfatice que una red no es un montón caótico de neuronas: existe una estructura organizada en capas donde cada una cumple una labor especializada.',
         },
 
-        // ── Diapositiva 3: Diagrama de la Jerarquía SNA ──
+        // ── Diapositiva 3: Capa de Entrada ──
+        {
+          type: 'concept',
+          category: 'Estructura de Capas',
+          title: 'Capa de Entrada: Los Sensores de la Red',
+          mainIdea: 'Es la primera capa de la red; su función es **recibir los datos del exterior** y transferirlos directamente a las capas posteriores.',
+          definition: 'Capa de neuronas que actúan como sensores: reciben la información externa del entorno y se limitan a pasarla a las capas siguientes sin realizar transformaciones complejas.',
+          keyPoints: [
+            '**Función de receptor sensorial**: Captura variables del entorno (píxeles de una imagen, niveles de sonido, lecturas de temperatura o datos numéricos).',
+            '**Paso directo de señal**: No realiza cálculos de abstracción profunda; su rol esencial es servir como canal de ingreso y distribución de la señal.',
+            '**Punto de partida**: Cualquier proceso de computación en la red neuronal inicia indefectiblemente en esta capa.',
+          ],
+          teacherNotes: 'Aclare que las neuronas de entrada funcionan como antenas o receptores: no modifican los datos brutos, solo los introducen al sistema.',
+        },
+
+        // ── Diapositiva 4: Ejemplo de Entrada — La Retina ──
+        {
+          type: 'example',
+          category: 'Ejemplo Biológico',
+          title: 'Ejemplo de Entrada: La Retina Humana',
+          icon: '👁️',
+          description: 'En el sistema visual humano, la **retina** está formada por millones de células fotorreceptoras que reciben la luz del exterior y la transforman en impulsos eléctricos hacia la zona occipital del cerebro.',
+          analogy: 'En informática, la capa de entrada de una red de visión artificial es la matriz de píxeles capturada por el sensor de una cámara web: convierte fotones en números para alimentar la red.',
+          features: [
+            'La retina no "interpreta" qué objeto está viendo; únicamente captura y codifica la luz recibida.',
+            'Transfiere las señales eléctricas generadas hacia las áreas posteriores del cerebro para su procesamiento.',
+            'En una red informática, cada píxel o sensor físico alimenta a una neurona específica de la capa de entrada.',
+          ],
+          teacherNotes: 'Destaque la analogía con la retina: la retina no sabe si ve un gato o un texto; solo convierte la luz en impulsos nerviosos que viajan hacia el cerebro.',
+        },
+
+        // ── Diapositiva 5: Capas Ocultas ──
+        {
+          type: 'concept',
+          category: 'Estructura de Capas',
+          title: 'Capas Ocultas: El Corazón del Procesamiento',
+          mainIdea: 'Son las capas situadas **entre la entrada y la salida**; aquí es donde ocurre el verdadero análisis y extracción de patrones.',
+          definition: 'Capas intermedias de neuronas que transforman progresivamente las señales. Según la arquitectura de la red y el problema a resolver, pueden existir **ninguna, una o varias** capas ocultas.',
+          keyPoints: [
+            '**¿Por qué "ocultas"?**: Porque no tienen contacto directo con el exterior; ni reciben datos brutos del entorno ni emiten la respuesta final.',
+            '**¿Cuándo son ninguna (0)?**: En problemas sencillos y linealmente separables, donde la capa de entrada se conecta directamente con la de salida.',
+            '**¿Cuándo son imprescindibles?**: En problemas complejos (visión, voz, predicción) donde se requiere descomponer datos en múltiples niveles de abstracción.',
+          ],
+          teacherNotes: 'Subraye que las capas ocultas no son obligatorias en todas las redes: pueden ser 0 en redes elementales, pero son indispensables cuando el problema tiene complejidad no lineal.',
+        },
+
+        // ── Diapositiva 6: Capa de Salida ──
+        {
+          type: 'concept',
+          category: 'Estructura de Capas',
+          title: 'Capa de Salida: La Emisión de la Respuesta',
+          mainIdea: 'Es la última etapa de la red; **transfiere las señales resultantes hacia el exterior** para interactuar con el entorno.',
+          definition: 'Capa de neuronas encargadas de emitir la decisión final, clasificación o acción física producida por la red hacia el usuario, otro sistema o un actuador.',
+          keyPoints: [
+            '**Emisión hacia el exterior**: Traduce las operaciones matemáticas internas en un resultado observable y utilizable.',
+            '**Naturaleza de la señal**: Puede emitir señales continuas (analógicas, como intensidades o voltajes) o discretas (categorías o decisiones booleanas).',
+            '**Cierre del ciclo**: Representa el destino final del flujo de computación de una entrada dada.',
+          ],
+          teacherNotes: 'Explique que la capa de salida es la "boca" o los "brazos" de la red: comunica la conclusión del procesamiento al mundo exterior.',
+        },
+
+        // ── Diapositiva 7: Ejemplo de Salida — Motores de un Robot ──
+        {
+          type: 'example',
+          category: 'Ejemplo Tecnológico',
+          title: 'Ejemplo de Salida: Control de Motores en un Robot',
+          icon: '🤖',
+          description: 'En un robot móvil de 4 ruedas, la **capa de salida** emite señales analógicas que activan y modulan la velocidad del motor de cada una de sus ruedas.',
+          analogy: 'Si los sensores de proximidad (entrada) detectan un obstáculo a la izquierda, la capa de salida ordena: "Rueda izquierda al 100%, rueda derecha al 30%" para girar y evitar el choque.',
+          features: [
+            'Cada neurona de la capa de salida controla directamente un actuador electromecánico.',
+            'Las señales emitidas regulan variables físicas reales (potencia, voltaje, dirección de giro).',
+            'Cierra el ciclo inteligente completo: percibir (entrada) → procesar (ocultas) → actuar (salida).',
+          ],
+          teacherNotes: 'Muestre cómo el valor numérico que sale de una neurona se convierte físicamente en voltaje que hace girar una rueda a mayor o menor velocidad.',
+        },
+
+        // ── Diapositiva 8: Diagrama de los Tres Grupos de Capas ──
         {
           type: 'diagram',
-          category: 'Niveles de Organización',
-          title: 'Estructura Jerárquica: N → C → R → S',
-          subtitle: 'Representación formal de cómo se agrupan los elementos dentro de un SNA:',
-          diagramType: 'flow',
-          nodes: [
-            {
-              icon: '🔵',
-              label: 'Neurona (Ni)',
-              desc: 'Elemento básico individual de procesamiento.',
-            },
-            {
-              icon: '🧱',
-              label: 'Capa (Ci)',
-              desc: 'Agrupación de neuronas unidas por conexiones.',
-            },
-            {
-              icon: '🕸️',
-              label: 'Red (Ri)',
-              desc: 'Agrupación de capas enlazadas entre sí.',
-            },
-            {
-              icon: '🌐',
-              label: 'Sistema (Si)',
-              desc: 'Múltiples redes conectadas colaborando.',
-            },
-          ],
-          teacherNotes: 'Resalte que cada nivel superior contiene y coordina al nivel anterior. Ningún sistema existe sin redes, ninguna red sin capas y ninguna capa sin neuronas individuales.',
-        },
-
-        // ── Diapositiva 4: Componentes Básicos de la Neurona Artificial ──
-        {
-          type: 'concept',
-          category: 'Anatomía de la Neurona',
-          title: 'Los Tres Componentes de la Neurona Artificial',
-          mainIdea: 'Toda neurona artificial opera bajo un ciclo fundamental de tres etapas: **recibe información**, **la transforma internamente** y **emite una respuesta**.',
-          definition: 'Inspirada en el funcionamiento biológico, la neurona artificial $N_i$ procesa información a través de tres componentes inseparables: **Entradas**, **Computación** y **Salida**.',
-          keyPoints: [
-            '**1. Entradas**: Conjunto de señales que llegan a la neurona, cada una con un valor específico y una intensidad asignada.',
-            '**2. Computación**: Transformación matemática interna que actualiza el estado de la neurona a lo largo del tiempo.',
-            '**3. Salida**: Emisión de una señal resultante ($y_i$) que se propaga hacia las neuronas de la siguiente capa.',
-          ],
-          teacherNotes: 'Establezca el paralelismo con la neurona biológica: las entradas son las dendritas, la computación es el soma celular y la salida es el axón.',
-        },
-
-        // ── Diapositiva 5: Las Entradas y el Par <xn, wi,j> ──
-        {
-          type: 'concept',
-          category: 'Señales de Entrada',
-          title: 'Entradas: Valor de Señal ($x_n$) y Peso Sináptico ($w_{i,j}$)',
-          mainIdea: 'Una neurona no recibe datos en bruto; cada señal entrante está modulada por un factor de importancia denominado **peso ($w$)**.',
-          definition: 'Cada entrada se representa formalmente mediante el par ordenado **$\\langle x_n, w_{i,j} \\rangle$**, combinando el dato proveniente de otra neurona con la fuerza de la conexión.',
-          keyPoints: [
-            '**Valor de la señal ($x_n$)**: Magnitud del dato que llega desde una neurona anterior $n$.',
-            '**Peso de la conexión ($w_{i,j}$)**: Intensidad o relevancia del enlace que une la neurona origen $N_i$ con la neurona destino $N_j$ (ej. $w_{h,i}$).',
-            '**Significado del peso**: Proviene del término inglés *weight*. Determina cuánto influye esa entrada particular en la decisión de la neurona.',
-          ],
-          teacherNotes: 'Aclare bien los subíndices: wh,i indica la conexión que parte de la neurona Nh y llega a la neurona Ni. El peso w actúa como un amplificador o atenuador del valor x.',
-        },
-
-        // ── Diapositiva 6: Señales Analógicas vs. Digitales ──
-        {
-          type: 'diagram',
-          category: 'Naturaleza de la Información',
-          title: 'Tipos de Señales en el SNA: Analógicas vs. Digitales',
-          subtitle: 'Tanto las señales entrantes como las salientes se clasifican según su rango de valores:',
-          diagramType: 'comparison',
-          columns: [
-            {
-              badge: 'Señales Analógicas (Continuas)',
-              title: 'Cualquier valor en un intervalo continuo',
-              desc: '• **Valores infinitos**: Pueden adoptar cualquier número real dentro de un rango preestablecido.<br>• **Rangos habituales**: $[0, +1]$, $[-1, +1]$ o $[-\\infty, +\\infty]$.<br>• **Ejemplos informáticos**: Grado de brillo de un píxel, probabilidad de una clase (0.87), nivel de temperatura o voltaje.',
-            },
-            {
-              badge: 'Señales Digitales (Discretas)',
-              title: 'Únicamente dos valores permitidos',
-              desc: '• **Valores discretos binarios**: Solo pueden tomar exactamente uno de dos estados posibles: **0** o **1**.<br>• **Rango estricto**: $\{0, 1\}$.<br>• **Ejemplos informáticos**: Detección binaria (presencia o ausencia de un objeto), compuerta lógica (verdadero / falso).',
-            },
-          ],
-          teacherNotes: 'Pida a los alumnos ejemplos de magnitudes analógicas (la presión sobre una pantalla táctil) versus digitales (un interruptor que solo está encendido o apagado).',
-        },
-
-        // ── Diapositiva 7: Computación y Dinámica Temporal ──
-        {
-          type: 'concept',
-          category: 'Procesamiento Interno',
-          title: 'Computación Interna: Transición de Estado ($t \\to t+1$)',
-          mainIdea: 'El procesamiento de la neurona representa un cambio dinámico en el tiempo: **pasa de un estado inicial a un nuevo estado procesado**.',
-          definition: 'Cada neurona $N_i$ se encuentra en un estado inicial en el momento **$t$**; al recibir y combinar las señales de entrada, transiciona hacia un nuevo estado en el momento **$t + 1$**.',
-          keyPoints: [
-            '**Momento $t$**: La neurona está en reposo o esperando señales entrantes $\\langle x_n, w_{i,j} \\rangle$.',
-            '**Transformación**: La neurona integra y evalúa las entradas ponderadas.',
-            '**Momento $t + 1$**: Se alcanza un nuevo estado interno y se genera la señal de salida efectiva.',
-          ],
-          teacherNotes: 'Enfatice que el cómputo neuronal no es estático: ocurre en pasos temporales discretos donde la información fluye de un instante t al instante siguiente t+1.',
-        },
-
-        // ── Diapositiva 8: La Señal de Salida (yi) y Composición de Funciones ──
-        {
-          type: 'concept',
-          category: 'Señal de Salida Efectiva',
-          title: 'La Salida ($y_i$): Composición de Tres Funciones',
-          mainIdea: 'La señal de salida efectiva **$y_i$** es el resultado de **tres funciones matemáticas encadenadas secuencialmente**.',
-          definition: 'La salida de cualquier neurona artificial se expresa formalmente como: $$y_i = f_{\\text{salida}}(f_{\\text{activación}}(f_{\\text{propagación}}))$$',
-          keyPoints: [
-            '**1. Función de Propagación ($f_{\\text{propagación}}$)**: Integra y combina todas las entradas y pesos (generalmente calcula la suma ponderada de las entradas).',
-            '**2. Función de Activación ($f_{\\text{activación}}$)**: Determina el nivel de excitación o activación interna alcanzado por la neurona.',
-            '**3. Función de Salida ($f_{\\text{salida}}$)**: Transforma la activación en la señal final $y_i$ observable por el resto de la red.',
-          ],
-          teacherNotes: 'Explique con claridad que una función alimenta a la siguiente: primero sumamos lo que entra, luego calculamos qué tan activa está la neurona y finalmente decidimos qué señal se emite hacia afuera.',
-        },
-
-        // ── Diapositiva 9: Diagrama del Flujo de la Salida yi ──
-        {
-          type: 'diagram',
-          category: 'Flujo de Transformación',
-          title: 'El Encadenamiento de Funciones en la Salida',
-          subtitle: 'Paso a paso de cómo las entradas se transforman en la señal efectiva $y_i$:',
+          category: 'Esquema de Flujo',
+          title: 'Los Tres Grandes Grupos de Capas',
+          subtitle: 'Recorrido canónico de la información a través de la arquitectura de la red:',
           diagramType: 'flow',
           nodes: [
             {
               icon: '📥',
-              label: 'Entradas <xn, w>',
-              desc: 'Señales entrantes y sus respectivos pesos.',
+              label: 'Capa de Entrada',
+              desc: 'Sensores que reciben datos brutos del exterior (ej. retina o cámara).',
             },
             {
-              icon: '➕',
-              label: 'f_propagación',
-              desc: 'Integra y suma las entradas ponderadas.',
-            },
-            {
-              icon: '⚡',
-              label: 'f_activación',
-              desc: 'Calcula el nivel de excitación interna.',
+              icon: '⚙️',
+              label: 'Capas Ocultas',
+              desc: '0, 1 o varias capas intermedias que transforman y extraen patrones.',
             },
             {
               icon: '📤',
-              label: 'f_salida → yi',
-              desc: 'Genera la señal de salida efectiva.',
+              label: 'Capa de Salida',
+              desc: 'Transfiere la señal resultante hacia el exterior (ej. motores del robot).',
             },
           ],
-          teacherNotes: 'Recuerde la fórmula matemática: yi = fsalida(factivación(fpropagación)). Este flujo es idéntico conceptualmente para cualquier neurona artificial.',
+          teacherNotes: 'Haga un recorrido visual: la información entra por la izquierda, se procesa en el centro y sale por la derecha. Esta es la estructura básica de cualquier red neuronal artificial.',
         },
 
-        // ── Diapositiva 10: Clases de Neuronas según su Salida ──
+        // ── Diapositiva 9: Conexiones Crossbar ──
         {
           type: 'concept',
-          category: 'Taxonomía de Neuronas',
-          title: 'Clases de Neuronas según su Configuración de Salida',
-          mainIdea: 'Las neuronas artificiales se clasifican principalmente según el **rango y tipo de valores que produce su señal de salida**.',
-          definition: 'Al variar el número de entradas y las funciones de propagación, activación y salida, se configuran diferentes tipos de neuronas adaptadas a propósitos computacionales específicos.',
+          category: 'Topología de Conexiones',
+          title: 'Conexiones Crossbar: El Entramado Cruzado',
+          mainIdea: 'Son conexiones en las que **las salidas de las neuronas de una capa se cruzan entre sí** para enlazarse con múltiples neuronas de otra capa.',
+          definition: 'Topología de enlace en matriz o malla cruzada donde las señales se intersectan, distribuyendo la información desde varios orígenes hacia múltiples destinos.',
           keyPoints: [
-            '**Criterio de clasificación**: El formato y dominio numérico de los valores emitidos por la neurona.',
-            '**Neurona McCulloch-Pitts**: Emite valores estrictamente binarios: **0 o 1**.',
-            '**Neuronas tipo Ising**: Emite valores bipolares: **+1 o -1**, utilizando la función de signo $f(x) = \\text{sign}(x)$.',
-            '**Neuronas tipo Potts**: Emite valores discretos y variados dentro de un rango determinado (ej. $\\{-3, -2, -1, 0, +1, +2, +3\\}$).',
+            '**Cruce de salidas**: La salida de una neurona no viaja en una línea aislada paralela; se cruza y conecta con múltiples neuronas receptoras.',
+            '**Integración de señales**: Permite que una neurona receptora reciba información combinada proveniente de diversas fuentes simultáneamente.',
+            '**Inspiración técnica**: Proviene de las matrices de conmutación de telefonía e informática (*crossbar switch*), donde cualquier entrada puede interconectarse con cualquier salida.',
           ],
-          teacherNotes: 'Haga notar el criterio unificador: lo que distingue a estas clases es la naturaleza del resultado que entregan: 0/1 (McCulloch-Pitts), -1/+1 (Ising) o una escala graduada discreta (Potts).',
+          teacherNotes: 'Dibuje imaginariamente una cuadrícula donde las líneas horizontales se cruzan con las verticales: eso es crossbar, un cruce múltiple de caminos entre capas.',
         },
 
-        // ── Diapositiva 11: Tabla Comparativa de Modelos de Neurona ──
+        // ── Diapositiva 10: Conexiones Autorrecurrentes ──
+        {
+          type: 'concept',
+          category: 'Topología de Conexiones',
+          title: 'Conexiones Autorrecurrentes: Bucle a Sí Misma',
+          mainIdea: 'Son aquellas conexiones en las que **la salida de una neurona vuelve a ser entrada de ella misma**.',
+          definition: 'Enlace de retroalimentación local directa donde la neurona utiliza su propio resultado anterior como dato de entrada para su siguiente ciclo de cálculo.',
+          keyPoints: [
+            '**Bucle directo sobre sí misma**: Salida de $N_i$ $\\to$ Entrada de $N_i$.',
+            '**Memoria local inmediata**: Permite a la neurona retener o mantener su estado previo a lo largo del tiempo.',
+            '**Dinámica temporal**: Introduce persistencia e inercia matemática: la respuesta presente depende no solo de las entradas externas, sino de lo que la neurona calculó un instante antes.',
+          ],
+          teacherNotes: 'Ponga el ejemplo de un eco o de una persona que recuerda su propia respuesta anterior antes de responder la siguiente pregunta. Eso es una conexión autorrecurrente.',
+        },
+
+        // ── Diapositiva 11: El Sentido de la Marcha de la Señal ──
+        {
+          type: 'concept',
+          category: 'Dinámica de la Información',
+          title: 'El Sentido de la Marcha de la Información',
+          mainIdea: 'La disposición de las conexiones determina **el camino y sentido direccional** que sigue la señal al recorrer la red neuronal.',
+          definition: 'Intuitivamente, la información entra por la capa de entrada, viaja por las capas ocultas y sale por la capa de salida. Por lo tanto, la señal tiene un **sentido de la marcha**.',
+          keyPoints: [
+            '**Flujo intuitivo unidireccional**: Entrada $\\to$ Capas Ocultas $\\to$ Salida.',
+            '**Caminos alternativos y tortuosos**: Si las conexiones forman bucles hacia la misma capa o capas previas, la señal vuelve a entrar o recircula.',
+            '**Criterio fundamental de clasificación**: Según el sentido que sigue la información, la propagación de la señal se clasifica en dos modos: **Propagación hacia adelante (Feedforward)** y **Propagación hacia atrás (Feedback)**.',
+          ],
+          teacherNotes: 'Use la metáfora de las calles de tránsito: hay calles de un solo sentido (feedforward) y rotondas o calles de doble sentido con retornos (feedback).',
+        },
+
+        // ── Diapositiva 12: Propagación hacia Adelante (Feedforward) ──
+        {
+          type: 'concept',
+          category: 'Modos de Propagación',
+          title: 'Propagación hacia Adelante (Feedforward)',
+          mainIdea: 'Es aquella en la que **ninguna salida de las neuronas de una capa es entrada de cualquier otra neurona de su misma capa ni de capas anteriores**.',
+          definition: 'Flujo de información estrictamente unidireccional y sin ciclos: la señal se propaga siempre hacia adelante desde la capa de entrada hacia la capa de salida.',
+          keyPoints: [
+            '**Sin ciclos ni bucles**: Ninguna neurona retrocede información ni alimenta a sus compañeras de la misma capa.',
+            '**Cálculo determinista y rápido**: La información fluye en una sola pasada ordenada de izquierda a derecha.',
+            '**Aplicación principal**: Es especialmente útil y eficiente para el **reconocimiento o clasificación de patrones** (ej. detección de imágenes, reconocimiento de caracteres o diagnóstico estático).',
+          ],
+          teacherNotes: 'Enfatice la regla de oro del Feedforward: la señal NUNCA retrocede ni se queda en la misma capa. Solo viaja hacia adelante hasta la salida.',
+        },
+
+        // ── Diapositiva 13: Propagación hacia Atrás (Feedback / Recurrente) ──
+        {
+          type: 'concept',
+          category: 'Modos de Propagación',
+          title: 'Propagación hacia Atrás (Feedback / Recurrente)',
+          mainIdea: 'Es aquella en la que **alguna salida de una capa vuelve como entrada a una neurona de su misma capa o de una capa anterior**.',
+          definition: 'Flujo de información con recirculación: la señal viaja hacia adelante (forward) pero también retrocede (feedback), generando bucles dinámicos.',
+          keyPoints: [
+            '**Circulación mixta**: La información circula simultáneamente hacia adelante y hacia atrás dentro de la estructura.',
+            '**Dos grupos de pesos**: En estas redes coexisten dos conjuntos de parámetros fundamentales: **a) Pesos de las conexiones forward** y **b) Pesos de las conexiones feedback**.',
+            '**Capacidad de memoria contextual**: Al retroalimentar la señal, la red puede procesar secuencias en el tiempo, texto continuo y predicciones basadas en la historia previa.',
+          ],
+          teacherNotes: 'Aclare bien que en feedback existen DOS grupos de pesos independientes: unos regulan el avance hacia adelante y otros regulan la retroalimentación hacia atrás.',
+        },
+
+        // ── Diapositiva 14: Cuadro Comparativo: Feedforward vs. Feedback ──
         {
           type: 'diagram',
           category: 'Cuadro Comparativo',
-          title: 'McCulloch-Pitts vs. Ising vs. Potts',
-          subtitle: 'Comparación técnica de las principales clases de neuronas artificiales:',
+          title: 'Feedforward vs. Feedback: Comparativa Técnica',
+          subtitle: 'Diferencias estructurales y de funcionamiento según el sentido de la marcha:',
           diagramType: 'table',
-          tableHeaders: ['Clase de Neurona', 'Valores de Salida', 'Función / Criterio Característico', 'Significado del Output'],
+          tableHeaders: ['Aspecto Técnico', 'Propagación hacia Adelante (Feedforward)', 'Propagación hacia Atrás (Feedback)'],
           tableRows: [
             [
-              'Neurona McCulloch-Pitts',
-              '0 o 1',
-              'Salida binaria booleana estricta',
-              '0 = Inactiva / Falso<br>1 = Activa / Verdadero',
+              'Sentido de la señal',
+              'Estrictamente unidireccional (Entrada → Salida)',
+              'Bidireccional y cíclico (Adelante y hacia atrás)',
             ],
             [
-              'Neurona tipo Ising',
-              '-1 o +1',
-              'Función signo: f(x) = sign(x)',
-              '-1 = Desactivada / Inhibida<br>+1 = Activada / Excitada',
+              'Conexiones en la misma capa',
+              'Ninguna permitida (sin enlaces laterales)',
+              'Permitidas (neuronas se conectan entre sí o consigo mismas)',
             ],
             [
-              'Neurona tipo Potts',
-              'Discretos en rango<br>(ej. -3 a +3)',
-              'Múltiples estados discretos configurables',
-              'Niveles graduados de activación o clasificación cualitativa',
+              'Conexiones a capas anteriores',
+              'No existen (la señal nunca retrocede)',
+              'Sí existen (salidas alimentan niveles previos)',
+            ],
+            [
+              'Grupos de pesos',
+              'Un solo grupo de pesos (conexiones forward)',
+              'Dos grupos diferenciados: pesos forward y pesos feedback',
+            ],
+            [
+              'Comportamiento temporal',
+              'Estático: respuesta inmediata sin memoria pasada',
+              'Dinámico: posee memoria y retiene estados anteriores',
+            ],
+            [
+              'Aplicación típica',
+              'Reconocimiento y clasificación de patrones',
+              'Procesamiento de secuencias temporales, texto y audio',
             ],
           ],
-          teacherNotes: 'Guíe una lectura rápida de la tabla: McCulloch-Pitts es binaria (0/1), Ising es simétrica bipolar (-1/+1) y Potts permite múltiples niveles discretos.',
+          teacherNotes: 'Pase por la tabla resaltando las tres diferencias clave: dirección del flujo, existencia de bucles y la presencia de dos grupos de pesos en feedback.',
         },
 
-        // ── Diapositiva 12: Actividad Práctica Individual (5-10 min) ──
+        // ── Diapositiva 15: Actividad Práctica Individual (5-10 min) ──
         {
           type: 'activity',
-          title: 'Actividad Individual: Diagnóstico y Modelado de un SNA',
-          activityTitle: 'Aplicación Práctica — Arquitectura y Componentes de un Sistema Neuronal Artificial',
+          title: 'Actividad Individual: Arquitectura y Propagación en Redes',
+          activityTitle: 'Aplicación Práctica — Diagnóstico de Capas y Flujos Neuronales',
           icon: '🧠',
           instructions: 'Analiza los siguientes 4 requerimientos técnicos y responde de forma concreta en tu cuaderno o documento de trabajo. Tiempo estimado: 5 a 10 minutos. Trabajo estrictamente individual.',
           steps: [
-            '**Paso 1 (Jerarquía Estructural):** En un sistema informático de control robótico $S_1$, existen dos redes neuronales ($R_1$ para visión y $R_2$ para movimiento). Explica cómo se organizan jerárquicamente las neuronas ($N$), las capas ($C$), las redes ($R$) y el sistema ($S$).',
-            '**Paso 2 (Análisis del Par Entrada-Peso):** La neurona $N_3$ recibe una señal de valor $x_2 = 0.7$ enviada por la neurona $N_2$ a través de un enlace con peso $w_{2,3} = 0.9$. Escribe formalmente el par de entrada $\\langle x_n, w_{i,j} \\rangle$ y explica qué ocurriría si el peso fuera $w_{2,3} = 0$.',
-            '**Paso 3 (Cadena de Funciones):** Escribe la fórmula general de la salida $y_i$ y describe en una sola frase qué rol cumple la función de propagación ($f_{\\text{propagación}}$).',
-            '**Paso 4 (Selección de Modelo):** Si un sensor debe informar únicamente si una compuerta está completamente abierta (+1) o cerrada (-1), ¿cuál clase de neurona (McCulloch-Pitts, Ising o Potts) es la adecuada para modelar la salida y cuál es su función matemática?',
+            '**Paso 1 (Identificación de Capas):** En un dron de rescate, una cámara térmica detecta calor corporal, una etapa intermedia analiza si la silueta corresponde a un excursionista extraviado, y un módulo final activa una alarma sonora y estabiliza el vuelo. Identifica cuál es la capa de entrada, cuál la oculta y cuál la de salida, explicando la función de cada una.',
+            '**Paso 2 (Análisis de Capas Ocultas):** Explica en qué circunstancia una red neuronal puede funcionar perfectamente sin ninguna capa oculta (0 capas) y en qué casos resulta imprescindible la existencia de una o varias capas ocultas.',
+            '**Paso 3 (Topología de Conexiones):** Explica la diferencia física y funcional entre una conexión **crossbar** (cruzada entre neuronas de diferentes capas) y una conexión **autorrecurrente** (la salida de una neurona entra a ella misma).',
+            '**Paso 4 (Sentido de la Marcha y Pesos):** Si queremos diseñar un sistema que prediga la siguiente palabra que escribirá un usuario basándose en las tres palabras anteriores que ya redactó, ¿qué tipo de propagación (feedforward o feedback) se debe emplear? Justifica tu respuesta mencionando qué papel juegan sus dos grupos de pesos.',
           ],
-          tip: 'Tiempo: 5-10 minutos. Actividad individual. Utiliza la notación técnica formal: <xn, wi,j>, transiciones t → t+1, composición yi = fsalida(factivación(fpropagación)) y tipos de neuronas según su salida.',
-          teacherNotes: 'Dé 5 a 10 minutos a los estudiantes para redactar sus respuestas individualmente. Al finalizar, invite a 2 estudiantes a compartir sus respuestas de los pasos 2 y 4 para consolidar los conceptos clave.',
+          tip: 'Tiempo: 5-10 minutos. Actividad individual. Sé conciso y utiliza los términos técnicos correctos: capa de entrada (sensores), capas ocultas, capa de salida, conexiones crossbar, conexiones autorrecurrentes, propagación feedforward vs feedback, pesos forward y pesos feedback.',
+          teacherNotes: 'Dé entre 5 y 10 minutos para trabajo individual en silencio. Al finalizar, invite a dos estudiantes al azar a responder el paso 2 y el paso 4 para afianzar el aprendizaje.',
         },
 
-        // ── Diapositiva 13: Resumen y Cierre de la Lección ──
+        // ── Diapositiva 16: Resumen y Cierre de la Lección ──
         {
           type: 'summary',
           title: 'Cierre de la Clase',
-          summaryTitle: 'Puntos clave a recordar sobre el Sistema Neuronal Artificial (SNA):',
+          summaryTitle: 'Puntos clave a recordar sobre las Capas de Neuronas:',
           points: [
-            '**Jerarquía de 4 niveles**: Neurona ($N_i$) → Capa ($C_i$) → Red ($R_i$) → Sistema ($S_i$). Cada nivel organiza al anterior.',
-            '**Anatomía básica**: Toda neurona opera en 3 componentes esenciales: **Entradas**, **Computación interna** y **Salida**.',
-            '**Pares de entrada $\\langle x_n, w_{i,j} \\rangle$**: Cada señal $x_n$ es ponderada por la intensidad de su conexión $w_{i,j}$ (peso).',
-            '**Tipos de señales**: Señales **analógicas** (continuas en rangos como $[0,1]$ o $[-1,+1]$) frente a señales **digitales** (binarias $\{0, 1\}$).',
-            '**Dinámica temporal**: El cálculo neuronal representa una evolución de estado en el tiempo desde el instante $t$ hacia el instante $t+1$.',
-            '**Composición de funciones**: La señal efectiva final es $y_i = f_{\\text{salida}}(f_{\\text{activación}}(f_{\\text{propagación}}))$.',
-            '**Clases de neuronas según su salida**: **McCulloch-Pitts** ($\\{0, 1\\}$), **Ising** ($\\{-1, +1\\}$ con $f(x) = \\text{sign}(x)$) y **Potts** (múltiples valores discretos en rango).',
+            '**Organización en capas**: Las neuronas se agrupan en capas conectadas entre sí para procesar información compleja por etapas sucesivas.',
+            '**Capa de entrada**: Actúa como sensor del entorno (ej. retina humana o matriz de píxeles); recibe los datos externos y los pasa sin alteración a las capas posteriores.',
+            '**Capas ocultas**: Situadas entre la entrada y la salida; realizan las transformaciones y la extracción de patrones. Pueden ser ninguna (0), una o varias según la dificultad del problema.',
+            '**Capa de salida**: Transfiere las señales finales procesadas hacia el exterior (ej. señal analógica para los motores de un robot).',
+            '**Conexiones crossbar**: Topología en malla cruzada donde las salidas de una capa se entrelazan hacia múltiples neuronas receptoras.',
+            '**Conexiones autorrecurrentes**: La salida de una neurona vuelve a ser entrada de ella misma, aportando memoria local inmediata.',
+            '**Sentido de la marcha**: La disposición de las conexiones define la direccionalidad del flujo de información dentro de la red.',
+            '**Propagación Feedforward**: La información viaja estrictamente hacia adelante sin ciclos ni retrocesos; óptima para reconocimiento y clasificación de patrones.',
+            '**Propagación Feedback**: La señal circula hacia adelante y hacia atrás (a su misma capa o capas previas), incorporando dos grupos de pesos: pesos forward y pesos feedback.',
           ],
-          teacherNotes: 'Concluya felicitando al grupo y recordando que la comprensión precisa de estas funciones y componentes básicos es el pilar indispensable para entender redes neuronales profundas y algoritmos de entrenamiento.',
+          teacherNotes: 'Felicite al grupo por su atención y recuerde que dominar la arquitectura de capas y el sentido de propagación es la base para comprender todas las arquitecturas modernas de inteligencia artificial.',
         },
       ],
     },
