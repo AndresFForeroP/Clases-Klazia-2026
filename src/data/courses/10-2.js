@@ -1,212 +1,262 @@
 /**
  * Contenido educativo — Grado 10.º Grupo 2
- * Tema: Google Drive y Herramientas Colaborativas en la Nube
+ * Tema: Lenguaje Informático y Estructuras de Comunicación
  *
- * Fuente: cursos/10/10-2.md
- * Formato: Presentación Académica Interactiva (Diapositiva por Diapositiva)
- * Regla principal: UNA sola idea por diapositiva. Nivel técnico, analítico y profesional para 10.º grado.
+ * Fuente académica estricta: cursos/10/10-2.md
+ * Formato: Presentación Académica Interactiva por Diapositivas
+ * Regla pedagógica: UNA SOLA IDEA PRINCIPAL POR DIAPOSITIVA
+ * Secuencia: COMPRENDER → EXPLICAR CON SENCILLEZ → EJEMPLIFICAR → RELACIONAR → PROFUNDIZAR
+ *
+ * Estructura de clase:
+ * - Sin cuestionario / quiz final.
+ * - Sin preguntas de verdadero / falso.
+ * - Sin preguntas heredadas antiguas.
+ * - UNA sola ACTIVIDAD individual práctica (5-10 min).
  */
 
 export const course10_2 = {
-  title: 'Google Drive y Trabajo Colaborativo en la Nube',
-  description: 'Presentación técnica y analítica sobre almacenamiento distribuido, ofimática cloud, concurrencia en tiempo real y seguridad organizacional con Google Workspace.',
+  title: 'Lenguajes Informáticos',
+  description: 'Sistemas estructurados de comunicación con el computador: lenguajes de programación, pseudocódigo, lenguajes de marcas, lenguajes de consulta y protocolos especializados.',
   lessons: [
     {
-      id: 'google-drive',
-      title: 'Google Drive y Herramientas Colaborativas',
-      description: 'Presentación académica guiada para la clase presencial de 10.º grado.',
+      id: 'lenguaje-informatico',
+      title: 'Lenguajes Informáticos y Estructuras de Comunicación',
+      description: 'Presentación interactiva sobre la naturaleza, familias y aplicaciones de los lenguajes informáticos.',
       slides: [
         // ── Diapositiva 1: Portada y Objetivos ──
         {
           type: 'title',
           badge: 'Informática 10.º — Grupo 2',
-          title: 'Google Drive y Ecosistema Cloud',
-          subtitle: 'Almacenamiento Distribuido, Edición Concurrente y Colaboración Empresarial',
+          title: 'Lenguajes Informáticos',
+          subtitle: 'Sistemas estructurados de comunicación hombre-máquina y sus familias',
           objectives: [
-            'Analizar la arquitectura y funcionamiento del almacenamiento en la nube de Google Drive.',
-            'Comprender la sincronización en tiempo real, el control de concurrencia y el historial de versiones.',
-            'Evaluar las herramientas colaborativas integradas (Photos, Groups, Meet) y su impacto en la seguridad corporativa.',
+            'Definir qué es un lenguaje informático y diferenciarlo del lenguaje natural humano.',
+            'Comprender la distinción crítica: por qué lenguaje informático no es sinónimo exclusivo de programación.',
+            'Analizar las características del pseudocódigo como herramienta de abstracción lógica.',
+            'Identificar la función de los lenguajes de marcas (HTML/XML) y argumentar por qué no son lenguajes de programación.',
+            'Examinar los lenguajes de consulta (SQL/XQuery) y otras familias especializadas (especificación, protocolos, gráficos y sonido).',
           ],
-          teacherNotes: '**Sugerencia inicial:** Pregunte a los estudiantes cuántos de ellos han trabajado en un mismo documento a la vez con otras personas y qué ventajas tiene frente a enviar archivos adjuntos por correo.',
+          teacherNotes: '**Inicio de sesión:** Pregunte a la clase si consideran que HTML o el inglés que usamos para chatear son lenguajes informáticos. Utilice el debate inicial para motivar la necesidad de precisión conceptual.',
         },
 
-        // ── Diapositiva 2: Fundamento y Origen de Google Drive ──
+        // ── Diapositiva 2: Lenguaje Natural vs Lenguaje Informático ──
         {
           type: 'concept',
-          category: 'Arquitectura y Origen',
-          title: '¿Qué es Google Drive?',
-          mainIdea: 'Es un servicio de **alojamiento y computación en la nube** lanzado en 2012 que almacena datos en servidores remotos distribuidos globalmente.',
-          definition: 'Sustituyó a Google Docs al centralizar programas ofimáticos, almacenamiento masivo y sincronización automática accesible desde cualquier dispositivo conectado a internet.',
+          category: 'Fundamento de Comunicación',
+          title: 'Lenguaje Humano vs. Lenguaje Informático',
+          mainIdea: 'Las personas nos comunicamos con palabras cargadas de emoción y contexto; los computadores exigen **sistemas estructurados, formales y sin ambigüedad**.',
+          analogy: 'Un amigo entiende si le dices "pásame eso que está allí", porque usa la mirada y el sentido común. Un computador se bloquearía o daría error: necesita saber el identificador exacto de la memoria y la instrucción precisa.',
           keyPoints: [
-            '15 GB de almacenamiento gratuito base con opciones escalables.',
-            'Centralización de correos, archivos, documentos e imágenes en un solo entorno unificado.',
-            'Disponibilidad ubicua 24/7 sin dependencia de hardware local.',
+            '**Lenguaje natural humano**: Expresa sentimientos, redacta noticias objetivas o define términos en diccionarios con flexibilidad y tolerancia al error.',
+            '**Lenguaje informático**: Sistema artificial estructurado con sintaxis estricta y semántica unívoca diseñado para interactuar con máquinas.',
+            '**Cero ambigüedad**: En informática, una misma instrucción no puede tener dos interpretaciones distintas.',
           ],
-          teacherNotes: 'Enfatice la transición de archivos locales guardados en discos duros a la computación en la nube (Cloud Computing).',
+          teacherNotes: 'Conecte con los textos informativos y emocionales citados en el Markdown para mostrar el contraste entre la comunicación social humana y la comunicación hombre-máquina.',
         },
 
-        // ── Diapositiva 3: Comparativa Local vs Cloud ──
+        // ── Diapositiva 3: Definición de Lenguaje Informático ──
+        {
+          type: 'concept',
+          category: 'Definición Central',
+          title: '¿Qué es un Lenguaje Informático?',
+          mainIdea: 'Es cualquier **sistema estructurado y formal** utilizado por, o asociado con, ordenadores para comunicarse, dar instrucciones o procesar datos.',
+          definition: 'Es el medio por el cual los seres humanos instruimos a las computadoras para que realicen tareas específicas, respondan a comandos del sistema o procesen grandes volúmenes de información eficazmente.',
+          keyPoints: [
+            '**Estructura formal**: Posee reglas de escritura (sintaxis) y un significado exacto para cada símbolo (semántica).',
+            '**Propósito amplio**: No se limita a calcular; sirve para dar órdenes, estructurar documentos, almacenar datos o transmitir paquetes en red.',
+            '**Interpretable por máquinas**: Debe ser traducible a señales eléctricas o código binario que los circuitos procesen.',
+          ],
+          teacherNotes: 'Enfatice la frase del Markdown: "cualquier sistema estructurado utilizado para comunicarse con una computadora". Esto amplía la visión más allá de solo escribir código en Python o Java.',
+        },
+
+        // ── Diapositiva 4: Distinción Crucial: Informático vs Programación ──
         {
           type: 'diagram',
-          category: 'Comparativa Tecnológica',
-          title: 'Ofimática Tradicional vs. Ecosistema Cloud',
-          subtitle: 'Diferencias arquitectónicas y de flujo de trabajo:',
+          category: 'Distinción Crucial',
+          title: 'Lenguaje Informático vs. de Programación',
+          subtitle: 'El error conceptual más frecuente es utilizarlos como si fueran sinónimos:',
           diagramType: 'comparison',
           columns: [
             {
-              badge: 'Modelo Local',
-              title: 'Software de Escritorio',
-              desc: 'Archivos almacenados en el disco local. Para compartir se requiere enviar copias por correo o memorias USB.',
-              metrics: { 'Ubicación': 'Disco físico', 'Colaboración': 'Secuencial / Asíncrona' },
+              badge: 'Categoría General',
+              title: 'Lenguaje Informático',
+              desc: 'Toda forma estructurada de comunicación con la máquina. Incluye marcas, consultas, protocolos de red, estilos y lógica algorítmica.',
+              metrics: { 'Alcance': 'Conjunto mayor (Universo)', 'Ejemplos': 'HTML, SQL, HTTP, CSS, Python' },
             },
             {
-              badge: 'Modelo Cloud',
-              title: 'Google Drive / Workspace',
-              desc: 'Datos en centros de datos remotos sincronizados en tiempo real. Múltiples usuarios acceden a una única fuente de verdad.',
-              metrics: { 'Ubicación': 'Servidores remotos', 'Colaboración': 'Simultánea en vivo' },
+              badge: 'Subconjunto Específico',
+              title: 'Lenguaje de Programación',
+              desc: 'Tipo especializado de lenguaje informático diseñado para crear algoritmos, manipular memoria con variables y tomar decisiones lógicas.',
+              metrics: { 'Alcance': 'Subconjunto operativo', 'Ejemplos': 'Python, Java, C++, JavaScript' },
             },
             {
-              badge: 'Seguridad',
-              title: 'Respaldo y Continuidad',
-              desc: 'Inmune a daños físicos en la máquina del usuario local. Cifrado automático y copias de seguridad continuas.',
-              metrics: { 'Respaldo': 'Automático global', 'Acceso': 'Multiplataforma' },
+              badge: 'Regla de Oro',
+              title: 'Relación de Inclusión',
+              desc: '**Todo lenguaje de programación es un lenguaje informático**, pero **NO todo lenguaje informático es un lenguaje de programación**.',
+              metrics: { 'Condición clave': 'Variables + Algoritmos', 'Diferencia': 'Capacidad de cómputo' },
             },
           ],
-          teacherNotes: 'Explique cómo el modelo cloud elimina el problema clásico de tener múltiples versiones confusas de un mismo archivo (ej. documento_v1_final_final2.docx).',
+          teacherNotes: 'Use el diagrama de Venn mental: imagine un círculo grande (Lenguajes Informáticos) y dentro de él un círculo más pequeño (Lenguajes de Programación). Fuera del círculo pequeño quedan HTML, SQL, HTTP, etc.',
         },
 
-        // ── Diapositiva 4: Funciones Principales de Google Drive ──
+        // ── Diapositiva 5: Lenguajes de Programación ──
         {
           type: 'concept',
-          category: 'Capacidades del Sistema',
-          title: 'Funciones Clave de la Plataforma',
-          mainIdea: 'Google Drive no es solo un disco virtual; es un **entorno operativo completo de productividad** y gestión de información.',
-          definition: 'Integra creación multiformato, motores de búsqueda inteligente, herramientas predictivas y accesibilidad por comandos de voz.',
+          category: 'Familia 1 — Cómputo y Algoritmos',
+          title: 'Lenguajes de Programación',
+          mainIdea: 'Son lenguajes informáticos capaces de expresar **algoritmos ejecutables, control de flujo y manipulación de datos**.',
+          definition: 'Permiten escribir secuencias de instrucciones que transforman datos de entrada en resultados mediante variables, operadores matemáticos, condicionales y estructuras repetitivas.',
           keyPoints: [
-            '**Creación y conversión multiformato**: Documentos, hojas de cálculo, presentaciones y formularios con exportación versátil.',
-            '**Búsqueda e indexación predictiva**: Búsqueda rápida por metadatos, texto dentro de imágenes y sugerencias inteligentes de acciones.',
-            '**Accesibilidad avanzada**: Integración nativa de comandos de voz y dictado automático en documentos.',
+            '**Control de flujo**: Toman decisiones lógicas en tiempo real (condicionales *if/else*) y repiten tareas (*bucles for/while*).',
+            '**Manejo de estado**: Crean y modifican variables en la memoria RAM mientras el programa se ejecuta.',
+            '**Aplicaciones reales**: Desarrollo de software de escritorio, aplicaciones móviles, inteligencia artificial y videojuegos.',
           ],
-          teacherNotes: 'Muestre cómo la IA predictiva de Google sugiere archivos recientes o acciones según los hábitos de uso del usuario.',
+          teacherNotes: 'Muestre ejemplos reconocibles: Python en analítica de datos, C# en videojuegos (Unity), JavaScript en interactividad web.',
         },
 
-        // ── Diapositiva 5: Concurrencia y Trabajo Colaborativo en Tiempo Real ──
-        {
-          type: 'concept',
-          category: 'Ingeniería de Software & UX',
-          title: 'Edición Concurrente y Control de Versiones',
-          mainIdea: 'Varios usuarios pueden interactuar, editar y comentar **simultáneamente sobre el mismo documento** sin bloqueos ni conflictos.',
-          definition: 'Google Drive sincroniza al milisegundo cada modificación y almacena un registro exhaustivo de revisiones indexado por usuario, fecha y hora.',
-          analogy: '**Trazabilidad total:** Permite ver exactamente qué escribió o modificó cada integrante del equipo y revertir cambios en caso de error (Rollback).',
-          keyPoints: [
-            'Sincronización en tiempo real mediante WebSockets y protocolos cloud.',
-            'Historial de versiones con auditoría detallada por perfil.',
-            'Comentarios, menciones (@usuario) y asignación de tareas integradas.',
-          ],
-          teacherNotes: 'Resalte la importancia del historial de versiones en entornos corporativos para auditoría y seguridad de datos.',
-        },
-
-        // ── Diapositiva 6: Publicación y Seguridad de Accesos ──
+        // ── Diapositiva 6: Pseudocódigo ──
         {
           type: 'example',
-          category: 'Políticas de Seguridad',
-          title: 'Gestión de Permisos y Publicación',
-          subtitle: 'Control granular del acceso a la información:',
-          icon: '🔐',
-          description: 'En entornos profesionales y empresariales, compartir un archivo requiere definir con precisión el nivel de privilegio de cada receptor.',
-          analogy: 'Principio de menor privilegio: Asignar únicamente los permisos estrictamente necesarios para la tarea.',
+          category: 'Familia 2 — Abstracción Algorítmica',
+          title: 'Pseudocódigo: Pensar antes de Codificar',
+          subtitle: 'Un lenguaje informático de diseño y lógica pura:',
+          icon: '📝',
+          description: 'El pseudocódigo permite escribir algoritmos utilizando palabras del lenguaje cotidiano dentro de una estructura lógica formal, abstrayéndonos de la sintaxis rígida de un lenguaje de programación.',
+          analogy: 'Es como el plano arquitectónico de una casa: define dónde van las puertas y columnas sin preocuparse todavía por la marca de la pintura o el tipo de tornillos.',
           features: [
-            '**Lector**: Solo visualización; no puede alterar datos ni fórmulas.',
-            '**Comentador**: Puede realizar anotaciones y sugerencias sin modificar el texto original.',
-            '**Editor**: Control total para modificar contenido y estructura.',
-            '**Publicación web / Acceso por enlace**: Disponibilidad pública controlada o restringida al dominio corporativo.',
+            '**Cercano al humano**: Utiliza palabras legibles como *INICIO*, *LEER*, *SI... ENTONCES*, *MIENTRAS*, *FIN*.',
+            '**Foco en la lógica**: Evita errores de puntuación (puntos y comas, llaves) para concentrarse en resolver el problema.',
+            '**Es un lenguaje informático**: Aunque no se ejecute directamente en la CPU sin un intérprete didáctico, estructura formalmente la computación.',
           ],
-          teacherNotes: 'Pregunte qué riesgo existe si se comparte un archivo corporativo confidencial con permiso de "Editor" a todo público.',
+          teacherNotes: 'Destaque la indicación del Markdown: "aunque parezca demasiado cercano al humano, se considera un lenguaje informático" porque modela algoritmos con rigor.',
         },
 
-        // ── Diapositiva 7: Herramientas Colaborativas: Photos y Groups ──
+        // ── Diapositiva 7: Lenguajes de Marcas ──
+        {
+          type: 'concept',
+          category: 'Familia 3 — Documentos y Estructura',
+          title: 'Lenguajes de Marcas (Markup Languages)',
+          mainIdea: 'Utilizan **etiquetas delimitadoras para dar formato y estructurar** la información de un documento o mensaje.',
+          definition: 'Derivan de la tradición editorial donde los correctores colocaban anotaciones en el papel para indicar cómo imprimir un encabezado o una cita. En computación, organizan el texto para que los navegadores o aplicaciones sepan cómo mostrarlo.',
+          analogy: 'Son como etiquetas adhesivas en cajas de una mudanza: la etiqueta "FRÁGIL: PLATOS" no lava ni cocina los platos; solo indica qué hay dentro de la caja y cómo tratarla.',
+          keyPoints: [
+            '**Sintaxis de etiquetas**: Encierran el contenido con apertura y cierre (ej. `<titulo>` y `</titulo>`).',
+            '**Semántica documental**: Indican qué rol cumple cada fragmento (título, párrafo, tabla, enlace).',
+            '**Estándares universales**: HTML para la estructura de la World Wide Web y XML para intercambio neutral de datos entre sistemas.',
+          ],
+          teacherNotes: 'Explique que "Markup" traduce "marcado" o "etiquetado". El navegador web lee las etiquetas HTML para armar el árbol visual de la página.',
+        },
+
+        // ── Diapositiva 8: Tabla Comparativa: ¿Por qué HTML NO es Programación? ──
         {
           type: 'diagram',
-          category: 'Ecosistema Empresarial',
-          title: 'Google Photos y Google Groups en la Organización',
-          subtitle: 'Aplicaciones estratégicas para PyMEs y equipos de trabajo:',
+          category: 'Análisis Técnico',
+          title: '¿Por qué HTML NO es un Lenguaje de Programación?',
+          subtitle: 'Comparación técnica rigurosa de capacidades:',
+          diagramType: 'table',
+          tableHeaders: ['Criterio Técnico', 'Lenguaje de Marcas (HTML)', 'Lenguaje de Programación (JS, Python)'],
+          tableRows: [
+            ['Propósito principal', 'Estructurar contenido con etiquetas semánticas', 'Resolver algoritmos y procesar datos'],
+            ['Variables y memoria', 'No tiene variables; no reserva memoria dinámica', 'Declara variables, arreglos y objetos'],
+            ['Estructuras de control', 'No posee condicionales (if/else) ni bucles (for/while)', 'Evalúa lógica booleana y ejecuta repeticiones'],
+            ['Cálculos matemáticos', 'Incapaz de sumar dos números por sí mismo', 'Realiza operaciones matemáticas y lógicas'],
+            ['¿Es lenguaje informático?', 'SÍ (comunica estructura al computador)', 'SÍ (comunica instrucciones algorítmicas)'],
+          ],
+          teacherNotes: 'Revise esta tabla fila por fila. Esta distinción es una pregunta clásica en entrevistas técnicas y exámenes de admisión universitaria en ingeniería.',
+        },
+
+        // ── Diapositiva 9: Lenguajes de Consulta ──
+        {
+          type: 'concept',
+          category: 'Familia 4 — Gestión de Datos',
+          title: 'Lenguajes de Consulta (Query Languages)',
+          mainIdea: 'Diseñados específicamente para **interrogar, filtrar y recuperar datos** almacenados en sistemas de información.',
+          definition: 'Permiten solicitar información precisa a una base de datos mediante un enfoque declarativo: el usuario indica QUÉ datos desea obtener y el motor de la base de datos se encarga del CÓMO extraerlos del almacenamiento.',
+          keyPoints: [
+            '**Bases de datos relacionales**: SQL (*Structured Query Language*), el estándar mundial para consultar tablas indexadas.',
+            '**Recuperación de información**: XQuery y motores de búsqueda para extraer fragmentos en repositorios de documentos XML.',
+            '**Ejemplo concreto**: `SELECT nombre, promedio FROM estudiantes WHERE grado = 10;` extrae exactamente los registros solicitados sin alterar el programa principal.',
+          ],
+          teacherNotes: 'Destaque la división del Markdown: lenguajes de consulta de bases de datos relacionales y lenguajes de recuperación de información documental.',
+        },
+
+        // ── Diapositiva 10: Otras Familias Especializadas ──
+        {
+          type: 'diagram',
+          category: 'Familia 5 — Especialidades Informáticas',
+          title: 'Otras Familias de Lenguajes Informáticos',
+          subtitle: 'Sistemas formales para redes, multimedia y especificación:',
           diagramType: 'comparison',
           columns: [
             {
-              badge: 'Multimedia Cloud',
-              title: 'Google Photos',
-              desc: 'Almacenamiento, organización por IA y creación de álbumes compartidos. Ideal para que PyMEs gestionen catálogos de productos y galerías de eventos.',
-              metrics: { 'Uso clave': 'Catálogos visuales', 'Ventaja': 'Acceso y distribución ágil' },
+              badge: 'Modelado y Transformación',
+              title: 'Especificación y XSLT',
+              desc: '**Lenguajes de especificación**: describen formalmente qué debe hacer un sistema sin programarlo aún. **Lenguajes de transformación (XSLT)**: convierten datos de un formato a otro de forma automática.',
+              metrics: { 'Función': 'Diseño y conversión', 'Ejemplo': 'XSLT (XML a HTML)' },
             },
             {
-              badge: 'Comunicación Masiva',
-              title: 'Google Groups',
-              desc: 'Gestión de listas de distribución de correo corporativo para colaboradores, áreas, clientes y proveedores.',
-              metrics: { 'Uso clave': 'Un solo correo a todo el grupo', 'Ventaja': 'Cero dispersión de mensajes' },
+              badge: 'Redes y Telecomunicaciones',
+              title: 'Protocolos de Comunicación',
+              desc: '**Protocolos (HTTP, FTP)**: reglas estructuradas que usan las máquinas para dialogar por internet, solicitar archivos y confirmar transferencias seguras.',
+              metrics: { 'Función': 'Diálogo en red', 'Ejemplo': 'HTTP (Web) / FTP (Archivos)' },
+            },
+            {
+              badge: 'Multimedia y Arte Digital',
+              title: 'Lenguajes Gráficos y de Sonido',
+              desc: '**Lenguaje gráfico (SVG, PostScript)**: define figuras vectoriales mediante matemáticas. **Lenguaje de sonido (MIDI, Csound)**: programa eventos sonoros, notas y ritmos sintéticos.',
+              metrics: { 'Función': 'Generación audiovisual', 'Ejemplo': 'SVG (Vectores) / MIDI (Música)' },
             },
           ],
-          teacherNotes: 'Explique cómo Google Groups simplifica enviar comunicados oficiales a cientos de empleados sin escribir correos individuales.',
+          teacherNotes: 'Haga notar que todos estos ejemplos figuran explícitamente en el Markdown de 10-2. Muestran que la informática abarca sonido, dibujo, redes y arquitectura de datos.',
         },
 
-        // ── Diapositiva 8: Videoconferencias Seguras: Google Meet ──
+        // ── Diapositiva 11: Diagrama de Integración en una App Real ──
         {
-          type: 'concept',
-          category: 'Comunicaciones Unificadas',
-          title: 'Google Meet y la Seguridad de Comunicación',
-          mainIdea: 'Plataforma de videoconferencias de alta fidelidad integrada nativamente al ecosistema de Google Cloud.',
-          definition: 'Elimina las barreras geográficas y logísticas mediante reuniones interactivas seguras con cifrado automático de extremo a extremo en tránsito.',
-          keyPoints: [
-            '**Cifrado automático de datos**: Tráfico de voz y video encriptado para proteger la confidencialidad corporativa.',
-            '**Interacción colaborativa**: Pizarra digital, pantalla compartida y subtítulos en vivo integrados.',
-            '**Integración directa**: Sincronización instantánea con Google Calendar, Gmail y Drive.',
+          type: 'diagram',
+          category: 'Integración Tecnológica',
+          title: '¿Cómo conviven en una Aplicación Real?',
+          subtitle: 'Cuando un usuario inicia sesión en una plataforma web, interactúan en equipo:',
+          diagramType: 'flow',
+          nodes: [
+            { icon: '📄', label: '1. Marcas (HTML)', desc: 'Dibuja el formulario y las casillas de texto' },
+            { icon: '⚙️', label: '2. Programación (JS)', desc: 'Valida que la contraseña tenga mínimo 8 caracteres' },
+            { icon: '📡', label: '3. Protocolo (HTTP)', desc: 'Empaqueta y transporta los datos cifrados por la red' },
+            { icon: '🗄️', label: '4. Consulta (SQL)', desc: 'Verifica en la base de datos si el usuario existe' },
+            { icon: '🎨', label: '5. Gráfico (SVG)', desc: 'Renderiza el ícono de perfil en la pantalla del usuario' },
           ],
-          teacherNotes: 'Enfatice el concepto de "Cifrado en tránsito" y por qué es indispensable para la seguridad informática empresarial.',
+          teacherNotes: 'Recorra el flujo paso a paso: cada familia cumple un rol insustituible. La programación no reemplaza a las marcas ni a las consultas; colaboran para hacer funcionar la tecnología.',
         },
 
-        // ── Diapositiva 9: Pregunta Analítica de Discusión en Clase ──
-        {
-          type: 'question',
-          question: '¿Por qué el "Historial de versiones" de Google Drive es una medida crítica de seguridad y no solo una función de comodidad?',
-          context: 'Analicemos un escenario de riesgo: un empleado borra por error una base de datos de clientes compartida...',
-          options: [
-            'Porque permite saber a qué hora almuerzan los empleados',
-            'Porque actúa como salvaguarda contra pérdida de datos (rollback) y permite auditar la autoría de cada cambio',
-            'Porque ahorra espacio de almacenamiento en el servidor de Google',
-          ],
-          answer: 'Actúa como salvaguarda contra pérdida de datos y permite auditar con precisión qué usuario modificó o eliminó información.',
-          explanation: 'En ciberseguridad y gestión de datos, la trazabilidad e inmutabilidad temporal permiten restaurar el estado anterior exacto en segundos (Rollback), mitigando errores humanos y sabotajes.',
-          teacherNotes: 'Promueva un breve debate de 2 minutos sobre cómo las empresas gestionan incidentes antes de revelar la respuesta.',
-        },
-
-        // ── Diapositiva 10: Actividad Individual ──
+        // ── Diapositiva 12: Actividad Individual Práctica ──
         {
           type: 'activity',
-          title: 'ACTIVIDAD: Plan de Despliegue Colaborativo Cloud',
-          activityTitle: 'Diseño de arquitectura de archivos y matriz de permisos en Google Drive',
-          icon: '💼',
-          instructions: 'De forma individual, diseña en tu cuaderno o computadora el esquema de trabajo en Google Drive para una pequeña empresa de diseño (5–10 minutos):',
+          title: 'ACTIVIDAD: Clasificador Profesional de Lenguajes',
+          activityTitle: 'Diagnóstico y clasificación técnica de sistemas informáticos',
+          icon: '💻',
+          instructions: 'De forma individual en tu cuaderno o documento digital, analiza los siguientes 4 casos y responde con fundamentación técnica (5–10 minutos):',
           steps: [
-            'Define una estructura de 3 carpetas principales para la empresa (ej. Proyectos, Finanzas, Catálogo Público).',
-            'Determina qué nivel de permiso (Lector, Comentador o Editor) asignarías a: el Administrador, los Clientes externos y el Equipo de Diseñadores.',
-            'Indica qué herramienta integrada (Google Photos, Groups o Meet) utilizarías para enviar comunicados a todos los clientes y por qué.',
-            'Explica qué medida de seguridad de Google Drive aplicarías para evitar que se filtren archivos confidenciales fuera de la empresa.',
+            'Caso 1: Un sistema ejecuta la orden: `SELECT nombre, saldo FROM cuentas WHERE saldo < 0;`. Identifica a qué familia pertenece y cuál es su objetivo.',
+            'Caso 2: Un documento contiene: `<producto><nombre>Laptop</nombre><precio>800</precio></producto>`. Explica por qué es un lenguaje de marcas y justifica por qué no es programación.',
+            'Caso 3: Un analista escribe: `SI temperatura > 35 ENTONCES activar_ventilador() SINO apagar()`. Determina si es pseudocódigo y explica por qué se considera un lenguaje informático.',
+            'Caso 4: Un compañero te dice: "Si una herramienta no tiene variables ni bucles while, no es un lenguaje informático". Escribe un argumento de 2 líneas para refutarlo citando dos ejemplos.',
           ],
-          tip: 'Tiempo estimado: 5 a 10 minutos. Enfoque técnico y profesional individual.',
-          teacherNotes: 'Revise que los estudiantes apliquen correctamente los conceptos de niveles de permisos y herramientas integradas.',
+          tip: 'Tiempo estimado: 5 a 10 minutos. Trabajo estrictamente individual. Utiliza la regla de oro: todo lenguaje de programación es informático, pero no todo lenguaje informático programa.',
+          teacherNotes: 'Respuestas esperadas: Caso 1: Lenguaje de consulta (SQL), extrae datos de deudores en una BD. Caso 2: Lenguaje de marcas (XML/HTML), estructura datos con etiquetas pero no ejecuta algoritmos ni variables. Caso 3: Pseudocódigo, modelo algorítmico formal abstracto para humanos y computación. Caso 4: Falso; HTML, SQL, HTTP o SVG son lenguajes informáticos sin requerir bucles while.',
         },
 
-        // ── Diapositiva 11: Resumen de Cierre ──
+        // ── Diapositiva 13: Resumen y Cierre de Lección ──
         {
           type: 'summary',
           title: 'Cierre de la Clase',
-          summaryTitle: 'Conceptos fundamentales para recordar:',
+          summaryTitle: 'Puntos fundamentales para recordar:',
           points: [
-            '**Google Drive** es un entorno cloud de almacenamiento distribuido que sustituyó a Google Docs en 2012.',
-            'Ofrece **edición concurrente en tiempo real**, sincronización continua y **historial de versiones** con trazabilidad por usuario.',
-            'La **gestión de permisos** (Lector, Comentador, Editor) es la primera línea de defensa en la seguridad de la información.',
-            'Las herramientas integradas como **Google Photos**, **Google Groups** y **Google Meet** potencian la productividad y la comunicación corporativa cifrada.',
+            'Un **lenguaje informático** es cualquier sistema estructurado formal usado para comunicarse con un computador o procesar información.',
+            '**Lenguaje natural vs. informático**: La comunicación humana tolera la ambigüedad y la emoción; las máquinas requieren sintaxis rigurosa y significado unívoco.',
+            '**Regla de oro conceptual**: Todo lenguaje de programación es un lenguaje informático, pero **NO todo lenguaje informático es de programación**.',
+            '**HTML es lenguaje de marcas, no de programación**: Estructura documentos mediante etiquetas, pero carece de variables, operaciones lógicas y algoritmos.',
+            'El ecosistema digital es diverso: integra **programación** (lógica), **pseudocódigo** (diseño), **marcas** (estructura), **consultas** (datos), **protocolos** (redes) y **multimedia** (sonido y gráficos).',
           ],
-          teacherNotes: 'Realice una síntesis final destacando cómo la computación en la nube redefine el entorno laboral actual.',
+          teacherNotes: 'Finalice la clase pidiendo a un voluntario que repita con sus propias palabras por qué HTML sí es un lenguaje informático pero no un lenguaje de programación.',
         },
       ],
     },
