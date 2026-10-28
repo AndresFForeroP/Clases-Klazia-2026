@@ -1,6 +1,6 @@
 /**
  * Contenido educativo — Grado 11.º Grupo 1
- * Tema: Capas de Neuronas y Flujo de Información
+ * Tema: Aprendizaje en el programa conexionista
  *
  * Fuente académica estricta: cursos/11/11-1.md
  * Formato: Presentación Académica Interactiva por Diapositivas
@@ -15,301 +15,361 @@
  */
 
 export const course11_1 = {
-  title: 'Capas de Neuronas',
-  description: 'Arquitectura de capas (entrada, ocultas y salida), topología de conexiones (crossbar y autorrecurrentes) y sentido de la marcha de la información (feedforward y feedback).',
+  title: 'Aprendizaje en el programa conexionista',
+  description: 'Fundamentos del aprendizaje en redes neuronales: calibración de pesos sinápticos, minimización del error, categorización y las tres grandes familias de algoritmos: supervisado, no supervisado y por refuerzo.',
   lessons: [
     {
-      id: 'capas-neuronas',
-      title: 'Capas de Neuronas y Flujo de Información',
-      description: 'Presentación interactiva: clasificación de capas, tipos de conexiones y dinámicas de propagación de señales en redes neuronales.',
+      id: 'aprendizaje-conexionista',
+      title: 'Aprendizaje en el Programa Conexionista',
+      description: 'Presentación interactiva: qué significa aprender en una red neuronal, ajuste de pesos sinápticos, minimización del error y familias de algoritmos.',
       slides: [
         // ── Diapositiva 1: Portada y Objetivos ──
         {
           type: 'title',
           badge: 'Informática 11.º — Grupo 1',
-          title: 'Capas de Neuronas y Flujo de Información',
-          subtitle: 'Arquitectura de capas, topología de conexiones y dinámicas de propagación de la señal',
+          title: 'Aprendizaje en el Programa Conexionista',
+          subtitle: '¿Qué significa aprender en una red neuronal? Ajuste de pesos, minimización del error y familias de aprendizaje',
           objectives: [
-            'Comprender la necesidad y el principio de agrupar neuronas artificiales en capas.',
-            'Identificar la función específica de los tres grupos de capas: entrada, ocultas y salida.',
-            'Diferenciar las conexiones crossbar (cruzadas) y autorrecurrentes (a sí mismas).',
-            'Analizar la direccionalidad y el sentido de la marcha de la información en una red neuronal.',
-            'Comparar la propagación hacia adelante (feedforward) y la propagación hacia atrás (feedback), reconociendo sus dos grupos de pesos.',
+            'Comprender el concepto conexionista de aprendizaje: la modificación de la intensidad de los pesos sinápticos.',
+            'Analizar el papel del error y del supervisor en el aprendizaje supervisado (Regla Delta, ADALINE, Backpropagation y MLP).',
+            'Identificar el mecanismo de categorización y autoorganización en el aprendizaje no supervisado (ART, Mapas SOFM y neuronas vencedoras).',
+            'Explicar la dinámica de ensayo-error del aprendizaje por refuerzo y la toma de decisiones con la Tabla Q (Q-Learning).',
+            'Determinar el tipo de aprendizaje y algoritmo óptimo para resolver problemas computacionales reales.',
           ],
-          teacherNotes: '**Inicio de sesión:** Establezca el puente con la clase anterior: ya sabemos cómo funciona una neurona individual; hoy aprenderemos cómo se organizan en equipo formando capas y cómo viaja la señal a través de ellas.',
+          teacherNotes: 'Presente la sesión conectando con los saberes previos: ya conocemos las neuronas y capas; hoy descubriremos el gran enigma: ¿cómo hace una red artificial para aprender a realizar una tarea?',
         },
 
-        // ── Diapositiva 2: De la Neurona Individual a las Capas ──
+        // ── Diapositiva 2: El Enigma del Aprendizaje (Psicología vs. Conexionismo) ──
         {
           type: 'concept',
-          category: 'Fundamento Arquitectónico',
-          title: 'De la Neurona Individual a las Capas',
-          mainIdea: 'Una neurona aislada solo puede tomar decisiones muy elementales; para resolver problemas complejos, las neuronas se organizan en **agrupaciones llamadas capas**.',
-          analogy: 'Una persona sola no puede operar un hospital completo; organizamos al personal en departamentos coordinados (recepción, diagnóstico, tratamiento) donde cada equipo resuelve una etapa del proceso.',
+          category: 'Introducción al Problema',
+          title: '¿Qué Significa Realmente "Aprender"?',
+          mainIdea: 'La psicología describe conductas aprendidas (como el condicionamiento o la imitación); el conexionismo busca explicar el **mecanismo físico y matemático** que ocurre en las conexiones neuronales.',
+          definition: 'El **conexionismo** es el enfoque cognitivo y computacional que modela los procesos mentales mediante redes de unidades interconectadas (neuronas) que procesan información numérica en paralelo.',
+          analogy: 'Aprender a tocar un instrumento no es guardar datos en un casillero: es ejercitar tu sistema nervioso para que ciertas rutas sinápticas se activen con mayor fluidez y fuerza ante un estímulo.',
           keyPoints: [
-            '**Definición de capa**: Conjunto estructurado de neuronas que operan en un mismo nivel funcional dentro de la red.',
-            '**Procesamiento cooperativo**: Al conectarse entre sí, las neuronas distribuyen el cálculo matemático y transforman la información en etapas sucesivas.',
-            '**Los tres grandes grupos**: Toda red neuronal organiza sus capas en tres categorías canónicas: **Entrada**, **Ocultas** y **Salida**.',
+            '**La pregunta de la Psicología**: Distingue aprendizajes por condicionamiento o vicarios, pero deja abierta la duda: ¿cómo se producen físicamente en el ser humano?',
+            '**La respuesta conexionista**: El aprendizaje no está guardado en una memoria rígida, sino distribuido en la fuerza de las conexiones.',
+            '**Inspiración bio-computacional**: Comprender el cerebro biológico nos permite programar redes artificiales capaces de aprender por sí mismas.',
           ],
-          teacherNotes: 'Enfatice que una red no es un montón caótico de neuronas: existe una estructura organizada en capas donde cada una cumple una labor especializada.',
+          teacherNotes: 'Abra con la pregunta filosófica y científica: ¿dónde está guardado lo que aprendiste hoy? Guíe la respuesta hacia las conexiones entre neuronas.',
         },
 
-        // ── Diapositiva 3: Capa de Entrada ──
-        {
-          type: 'concept',
-          category: 'Estructura de Capas',
-          title: 'Capa de Entrada: Los Sensores de la Red',
-          mainIdea: 'Es la primera capa de la red; su función es **recibir los datos del exterior** y transferirlos directamente a las capas posteriores.',
-          definition: 'Capa de neuronas que actúan como sensores: reciben la información externa del entorno y se limitan a pasarla a las capas siguientes sin realizar transformaciones complejas.',
-          keyPoints: [
-            '**Función de receptor sensorial**: Captura variables del entorno (píxeles de una imagen, niveles de sonido, lecturas de temperatura o datos numéricos).',
-            '**Paso directo de señal**: No realiza cálculos de abstracción profunda; su rol esencial es servir como canal de ingreso y distribución de la señal.',
-            '**Punto de partida**: Cualquier proceso de computación en la red neuronal inicia indefectiblemente en esta capa.',
-          ],
-          teacherNotes: 'Aclare que las neuronas de entrada funcionan como antenas o receptores: no modifican los datos brutos, solo los introducen al sistema.',
-        },
-
-        // ── Diapositiva 4: Ejemplo de Entrada — La Retina ──
-        {
-          type: 'example',
-          category: 'Ejemplo Biológico',
-          title: 'Ejemplo de Entrada: La Retina Humana',
-          icon: '👁️',
-          description: 'En el sistema visual humano, la **retina** está formada por millones de células fotorreceptoras que reciben la luz del exterior y la transforman en impulsos eléctricos hacia la zona occipital del cerebro.',
-          analogy: 'En informática, la capa de entrada de una red de visión artificial es la matriz de píxeles capturada por el sensor de una cámara web: convierte fotones en números para alimentar la red.',
-          features: [
-            'La retina no "interpreta" qué objeto está viendo; únicamente captura y codifica la luz recibida.',
-            'Transfiere las señales eléctricas generadas hacia las áreas posteriores del cerebro para su procesamiento.',
-            'En una red informática, cada píxel o sensor físico alimenta a una neurona específica de la capa de entrada.',
-          ],
-          teacherNotes: 'Destaque la analogía con la retina: la retina no sabe si ve un gato o un texto; solo convierte la luz en impulsos nerviosos que viajan hacia el cerebro.',
-        },
-
-        // ── Diapositiva 5: Capas Ocultas ──
-        {
-          type: 'concept',
-          category: 'Estructura de Capas',
-          title: 'Capas Ocultas: El Corazón del Procesamiento',
-          mainIdea: 'Son las capas situadas **entre la entrada y la salida**; aquí es donde ocurre el verdadero análisis y extracción de patrones.',
-          definition: 'Capas intermedias de neuronas que transforman progresivamente las señales. Según la arquitectura de la red y el problema a resolver, pueden existir **ninguna, una o varias** capas ocultas.',
-          keyPoints: [
-            '**¿Por qué "ocultas"?**: Porque no tienen contacto directo con el exterior; ni reciben datos brutos del entorno ni emiten la respuesta final.',
-            '**¿Cuándo son ninguna (0)?**: En problemas sencillos y linealmente separables, donde la capa de entrada se conecta directamente con la de salida.',
-            '**¿Cuándo son imprescindibles?**: En problemas complejos (visión, voz, predicción) donde se requiere descomponer datos en múltiples niveles de abstracción.',
-          ],
-          teacherNotes: 'Subraye que las capas ocultas no son obligatorias en todas las redes: pueden ser 0 en redes elementales, pero son indispensables cuando el problema tiene complejidad no lineal.',
-        },
-
-        // ── Diapositiva 6: Capa de Salida ──
-        {
-          type: 'concept',
-          category: 'Estructura de Capas',
-          title: 'Capa de Salida: La Emisión de la Respuesta',
-          mainIdea: 'Es la última etapa de la red; **transfiere las señales resultantes hacia el exterior** para interactuar con el entorno.',
-          definition: 'Capa de neuronas encargadas de emitir la decisión final, clasificación o acción física producida por la red hacia el usuario, otro sistema o un actuador.',
-          keyPoints: [
-            '**Emisión hacia el exterior**: Traduce las operaciones matemáticas internas en un resultado observable y utilizable.',
-            '**Naturaleza de la señal**: Puede emitir señales continuas (analógicas, como intensidades o voltajes) o discretas (categorías o decisiones booleanas).',
-            '**Cierre del ciclo**: Representa el destino final del flujo de computación de una entrada dada.',
-          ],
-          teacherNotes: 'Explique que la capa de salida es la "boca" o los "brazos" de la red: comunica la conclusión del procesamiento al mundo exterior.',
-        },
-
-        // ── Diapositiva 7: Ejemplo de Salida — Motores de un Robot ──
-        {
-          type: 'example',
-          category: 'Ejemplo Tecnológico',
-          title: 'Ejemplo de Salida: Control de Motores en un Robot',
-          icon: '🤖',
-          description: 'En un robot móvil de 4 ruedas, la **capa de salida** emite señales analógicas que activan y modulan la velocidad del motor de cada una de sus ruedas.',
-          analogy: 'Si los sensores de proximidad (entrada) detectan un obstáculo a la izquierda, la capa de salida ordena: "Rueda izquierda al 100%, rueda derecha al 30%" para girar y evitar el choque.',
-          features: [
-            'Cada neurona de la capa de salida controla directamente un actuador electromecánico.',
-            'Las señales emitidas regulan variables físicas reales (potencia, voltaje, dirección de giro).',
-            'Cierra el ciclo inteligente completo: percibir (entrada) → procesar (ocultas) → actuar (salida).',
-          ],
-          teacherNotes: 'Muestre cómo el valor numérico que sale de una neurona se convierte físicamente en voltaje que hace girar una rueda a mayor o menor velocidad.',
-        },
-
-        // ── Diapositiva 8: Diagrama de los Tres Grupos de Capas ──
+        // ── Diapositiva 3: Flujo de Señales y Principio de Aprendizaje ──
         {
           type: 'diagram',
-          category: 'Esquema de Flujo',
-          title: 'Los Tres Grandes Grupos de Capas',
-          subtitle: 'Recorrido canónico de la información a través de la arquitectura de la red:',
+          category: 'Principio Fundamental',
+          title: 'El Flujo de Señales en una Red Neuronal',
+          subtitle: 'Trayecto canónico de la información y la necesidad del entrenamiento:',
           diagramType: 'flow',
           nodes: [
             {
               icon: '📥',
-              label: 'Capa de Entrada',
-              desc: 'Sensores que reciben datos brutos del exterior (ej. retina o cámara).',
+              label: 'Inputs',
+              desc: 'Patrón de señales recibido en la capa de entrada.',
+            },
+            {
+              icon: '⚖️',
+              label: 'Pesos Sinápticos',
+              desc: 'La señal se pondera según la intensidad de cada enlace.',
             },
             {
               icon: '⚙️',
-              label: 'Capas Ocultas',
-              desc: '0, 1 o varias capas intermedias que transforman y extraen patrones.',
+              label: 'Capas Internas',
+              desc: 'Procesamiento sucesivo a través de la arquitectura.',
             },
             {
               icon: '📤',
-              label: 'Capa de Salida',
-              desc: 'Transfiere la señal resultante hacia el exterior (ej. motores del robot).',
+              label: 'Outputs',
+              desc: 'Generación del patrón de señales de salida.',
+            },
+            {
+              icon: '🎯',
+              label: 'Calibración',
+              desc: 'Ajuste de pesos si la salida no es la deseada.',
             },
           ],
-          teacherNotes: 'Haga un recorrido visual: la información entra por la izquierda, se procesa en el centro y sale por la derecha. Esta es la estructura básica de cualquier red neuronal artificial.',
+          teacherNotes: 'Recorra el diagrama: la señal entra, los pesos la modulan, se procesa y sale. Si la salida no es la que queremos, ¿qué hacemos? ¡Modificar los pesos!',
         },
 
-        // ── Diapositiva 9: Conexiones Crossbar ──
+        // ── Diapositiva 4: Aprender es Modificar Pesos Sinápticos ──
         {
           type: 'concept',
-          category: 'Topología de Conexiones',
-          title: 'Conexiones Crossbar: El Entramado Cruzado',
-          mainIdea: 'Son conexiones en las que **las salidas de las neuronas de una capa se cruzan entre sí** para enlazarse con múltiples neuronas de otra capa.',
-          definition: 'Topología de enlace en matriz o malla cruzada donde las señales se intersectan, distribuyendo la información desde varios orígenes hacia múltiples destinos.',
+          category: 'Mecanismo Central',
+          title: 'Aprender es Modificar Pesos Sinápticos',
+          mainIdea: 'Una red neuronal aprende cuando encuentra la **combinación de intensidades de conexión (pesos sinápticos)** que produce el resultado deseado ante los patrones de entrada.',
+          definition: 'Un **peso sináptico** es un valor numérico que determina cuánto influye la activación de una neurona sobre la siguiente. Aprender consiste en ajustar metódicamente estos valores.',
+          analogy: 'Como afinar una guitarra o calibrar una mesa de mezclas: vas girando las perillas de cada cuerda (pesos) hasta que la nota emitida coincida exactamente con el tono perfecto.',
           keyPoints: [
-            '**Cruce de salidas**: La salida de una neurona no viaja en una línea aislada paralela; se cruza y conecta con múltiples neuronas receptoras.',
-            '**Integración de señales**: Permite que una neurona receptora reciba información combinada proveniente de diversas fuentes simultáneamente.',
-            '**Inspiración técnica**: Proviene de las matrices de conmutación de telefonía e informática (*crossbar switch*), donde cualquier entrada puede interconectarse con cualquier salida.',
+            '**Estado inicial no calibrado**: Con pesos aleatorios, las salidas de la red son erróneas y caóticas.',
+            '**El entrenamiento**: Proceso iterativo de cálculo y ajuste de pesos para corregir las salidas.',
+            '**Conexión biológica**: De forma análoga, el cerebro humano aprende modificando la eficacia de la transmisión sináptica entre neuronas biológicas.',
           ],
-          teacherNotes: 'Dibuje imaginariamente una cuadrícula donde las líneas horizontales se cruzan con las verticales: eso es crossbar, un cruce múltiple de caminos entre capas.',
+          teacherNotes: 'Asegúrese de que comprendan la frase fundamental: en una red neuronal no hay código if/else para aprender; aprender es exclusivamente modificar los números de los pesos sinápticos.',
         },
 
-        // ── Diapositiva 10: Conexiones Autorrecurrentes ──
+        // ── Diapositiva 5: Caso Práctico — La Conjunción AND ──
+        {
+          type: 'example',
+          category: 'Ejemplo Práctico',
+          title: 'Caso Concreto: Aprendiendo la Conjunción (AND)',
+          icon: '🔀',
+          description: 'Queremos entrenar una red simple para evaluar la operación lógica **AND**: ante las entradas (0,0), (0,1), (1,0) debe dar **0**, y únicamente ante **(1,1)** debe responder **1**.',
+          analogy: 'Si la red recién creada tiene pesos al azar y ante (1,1) arroja 0, está cometiendo un error evidente. El entrenamiento modifica sus pesos hasta que las cuatro respuestas sean exactas.',
+          features: [
+            'Tabla deseada: (0,0) → 0 | (0,1) → 0 | (1,0) → 0 | (1,1) → 1.',
+            'Al inicio, los pesos sinápticos arbitrarios producen salidas no deseadas.',
+            'Se modifican los pesos progresivamente tras evaluar cada combinación de entrada.',
+            'Al lograr la combinación exacta de pesos que satisface la tabla, la red "ha aprendido".',
+          ],
+          teacherNotes: 'Utilice la tabla de verdad de la conjunción AND como el ejemplo canónico más transparente de cómo una red pasa del error al aprendizaje mediante el ajuste de pesos.',
+        },
+
+        // ── Diapositiva 6: Más Allá de la Respuesta Conocida — Categorizar ──
         {
           type: 'concept',
-          category: 'Topología de Conexiones',
-          title: 'Conexiones Autorrecurrentes: Bucle a Sí Misma',
-          mainIdea: 'Son aquellas conexiones en las que **la salida de una neurona vuelve a ser entrada de ella misma**.',
-          definition: 'Enlace de retroalimentación local directa donde la neurona utiliza su propio resultado anterior como dato de entrada para su siguiente ciclo de cálculo.',
+          category: 'Procesamiento Cognitivo',
+          title: 'Más Allá de la Respuesta Conocida: Categorizar',
+          mainIdea: 'No siempre tenemos una respuesta deseada fija. En la realidad aprendemos a **categorizar**: subsumir objetos diversos bajo un mismo concepto reconociendo similitudes.',
+          definition: '**Categorizar** es la capacidad cognitiva y computacional de agrupar patrones de entrada heterogéneos en clases comunes basadas en sus regularidades intrínsecas.',
+          analogy: 'Vemos a diario cientos de coches: compactos, camionetas, taxis, deportivos de marcas y colores distintos. A pesar de su enorme diversidad, nuestro cerebro siempre concluye: *"son coches"*.',
           keyPoints: [
-            '**Bucle directo sobre sí misma**: Salida de $N_i$ $\\to$ Entrada de $N_i$.',
-            '**Memoria local inmediata**: Permite a la neurona retener o mantener su estado previo a lo largo del tiempo.',
-            '**Dinámica temporal**: Introduce persistencia e inercia matemática: la respuesta presente depende no solo de las entradas externas, sino de lo que la neurona calculó un instante antes.',
+            '**Diversidad del mundo real**: Dos entradas sensoriales nunca son exactamente idénticas.',
+            '**Extracción de rasgos comunes**: El cerebro no compara con una lista rígida; identifica regularidades compartidas.',
+            '**Dos necesidades distintas**: A veces sabemos la respuesta esperada y a veces debemos descubrirla agrupando datos. Esto da lugar a diferentes clases de aprendizaje.',
           ],
-          teacherNotes: 'Ponga el ejemplo de un eco o de una persona que recuerda su propia respuesta anterior antes de responder la siguiente pregunta. Eso es una conexión autorrecurrente.',
+          teacherNotes: 'Muestre cómo el ser humano no memoriza cada auto del planeta; extrae el concepto "auto". Este es el puente hacia el aprendizaje no supervisado.',
         },
 
-        // ── Diapositiva 11: El Sentido de la Marcha de la Señal ──
+        // ── Diapositiva 7: Las Tres Grandes Familias del Aprendizaje ──
+        {
+          type: 'diagram',
+          category: 'Taxonomía General',
+          title: 'Las Tres Grandes Familias del Aprendizaje',
+          subtitle: 'Clasificación canónica de los paradigmas de entrenamiento en redes neuronales:',
+          diagramType: 'comparison',
+          columns: [
+            {
+              badge: 'Supervisado',
+              title: 'Aprendizaje Supervisado',
+              desc: 'Se **conoce la respuesta deseada**. Un supervisor compara la salida real con la esperada y calcula el error para corregir los pesos.',
+              metrics: {
+                'Respuesta meta': 'Conocida (etiquetas)',
+                'Mecanismo': 'Minimización del error',
+                'Modelos': 'Regla Delta / Backprop',
+              },
+            },
+            {
+              badge: 'No Supervisado',
+              title: 'Aprendizaje No Supervisado',
+              desc: 'Se **desconoce la respuesta deseada**. La red agrupa y categoriza por sí misma los datos de entrada según sus similitudes y patrones comunes.',
+              metrics: {
+                'Respuesta meta': 'Desconocida',
+                'Mecanismo': 'Similitud / Autoorganización',
+                'Modelos': 'ART / Mapas SOFM (Kohonen)',
+              },
+            },
+            {
+              badge: 'Por Refuerzo',
+              title: 'Aprendizaje por Refuerzo',
+              desc: 'Aprende mediante **ensayo y error**. Las decisiones que acercan al objetivo incrementan sus pesos; las que alejan reciben penalización.',
+              metrics: {
+                'Respuesta meta': 'Premio / Castigo evaluativo',
+                'Mecanismo': 'Refuerzo de tendencias',
+                'Modelos': 'Q-Learning / Tabla Q',
+              },
+            },
+          ],
+          teacherNotes: 'Pase por las tres columnas y explique la diferencia clave: ¿hay un profesor corrigiendo cada dato? (Supervisado), ¿el alumno agrupa solo? (No supervisado), o ¿aprende explorando y recibiendo premios/castigos? (Refuerzo).',
+        },
+
+        // ── Diapositiva 8: Aprendizaje Supervisado — Error y Supervisor ──
         {
           type: 'concept',
-          category: 'Dinámica de la Información',
-          title: 'El Sentido de la Marcha de la Información',
-          mainIdea: 'La disposición de las conexiones determina **el camino y sentido direccional** que sigue la señal al recorrer la red neuronal.',
-          definition: 'Intuitivamente, la información entra por la capa de entrada, viaja por las capas ocultas y sale por la capa de salida. Por lo tanto, la señal tiene un **sentido de la marcha**.',
+          category: 'Aprendizaje Supervisado',
+          title: 'El Error y el Papel del Supervisor',
+          mainIdea: 'En el aprendizaje supervisado, el motor del cambio es el **error**: la discrepancia numérica entre la respuesta que emitió la red y la respuesta que debió emitir.',
+          definition: '**Error = Respuesta Deseada − Respuesta Efectiva**. Los algoritmos buscan minimizar este error sucesivamente hasta hacerlo prácticamente nulo.',
+          analogy: 'Un entrenador de tiro al blanco: disparas (salida efectiva), el entrenador mira la diana (respuesta deseada) y te dice exactamente cuánto fallaste (error). Corriges tu postura (pesos) en el siguiente tiro.',
           keyPoints: [
-            '**Flujo intuitivo unidireccional**: Entrada $\\to$ Capas Ocultas $\\to$ Salida.',
-            '**Caminos alternativos y tortuosos**: Si las conexiones forman bucles hacia la misma capa o capas previas, la señal vuelve a entrar o recircula.',
-            '**Criterio fundamental de clasificación**: Según el sentido que sigue la información, la propagación de la señal se clasifica en dos modos: **Propagación hacia adelante (Feedforward)** y **Propagación hacia atrás (Feedback)**.',
+            '**El "Supervisor"**: Es el conjunto de datos de entrenamiento que contiene la respuesta correcta para cada entrada.',
+            '**Minimización iterativa**: Tras cada intento fallido, los pesos se ajustan en la dirección matemática que reduce el error.',
+            '**Criterio de éxito**: Cuando el error medio es tan pequeño que se considera aceptable, la red se declara formalmente **entrenada**.',
           ],
-          teacherNotes: 'Use la metáfora de las calles de tránsito: hay calles de un solo sentido (feedforward) y rotondas o calles de doble sentido con retornos (feedback).',
+          teacherNotes: 'Enfatice la fórmula sencilla: Error = Deseada - Efectiva. Todo el aprendizaje supervisado consiste en reducir esa resta a cero.',
         },
 
-        // ── Diapositiva 12: Propagación hacia Adelante (Feedforward) ──
+        // ── Diapositiva 9: Regla Delta (Widrow-Hoff / LMS) y ADALINE ──
         {
           type: 'concept',
-          category: 'Modos de Propagación',
-          title: 'Propagación hacia Adelante (Feedforward)',
-          mainIdea: 'Es aquella en la que **ninguna salida de las neuronas de una capa es entrada de cualquier otra neurona de su misma capa ni de capas anteriores**.',
-          definition: 'Flujo de información estrictamente unidireccional y sin ciclos: la señal se propaga siempre hacia adelante desde la capa de entrada hacia la capa de salida.',
+          category: 'Algoritmos Supervisados',
+          title: 'Regla Delta (Widrow-Hoff / LMS) y ADALINE',
+          mainIdea: 'La Regla Delta fue el primer algoritmo matemático formal para ajustar pesos en una neurona lineal minimizando el promedio de errores al cuadrado.',
+          definition: 'Desarrollada por Bernard Widrow y Ted Hoff (1960), se conoce también como **Regla LMS** (*Least Mean Squares* o Mínimos Cuadrados Medios). Modifica los pesos proporcionalmente al error multiplicado por la entrada.',
+          analogy: 'Ajustar la temperatura de una ducha: si el agua sale demasiado fría respecto a lo deseado (error grande), giras la manivela caliente con un movimiento más amplio; si está casi tibia, solo haces un microajuste.',
           keyPoints: [
-            '**Sin ciclos ni bucles**: Ninguna neurona retrocede información ni alimenta a sus compañeras de la misma capa.',
-            '**Cálculo determinista y rápido**: La información fluye en una sola pasada ordenada de izquierda a derecha.',
-            '**Aplicación principal**: Es especialmente útil y eficiente para el **reconocimiento o clasificación de patrones** (ej. detección de imágenes, reconocimiento de caracteres o diagnóstico estático).',
+            '**La red ADALINE**: Acrónimo de *ADAptive LINEar Neuron* (Neurona Lineal Adaptativa).',
+            '**Neurona individual**: Emplea una única unidad de cálculo con una función de transferencia lineal.',
+            '**Ajuste proporcional**: Si el error es grande, la corrección es grande; si el error es cero, los pesos no se tocan.',
           ],
-          teacherNotes: 'Enfatice la regla de oro del Feedforward: la señal NUNCA retrocede ni se queda en la misma capa. Solo viaja hacia adelante hasta la salida.',
+          teacherNotes: 'Explique que ADALINE y la regla Delta sentaron las bases del procesamiento adaptativo de señales y filtros telefónicos. Es el punto de partida del aprendizaje supervisado.',
         },
 
-        // ── Diapositiva 13: Propagación hacia Atrás (Feedback / Recurrente) ──
+        // ── Diapositiva 10: Regla Delta Generalizada y Backpropagation ──
         {
           type: 'concept',
-          category: 'Modos de Propagación',
-          title: 'Propagación hacia Atrás (Feedback / Recurrente)',
-          mainIdea: 'Es aquella en la que **alguna salida de una capa vuelve como entrada a una neurona de su misma capa o de una capa anterior**.',
-          definition: 'Flujo de información con recirculación: la señal viaja hacia adelante (forward) pero también retrocede (feedback), generando bucles dinámicos.',
+          category: 'Algoritmos Supervisados',
+          title: 'Regla Delta Generalizada y Backpropagation',
+          mainIdea: 'Para redes con capas ocultas, la **retropropagación (Backpropagation)** permite repartir matemáticamente la responsabilidad del error hacia atrás, capa por capa.',
+          definition: 'Desarrollada por David Rumelhart y James McClelland (1986), la **Regla Delta Generalizada** calcula cómo debe cambiar cada peso sináptico en el **Perceptrón Multicapa (MLP)**.',
+          analogy: 'En una fábrica, si el producto final sale defectuoso, no solo se le llama la atención al empaquetador final: el supervisor investiga hacia atrás la línea de montaje (capas ocultas) y corrige a cada operario.',
           keyPoints: [
-            '**Circulación mixta**: La información circula simultáneamente hacia adelante y hacia atrás dentro de la estructura.',
-            '**Dos grupos de pesos**: En estas redes coexisten dos conjuntos de parámetros fundamentales: **a) Pesos de las conexiones forward** y **b) Pesos de las conexiones feedback**.',
-            '**Capacidad de memoria contextual**: Al retroalimentar la señal, la red puede procesar secuencias en el tiempo, texto continuo y predicciones basadas en la historia previa.',
+            '**El Perceptrón Multicapa (MLP)**: Red que incorpora capas intermedias u ocultas, permitiendo resolver problemas no lineales complejos.',
+            '**Propagación hacia adelante**: La entrada viaja hacia la salida y se calcula el error final.',
+            '**Retropropagación hacia atrás**: El error viaja en sentido inverso actualizando los pesos de las capas ocultas y de entrada.',
           ],
-          teacherNotes: 'Aclare bien que en feedback existen DOS grupos de pesos independientes: unos regulan el avance hacia adelante y otros regulan la retroalimentación hacia atrás.',
+          teacherNotes: 'Destaque la hazaña histórica de Rumelhart y McClelland: resolvieron el problema de cómo entrenar capas ocultas, lo que revivió el campo de las redes neuronales en los años 80.',
         },
 
-        // ── Diapositiva 14: Cuadro Comparativo: Feedforward vs. Feedback ──
+        // ── Diapositiva 11: Aprendizaje No Supervisado — Agrupación Autónoma ──
+        {
+          type: 'concept',
+          category: 'Aprendizaje No Supervisado',
+          title: 'Aprendizaje No Supervisado: Agrupación Autónoma',
+          mainIdea: 'Sin un maestro ni respuestas correctas, la red explora las señales de entrada y **descubre por sí misma** cómo organizarlas en categorías coherentes.',
+          definition: 'Modalidad de entrenamiento donde los pesos sinápticos se ajustan de manera que entradas con propiedades matemáticas o estadísticas similares activen los mismos grupos neuronales.',
+          analogy: 'Le das a un arqueólogo miles de fragmentos de cerámica antigua sin catálogo previo. Por su color, textura y grosor, el arqueólogo empieza a agruparlos en mesas separadas: categoriza por similitud.',
+          keyPoints: [
+            '**Sin etiquetas ni supervisor**: La red solo recibe las entradas brutas del entorno.',
+            '**Autoorganización**: Los pesos convergen gradualmente hacia los centros de atracción de cada grupo de datos.',
+            '**Aplicación esencial**: Descubrimiento de perfiles ocultos, compresión de señales, reducción de dimensiones y detección de anomalías.',
+          ],
+          teacherNotes: 'Enfatice el contraste: aquí no hay nadie diciendo "esto es correcto" o "esto es un error". La red descubre regularidades estadísticas espontáneamente.',
+        },
+
+        // ── Diapositiva 12: ART, Mapas SOFM (Kohonen) y Neuronas Vencedoras ──
+        {
+          type: 'concept',
+          category: 'Modelos No Supervisados',
+          title: 'ART, Mapas SOFM (Kohonen) y Neuronas Vencedoras',
+          mainIdea: 'En los modelos no supervisados, las neuronas compiten entre sí ante cada entrada: la neurona más afín resulta **vencedora** y afina sus pesos para representar esa categoría.',
+          definition: 'Modelos emblemáticos: **ART** (*Adaptive Resonance Theory*), redes de **Hopfield** y los **Mapas Autoorganizativos SOFM** (*Self-Organized Feature Maps*) de Teuvo Kohonen.',
+          analogy: 'Subasta de tareas: ante una tarea de pintura, el pintor del grupo da un paso al frente y asume el trabajo (neurona vencedora); los demás guardan silencio para otras labores.',
+          keyPoints: [
+            '**Aprendizaje competitivo**: Ante una entrada, se calcula qué neurona tiene pesos más parecidos al patrón recibido.',
+            '**Neurona vencedora**: La neurona ganadora (*winner-takes-all*) actualiza sus pesos para parecerse aún más a ese tipo de estímulos.',
+            '**Mapas topológicos (SOFM)**: Organizan datos complejos de muchas variables en una cuadrícula visual ordenada donde lo similar queda junto.',
+          ],
+          teacherNotes: 'Aclare el concepto de "neurona vencedora": no todas aprenden lo mismo; la que mejor responde a un estímulo se especializa en él.',
+        },
+
+        // ── Diapositiva 13: Aprendizaje por Refuerzo — Ensayo y Error ──
+        {
+          type: 'concept',
+          category: 'Aprendizaje por Refuerzo',
+          title: 'Aprendizaje por Refuerzo: Ensayo y Error',
+          mainIdea: 'La red interactúa con un entorno sin respuestas paso a paso: **si su decisión la acerca a la meta, los pesos se incrementan; si la aleja, los pesos disminuyen**.',
+          definition: 'Paradigma de aprendizaje donde el sistema recibe una señal escalar de evaluación (premio o castigo). Los pesos sinápticos refuerzan las tendencias exitosas y penalizan las perjudiciales.',
+          analogy: 'Enseñar a un perro a traer la pelota: no le das una fórmula matemática; cuando la trae le das un premio (refuerzo positivo). Si se escapa, no recibe premio. El animal aprende por ensayo y recompensa.',
+          keyPoints: [
+            '**Ciclo interactivo**: Estado actual → Acción tomada → Resultado obtenido → Señal de refuerzo.',
+            '**Premio (Recompensa)**: Incrementa los pesos sinápticos asociados a esa decisión, aumentando la probabilidad de repetirla.',
+            '**Castigo (Penalización)**: Reduce o atenúa los pesos sinápticos de esa trayectoria para evitar volver a cometer el error.',
+          ],
+          teacherNotes: 'Explique que este tipo de aprendizaje es el más cercano al comportamiento animal: no hay maestro diciendo qué hacer a cada milisegundo, sino consecuencias a los actos.',
+        },
+
+        // ── Diapositiva 14: Q-Learning y la Tabla Q (Sutton y Barto) ──
+        {
+          type: 'concept',
+          category: 'Algoritmos de Refuerzo',
+          title: 'Q-Learning y la Tabla Q (Sutton y Barto)',
+          mainIdea: 'En **Q-Learning**, el agente consulta y actualiza una **Tabla Q** que almacena el valor o peso sináptico de cada decisión posible ante cada estado del entorno.',
+          definition: 'Algoritmo de aprendizaje por refuerzo formulado por Richard Sutton y Andrew Barto. Permite a una máquina aprender de forma autónoma qué acción tomar para maximizar su beneficio a largo plazo.',
+          analogy: 'Un explorador en una cueva laberíntica: en su cuaderno (Tabla Q) anota cada bifurcación. Si un camino lo lleva a un pozo, le pone una puntuación muy baja; si lo acerca a la salida, le asigna un puntaje alto.',
+          keyPoints: [
+            '**La Tabla Q**: Matriz que cruza todos los posibles estados del entorno con las acciones que la red puede ejecutar.',
+            '**Pesos de decisión**: Cada celda almacena un valor numérico (peso sináptico Q) que cuantifica la conveniencia de esa opción.',
+            '**Actualización por experiencia**: Cada vez que la red toma una decisión y observa la recompensa, reajusta el valor Q correspondiente.',
+            '**Autonomía total**: El sistema explora el entorno y aprende la estrategia óptima sin intervención humana.',
+          ],
+          teacherNotes: 'Presente a Sutton y Barto como los padres del aprendizaje por refuerzo contemporáneo y la Tabla Q como la brújula de pesos que guía al agente autónomo.',
+        },
+
+        // ── Diapositiva 15: Cuadro Comparativo de los Tres Paradigmas ──
         {
           type: 'diagram',
           category: 'Cuadro Comparativo',
-          title: 'Feedforward vs. Feedback: Comparativa Técnica',
-          subtitle: 'Diferencias estructurales y de funcionamiento según el sentido de la marcha:',
+          title: 'Las Tres Rutas del Aprendizaje Conexionista',
+          subtitle: 'Comparación técnica exhaustiva de los tres paradigmas de entrenamiento:',
           diagramType: 'table',
-          tableHeaders: ['Aspecto Técnico', 'Propagación hacia Adelante (Feedforward)', 'Propagación hacia Atrás (Feedback)'],
+          tableHeaders: ['Criterio', 'Aprendizaje Supervisado', 'Aprendizaje No Supervisado', 'Aprendizaje por Refuerzo'],
           tableRows: [
             [
-              'Sentido de la señal',
-              'Estrictamente unidireccional (Entrada → Salida)',
-              'Bidireccional y cíclico (Adelante y hacia atrás)',
+              'Respuesta esperada',
+              'Conocida de antemano (Pares entrada-objetivo)',
+              'Desconocida (Solo datos brutos de entrada)',
+              'Evaluativa (Señales de premio o penalización)',
             ],
             [
-              'Conexiones en la misma capa',
-              'Ninguna permitida (sin enlaces laterales)',
-              'Permitidas (neuronas se conectan entre sí o consigo mismas)',
+              'Mecanismo de ajuste',
+              'Minimización sucesiva del error',
+              'Competencia por similitud (Neuronas vencedoras)',
+              'Premio incrementa pesos; castigo los disminuye',
             ],
             [
-              'Conexiones a capas anteriores',
-              'No existen (la señal nunca retrocede)',
-              'Sí existen (salidas alimentan niveles previos)',
+              'Algoritmos y modelos clave',
+              'Regla Delta / LMS (ADALINE) y Backpropagation (MLP)',
+              'ART, redes de Hopfield y Mapas SOFM (Kohonen)',
+              'Q-Learning con Tabla Q (Sutton y Barto)',
             ],
             [
-              'Grupos de pesos',
-              'Un solo grupo de pesos (conexiones forward)',
-              'Dos grupos diferenciados: pesos forward y pesos feedback',
+              'Objetivo principal',
+              'Reproducir con exactitud una función o clasificación',
+              'Categorizar y descubrir regularidades intrínsecas',
+              'Aprender una política de acción óptima y autónoma',
             ],
             [
-              'Comportamiento temporal',
-              'Estático: respuesta inmediata sin memoria pasada',
-              'Dinámico: posee memoria y retiene estados anteriores',
-            ],
-            [
-              'Aplicación típica',
-              'Reconocimiento y clasificación de patrones',
-              'Procesamiento de secuencias temporales, texto y audio',
+              'Ejemplo informático',
+              'Compuerta AND, lectura de caracteres, diagnóstico',
+              'Segmentación de clientes, agrupamiento de coches',
+              'Control de robots móviles, videojuegos, navegación',
             ],
           ],
-          teacherNotes: 'Pase por la tabla resaltando las tres diferencias clave: dirección del flujo, existencia de bucles y la presencia de dos grupos de pesos en feedback.',
+          teacherNotes: 'Utilice esta diapositiva como el resumen comparativo definitivo. Invite a los estudiantes a contrastar las columnas antes de iniciar la actividad individual.',
         },
 
-        // ── Diapositiva 15: Actividad Práctica Individual (5-10 min) ──
+        // ── Diapositiva 16: Actividad Individual de Aplicación (5-10 min) ──
         {
           type: 'activity',
-          title: 'Actividad Individual: Arquitectura y Propagación en Redes',
-          activityTitle: 'Aplicación Práctica — Diagnóstico de Capas y Flujos Neuronales',
+          title: 'Actividad Individual: Paradigmas de Aprendizaje Conexionista',
+          activityTitle: 'Diagnóstico y Selección de Estrategias de Entrenamiento',
           icon: '🧠',
-          instructions: 'Analiza los siguientes 4 requerimientos técnicos y responde de forma concreta en tu cuaderno o documento de trabajo. Tiempo estimado: 5 a 10 minutos. Trabajo estrictamente individual.',
+          instructions: 'Lee con atención los 4 problemas computacionales descritos a continuación. En tu cuaderno o documento de trabajo, responde de forma concreta para cada uno: 1) Qué clase de aprendizaje aplicarías, 2) Qué modelo o algoritmo emplearías y 3) Cómo se modifican los pesos sinápticos. Tiempo: 5 a 10 minutos. Trabajo estrictamente individual.',
           steps: [
-            '**Paso 1 (Identificación de Capas):** En un dron de rescate, una cámara térmica detecta calor corporal, una etapa intermedia analiza si la silueta corresponde a un excursionista extraviado, y un módulo final activa una alarma sonora y estabiliza el vuelo. Identifica cuál es la capa de entrada, cuál la oculta y cuál la de salida, explicando la función de cada una.',
-            '**Paso 2 (Análisis de Capas Ocultas):** Explica en qué circunstancia una red neuronal puede funcionar perfectamente sin ninguna capa oculta (0 capas) y en qué casos resulta imprescindible la existencia de una o varias capas ocultas.',
-            '**Paso 3 (Topología de Conexiones):** Explica la diferencia física y funcional entre una conexión **crossbar** (cruzada entre neuronas de diferentes capas) y una conexión **autorrecurrente** (la salida de una neurona entra a ella misma).',
-            '**Paso 4 (Sentido de la Marcha y Pesos):** Si queremos diseñar un sistema que prediga la siguiente palabra que escribirá un usuario basándose en las tres palabras anteriores que ya redactó, ¿qué tipo de propagación (feedforward o feedback) se debe emplear? Justifica tu respuesta mencionando qué papel juegan sus dos grupos de pesos.',
+            'Caso 1 (Lectura Óptica de Cheques): Un banco dispone de 50.000 imágenes de números manuscritos con su valor numérico real ya etiquetado. Identifica si es supervisado, no supervisado o por refuerzo, si usarías ADALINE o MLP con Backpropagation, y cómo se calcula el error.',
+            'Caso 2 (Segmentación de Clientes E-Commerce): Una tienda digital posee historiales de millones de usuarios y desea agruparlos en categorías por similitud de compra sin etiquetas previas. Indica el tipo de aprendizaje, el modelo (SOFM de Kohonen) y el principio de neuronas vencedoras.',
+            'Caso 3 (Dron en Circuito de Pruebas): Un dron aprende a volar en un túnel; si roza una pared recibe penalización y si avanza fluido recibe puntos. Identifica el tipo de aprendizaje, el algoritmo (Q-Learning y Tabla Q) y cómo cambian los pesos de decisión.',
+            'Caso 4 (El Concepto Clave): Explica con tus propias palabras qué significa "aprender" para una red neuronal artificial y por qué se compara con la modificación de conexiones en el cerebro biológico.',
           ],
-          tip: 'Tiempo: 5-10 minutos. Actividad individual. Sé conciso y utiliza los términos técnicos correctos: capa de entrada (sensores), capas ocultas, capa de salida, conexiones crossbar, conexiones autorrecurrentes, propagación feedforward vs feedback, pesos forward y pesos feedback.',
-          teacherNotes: 'Dé entre 5 y 10 minutos para trabajo individual en silencio. Al finalizar, invite a dos estudiantes al azar a responder el paso 2 y el paso 4 para afianzar el aprendizaje.',
+          tip: 'Tiempo: 5 a 10 minutos. Actividad individual. Sé directo y fundamenta tus respuestas con los conceptos vistos en clase: pesos sinápticos, supervisor, error, categorización, neuronas vencedoras, refuerzo y Tabla Q.',
+          teacherNotes: 'Asigne 8 minutos de trabajo individual en silencio. Al concluir, pida a dos o tres estudiantes al azar que compartan sus respuestas de los casos 1, 2 y 3 para retroalimentar al grupo.',
         },
 
-        // ── Diapositiva 16: Resumen y Cierre de la Lección ──
+        // ── Diapositiva 17: Resumen y Cierre de la Lección ──
         {
           type: 'summary',
           title: 'Cierre de la Clase',
-          summaryTitle: 'Puntos clave a recordar sobre las Capas de Neuronas:',
+          summaryTitle: 'Puntos clave a recordar sobre el Aprendizaje Conexionista:',
           points: [
-            '**Organización en capas**: Las neuronas se agrupan en capas conectadas entre sí para procesar información compleja por etapas sucesivas.',
-            '**Capa de entrada**: Actúa como sensor del entorno (ej. retina humana o matriz de píxeles); recibe los datos externos y los pasa sin alteración a las capas posteriores.',
-            '**Capas ocultas**: Situadas entre la entrada y la salida; realizan las transformaciones y la extracción de patrones. Pueden ser ninguna (0), una o varias según la dificultad del problema.',
-            '**Capa de salida**: Transfiere las señales finales procesadas hacia el exterior (ej. señal analógica para los motores de un robot).',
-            '**Conexiones crossbar**: Topología en malla cruzada donde las salidas de una capa se entrelazan hacia múltiples neuronas receptoras.',
-            '**Conexiones autorrecurrentes**: La salida de una neurona vuelve a ser entrada de ella misma, aportando memoria local inmediata.',
-            '**Sentido de la marcha**: La disposición de las conexiones define la direccionalidad del flujo de información dentro de la red.',
-            '**Propagación Feedforward**: La información viaja estrictamente hacia adelante sin ciclos ni retrocesos; óptima para reconocimiento y clasificación de patrones.',
-            '**Propagación Feedback**: La señal circula hacia adelante y hacia atrás (a su misma capa o capas previas), incorporando dos grupos de pesos: pesos forward y pesos feedback.',
+            '**Qué es aprender**: Consiste en encontrar la combinación adecuada de **pesos sinápticos** (intensidad de conexiones) que permite a la red emitir el resultado correcto o agrupar datos fielmente.',
+            '**Analogía biológica**: De forma idéntica a cómo el cerebro biológico aprende ajustando la eficacia de sus sinapsis neuronales, la red artificial calibra sus parámetros matemáticos.',
+            '**Aprendizaje Supervisado**: Se conoce la respuesta deseada. El supervisor evalúa el **error** (Deseada − Real) y lo reduce progresivamente.',
+            '**Regla Delta y Backpropagation**: Widrow y Hoff crearon la regla LMS para una única neurona lineal (**ADALINE**). Rumelhart y McClelland la generalizaron con **Backpropagation** para redes con capas ocultas (**MLP**).',
+            '**Aprendizaje No Supervisado**: Se desconoce la respuesta. La red **categoriza** agrupando por similitud. Destacan **ART**, **Hopfield** y los **Mapas SOFM de Kohonen** mediante el principio de **neuronas vencedoras**.',
+            '**Aprendizaje por Refuerzo**: Dinámica de ensayo y error. Acertar incrementa los pesos (recompensa); errar los disminuye (penalización). El algoritmo **Q-Learning** de Sutton y Barto utiliza la **Tabla Q** para tomar decisiones autónomas.',
           ],
-          teacherNotes: 'Felicite al grupo por su atención y recuerde que dominar la arquitectura de capas y el sentido de propagación es la base para comprender todas las arquitecturas modernas de inteligencia artificial.',
+          teacherNotes: 'Felicite al grupo por su atención y reflexión. Recuerde que estos tres pilares constituyen la base conceptual de todos los avances modernos en inteligencia artificial y machine learning.',
         },
       ],
     },
